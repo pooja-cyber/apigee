@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetCMSMultiTicket">
+    <DisplayName>AM-SetCMSMultiTicket</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <AssignVariable>
+        <Name>du.config.CMSServiceTicket</Name>
+        <Value></Value>
+        <Ref>cmsServiceResponse.content</Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <AssignTo type="request" transport="http" createNew="false"/>
+</AssignMessage>

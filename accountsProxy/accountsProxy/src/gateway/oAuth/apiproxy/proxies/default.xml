@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    #proxyDefaultFaultRule#
+    <FaultRules>
+        #genericUnhandledExceptionFaultRule#
+        #commonAccessTokenFaultRules#
+        #invalidApiKeyFaultRules#
+        #commonTraficManagementFaultRules#
+        <FaultRule name="invalid_authorization_header">
+            <Step>
+                <Name>AM-InvalidAuthorizationHeader</Name>
+            </Step>
+            <Condition>(fault.name = "InvalidBasicAuthenticationSource")</Condition>
+        </FaultRule>
+        <!-- Generic Errors has been asssigned for Service Callouts and LDAP (except invalid username/password)to mask the internal implementation of OAuth proxy from the user -->
+        <FaultRule name="service_callout_error">
+            <Step>
+                <Name>AM-GenericTargetConnectionError</Name>
+            </Step>
+            <Condition>(servicecallout.SC-GetCMSTGTTicket.failed = "true") or (servicecallout.SC-GetCMSServiceTicket.failed = "true")</Condition>
+        </FaultRule>
+        <FaultRule name="ldap_generic_error">
+            <Step>
+                <Name>AM-GenericTargetConnectionError</Name>
+            </Step>
+            <Condition>ldap.LD-LdapAuthentication.execution.success = "false"</Condition>
+        </FaultRule>
+        <FaultRule name="ldap_authorization_error">
+            <Step>
+                <Name>AM-InvalidUsernamePassword</Name>
+            </Step>
+            <Condition>(fault.name = "InvalidUserCredentials")</Condition>
+        </FaultRule>
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>KVM-GetTargetConfigurations</Name>
+            </Step>
+            <Step>
+                <Name>SA-SpikeArrestCheck</Name>
+            </Step>
+            <Step>
+                <Name>AM-AuthorizationHeaderMissing</Name>
+                <Condition>( request.header.Authorization = null ) or ( request.header.Authorization = "" )</Condition>
+            </Step>
+            <Step>
+                <Name>BA-ExtractClientKeyClientSecret</Name>
+            </Step>
+            <Step>
+                <Name>AM-AuthorizationBadRequest</Name>
+                <Condition>(du.app.clientKey = null or du.app.clientSecret = null)</Condition>
+            </Step>
+            <Step>
+                <Name>VA-VerifyAPIKey</Name>
+            </Step>
+            <Step>
+                <Name>AM-InvalidClientSecret</Name>
+                <Condition>du.app.clientSecret != verifyapikey.VA-VerifyAPIKey.client_secret</Condition>
+            </Step>
+            <Step>
+                <Name>QT-DeveloperQuotaCheck</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        #pingResourceFlow#
+        <Flow name="ClientCredentials Token">
+            <Description>Generate Access Token with Client Credentials Flow</Description>
+            <Request>
+                <Step>
+                    <Name>EV-RefreshTokenGrantType</Name>
+                </Step>
+                <!-- CMS service ticket flow -->
+                #GetCMSServiceTicket#
+                
+                <Step>
+                    <Name>OA-GenerateClientCredToken</Name>
+                </Step>
+            </Request>
+            <Response></Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/token/client-credentials" and request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="Generate Token">
+            <Description>Generate Access Token Flow</Description>
+            <Request>
+                <Step>
+                    <Name>EV-RefreshTokenGrantType</Name>
+                </Step>
+                <Step>
+                    <Name>EV-UsernamePassword</Name>
+                </Step>
+                <Step>
+                    <Name>AM-MissingFormParams</Name>
+                    <Condition>(du.grantType is null) OR (du.username is null) OR (du.password is null)</Condition>
+                </Step>
+                <Step>
+                    <Name>LD-LdapAuthentication</Name>
+                </Step>
+                <Step>
+                    <Name>LD-RetrieveLdapPeopleAttributes</Name>
+                </Step>
+                <Step>
+                    <Name>JSC-GetLDAPAttributes-CustomerCode</Name>
+                </Step>
+                <Step>
+                    <Name>LD-RetrieveLdapContractsAttributes</Name>
+                </Step>
+                <Step>
+                    <Name>JSC-GetLDAPAttributes-MSISDN</Name>
+                </Step>
+                <Step>
+                    <Name>AX-GenerateTokenAnalytics</Name>
+                </Step>
+                <!-- CMS service ticket flow -->
+                #GetCMSServiceTicket#
+
+                <Step>
+                    <Name>OA-GenerateAccessToken</Name>
+                </Step>
+            </Request>
+            <Response>
+                
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/token") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="Refresh Token">
+            <Description>Refresh Access Token</Description>
+            <Request>
+                <Step>
+                    <Name>EV-RefreshTokenGrantType</Name>
+                </Step>
+                <Step>
+                    <Name>AM-MissingRefreshTokenReqParams</Name>
+                    <Condition>(du.grantType is null) OR (du.refreshToken is null)</Condition>
+                </Step>
+                <Step>
+                    <Name>AX-GenerateTokenAnalytics</Name>
+                </Step>
+                <!-- CMS service ticket flow -->
+                #GetCMSServiceTicket#
+                <Step>
+                    <Name>OA-RefreshAccessToken</Name>
+                </Step>
+            </Request>
+            <Response>
+                
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/refresh-access-token") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="Revoke Access Token">
+            <Description>Revoke Access Token</Description>
+            <Request>
+                <Step>
+                    <Name>AM-MissingTokenHeaders</Name>
+                    <Condition>(request.header.access_token = null) or (request.header.refresh_token = null)</Condition>
+                </Step>
+                <Step>
+                    <Name>OA-RevokeAccessToken</Name>
+                </Step>
+                <Step>
+                    <Name>OA-RevokeRefreshToken</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>AM-RevokeTokenSuccessMessage</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/invalidate-token") and (request.verb = "PUT")</Condition>
+        </Flow>
+         #unknownResourceFlowGeneric#  
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath>/v1/oauth</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+        <!-- Comment/Remove the Virtual Host-secure while deploying API Proxy in Organization dudev -->
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    #pingResourceRouteRule#
+    <RouteRule name="noroute"/>
+</ProxyEndpoint>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BasicAuthentication async="false" continueOnError="false" enabled="true" name="BA_Set_Target_Basic_Authorization">
+    <DisplayName>BA_Set_Target_Basic_Authorization</DisplayName>
+    <Operation>Encode</Operation>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <User ref="du.config.mceUsername"/>
+    <Password ref="du.config.mcePassword"/>
+    <AssignTo createNew="true">request.header.Authorization</AssignTo>
+</BasicAuthentication>

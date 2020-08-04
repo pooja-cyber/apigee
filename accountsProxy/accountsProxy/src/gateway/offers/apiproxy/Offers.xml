@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="32" name="Offers">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1471343515991</CreatedAt>
+    <CreatedBy>vbharanidaran@Kaartech.com</CreatedBy>
+    <Description>Offers API</Description>
+    <DisplayName>Offers</DisplayName>
+    <LastModifiedAt>1471345642872</LastModifiedAt>
+    <LastModifiedBy>vbharanidaran@Kaartech.com</LastModifiedBy>
+    <Policies>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+    </Resources>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+    <validate>false</validate>
+</APIProxy>

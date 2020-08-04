@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-ServiceNotFoundFault">
+    <DisplayName>AM-ServiceNotFoundFault</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <AssignVariable>
+        <Name>api-error.error</Name>
+        <Value>Service Not Found</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.code</Name>
+        <Value>NB_40400</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.message</Name>
+        <Value>Service Not Found on Target System</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.status_code</Name>
+        <Value>404</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.reason_phrase</Name>
+        <Value>Not Found</Value>
+        <Ref/>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo type="request" transport="http" createNew="false"/>
+</AssignMessage>

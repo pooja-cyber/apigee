@@ -1,0 +1,233 @@
+{
+    "swagger": "2.0",
+    "host": "172.24.122.149:9001",
+    "schemes": [
+        "http"
+    ],
+    "info": {
+        "description": " Open API Specification for Customer Info API",
+        "title": " Open API Specification for Customer Info API",
+        "version": "0.0.1",
+        "termsOfService": "http://example.com/about/terms",
+        "contact": {
+            "name": "api.developer",
+            "url": "http://example.com/contact",
+            "email": "api.developer@du.ae"
+        },
+        "license": {
+            "name": "Du License",
+            "url": "http://api.developer.du.ae/license"
+        }
+    },
+    "definitions": {
+        "ErrorSchema": {
+            "description": "Error Schema",
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "Error Code"
+                },
+                "error": {
+                    "type": "string",
+                    "description": "Error Description"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error Message"
+                }
+            }
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/customer-info": {
+            "get": {
+                "description": " Get Customer Information by Doc",
+                "summary": " Get Customer Information by Doc",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getCustomerInformationByDoc",
+                "tags": [
+                    " customer-info"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "Customer_List": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Customer_Code": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Customer_Type": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Out_Standing_Balance": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Contract_List": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Msisdn": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Contract_Type": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Segment": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Rateplan_Shdes": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Rateplan_Des": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "Msisdn",
+                                                "Contract_Type",
+                                                "Segment",
+                                                "Rateplan_Shdes",
+                                                "Rateplan_Des"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "Customer_Code",
+                                        "Customer_Type",
+                                        "Out_Standing_Balance",
+                                        "Contract_List"
+                                    ]
+                                },
+                                "Error_Code": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "Error_Des": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "Customer_List",
+                                "Error_Code",
+                                "Error_Des",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "document_id",
+                        "description": "Document Id",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "document_type",
+                        "description": "Document Type",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": " Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 5RzgDZUhCGU8ACncKEbTIE7KzAB9"
+                    }
+                ]
+            }
+        }
+    },
+    "security": [
+        {
+            "OauthSecurity": []
+        }
+    ],
+    "securityDefinitions": {
+        "OauthSecurity": {
+            "type": "oauth2",
+            "flow": "password",
+            "description": "oAuth 2.0 security implementation",
+            "tokenUrl": "http://172.24.122.149:9001/v1/oauth/token"
+        }
+    }
+}

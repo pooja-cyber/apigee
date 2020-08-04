@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-AddCMSMultiTicketParam">
+    <DisplayName>AM-AddCMSMultiTicketParam</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Add>
+        <Headers/>
+        <QueryParams>
+            <QueryParam name="multiticket">{du.config.CMSServiceTicket}</QueryParam>
+        </QueryParams>
+        <FormParams/>
+    </Add>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <AssignTo type="request" transport="http" createNew="false"/>
+</AssignMessage>

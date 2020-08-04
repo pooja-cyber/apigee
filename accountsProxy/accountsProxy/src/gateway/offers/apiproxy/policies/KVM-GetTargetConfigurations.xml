@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations async="false" continueOnError="false" enabled="true" name="KVM-GetTargetConfigurations" mapIdentifier="offers-v1-config">
+    <DisplayName>KVM-GetTargetConfigurations</DisplayName>
+    <Properties/>
+    <Get assignTo="du.config.mceTargetBasepath">
+        <Key> 
+            <Parameter>mceTargetBasepath</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mceUsername">
+        <Key>
+            <Parameter>mceUsername</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mcePassword">
+        <Key>
+            <Parameter>mcePassword</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.applicationId">
+        <Key>
+            <Parameter>mceApplicationId</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.spikeArrest">
+        <Key>
+            <Parameter>spikeArrest</Parameter>
+        </Key>
+    </Get>
+    <!-- OffersAPI Flags -->
+    <Get assignTo="du.config.isGetApplicableBroadbandSpeedsFlag">
+        <Key>
+            <Parameter>isGetApplicableBroadbandSpeedsFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetApplicableBundlesFlag">
+        <Key>
+            <Parameter>isGetApplicableBundlesFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetApplicableRateplansFlag">
+        <Key>
+            <Parameter>isGetApplicableRateplansFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetAvailableOffersFlag">
+        <Key>
+            <Parameter>isGetAvailableOffersFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetContractOffersFlag">
+        <Key>
+            <Parameter>isGetContractOffersFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetEligibleBundlesFlag">
+        <Key>
+            <Parameter>isGetEligibleBundlesFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetEligibleContractOffersFlag">
+        <Key>
+            <Parameter>isGetEligibleContractOffersFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetTVPackagesFlag">
+        <Key>
+            <Parameter>isGetTVPackagesFlag</Parameter>
+        </Key>
+    </Get>
+    
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

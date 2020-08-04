@@ -1,0 +1,6 @@
+<FaultRule name="invalid_api_key">
+  <Condition>( fault.name = "InvalidBasicAuthenticationSource")</Condition>
+  <Step>
+  	<Name>AM-InvalidBasicAuthorizationHeader</Name>
+  </Step>
+</FaultRule>

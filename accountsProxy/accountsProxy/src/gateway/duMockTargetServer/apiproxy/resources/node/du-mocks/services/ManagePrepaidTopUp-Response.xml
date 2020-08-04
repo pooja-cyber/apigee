@@ -1,0 +1,22 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservices.com/LCE/Du/WebServices" xmlns:head="http://www.du.ae/LCE/HeaderResponse">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:ManagePrepaidTopUpResponse>
+         <Response>
+            <head:Header>
+               <!--Optional:-->
+               <head:RequestId>?</head:RequestId>
+               <!--Optional:-->
+               <head:CorrelationId>?</head:CorrelationId>
+               <head:ResponseCode>?</head:ResponseCode>
+               <!--Optional:-->
+               <head:ResponseMessage>?</head:ResponseMessage>
+               <!--Optional:-->
+               <head:ErrorCode>?</head:ErrorCode>
+               <!--Optional:-->
+               <head:ErrorDescription>?</head:ErrorDescription>
+            </head:Header>
+         </Response>
+      </web:ManagePrepaidTopUpResponse>
+   </soapenv:Body>
+</soapenv:Envelope>

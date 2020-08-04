@@ -1,0 +1,851 @@
+{
+  "swagger": "2.0",
+  "host": "172.24.122.149:9001",
+  "schemes": [
+    "http"
+  ],
+  "info": {
+    "description": "Open API Spec of Du Telecom Selfcare APIs",
+    "title": "Du Tamkeen API Program",
+    "version": "0.0.1",
+    "termsOfService": "https://developers.du.ae/terms-of-service",
+    "contact": {
+      "name": "Du Telecom API Team",
+      "url": "https://developers.du.ae/contact",
+      "email": "apiteam@du.ae"
+    },
+    "license": {
+      "name": "DU License",
+      "url": "https://developers.du.ae/license"
+    }
+  },
+  "basePath": "/v1",
+  "paths": {
+    "/oauth/token": {
+      "post": {
+        "description": "Generate Access Token",
+        "summary": "Generates Access Tokens for Du users to makes secure API Calls",
+        "externalDocs": {
+          "description": "Find out more",
+          "url": "http://docs.example.com/management/apis/get/entities"
+        },
+        "operationId": "generateToken",
+        "tags": [
+          "oAuth"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "refresh_token_expires_in": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "refresh_token_status": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "api_product_list": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "organization_name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "developer.email": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "token_type": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "issued_at": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "client_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "access_token": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "refresh_token": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "application_name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "scope": {
+                  "type": "string"
+                },
+                "refresh_token_issued_at": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "expires_in": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "refresh_count": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "status": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "username": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "refresh_token_expires_in",
+                "refresh_token_status",
+                "api_product_list",
+                "organization_name",
+                "developer.email",
+                "token_type",
+                "issued_at",
+                "client_id",
+                "access_token",
+                "refresh_token",
+                "application_name",
+                "scope",
+                "refresh_token_issued_at",
+                "expires_in",
+                "refresh_count",
+                "status",
+                "username"
+              ]
+            }
+          }
+        },
+        "security": [],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "Authorization Header : Base 64 Encoded Client Key & Secret",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "Content-Type",
+            "description": "Request Content Type : application/x-www-form-urlencoded",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "username",
+            "description": "App User Credentials : Username",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "password",
+            "description": "App User Credentials : Password",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "grant_type",
+            "description": "OAuth Grant Type : password",
+            "type": "string",
+            "required": true,
+            "enum": [
+              "password"
+            ]
+          }
+        ]
+      }
+    },
+    "/oauth/refresh-access-token": {
+      "post": {
+        "description": "Get new Access Token using refresh token.",
+        "summary": "Refresh Access Token",
+        "externalDocs": {
+          "description": "Find out more",
+          "url": "http://docs.example.com/management/apis/get/entities"
+        },
+        "operationId": "refreshAccessToken",
+        "tags": [
+          "oAuth"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "refresh_token_expires_in": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "refresh_token_status": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "api_product_list": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "old_access_token_life_time": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "organization_name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "developer.email": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "token_type": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "issued_at": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "client_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "access_token": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "refresh_token": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "application_name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "scope": {
+                  "type": "string"
+                },
+                "refresh_token_issued_at": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "expires_in": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "refresh_count": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "status": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "username": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "refresh_token_expires_in",
+                "refresh_token_status",
+                "api_product_list",
+                "old_access_token_life_time",
+                "organization_name",
+                "developer.email",
+                "token_type",
+                "issued_at",
+                "client_id",
+                "access_token",
+                "refresh_token",
+                "application_name",
+                "scope",
+                "refresh_token_issued_at",
+                "expires_in",
+                "refresh_count",
+                "status",
+                "username"
+              ]
+            }
+          }
+        },
+        "security": [],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "Authorization : Base 64 Encoded Client Key & Secret",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "Content-Type",
+            "description": "Request Content Type : application/x-www-form-urlencoded",
+            "required": true,
+            "type": "string",
+            "enum": [
+              " application/x-www-form-urlencoded"
+            ]
+          },
+          {
+            "in": "formData",
+            "name": "grant_type",
+            "description": "Grant Type : refresh_token",
+            "type": "string",
+            "required": true,
+            "enum": [
+              "refresh_token"
+            ]
+          },
+          {
+            "in": "formData",
+            "name": "refresh_token",
+            "description": "Refresh Token : Valid only one time, Send refresh token which you have received while you generated Access Token.",
+            "type": "string",
+            "required": true
+          }
+        ]
+      }
+    },
+    "/oauth/invalidate-token": {
+      "put": {
+        "description": "Revoke OAuth Refresh & Access Tokens",
+        "summary": "Invalidate refresh & access tokens",
+        "externalDocs": {
+          "description": "Find out more",
+          "url": "http://docs.example.com/management/apis/get/entities"
+        },
+        "operationId": "revokeOAuthTokens",
+        "tags": [
+          "oAuth"
+        ],
+        "produces": [
+          "application/x-www-form-urlencoded"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "Authorization : Basic Base 64 Encoded Client Key & Secret",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "access_token",
+            "description": "Access Token To Revoke",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "refresh_token",
+            "description": "Refresh token to revoke",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "Content-Type",
+            "description": "Request Content Type : application/x-www-form-urlencoded",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "application/x-www-form-urlencoded"
+            ]
+          }
+        ]
+      }
+    },
+    "/trouble-tickets/{troubleTicketId}": {
+      "get": {
+        "description": "Get Trouble Ticket by Trouble ticket ID",
+        "summary": "Get trouble ticket information by id",
+        "externalDocs": {
+          "description": "Find out more",
+          "url": "http://docs.example.com/management/apis/get/entities"
+        },
+        "operationId": "getTroubleTicket",
+        "tags": [
+          "troubleTickets"
+        ],
+        "produces": [
+          "application/json;charset=UTF-8"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "TTInfo": {
+                  "type": "object",
+                  "properties": {
+                    "Reference": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "DateCreated": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "RequestType": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "ServiceType": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "PlanType": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "Status": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "Reference",
+                    "DateCreated",
+                    "RequestType",
+                    "ServiceType",
+                    "PlanType",
+                    "Status"
+                  ]
+                },
+                "RequestId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "CorrelationId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ResponseCode": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ResponseMessage": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ErrorCode": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ErrorDescription": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "TTInfo",
+                "RequestId",
+                "CorrelationId",
+                "ResponseCode",
+                "ResponseMessage",
+                "ErrorCode",
+                "ErrorDescription"
+              ]
+            }
+          }
+        },
+        "security": [],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer Access Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "troubleTicketId",
+            "description": "Trouble Ticket Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/trouble_tickets": {
+      "post": {
+        "summary": "Create Trouble Ticket",
+        "operationId": "createTroubleTicket",
+        "tags": [
+          "troubleTickets"
+        ],
+        "produces": [
+          "application/json;charset=UTF-8"
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "TTID": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "RequestId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "CorrelationId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ResponseCode": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ResponseMessage": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ErrorCode": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ErrorDescription": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "TTID",
+                "RequestId",
+                "CorrelationId",
+                "ResponseCode",
+                "ResponseMessage",
+                "ErrorCode",
+                "ErrorDescription"
+              ]
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "Request Content Type : application/json",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Access Token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "request_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "source_system": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "correlation_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "service_request": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "area": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "sub_area": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "area",
+                    "description",
+                    "sub_area"
+                  ]
+                },
+                "account_number": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "document_number": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "document_type": {
+                  "type": "string"
+                },
+                "entity_type": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "nationality": {
+                  "type": "string"
+                },
+                "service_id": {
+                  "type": "string"
+                },
+                "com_needed": {
+                  "type": "string"
+                },
+                "external_id": {
+                  "type": "string"
+                },
+                "ap_order_id": {
+                  "type": "string"
+                },
+                "invoice_number": {
+                  "type": "string"
+                },
+                "b2b_header": {
+                  "type": "object",
+                  "properties": {
+                    "request_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "request_id"
+                  ]
+                },
+                "smart_script_questions": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "minItems": 1,
+                  "items": {
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "value": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "request_id",
+                "source_system",
+                "correlation_id",
+                "service_request",
+                "account_number",
+                "document_number",
+                "document_type",
+                "entity_type",
+                "nationality",
+                "service_id",
+                "com_needed",
+                "external_id",
+                "ap_order_id",
+                "invoice_number",
+                "b2b_header",
+                "smart_script_questions"
+              ]
+            },
+            "description": "Payload",
+            "required": true
+          }
+        ]
+      }
+    },
+    
+    "/trouble-tickets": {
+      "get": {
+        "description": "Filter Trouble Tickets by Account Id or Status",
+        "summary": "Filter Trouble Tickets by Account Id or Status",
+        "externalDocs": {
+          "description": "Find out more",
+          "url": "http://api.du.ae/developers"
+        },
+        "operationId": "getTroubleTicketsByAccountId",
+        "tags": [
+          "troubleTickets"
+        ],
+        "produces": [
+          "application/json;charset=UTF-8"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "TTInfo": {
+                  "type": "object",
+                  "properties": {
+                    "Reference": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "DateCreated": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "RequestType": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "ServiceType": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "PlanType": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "Status": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "Reference",
+                    "DateCreated",
+                    "RequestType",
+                    "ServiceType",
+                    "PlanType",
+                    "Status"
+                  ]
+                },
+                "RequestId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "CorrelationId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ResponseCode": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ResponseMessage": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ErrorCode": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ErrorDescription": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "TTInfo",
+                "RequestId",
+                "CorrelationId",
+                "ResponseCode",
+                "ResponseMessage",
+                "ErrorCode",
+                "ErrorDescription"
+              ]
+            }
+          }
+        },
+        "security": [],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "accountId",
+            "description": "Customer Account Id",
+            "type": "string",
+            "required": true,
+            "enum": [
+              "1234567",
+              " 891236987"
+            ]
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "description": "Status of Trouble Tickets",
+            "type": "string",
+            "required": false,
+            "enum": [
+              "closed",
+              "open"
+            ]
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "OAuth 2.0 Bearer token Header",
+            "required": true,
+            "type": "string",
+            "enum": [
+              " Bearer 1277RuyzKCth6F0eAITc0llPqOsn"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

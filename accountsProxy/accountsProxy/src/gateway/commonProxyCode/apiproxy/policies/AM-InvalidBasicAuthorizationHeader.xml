@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-InvalidBasicAuthorizationHeader">
+    <DisplayName>AM-InvalidBasicAuthorizationHeader</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <AssignVariable>
+        <Name>api-error.error</Name>
+        <Value>InvalidBasicAuthorizationHeader</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.code</Name>
+        <Value>NB_40000</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.message</Name>
+        <Value>Authorization header value is not a valid Basic Authorization header.</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.status_code</Name>
+        <Value>400</Value>
+        <Ref/>
+    </AssignVariable>    
+    <AssignVariable>
+        <Name>api-error.reason_phrase</Name>
+        <Value>Bad Request</Value>
+        <Ref/>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo type="request" transport="http" createNew="false"/>
+</AssignMessage>

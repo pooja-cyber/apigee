@@ -1,0 +1,293 @@
+{
+    "swagger": "2.0",
+    "host": "172.24.122.149:9001",
+    "schemes": [
+        "http"
+    ],
+    "info": {
+        "description": "Open API Specification for Portability API",
+        "title": "Open API Specification for Portability API",
+        "version": "0.0.1",
+        "termsOfService": "http://example.com/about/terms",
+        "contact": {
+            "name": "api.developer",
+            "url": "http://example.com/contact",
+            "email": "api.developer@du.ae"
+        },
+        "license": {
+            "name": "Du License",
+            "url": "http://api.developer.du.ae/License"
+        }
+    },
+    "definitions": {
+        "ErrorSchema": {
+            "description": "Error Schema",
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "Error Code"
+                },
+                "error": {
+                    "type": "string",
+                    "description": "Error Description"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error Message"
+                }
+            }
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/portability/schedule": {
+            "get": {
+                "description": "Get Scheduling",
+                "summary": "Get Scheduling",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getScheduling",
+                "tags": [
+                    "portability"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "ScheduledDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "IsScheduled": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "ScheduledDate",
+                                "IsScheduled",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "action",
+                        "description": "Action",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "contract",
+                        "description": "Contract",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "operation_type",
+                        "description": "Operation Type",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "target_offer_id",
+                        "description": "Target Offer Id",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 5RzgDZUhCGU8ACncKEbTIE7KzAB9"
+                    }
+                ]
+            }
+        },
+        "/portability/{Portability Id}/request": {
+            "delete": {
+                "description": "Cancel Portability Request",
+                "summary": "Cancel Portability Request",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "cancelPortabilityRequest",
+                "tags": [
+                    "portability"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 5RzgDZUhCGU8ACncKEbTIE7KzAB9"
+                    },
+                    {
+                        "in": "path",
+                        "name": "Portability Id",
+                        "description": "Portability Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        }
+    },
+    "security": [
+        {
+            "OauthSecurity": []
+        }
+    ],
+    "securityDefinitions": {
+        "OauthSecurity": {
+            "type": "oauth2",
+            "flow": "password",
+            "description": "oAuth 2.0 security implementation",
+            "tokenUrl": "http://172.24.122.149:9001/v1/oauth/token"
+        }
+    }
+}

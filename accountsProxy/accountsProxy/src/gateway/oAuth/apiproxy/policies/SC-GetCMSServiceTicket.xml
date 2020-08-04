@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="true" enabled="true" name="SC-GetCMSServiceTicket">
+    <DisplayName>SC-GetCMSServiceTicket</DisplayName>
+    <Request clearPayload="true" variable="cmsServiceRequest">
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+        <Set>
+            <Headers>
+                <Header name="Content-Type">application/x-www-form-urlencoded</Header>
+            </Headers>
+            <FormParams>
+                <FormParam name="service">*</FormParam>
+            </FormParams>
+            <Verb>POST</Verb>
+        </Set>
+    </Request>
+    <Response>cmsServiceResponse</Response>
+    <Timeout>60000</Timeout>
+    <HTTPTargetConnection>
+        <!-- Use the URL from TGT response Location header of TGT request -->
+        <URL>http://{du.config.CASHost}/{api.casTGTUrl}</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

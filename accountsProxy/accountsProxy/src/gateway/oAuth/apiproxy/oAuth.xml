@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="7" name="oAuth">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1475646989128</CreatedAt>
+    <CreatedBy>asagar@apigee.com</CreatedBy>
+    <Description>DU OAuth Password Grant Type Proxy</Description>
+    <DisplayName>oAuth</DisplayName>
+    <LastModifiedAt>1475825067502</LastModifiedAt>
+    <LastModifiedBy>asagar@apigee.com</LastModifiedBy>
+    <Policies>
+        <Policy>AM-AccessTokenExpired</Policy>
+        <Policy>AM-AccessTokenRevoked</Policy>
+        <Policy>AM-AuthorizationBadRequest</Policy>
+        <Policy>AM-InvalidAPICallNoProductFound</Policy>
+        <Policy>AM-InvalidAccessToken</Policy>
+        <Policy>AM-InvalidApiKeyFault</Policy>
+        <Policy>AM-InvalidAuthorizationHeader</Policy>
+        <Policy>AM-InvalidClientSecret</Policy>
+        <Policy>AM-InvalidUserCredentials</Policy>
+        <Policy>AM-MissingFormParams</Policy>
+        <Policy>AM-MissingRefreshTokenReqParams</Policy>
+        <Policy>AM-MissingTokenHeaders</Policy>
+        <Policy>AM-PingResponsePayload</Policy>
+        <Policy>AM-QuotaExceededFault</Policy>
+        <Policy>AM-ResourceNotFoundFlowFault</Policy>
+        <Policy>AM-RevokeTokenSuccessMessage</Policy>
+        <Policy>AM-SpikeArrestFault</Policy>
+        <Policy>AM-UnhandledExceptionFault</Policy>
+        <Policy>BA-ExtractClientKeyClientSecret</Policy>
+        <Policy>EV-LDAPCustomAttributes</Policy>
+        <Policy>EV-RefreshTokenGrantType</Policy>
+        <Policy>EV-UsernamePassword</Policy>
+        <Policy>JSC-CalculatePingResponseTime</Policy>
+        <Policy>JSC-GetLDAPAttributes</Policy>
+        <Policy>LD-LdapAuthentication</Policy>
+        <Policy>LD-RetrieveLdapContractsAttributes</Policy>
+        <Policy>LD-RetrieveLdapPeopleAttributes</Policy>
+        <Policy>OA-GenerateAccessToken</Policy>
+        <Policy>OA-RefreshAccessToken</Policy>
+        <Policy>OA-RevokeAccessToken</Policy>
+        <Policy>OA-RevokeRefreshToken</Policy>
+        <Policy>RF-GenericFaultHandler</Policy>
+        <Policy>VA-VerifyAPIKey</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://JSC-CalculatePingResponseTime.js</Resource>
+        <Resource>jsc://JSC-GetLDAPAttributes.js</Resource>
+    </Resources>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+    <validate>false</validate>
+</APIProxy>

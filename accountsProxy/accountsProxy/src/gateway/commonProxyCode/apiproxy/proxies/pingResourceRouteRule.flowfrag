@@ -1,0 +1,3 @@
+<RouteRule name="ping-pong">
+     <Condition>(proxy.pathsuffix JavaRegex "/ping(/?)$") and (request.verb = "GET")</Condition>
+</RouteRule>

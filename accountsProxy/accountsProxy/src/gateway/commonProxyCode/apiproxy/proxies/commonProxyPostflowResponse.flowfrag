@@ -1,0 +1,16 @@
+<Step>
+    <Name>X2J-XmlToJsonResponse</Name>
+    <Condition>(response.status.code = "200" or response.status.code = "201")</Condition>
+</Step>
+<Step>
+    <Name>JSC-CleanJsonResponse</Name>
+    <Condition>(response.status.code = "200" or response.status.code = "201")</Condition>
+</Step>
+<Step>
+	<Name>JSC-LCEResponseCodeMappings</Name>
+	<Condition>(response.status.code = "200" or response.status.code = "201")</Condition>
+</Step>
+<Step>
+    <Name>JSC-PopulateHttpHeadersWithSoapHeaders</Name>
+    <Condition>( responseType = "headers") and (response.status.code = "200" or response.status.code = "201")</Condition>
+</Step>

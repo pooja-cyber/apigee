@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetSelfcareIdVariable">
+    <DisplayName>AM-SetSelfcareIdVariable</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <AssignVariable>
+        <Name>du.api.selfcareId</Name>
+        <Value></Value>
+        <Ref>selfcareId</Ref>
+    </AssignVariable>    
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo type="request" transport="http" createNew="false"/>
+</AssignMessage>

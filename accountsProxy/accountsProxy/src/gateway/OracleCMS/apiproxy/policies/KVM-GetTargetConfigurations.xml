@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations async="false" continueOnError="false" enabled="true" name="KVM-GetTargetConfigurations" mapIdentifier="oracleCMS-v1-config">
+    <DisplayName>KVM-GetTargetConfigurations</DisplayName>
+    <Properties/>
+    <Get assignTo="du.config.cmsTargetBasepath">
+        <Key>
+            <Parameter>cmsTargetBasepath</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.cmsUsername">
+        <Key>
+            <Parameter>cmsUsername</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.cmsPassword">
+        <Key>
+            <Parameter>cmsPassword</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.CASHost">
+        <Key>
+            <Parameter>CASHost</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.CASPort">
+        <Key>
+            <Parameter>CASPort</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.cmsCASUrl">
+        <Key>
+            <Parameter>cmsCASUrl</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.spikeArrest">
+        <Key>
+            <Parameter>spikeArrest</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.oracleCmsTargetBasepath">
+        <Key>
+            <Parameter>oracleCmsTargetBasepath</Parameter>
+        </Key>
+    </Get>
+    <!-- OracleCMSAPI Flags -->
+    <Scope>environment</Scope>
+    <ExpiryTimeInSecs>0</ExpiryTimeInSecs>
+</KeyValueMapOperations>

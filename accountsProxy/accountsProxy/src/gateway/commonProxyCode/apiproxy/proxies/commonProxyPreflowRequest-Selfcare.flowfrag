@@ -1,0 +1,33 @@
+<Step>
+    <Name>SA-SpikeArrestCheck</Name>
+</Step>
+<Step>
+	<Name>AM-AuthorizationHeaderMissing</Name>
+	<Condition>( request.header.Authorization = null ) or ( request.header.Authorization = "" )</Condition>
+</Step>
+<Step>
+	<Name>BA-SetClientKeySecret</Name>
+</Step>
+<Step>
+	<Name>VAK-VerifyClientKey</Name>
+</Step>
+<Step>
+	<Name>AM-ClientSecreteInvalid</Name>
+	<Condition>(du.api.client_secret != verifyapikey.VAK-VerifyClientKey.client_secret)</Condition>
+</Step>
+<Step>
+    <Name>QT-DeveloperQuotaCheck</Name>
+</Step>
+<!-- <Step>
+	<Condition>(( request.header.Content-Type != "application/json") or ( request.header.content-type != "application/json")) and ( (request.header.content-type != null) or ( request.header.Content-Type != null ))</Condition>
+	<Name>JSC-ContentTypeHeaderNotSupported</Name>
+</Step> -->
+<!-- The Content-Type header sent by the user will be ignored and "application/json" will be assigned for GET,POST and PUT requests -->
+<Step>
+	<Name>AM-SetContentTypeHeader</Name>
+	<Condition>(request.verb = "POST") or ( request.verb = "PUT") or ( request.verb = "DELETE")</Condition>
+</Step>
+<Step>
+	<Name>AM-SetGlobalVariables</Name>
+</Step>
+

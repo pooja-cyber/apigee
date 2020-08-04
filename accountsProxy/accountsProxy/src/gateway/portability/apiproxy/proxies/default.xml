@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+	<Description />
+	#proxyDefaultFaultRule#
+	<FaultRules>
+		#genericUnhandledExceptionFaultRule#
+        #commonAccessTokenFaultRules#
+        #commonTraficManagementFaultRules#
+    </FaultRules>
+	<PreFlow name="PreFlow">
+		<Request>
+			<Step>
+                <Name>KVM-GetTargetConfigurations</Name>
+            </Step>
+			#commonProxyPreflowRequest#
+		</Request>
+		<Response />
+	</PreFlow>
+	<Flows>
+		#pingResourceFlow#
+		<Flow name="CancelPortabilityRequest">
+			<Request>
+				<Step>
+					<Name>EV-GetPortabilityID</Name>
+				</Step>
+				<Step>
+					<Name>AM-SOAPPayloadCancelPortabilityRequest</Name>
+				</Step>
+			</Request>
+			<Response></Response>
+			<Condition>(proxy.pathsuffix Matches "/{portability_id}/request") and (request.verb ="DELETE")</Condition>
+		</Flow>
+		<Flow name="GetScheduling">
+			<Request>
+				<Step>
+					<Name>AM-SOAPPayloadGetScheduling</Name>
+			    </Step>
+			</Request>
+			<Response></Response>
+			<Condition>(proxy.pathsuffix Matches "/schedule") and (request.verb ="GET")</Condition>
+		</Flow>
+		
+		#unknownResourceFlowGeneric#
+	</Flows>
+
+	<PostFlow name="PostFlow">
+		<Request />
+		<Response>
+			 #commonProxyPostflowResponse#
+		</Response>
+	</PostFlow>
+	<HTTPProxyConnection>
+		<BasePath>/v1/portability</BasePath>
+		<Properties />
+		<VirtualHost>default</VirtualHost>
+		<!-- Comment/Remove the Virtual Host-secure while deploying API Proxy in Organization dudev -->
+		<VirtualHost>secure</VirtualHost>
+	</HTTPProxyConnection>
+	#pingResourceRouteRule#
+	<RouteRule name="mock">
+        <TargetEndpoint>mock</TargetEndpoint>
+        <Condition>(du.config.request.mock="true")</Condition>
+    </RouteRule>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

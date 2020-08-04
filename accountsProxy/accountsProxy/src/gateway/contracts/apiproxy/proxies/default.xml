@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    #proxyDefaultFaultRule#
+    <FaultRules>
+        #genericUnhandledExceptionFaultRule#
+        #commonAccessTokenFaultRules#
+        #commonTraficManagementFaultRules#
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+             <Step>
+                <Name>KVM-GetTargetConfigurations</Name>
+            </Step>
+        #commonProxyPreflowRequest#
+           <Step>
+            <Name>EV-GetContractsCommonVariables</Name>
+           </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        #pingResourceFlow#
+        <Flow name="GetContractRatePlanHistory">
+            <Description>Get Contract Rate Plan History</Description>
+            <Request>
+            <Step>
+                <Name>JSC-CheckAndValidateContractId</Name>
+            </Step>
+            <Step>
+                <Name>AM-SoapRequestGetContractRatePlanHistory</Name>
+            </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/{contractId}/rateplans" and request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name = "ChangeContractServiceParameters">
+            <Description>Change Contract Service Parameters</Description>
+            <Request>
+                <Step>
+                    <Name>JSC-CheckAndValidateContractId</Name>
+                </Step>
+                #emptyBodyPayloadCheck#
+                <Step>
+                    <Name>JSC-BuildJsonSoapPayloadChangeContractServiceParameters</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-SoapRequestChangeContractServiceParameters</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition> (proxy.pathsuffix MatchesPath "/{contractId}") and (request.verb = "PUT")</Condition>
+        </Flow>
+        <Flow name="GetAllCustomerContracts">
+            <Description>GetAllCustomerContracts</Description>
+            <Request>
+                <Step>
+                    <Name>AM-SoapRequestGetAllCustomerContracts</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>((proxy.pathsuffix JavaRegex "(/?)$") and (request.verb = "GET"))</Condition>
+        </Flow>
+
+         <Flow name="GetApplicableCommitments">
+            <Description>GetApplicableCommitments</Description>
+            <Request>
+                <Step>
+                    <Name>AM-SoapRequestGetApplicableCommitments</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/commitments" ) and (request.verb = "GET")</Condition>
+        </Flow>
+        #unknownResourceFlowGeneric#
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+            #commonProxyPostflowResponse#
+        </Response>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/v1/contracts</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+        <!-- Comment/Remove the Virtual Host-secure while deploying API Proxy in Organization dudev -->
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    #pingResourceRouteRule#
+     <RouteRule name="mock">
+        <TargetEndpoint>mock</TargetEndpoint>
+        <Condition>(du.config.request.mock = "true")</Condition>
+    </RouteRule>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

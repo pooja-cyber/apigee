@@ -1,0 +1,147 @@
+{
+  "swagger": "2.0",
+  "host": "172.24.122.149:9001",
+  "schemes": [
+    "http"
+  ],
+  "info": {
+    "description": "Open API Specification for Activities API",
+    "title": "Open API Specification for Activities API",
+    "version": "0.0.1",
+    "termsOfService": "http://example.com/about/terms",
+    "contact": {
+      "name": "api.developer",
+      "url": "http://example.com/contact",
+      "email": "api.developer@du.ae"
+    },
+    "license": {
+      "name": "Du License",
+      "url": "http://api.developer.du.ae/license"
+    }
+  },
+  "basePath": "/v1",
+  "paths": {
+    "/activities/": {
+      "post": {
+        "description": "CreateSelfcareActivity",
+        "summary": "Create Selfcare Activity",
+        "externalDocs": {
+          "description": "Find out more",
+          "url": "http://docs.example.com/management/apis/get/entities"
+        },
+        "operationId": "createSelfcareActivity",
+        "tags": [
+          "activities"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "error": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "message": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "code",
+                "error",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "Authorization Bearer Token Header",
+            "required": true,
+            "type": "string",
+            "enum": [
+              " Bearer gfDTKTtktQBOdULeoNy0xRgdLw6d"
+            ]
+          },
+          {
+            "in": "header",
+            "name": "Content-Type",
+            "description": "JSON Body Payload Content Type",
+            "required": true,
+            "type": "string",
+            "enum": [
+              " application/json"
+            ]
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Request Payload Body",
+            "required": true,
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "Created": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "AccountId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "AccountNumber": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "Description": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "Id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "Status": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "Type": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "EntityType": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "Created",
+                "AccountId",
+                "AccountNumber",
+                "Description",
+                "Id",
+                "Status",
+                "Type",
+                "EntityType"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

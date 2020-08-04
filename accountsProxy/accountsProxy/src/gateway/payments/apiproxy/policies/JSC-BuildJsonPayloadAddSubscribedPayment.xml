@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript timeLimit="200" async="false" continueOnError="false" enabled="true" name="JSC-BuildJsonPayloadAddSubscribedPayment">
+    <DisplayName>JSC-BuildJsonPayloadAddSubscribedPayment</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <ResourceURL>jsc://JSC-BuildJsonPayloadAddSubscribedPayment.js</ResourceURL>
+</Javascript>

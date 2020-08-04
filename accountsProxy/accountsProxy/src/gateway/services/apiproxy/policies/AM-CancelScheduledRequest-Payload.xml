@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-CancelScheduledRequest-Payload">
+    <DisplayName>AM-CancelScheduledRequest-Payload</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">application/xml;charset="UTF-8"</Header>
+            <Header name="SOAPAction">/Processes/BusinessResources/Services/LCEWebServices.serviceagent//CancelScheduledRequest</Header>
+        </Headers>
+        <QueryParams>
+            <QueryParam name="serviceName">CancelScheduledRequest</QueryParam>
+            <QueryParam name="responseType">201</QueryParam>
+        </QueryParams>
+         <Payload contentType="application/xml">
+             <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservices.com/LCE/Du/WebServices" xmlns:head="http://www.du.ae/LCE/Header" xmlns:lcew="http://xmlns.du.ae/LCE/Business/LCEWebServiceRequest" xmlns:can="http://xmlns.du.ae/LCE/Business/RequestManagement/CancelScheduledRequest">
+                <soapenv:Header/>
+                <soapenv:Body>
+                   <web:CancelScheduledRequest>
+                      <Request>
+                         <head:Header>
+                            <head:RequestId>{du.api.requestId}</head:RequestId>
+                            <head:Credentials>
+                               <head:ApplicationId>{du.config.applicationId}</head:ApplicationId>
+                               <head:User>{du.config.mceUsername}</head:User>
+                               <!--Optional:-->
+                               <head:Password>{du.config.mcePassword}</head:Password>
+                            </head:Credentials>
+                            <!--Optional:-->
+                            <head:CorrelationId/>
+                         </head:Header>
+                         <lcew:Body>
+                            <can:PendingRequestId>{request.queryparam.pending_request_id}</can:PendingRequestId>
+                         </lcew:Body>
+                      </Request>
+                   </web:CancelScheduledRequest>
+                </soapenv:Body>
+             </soapenv:Envelope>
+         </Payload>
+        <Verb>POST</Verb>
+        <Path/>
+    </Set>
+    <AssignVariable>
+        <Name>du.config.soapMethodForRequest</Name>
+        <Value>CancelScheduledRequest</Value>
+    </AssignVariable>
+     <AssignVariable>
+        <Name>du.config.soapMethodForResponse</Name>
+        <Value>CancelScheduledRequestResponse</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="true" transport="http" type="request"/>
+</AssignMessage>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description />
+    #proxyDefaultFaultRule#
+    <FaultRules>
+        #genericUnhandledExceptionFaultRule#
+        #commonAccessTokenFaultRules#
+        #commonTraficManagementFaultRules#
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>KVM-GetTargetConfigurations</Name>
+            </Step>
+             <Step>
+                <Name>SA-SpikeArrestCheck</Name>
+             </Step>
+             <Step>
+                <Name>OA-VerifyAccessToken</Name>
+            </Step>
+            <Step>
+                <Name>QT-DeveloperQuotaCheck</Name>
+            </Step>
+            <Step>
+                <Name>EV-GetCommonVariable</Name>
+            </Step>
+        </Request>
+        <Response />
+    </PreFlow>
+    
+    <Flows>
+         #pingResourceFlow#
+        <Flow name="AssetsSearch">
+            <Description>Assets Search</Description>
+            <Request></Request>
+            <Response></Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/sites/{sitename}/search") and (request.verb = "GET")
+            </Condition> 
+        </Flow>
+
+        <Flow name="GetAsset">
+            <Description>Get Asset</Description>
+            <Request></Request>
+            <Response></Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/sites/{sitename}/types/{assettype}/assets/{id}") and (request.verb ="GET")</Condition>
+        </Flow>
+
+        <Flow name="GetAssociation">
+            <Description>Get Association list of Asset</Description>
+            <Request></Request>
+            <Response></Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/sites/{sitename}/types/{assettype}/assets/{id}/associations") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="GetspecificAssociation">
+            <Description>Get detail of specific Association</Description>
+            <Request></Request>
+            <Response></Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/sites/{sitename}/types/{assettype}/assets/{id}/associations/{assocName}") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="GlobalAssetSearch">
+           <Description>Global Asset Search</Description>
+           <Request></Request>
+           <Response></Response>
+           <Condition>(proxy.pathsuffix MatchesPath "/search") and (request.verb = "GET")</Condition>
+        </Flow>
+        #unknownResourceFlowGeneric#
+    </Flows>
+
+    <PostFlow name="PostFlow">
+        <Request />
+        <Response>
+        </Response>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/v1/cms</BasePath>
+        <Properties />
+        <VirtualHost>default</VirtualHost>
+        <!-- Comment/Remove the Virtual Host-secure while deploying API Proxy in Organization dudev -->
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    #pingResourceRouteRule#
+    <RouteRule name="oracle-cms-mock">
+        <TargetEndpoint>oracle-cms-mock</TargetEndpoint>
+        <Condition>(request.queryparam.mock = "true"</Condition>
+    </RouteRule>
+    <RouteRule name="oracle-cms">
+        <TargetEndpoint>oracle-cms</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

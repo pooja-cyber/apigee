@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-AuthorizationHeaderMissing">
+    <DisplayName>AM-AuthorizationHeaderMissing</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <AssignVariable>
+        <Name>api-error.error</Name>
+        <Value>MissingAuthorizationHeader</Value>
+        <Ref></Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.code</Name>
+        <Value>NB_40000</Value>
+        <Ref></Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.message</Name>
+        <Value>Authorization header is required with base 64 encoded client key and secret.</Value>
+        <Ref></Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.status_code</Name>
+        <Value>400</Value>
+        <Ref></Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.reason_phrase</Name>
+        <Value>Bad Request</Value>
+        <Ref></Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.raise_fault</Name>
+        <Ref>api-error.variable_raise_fault</Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <AssignTo type="request" transport="http" createNew="false"></AssignTo>
+</AssignMessage>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-RefreshTokenGrantType">
+    <DisplayName>EV-RefreshTokenGrantType</DisplayName>
+    <Source clearPayload="false">request</Source>
+    <VariablePrefix/>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <FormParam name="grant_type">
+        <Pattern ignoreCase="true">{du.grantType}</Pattern>
+    </FormParam>
+    <FormParam name="refresh_token">
+        <Pattern ignoreCase="true">{du.refreshToken}</Pattern>
+    </FormParam>
+</ExtractVariables>

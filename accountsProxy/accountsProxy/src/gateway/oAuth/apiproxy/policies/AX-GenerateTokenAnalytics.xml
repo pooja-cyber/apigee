@@ -1,0 +1,13 @@
+<StatisticsCollector name="AX-GenerateTokenAnalytics">
+	<DisplayName>AX-GenerateTokenAnalytics</DisplayName>
+  <Statistics>
+    <Statistic name="username" ref="du.api.selfcare_username" type="string"></Statistic>
+    <Statistic name="msisdns" ref="du.api.msisdn" type="string"></Statistic>
+    <Statistic name="date" ref="system.time" type="string"></Statistic>
+    <Statistic name="ax_os_type" ref="request.header.os-type" type="string"></Statistic>
+    <Statistic name="ax_os_version" ref="request.header.os-version" type="string"></Statistic>
+    <Statistic name="ax_app_version" ref="request.header.app-version" type="string"></Statistic>
+    <Statistic name="segment" ref="du.api.segment" type="string"></Statistic>
+    <Statistic name="ratePlan" ref="du.api.ratePlan" type="string"></Statistic>
+  </Statistics>
+</StatisticsCollector>

@@ -1,0 +1,2365 @@
+{
+    "swagger": "2.0",
+    "host": "172.24.122.149:9001",
+    "schemes": [
+        "http"
+    ],
+    "info": {
+        "description": "Open API Specification for Services API",
+        "title": "Open API Specification for Services API",
+        "version": "0.0.1",
+        "termsOfService": "http://example.com/about/terms",
+        "contact": {
+            "name": "api.developer",
+            "url": "http://example.com/contact",
+            "email": "api.developer@du.ae"
+        },
+        "license": {
+            "name": "Du License",
+            "url": "http://api.developer.du.ae/license"
+        }
+    },
+    "definitions": {
+        "ErrorSchema": {
+            "description": "Error Schema",
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "Error Code"
+                },
+                "error": {
+                    "type": "string",
+                    "description": "Error Description"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error Message"
+                }
+            }
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/services": {
+            "get": {
+                "description": "Get Service Status, GetApplicableAddOnServices, GetPrepaidBlackberryServices, VerifyDuNumber",
+                "summary": "All the resources in 'DESCRIPTION' have same basepath and verb, Queryparams are used to decide which resource gets executed",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getServices",
+                "tags": [
+                    "services"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "Response for VerifyDuNumber",
+                            "type": "object",
+                            "properties": {
+                                "ResultFlag": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "ResultFlag",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "contract_id",
+                        "description": "Contract Id(for Get Service Status,Not Mandatory)",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "contract_id_pub",
+                        "description": "Contract Id Pub(for Get Service Status,Not Mandatory)",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "bscs_con_type",
+                        "description": "Bscs Con Type(for Get Service Status,Not Mandatory)",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "bypass_services_info",
+                        "description": "Bypass Services Information(for Get Service Status,Not Mandatory)",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "type",
+                        "description": "Type should have applicableaddon as fixed content(for GetApplicableAddOnSevices), prepaidblackberry as fixed content(for Get PrepaidBlackBerryServies",
+                        "type": "string",
+                        "required": false,
+                        "enum": [
+                            "applicableaddon",
+                            "prepaidblackberry"
+                        ]
+                    },
+                    {
+                        "in": "query",
+                        "name": "rateplan",
+                        "description": "Rate Plan(for GetApplicableAddOnSevices,Mandatory)",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "channel",
+                        "description": "Channel(for GetApplicableAddOnSevices,Mandatory)",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "addOn",
+                        "description": "Add On(for GetApplicableAddOnSevices, Not Mandatory)",
+                        "type": "string",
+                        "required": false,
+                        "default": "GAVMS,addOn1,addOn2"
+                    },
+                    {
+                        "in": "query",
+                        "name": "preview_flag",
+                        "description": "Preview Flag ,for GetApplicableAddOnSevices,Not Mandatory",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "msisdn",
+                        "description": "Msisdn(for Get PrepaidBlackBerryServies-Mandatory, VerifyDuNumber-Mandatory ,for Get Service Status-Not Mandatory",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "action",
+                        "description": "Action should have verifyDuNumber as fixed content(for VerifyDuNumber,Mandatory)",
+                        "type": "string",
+                        "required": false,
+                        "enum": [
+                            "verifyDuNumber"
+                        ]
+                    },
+                    {
+                        "in": "query",
+                        "name": "request_id",
+                        "description": "Request Id(for VerifyDuNumber,Mandatory)",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer fLRzbediMfSmtWlGGJIzDCAJMNKk"
+                    }
+                ]
+            },
+            "delete": {
+                "description": "Cancel Scheduled Request",
+                "summary": "Cancel Scheduled Request",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "cancelScheduledRequest",
+                "tags": [
+                    "services"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "pending_request_id",
+                        "description": "Pending Request Id",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer BvM5QWmB9tswqTuWGfkrPCNsqHGf"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {}
+                        }
+                    }
+                ]
+            },
+            "put": {
+                "description": "Manage Services",
+                "summary": "Manage Services",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "manageServices",
+                "tags": [
+                    "services"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer BvM5QWmB9tswqTuWGfkrPCNsqHGf"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "RequestAction": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ContractID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ServiceList": {
+                                    "type": "object",
+                                    "properties": {
+                                        "ServiceNode": {
+                                            "type": "array",
+                                            "uniqueItems": true,
+                                            "minItems": 1,
+                                            "items": {
+                                                "required": [
+                                                    "ProfileID",
+                                                    "ServiceAction",
+                                                    "ServiceActionDate",
+                                                    "ParamConfigReq",
+                                                    "ResConfigReq",
+                                                    "ServiceID",
+                                                    "ServicePackageCode",
+                                                    "ServiceIDPub",
+                                                    "ServicePackageCodePub",
+                                                    "Resource",
+                                                    "ResourceId",
+                                                    "ExternalServiceID",
+                                                    "ExternalServiceIDPub",
+                                                    "OperatorAssistedAction",
+                                                    "TemaplteID",
+                                                    "OneTimeCharge",
+                                                    "OneTimeChargeType",
+                                                    "RecurringCharge",
+                                                    "RecurringChargeType",
+                                                    "RecurringChargePeriod",
+                                                    "AdvanceRecurringCharge",
+                                                    "AdvanceRecurringChargeType",
+                                                    "AdvanceRecurringChargePeriod",
+                                                    "ServiceQuantity",
+                                                    "ServiceTrialEndDate",
+                                                    "CugAction",
+                                                    "CustomerPaymentConditionUsageIndicator",
+                                                    "CustomerPrepaidTpID",
+                                                    "CustomerPrepaidTpIdPub"
+                                                ],
+                                                "properties": {
+                                                    "ProfileID": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "ServiceAction": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "ServiceActionDate": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "ParamConfigReq": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "ResConfigReq": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "ServiceID": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "ServicePackageCode": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "ServiceParameterList": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "ServiceParameterListNode": {
+                                                                "type": "array",
+                                                                "uniqueItems": true,
+                                                                "minItems": 1,
+                                                                "items": {
+                                                                    "required": [
+                                                                        "PrmNo",
+                                                                        "PrmType",
+                                                                        "PrmAction"
+                                                                    ],
+                                                                    "properties": {
+                                                                        "PrmNo": {
+                                                                            "type": "string",
+                                                                            "minLength": 1
+                                                                        },
+                                                                        "PrmType": {
+                                                                            "type": "string",
+                                                                            "minLength": 1
+                                                                        },
+                                                                        "PrmAction": {
+                                                                            "type": "string",
+                                                                            "minLength": 1
+                                                                        },
+                                                                        "ValueList": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "ValueNode": {
+                                                                                    "type": "array",
+                                                                                    "uniqueItems": true,
+                                                                                    "minItems": 1,
+                                                                                    "items": {
+                                                                                        "required": [
+                                                                                            "PrmValuePub",
+                                                                                            "PrmValidFrom",
+                                                                                            "PrmValue",
+                                                                                            "PrmValueDes",
+                                                                                            "PrmValueSeqNo"
+                                                                                        ],
+                                                                                        "properties": {
+                                                                                            "PrmValuePub": {
+                                                                                                "type": "string",
+                                                                                                "minLength": 1
+                                                                                            },
+                                                                                            "PrmValidFrom": {
+                                                                                                "type": "string",
+                                                                                                "minLength": 1
+                                                                                            },
+                                                                                            "PrmValue": {
+                                                                                                "type": "string",
+                                                                                                "minLength": 1
+                                                                                            },
+                                                                                            "PrmValueDes": {
+                                                                                                "type": "string",
+                                                                                                "minLength": 1
+                                                                                            },
+                                                                                            "PrmValueSeqNo": {
+                                                                                                "type": "string",
+                                                                                                "minLength": 1
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "ValueNode"
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "ServiceParameterListNode"
+                                                        ]
+                                                    },
+                                                    "ServiceResourceList": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "ServiceResourceNode": {
+                                                                "type": "array",
+                                                                "uniqueItems": true,
+                                                                "minItems": 1,
+                                                                "items": {
+                                                                    "required": [
+                                                                        "ExtServiceID",
+                                                                        "ExtServiceIDPub"
+                                                                    ],
+                                                                    "properties": {
+                                                                        "ExtServiceID": {
+                                                                            "type": "string",
+                                                                            "minLength": 1
+                                                                        },
+                                                                        "ExtServiceIDPub": {
+                                                                            "type": "string",
+                                                                            "minLength": 1
+                                                                        },
+                                                                        "DirectoryNumbers": {
+                                                                            "type": "array",
+                                                                            "uniqueItems": true,
+                                                                            "minItems": 1,
+                                                                            "items": {
+                                                                                "required": [
+                                                                                    "BcCode",
+                                                                                    "DirNum",
+                                                                                    "DirNumOnBill",
+                                                                                    "DnID",
+                                                                                    "DnType",
+                                                                                    "ExtResourceTypeCode",
+                                                                                    "IsVanity",
+                                                                                    "LinkedPublicDnID",
+                                                                                    "LowerExt",
+                                                                                    "MainDirNum",
+                                                                                    "Retention",
+                                                                                    "UpperExt",
+                                                                                    "HmCode",
+                                                                                    "NpCode",
+                                                                                    "HmCodePub",
+                                                                                    "NpCodePub",
+                                                                                    "Prefix"
+                                                                                ],
+                                                                                "properties": {
+                                                                                    "BcCode": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "DirNum": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "DirNumOnBill": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "DnID": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "DnType": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "ExtResourceTypeCode": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "IsVanity": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "LinkedPublicDnID": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "LowerExt": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "MainDirNum": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "Retention": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "UpperExt": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "HmCode": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "NpCode": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "HmCodePub": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "NpCodePub": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "Prefix": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "MsisdnRelease": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                            "BookingNumber": {
+                                                                                                "type": "string",
+                                                                                                "minLength": 1
+                                                                                            },
+                                                                                            "Fname": {
+                                                                                                "type": "string",
+                                                                                                "minLength": 1
+                                                                                            },
+                                                                                            "Lname": {
+                                                                                                "type": "string",
+                                                                                                "minLength": 1
+                                                                                            }
+                                                                                        },
+                                                                                        "required": [
+                                                                                            "BookingNumber",
+                                                                                            "Fname",
+                                                                                            "Lname"
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        "Ports": {
+                                                                            "type": "array",
+                                                                            "uniqueItems": true,
+                                                                            "minItems": 1,
+                                                                            "items": {
+                                                                                "required": [
+                                                                                    "ExtResourceTypeCode",
+                                                                                    "PortID",
+                                                                                    "PortNum",
+                                                                                    "Retention",
+                                                                                    "Status",
+                                                                                    "NpCode",
+                                                                                    "NpCodePub"
+                                                                                ],
+                                                                                "properties": {
+                                                                                    "ExtResourceTypeCode": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "PortID": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "PortNum": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "Retention": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "Status": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "NpCode": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    },
+                                                                                    "NpCodePub": {
+                                                                                        "type": "string",
+                                                                                        "minLength": 1
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "ServiceResourceNode"
+                                                        ]
+                                                    },
+                                                    "ServiceIDPub": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "ServicePackageCodePub": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "Resource": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "ResourceId": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "ExternalServiceID": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "ExternalServiceIDPub": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "OperatorAssistedAction": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "TemaplteID": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "OneTimeCharge": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "OneTimeChargeType": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "RecurringCharge": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "RecurringChargeType": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "RecurringChargePeriod": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "AdvanceRecurringCharge": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "AdvanceRecurringChargeType": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "AdvanceRecurringChargePeriod": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "ServiceQuantity": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "ServiceTrialEndDate": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "CugAction": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "CustomerPaymentConditionUsageIndicator": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "CustomerPrepaidTpID": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "CustomerPrepaidTpIdPub": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "CugMemberships": {
+                                                        "type": "array",
+                                                        "uniqueItems": true,
+                                                        "minItems": 1,
+                                                        "items": {
+                                                            "required": [
+                                                                "CugID"
+                                                            ],
+                                                            "properties": {
+                                                                "CugID": {
+                                                                    "type": "string",
+                                                                    "minLength": 1
+                                                                },
+                                                                "BasicServiceGroupAssigments": {
+                                                                    "type": "array",
+                                                                    "uniqueItems": true,
+                                                                    "minItems": 1,
+                                                                    "items": {
+                                                                        "required": [
+                                                                            "BsgID",
+                                                                            "BsgAction"
+                                                                        ],
+                                                                        "properties": {
+                                                                            "BsgID": {
+                                                                                "type": "string",
+                                                                                "minLength": 1
+                                                                            },
+                                                                            "BsgAction": {
+                                                                                "type": "string",
+                                                                                "minLength": 1
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "BsgConfiguration": {
+                                                        "type": "array",
+                                                        "uniqueItems": true,
+                                                        "minItems": 1,
+                                                        "items": {
+                                                            "required": [
+                                                                "BsgID",
+                                                                "PreferedCugID"
+                                                            ],
+                                                            "properties": {
+                                                                "BsgID": {
+                                                                    "type": "string",
+                                                                    "minLength": 1
+                                                                },
+                                                                "PreferedCugID": {
+                                                                    "type": "string",
+                                                                    "minLength": 1
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "ServiceNode"
+                                    ]
+                                },
+                                "ContractIDPub": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "GenericDirectoryNumberCreate": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "minItems": 1,
+                                    "items": {
+                                        "required": [
+                                            "DealerID",
+                                            "DirNum",
+                                            "HLCode",
+                                            "HMCode",
+                                            "LowerExt",
+                                            "Ndc",
+                                            "NpCode",
+                                            "PlCode",
+                                            "PortID",
+                                            "Prefix",
+                                            "SubmID",
+                                            "UpperExt",
+                                            "VpnID",
+                                            "DealerIdPub",
+                                            "HlCodePub",
+                                            "HmCodePub",
+                                            "NpCodePub",
+                                            "PlCodePub",
+                                            "SubmIDPub",
+                                            "VpnIdPub"
+                                        ],
+                                        "properties": {
+                                            "DealerID": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "DirNum": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "HLCode": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "HMCode": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "LowerExt": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "Ndc": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "NpCode": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "ParametValues": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "PrmValueString": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "PrmNo": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "ResourceLike": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    }
+                                                },
+                                                "required": [
+                                                    "PrmValueString",
+                                                    "PrmNo",
+                                                    "ResourceLike"
+                                                ]
+                                            },
+                                            "PlCode": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "PortID": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "Prefix": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "SubmID": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "UpperExt": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "VpnID": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "DealerIdPub": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "HlCodePub": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "HmCodePub": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "NpCodePub": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "PlCodePub": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "SubmIDPub": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "VpnIdPub": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            }
+                                        }
+                                    }
+                                },
+                                "BillingAccount": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "minItems": 1,
+                                    "items": {
+                                        "required": [
+                                            "BillingAccountID",
+                                            "BillingAccountCode",
+                                            "CoId",
+                                            "CoIdPub",
+                                            "ChargeTypeID",
+                                            "Delete",
+                                            "ProfileID",
+                                            "SnCode",
+                                            "SnCodePub",
+                                            "ValidTo"
+                                        ],
+                                        "properties": {
+                                            "BillingAccountID": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "BillingAccountCode": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "CoId": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "CoIdPub": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "ChargeTypeID": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "Delete": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "ProfileID": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "SnCode": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "SnCodePub": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "ValidTo": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            }
+                                        }
+                                    }
+                                },
+                                "BscsConType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CoType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "Action": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "RequestAction",
+                                "ContractID",
+                                "ServiceList",
+                                "ContractIDPub",
+                                "GenericDirectoryNumberCreate",
+                                "BillingAccount",
+                                "BscsConType",
+                                "CoType",
+                                "Action"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "/services/{serviceCode}/parameters": {
+            "get": {
+                "description": "Get Service Parameters",
+                "summary": "Get Service Parameters",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getServiceParameters",
+                "tags": [
+                    "services"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "ContractId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ContractIdPub": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ContractStatus": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ProfileId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ServicePackageCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ServicePackageCodePub": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ServiceCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ServiceCodePub": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ServiceType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ServiceSubType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ServiceParameterList": {
+                                    "type": "object",
+                                    "properties": {
+                                        "ServiceParameterNode": {
+                                            "type": "object",
+                                            "properties": {
+                                                "PrmNo": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PrmId": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PrmIdPub": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PrmOverrideInd": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PrmType": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PrmDes": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "MultipleValues": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ValueList": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "ValueNode": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "PrmValue": {
+                                                                    "type": "string",
+                                                                    "minLength": 1
+                                                                },
+                                                                "PrmValuePub": {
+                                                                    "type": "string",
+                                                                    "minLength": 1
+                                                                },
+                                                                "PrmValueDes": {
+                                                                    "type": "string",
+                                                                    "minLength": 1
+                                                                },
+                                                                "PrmValueSeqNo": {
+                                                                    "type": "string",
+                                                                    "minLength": 1
+                                                                },
+                                                                "PrmValidFrom": {
+                                                                    "type": "string",
+                                                                    "minLength": 1
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "PrmValue",
+                                                                "PrmValuePub",
+                                                                "PrmValueDes",
+                                                                "PrmValueSeqNo",
+                                                                "PrmValidFrom"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "ValueNode"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "PrmNo",
+                                                "PrmId",
+                                                "PrmIdPub",
+                                                "PrmOverrideInd",
+                                                "PrmType",
+                                                "PrmDes",
+                                                "MultipleValues",
+                                                "ValueList"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "ServiceParameterNode"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "ContractId",
+                                "ContractIdPub",
+                                "ContractStatus",
+                                "ProfileId",
+                                "ServicePackageCode",
+                                "ServicePackageCodePub",
+                                "ServiceCode",
+                                "ServiceCodePub",
+                                "ServiceType",
+                                "ServiceSubType",
+                                "ServiceParameterList",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "profile_id",
+                        "description": "Profile Id",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "msisdn",
+                        "description": "Msisdn",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "contract_id_pub",
+                        "description": "Contract Id Pub",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "contract_id",
+                        "description": "Contract Id",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "service_code_pub",
+                        "description": "Service Code Pub",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "bscs_con_type",
+                        "description": "Bscs Con Type",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer fLRzbediMfSmtWlGGJIzDCAJMNKk"
+                    },
+                    {
+                        "in": "path",
+                        "name": "serviceCode",
+                        "description": "Service Code",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/services/prepaid/{msisdn}/parameters": {
+            "get": {
+                "description": "Get Prepaid Settings",
+                "summary": "Get Prepaid Settings",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getPrepaidSettings",
+                "tags": [
+                    "services"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "ServiceParameterList": {
+                                    "type": "object",
+                                    "properties": {
+                                        "ServiceParameterNode": {
+                                            "type": "object",
+                                            "properties": {
+                                                "PrmName": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PrmValue": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "PrmName",
+                                                "PrmValue"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "ServiceParameterNode"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "ServiceParameterList",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "parameters",
+                        "description": "Service Parameters",
+                        "type": "string",
+                        "required": false,
+                        "default": "123,345,567"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer BvM5QWmB9tswqTuWGfkrPCNsqHGf"
+                    },
+                    {
+                        "in": "path",
+                        "name": "msisdn",
+                        "description": "Msisdn",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/services/prepaid/{msisdn}/topup": {
+            "put": {
+                "description": "Manage Prepaid Topup",
+                "summary": "Manage Prepaid TopUp",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "managePrepaidTopup",
+                "tags": [
+                    "services"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer AAKxCux0iwMUlpAIC75s84bYEYS3"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "TransactionId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "Amount": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "Channel": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "PaymentType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "BalanceType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "BalanceExpiry": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "UserID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "AmountDecimal": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ChargeMode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "IMEI": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "Scenario": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "IpAddress": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "Cost": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "TransactionId",
+                                "Amount",
+                                "Channel",
+                                "PaymentType",
+                                "BalanceType",
+                                "BalanceExpiry",
+                                "UserID",
+                                "AmountDecimal",
+                                "ChargeMode",
+                                "IMEI",
+                                "Scenario",
+                                "IpAddress",
+                                "Cost"
+                            ]
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "msisdn",
+                        "description": "Msisdn",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/services/postpaid/{msisdn}/databundles": {
+            "put": {
+                "description": "Manage Postpaid Data Bundles",
+                "summary": "Manage Postpaid Data Bundles",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "managePostpaidDataBundles",
+                "tags": [
+                    "services"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ScheduledRequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ScheduledDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "RequestId",
+                                "CorrelationId",
+                                "ScheduledRequestId",
+                                "ScheduledDate",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer AAKxCux0iwMUlpAIC75s84bYEYS3"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "BundleType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ServiceCodePub": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ParameterValueDes": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ActionCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "BundleType",
+                                "ServiceCodePub",
+                                "ParameterValueDes",
+                                "ActionCode"
+                            ]
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "msisdn",
+                        "description": "Msisdn Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/services/postpaid/{msisdn}": {
+            "put": {
+                "description": "Manage Mobile Postpaid",
+                "summary": "Manage Mobile Postpaid",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "manageMobilePostpaid",
+                "tags": [
+                    "services"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ScheduledrequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ScheduledDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "RequestId",
+                                "CorrelationId",
+                                "ScheduledrequestId",
+                                "ScheduledDate",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer AAKxCux0iwMUlpAIC75s84bYEYS3"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "ContractId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "NewRpCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ListOfServices": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Service": {
+                                            "type": "array",
+                                            "uniqueItems": true,
+                                            "minItems": 1,
+                                            "items": {
+                                                "required": [
+                                                    "SpCode",
+                                                    "SpCodePub",
+                                                    "SnCode"
+                                                ],
+                                                "properties": {
+                                                    "SpCode": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "SpCodePub": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "SnCode": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "Service"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "ContractId",
+                                "NewRpCode",
+                                "ListOfServices"
+                            ]
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "msisdn",
+                        "description": "Msisdn Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/services/prepaid/{msisdn}": {
+            "put": {
+                "description": "Manage Prepaid Line",
+                "summary": "Manage Prepaid Line",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "managePrepaidLine",
+                "tags": [
+                    "services"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "MSISDN": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "AdjustmentCount": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "LastAdjustValue": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "LastAdjustDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "MSISDN",
+                                "AdjustmentCount",
+                                "LastAdjustValue",
+                                "LastAdjustDate",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer AAKxCux0iwMUlpAIC75s84bYEYS3"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "EVENT_NAME": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "PARAMETER_LIST": {
+                                    "type": "object",
+                                    "properties": {
+                                        "PARAMETER_NODE": {
+                                            "type": "object",
+                                            "properties": {
+                                                "PARAM_NAME": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PARAM_VALUE": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "PARAM_NAME",
+                                                "PARAM_VALUE"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "PARAMETER_NODE"
+                                    ]
+                                },
+                                "BOOSTER_PREF_NUMBERS": {
+                                    "type": "object",
+                                    "properties": {
+                                        "NUMBER": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {}
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "NUMBER"
+                                    ]
+                                },
+                                "ADJUSTMENT_CODE": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "EXT5": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "EXT6": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "EVENT_NAME",
+                                "PARAMETER_LIST",
+                                "BOOSTER_PREF_NUMBERS",
+                                "ADJUSTMENT_CODE",
+                                "EXT5",
+                                "EXT6"
+                            ]
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "msisdn",
+                        "description": "Msisdn Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        }
+    },
+    "security": [
+        {
+            "OauthSecurity": []
+        }
+    ],
+    "securityDefinitions": {
+        "OauthSecurity": {
+            "type": "oauth2",
+            "flow": "password",
+            "description": "oAuth 2.0 security implementation",
+            "tokenUrl": "http://172.24.122.149:9001/v1/oauth/token"
+        }
+    }
+}

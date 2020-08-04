@@ -1,0 +1,6 @@
+<FaultRule name="invalid_api_key">
+  <Condition>( fault.name = "FailedToResolveAPIKey") or ( fault.name = "InvalidApiKey")</Condition>
+  <Step>
+  	<Name>AM-InvalidApiKeyFault</Name>
+  </Step>
+</FaultRule>

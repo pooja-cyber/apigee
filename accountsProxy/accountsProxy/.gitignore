@@ -1,0 +1,9 @@
+/src/target/
+/src/gateway/target/
+/src/gateway/*/target/
+/src/gateway/*.zip
+/src/gateway/*/*.zip
+node_modules/
+*.log
+npm-debug.log*
+.DS_Store

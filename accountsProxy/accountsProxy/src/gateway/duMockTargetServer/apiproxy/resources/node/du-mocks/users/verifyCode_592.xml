@@ -1,0 +1,10 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Body>
+		<ns2:verifyCodeResponse xmlns:ns2="http://webservice.thirdparties.ericsson.com/">
+			<return>
+				<responseCode>592</responseCode>
+				<responseDescription>The verification code entered is invalid (03349621-4b7a-4c57-9e1f-2d4b291040c1)</responseDescription>
+			</return>
+		</ns2:verifyCodeResponse>
+	</soap:Body>
+</soap:Envelope>

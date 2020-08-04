@@ -1,0 +1,176 @@
+{
+  "swagger": "2.0",
+  "host": "devmajor-apigwnonprod.corp.du.ae:9101",
+  "schemes": [
+    "http"
+  ],
+  "info": {
+    "description": "API Program description",
+    "title": "API Program Title.",
+    "version": "0.0.1",
+    "termsOfService": "http://example.com/about/terms",
+    "contact": {
+      "name": "API Docs",
+      "url": "http://example.com/contact",
+      "email": "apidocs@example.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://example.com"
+    }
+  },
+  "basePath": "/v1",
+  "paths": {
+    "/offers/product/handsethistory": {
+      "get": {
+        "description": "GetProductHandsetOffersHistory",
+        "summary": "GetProductHandsetOffersHistory",
+        "externalDocs": {
+          "description": "Find out more",
+          "url": "http://docs.example.com/management/apis/get/entities"
+        },
+        "operationId": "getProductHandsetOffersHistory",
+        "tags": [
+          "offers"
+        ],
+        "produces": [
+          "application/json;charset=UTF-8"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "ListOfOffers": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "CommitmentsPackageList": {
+                  "type": "object",
+                  "properties": {
+                    "CommitmentPackage": {
+                      "type": "object",
+                      "properties": {
+                        "ContractId": {
+                          "type": "object",
+                          "properties": {}
+                        },
+                        "ContractCode": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "CommitmentType": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "PckId": {
+                          "type": "number"
+                        },
+                        "PckIdPub": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "PckName": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "PckCharge": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "HandsetType": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "CommitmentPeriod": {
+                          "type": "number"
+                        },
+                        "PckStatus": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "AssignDate": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "ExpiryDate": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "DeleteDate": {
+                          "type": "object",
+                          "properties": {}
+                        }
+                      },
+                      "required": [
+                        "ContractId",
+                        "ContractCode",
+                        "CommitmentType",
+                        "PckId",
+                        "PckIdPub",
+                        "PckName",
+                        "PckCharge",
+                        "HandsetType",
+                        "CommitmentPeriod",
+                        "PckStatus",
+                        "AssignDate",
+                        "ExpiryDate",
+                        "DeleteDate"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "CommitmentPackage"
+                  ]
+                },
+                "RequestId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "CorrelationId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ResponseCode": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "ListOfOffers",
+                "CommitmentsPackageList",
+                "RequestId",
+                "CorrelationId",
+                "ResponseCode"
+              ]
+            }
+          }
+        },
+        "security": [],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "contract_code",
+            "description": "contract code",
+            "type": "string",
+            "required": true,
+            "enum": [
+              "CONTR0045479680"
+            ]
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "oAuth Bearer token header",
+            "required": true,
+            "type": "string",
+            "enum": [
+              " Bearer 0DG7tLFxCxrqw9fWdajITimRIrkw"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

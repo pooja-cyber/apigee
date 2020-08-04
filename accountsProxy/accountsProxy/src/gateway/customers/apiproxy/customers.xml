@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="12" name="customers">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1472200987368</CreatedAt>
+    <CreatedBy>g_gagan1000@yahoo.com</CreatedBy>
+    <Description>sgagandeep git revision unknown Kaarlp-617 ::Customers API</Description>
+    <DisplayName>customers</DisplayName>
+    <LastModifiedAt>1472200987368</LastModifiedAt>
+    <LastModifiedBy>g_gagan1000@yahoo.com</LastModifiedBy>
+    <Policies>
+        <Policy>AM-BuildSoapRequest</Policy>
+        <Policy>AM-Bulid-Soap-Req-By-Msisdn</Policy>
+        <Policy>AM-CheckMsisdn</Policy>
+        <Policy>AM-GetCustomerInformationPayload</Policy>
+        <Policy>AM-GetCustomerandContracts</Policy>
+        <Policy>AM-ManageCustomerSoapPayload</Policy>
+        <Policy>AM-SetContentTypeHeader</Policy>
+        <Policy>EV-GetCustomerCommonVariables</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://JSC-CheckCustomerId.js</Resource>
+        <Resource>jsc://JSC-CheckCustomerIdCustomerCodeMsisdn.js</Resource>
+        <Resource>jsc://JSC-CheckLanguageAndConType.js</Resource>
+        <Resource>jsc://JS_Extract_ManageCustomer_Input.js</Resource>
+    </Resources>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

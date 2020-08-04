@@ -1,0 +1,4 @@
+<VerifyAPIKey async="false" continueOnError="false" enabled="true" name="VAK-VerifyClientKey">
+    <DisplayName>VAK-VerifyClientKey</DisplayName>
+    <APIKey ref="du.api.client_key"/>
+</VerifyAPIKey>

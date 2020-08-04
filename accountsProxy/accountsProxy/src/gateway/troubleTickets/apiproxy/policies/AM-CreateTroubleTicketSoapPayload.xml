@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-CreateTroubleTicketSoapPayload">
+    <DisplayName>AM-CreateTroubleTicketSoapPayload</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">application/soap-xml</Header>
+            <Header name="SOAPAction">/Processes/BusinessResources/Services/LCEWebServices.serviceagent//CreateTT</Header>
+        </Headers>
+        <QueryParams>
+            <QueryParam name="serviceName">CreateTT</QueryParam>
+            <QueryParam name="responseType">201</QueryParam>
+        </QueryParams>
+        <Payload contentType="application/xml">{request.content}</Payload>
+        <Verb>POST</Verb>
+        <Path/>
+    </Set>
+    <AssignVariable>
+        <Name>du.config.soapMethodForRequest</Name>
+        <Value>CreateTT</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>du.config.soapMethodForResponse</Name>
+        <Value>CreateTTResponse</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="true" transport="http" type="request"/>
+</AssignMessage>

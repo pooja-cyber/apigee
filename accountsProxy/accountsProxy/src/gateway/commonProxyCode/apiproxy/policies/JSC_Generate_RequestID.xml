@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript async="false" continueOnError="false" enabled="true" timeLimit="200" 
+	name="JSC_Generate_RequestID">
+    <DisplayName>JSC_Generate_RequestID</DisplayName>
+    <Properties/>
+    <ResourceURL>jsc://JSC_Generate_RequestID.js</ResourceURL>
+</Javascript>

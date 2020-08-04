@@ -1,0 +1,31 @@
+<Invoice>
+	<Date>12-02-2016</Date>
+	<BillNumber>1239</BillNumber>
+	<InvoiceNumber>1234</InvoiceNumber>
+	<Name>Mohammed Zuber</Name>
+	<Items>
+		<Name>Some Items</Name>
+		<Quantity>2</Quantity>
+		<Price>1000</Price>
+	</Items>
+	<Items>
+		<Name>Some Items</Name>
+		<Quantity>2</Quantity>
+		<Price>1000</Price>
+	</Items>
+	<Items>
+		<Name>Some Items</Name>
+		<Quantity>2</Quantity>
+		<Price>1000</Price>
+	</Items>
+	<Items>
+		<Name>Some Items</Name>
+		<Quantity>2</Quantity>
+		<Price>1000</Price>
+	</Items>
+	<Items>
+		<Name>Some Items</Name>
+		<Quantity>2</Quantity>
+		<Price>1000</Price>
+	</Items>
+</Invoice>

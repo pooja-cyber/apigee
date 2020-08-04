@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-CreateCustomerAccountPayload">
+    <DisplayName>AM-CreateCustomerAccountPayload</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+            <Header name="SOAPAction">/LCEWebServices/AccountManagement/CreateCustomerAccount</Header>
+            <Header name="Content-Type">application/xml;charset="UTF-8"</Header>
+        </Headers>
+        <QueryParams>
+            <QueryParam name="serviceName">CreateCustomerAccount</QueryParam>
+            <QueryParam name="responseType">201</QueryParam>
+        </QueryParams>
+        <Payload contentType="application/xml">{request.content}</Payload>
+        <Path/>
+        <Verb>POST</Verb>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignVariable>
+        <Name>du.config.soapMethodForRequest</Name>
+        <Value>CreateCustomerAccount</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>du.config.soapMethodForResponse</Name>
+        <Value>CreateCustomerAccountResponse</Value>
+    </AssignVariable>
+    <AssignTo createNew="true" transport="http" type="request"/>
+</AssignMessage>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SOAPPayloadGetApplicableBroadbandSpeeds">
+    <DisplayName>AM-SOAPPayloadGetApplicableBroadbandSpeeds</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Set>
+        <Headers>
+           <Header name="Content-Type">application/xml;charset="UTF-8"</Header>
+           <Header name="SOAPAction">/Processes/BusinessResources/Services/LCEWebServices.serviceagent//GetApplicableBroadbandSpeeds</Header>
+        </Headers>
+        <QueryParams>
+            <QueryParam name="serviceName">GetApplicableBroadbandSpeed</QueryParam>
+            <QueryParam name="responseType">200</QueryParam>
+        </QueryParams>
+        <Payload contentType="application/xml">
+            <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservices.com/LCE/Du/WebServices" xmlns:head="http://www.du.ae/LCE/Header" xmlns:lcew="http://xmlns.du.ae/LCE/Business/LCEWebServiceRequest" xmlns:get="http://xmlns.du.ae/LCE/Business/ServiceManagement/GetApplicableBroadbandSpeeds">
+                <soapenv:Header/>
+                <soapenv:Body>
+                    <web:GetApplicableBroadbandSpeeds>
+                        <Request>
+                            <head:Header>
+                                <!--Optional:-->
+                                <head:RequestId>{du.api.requestId}</head:RequestId>
+                                <head:Credentials>
+                                    <head:ApplicationId>{du.config.applicationId}</head:ApplicationId>
+                                    <head:User>{du.config.mceUsername}</head:User>
+                                    <!--Optional:-->
+                                    <head:Password>{du.config.mcePassword}</head:Password>
+                                </head:Credentials>
+                                <!--Optional:-->
+                                <head:CorrelationId></head:CorrelationId>
+                            </head:Header>
+                            <lcew:Body>
+                                <!--Optional:-->
+                                <get:downgradeFlag>{request.queryparam.downgrad_flag}</get:downgradeFlag>
+                                <get:channel>{request.queryparam.channel}</get:channel>
+                                <!--Optional:-->
+                                <get:PreviewFlag>{request.queryparam.preview_flag}</get:PreviewFlag>
+                                <!--Optional:-->
+                                <get:accessType>{request.queryparam.access_type}</get:accessType>
+                                <!--Optional:-->
+                                <get:currentRateplan>{request.queryparam.current_rate_plan}</get:currentRateplan>
+                                <!--Optional:-->
+                                <get:currentSpeed>{request.queryparam.current_speed}</get:currentSpeed>
+                            </lcew:Body>
+                        </Request>
+                    </web:GetApplicableBroadbandSpeeds>
+                </soapenv:Body>
+            </soapenv:Envelope>
+        </Payload>
+        <Verb>POST</Verb>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignVariable>
+        <Name>du.config.soapMethodForRequest</Name>
+        <Value>GetApplicableBroadbandSpeed</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>du.config.soapMethodForResponse</Name>
+        <Value>GetApplicableBroadbandSpeedsResponse</Value>
+    </AssignVariable>
+    <AssignTo type="request" transport="http" createNew="true"/>
+</AssignMessage>

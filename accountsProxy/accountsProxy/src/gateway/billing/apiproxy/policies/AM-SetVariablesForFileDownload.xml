@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetVariablesForFileDownload">
+    <DisplayName>AM-SetVariablesForFileDownload</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Set>
+    	<Headers>
+    		<Header name="Authorization">{authHeader}</Header>
+    	</Headers>
+        <QueryParams>
+            <QueryParam name="file_name">{searchFileName}</QueryParam>
+            <QueryParam name="dir_name">{fileInDirectory}</QueryParam>
+            <QueryParam name="operation">download</QueryParam>
+        </QueryParams>
+        <Verb>GET</Verb>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo type="request" transport="http" createNew="true"/>
+</AssignMessage>

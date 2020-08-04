@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables match="first" async="false" continueOnError="false" enabled="true" name="EV-RequiredVariablesForVerifyOTP">
+    <DisplayName>EV-RequiredVariablesForVerifyOTP</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <URIPath>
+        <Pattern ignoreCase="true">/{selfcareId}/verify-otp</Pattern>
+    </URIPath>
+    <JSONPayload>
+		<Variable name="du.api.verificationCode" type="string">
+			<JSONPath>$.verificationCode</JSONPath>
+		</Variable>
+    </JSONPayload>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</ExtractVariables>

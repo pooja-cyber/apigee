@@ -1,0 +1,7 @@
+<FaultRule name="generic_unhandled_exceptions_fault">
+    <Condition>(api-error.message = null) or (api-error.message == "")</Condition>
+    <Step>
+        <FaultRules/>
+        <Name>AM-UnhandledExceptionFault</Name>
+    </Step>
+</FaultRule>

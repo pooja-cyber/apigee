@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAuthV2 async="false" continueOnError="false" enabled="true" name="OA-RefreshAccessToken">
+    <DisplayName>OA-RefreshAccessToken</DisplayName>
+    <Properties/>
+    <ExternalAuthorization>false</ExternalAuthorization>
+    <Operation>RefreshAccessToken</Operation>
+    <ExpiresIn>1800000</ExpiresIn> 
+    <RefreshTokenExpiresIn>15552000000</RefreshTokenExpiresIn>
+    <GenerateResponse enabled="true"/>
+</OAuthV2>

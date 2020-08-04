@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+      #proxyDefaultFaultRule#
+    <FaultRules>
+    #genericUnhandledExceptionFaultRule#
+    #commonAccessTokenFaultRules#
+    #commonTraficManagementFaultRules#
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+           <Step>
+                <Name>KVM-GetAccountinfo</Name>
+            </Step>
+            #commonProxyPreflowRequest#
+        </Request>
+        <Response/>
+    </PreFlow>
+
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+            #commonProxyPostflowResponse#
+        </Response>
+    </PostFlow>
+    <Flows>
+        #pingResourceFlow#
+        <Flow name="GetAccount">
+            <Description>Get Account</Description>
+            <Request>
+                <Step>
+                    <Name>EV-ExtractAccountDetails</Name>
+                </Step>
+                 <Step>
+                    <Name>JSC-CheckAccountId</Name>
+                </Step>
+                <Step>
+                    <Name>AM-AccountsPayload</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/{accountId}/getAccount") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name = "GetAccountInformation">
+                <Description>Get Account Information</Description>
+                <Request>
+                    <Step>
+                        <Name>EV-GetAccountNumber</Name>
+                    </Step>
+                    <Step>
+                        <Condition>((accountNumber = null) and (request.queryparam.msisdn =null))</Condition>
+                        <Name>AM-MissingAccountNumberOrMSISDNError</Name>
+                    </Step>
+                    <Step>
+                         <Condition>(du.config.isGetAccountInformationFlag=true)</Condition>
+                        <Name>JSC-CheckAndValidateMsisdn</Name>
+                    </Step>
+                    <Step>
+                        <Name>AM-AccountNumberNotInToken</Name>
+                        <Condition> ((accountNumber != null) and (accountNumber != accesstoken.customer_code)) and ( du.config.isGetAccountInformationFlag = "true")
+                        </Condition>
+                    </Step>
+                    <Step>
+                         <Name>JSC-BuildJsonSoapPayloadGetAccountInformation</Name>
+                    </Step>
+                    #commonJsonToXmlPolicy#
+                    <Step>
+                        <Name>AM-GetAccountInformationPayload</Name>
+                    </Step>
+                </Request>
+            <Response/>
+            <Condition>( proxy.pathsuffix MatchesPath "/{accountNumber}" or proxy.pathsuffix JavaRegex "(/?)$") and (request.verb = "GET")</Condition>  
+
+        </Flow>
+            <Flow name = "ManageContactMethod">
+                <Description>Manage Contact Method</Description>
+                <Request>
+                    <Step>
+                        <Name>EV-GetAccountNumber</Name>
+                    </Step>
+                    <Step>
+                        <Name>JSC-CheckAccountNumber</Name>
+                    </Step>
+                    #emptyBodyPayloadCheck#
+                    <Step>
+                        <Name>JSC-BuildJsonPayloadManageContactMethod</Name>
+                    </Step>
+                    #commonJsonToXmlPolicy#
+                    <Step>
+                        <Name>AM-BuildSoapRequestManageContactMethod</Name>
+                    </Step>
+                </Request>
+                <Response/>
+                <Condition>(proxy.pathsuffix MatchesPath "/{accountNumber}") and (request.verb = "PUT")</Condition>
+        </Flow>
+        <Flow name="CreateCustomerAccount">
+            <Description>Create Customer Account</Description>
+            <Request>
+                #emptyBodyPayloadCheck#
+                <Step>
+                    <Name>JSC-BuildJsonPayloadCreateCustomerAccount</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-CreateCustomerAccountPayload</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix JavaRegex "(/?)$") and (request.verb = "POST")</Condition>
+        </Flow>
+         #unknownResourceFlowGeneric#
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath>/v1/accounts</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+        <!-- Comment the secure Virtual Host while deploying in dev environment -->
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    #pingResourceRouteRule#
+    
+    <RouteRule name="mock">
+        <TargetEndpoint>mock</TargetEndpoint>
+        <Condition>(du.config.request.mock = "true")</Condition>
+    </RouteRule>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

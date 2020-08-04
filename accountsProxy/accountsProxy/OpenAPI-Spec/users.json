@@ -1,0 +1,903 @@
+{
+    "swagger": "2.0",
+    "host": "172.24.122.149:9001",
+    "schemes": [
+        "http"
+    ],
+    "info": {
+        "description": "Open API Specification for Users API",
+        "title": "Open API Specification for Users API",
+        "version": "0.0.1",
+        "termsOfService": "http://example.com/about/terms",
+        "contact": {
+            "name": "api.developer",
+            "url": "http://example.com/contact",
+            "email": "api.developer@du.ae"
+        },
+        "license": {
+            "name": "Du License",
+            "url": "http://api.developer.du.ae/license"
+        }
+    },
+    "definitions": {
+        "ErrorSchema": {
+            "description": "Error Schema",
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "Error Code"
+                },
+                "error": {
+                    "type": "string",
+                    "description": "Error Description"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error Message"
+                }
+            }
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/users/register/generate-otp": {
+            "post": {
+                "description": "Generate OTP for User Registration",
+                "summary": "Generate OTP for User Registration",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "generateOtpForUserRegistration",
+                "tags": [
+                    "users"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "notificationType": {
+                                    "type": "string"
+                                },
+                                "mail": {
+                                    "type": "string"
+                                },
+                                "msisdn": {
+                                    "type": "string"
+                                },
+                                "responseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "responseDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "notificationType",
+                                "mail",
+                                "msisdn",
+                                "responseCode",
+                                "responseDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Basic Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Basic SDdXVTVTVVJocTVDdXJldmQ3czF3RktSUktVcVcwM3Q6RGptdFJIT2ZBcTdjM3BhTw"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "SelfcareID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "SelfcareID"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "/users/register/resend-otp": {
+            "post": {
+                "description": "Resend OTP for User Registration",
+                "summary": "Resend OTP for User Registration",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "resendOtpForUSerRegistration",
+                "tags": [
+                    "users"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "notificationType": {
+                                    "type": "string"
+                                },
+                                "mail": {
+                                    "type": "string"
+                                },
+                                "msisdn": {
+                                    "type": "string"
+                                },
+                                "responseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "responseDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "notificationType",
+                                "mail",
+                                "msisdn",
+                                "responseCode",
+                                "responseDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Basic Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Basic SDdXVTVTVVJocTVDdXJldmQ3czF3RktSUktVcVcwM3Q6RGptdFJIT2ZBcTdjM3BhTw"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "SelfcareID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "SelfcareID"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "/users/{selfcareId}/forgot-password/generate-otp": {
+            "post": {
+                "description": "Generate OTP for Forgot Password",
+                "summary": "Generate OTP for Forgot Password",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "generateOtpForForgotPassword",
+                "tags": [
+                    "users"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "notificationType": {
+                                    "type": "string"
+                                },
+                                "mail": {
+                                    "type": "string"
+                                },
+                                "msisdn": {
+                                    "type": "string"
+                                },
+                                "username": {
+                                    "type": "string"
+                                },
+                                "responseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "responseDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "notificationType",
+                                "mail",
+                                "msisdn",
+                                "username",
+                                "responseCode",
+                                "responseDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Basic Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Basic SDdXVTVTVVJocTVDdXJldmQ3czF3RktSUktVcVcwM3Q6RGptdFJIT2ZBcTdjM3BhTw"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {}
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "selfcareId",
+                        "description": "Selfcare Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/users/{selfcareId}/forgot-password/resend-otp": {
+            "post": {
+                "description": "Resend OTP for Forgot Password",
+                "summary": "Resend OTP for Forgot Password",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "resendOtpForForgotPassword",
+                "tags": [
+                    "users"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "notificationType": {
+                                    "type": "string"
+                                },
+                                "mail": {
+                                    "type": "string"
+                                },
+                                "msisdn": {
+                                    "type": "string"
+                                },
+                                "username": {
+                                    "type": "string"
+                                },
+                                "responseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "responseDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "notificationType",
+                                "mail",
+                                "msisdn",
+                                "username",
+                                "responseCode",
+                                "responseDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Basic Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Basic SDdXVTVTVVJocTVDdXJldmQ3czF3RktSUktVcVcwM3Q6RGptdFJIT2ZBcTdjM3BhTw"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {}
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "selfcareId",
+                        "description": "Selfcare Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/users/register": {
+            "post": {
+                "description": "Register User",
+                "summary": "Register User",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "registerUser",
+                "tags": [
+                    "users"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "notificationType": {
+                                    "type": "string"
+                                },
+                                "mail": {
+                                    "type": "string"
+                                },
+                                "msisdn": {
+                                    "type": "string"
+                                },
+                                "responseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "responseDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "notificationType",
+                                "mail",
+                                "msisdn",
+                                "responseCode",
+                                "responseDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Basic Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Basic SDdXVTVTVVJocTVDdXJldmQ3czF3RktSUktVcVcwM3Q6RGptdFJIT2ZBcTdjM3BhTw"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "SelfcareID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "SelfcareUsername": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "SelfcarePassword": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "verificationCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "SelfcareID",
+                                "SelfcareUsername",
+                                "SelfcarePassword",
+                                "verificationCode"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "/users/{selfcareId}/forgot-password/reset-password": {
+            "post": {
+                "description": "Reset Password",
+                "summary": "Reset Password",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "resetPassword",
+                "tags": [
+                    "users"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "notificationType": {
+                                    "type": "string"
+                                },
+                                "mail": {
+                                    "type": "string"
+                                },
+                                "msisdn": {
+                                    "type": "string"
+                                },
+                                "username": {
+                                    "type": "string"
+                                },
+                                "responseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "responseDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "notificationType",
+                                "mail",
+                                "msisdn",
+                                "username",
+                                "responseCode",
+                                "responseDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Basic Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Basic SDdXVTVTVVJocTVDdXJldmQ3czF3RktSUktVcVcwM3Q6RGptdFJIT2ZBcTdjM3BhTw"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "SelfcarePassword": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "verificationCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "SelfcarePassword",
+                                "verificationCode"
+                            ]
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "selfcareId",
+                        "description": "Selfcare Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/users": {
+            "put": {
+                "description": "Update Selfcare Username Password",
+                "summary": "Update Selfcare Username and Password",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "updateSelfcareUsernamePassword",
+                "tags": [
+                    "users"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "responseDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "responseCode",
+                                "responseDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Basic Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Basic SDdXVTVTVVJocTVDdXJldmQ3czF3RktSUktVcVcwM3Q6RGptdFJIT2ZBcTdjM3BhTw"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "SelfcareCurrentUsername": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "SelfcareCurrentPassword": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "SelfcareNewPassword": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "SelfcareCurrentUsername",
+                                "SelfcareCurrentPassword",
+                                "SelfcareNewPassword"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "security": [
+        {
+            "basic_auth": []
+        }
+    ],
+    "securityDefinitions": {
+        "basic_auth": {
+            "type": "basic",
+            "description": "Base 64 encode of client key/secret"
+        }
+    }
+}

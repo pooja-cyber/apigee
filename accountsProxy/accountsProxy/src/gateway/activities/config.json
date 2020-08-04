@@ -1,0 +1,228 @@
+{
+  "configurations": [
+    {
+      "name": "dev",
+      "policies": [],
+      "proxies": [],
+      "targets": [
+        {
+          "name": "mce.xml",
+          "tokens": [
+            {
+              "xpath": "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+              "value": "dev-mce-target"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tqc",
+      "policies": [],
+      "proxies": [],
+      "targets": [
+        {
+          "name": "mce.xml",
+          "tokens": [
+            {
+              "xpath": "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+              "value": "tqc-mce-target"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cit",
+      "policies": [],
+      "proxies": [],
+      "targets": [
+        {
+          "name": "mce.xml",
+          "tokens": [
+            {
+              "xpath": "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+              "value": "cit-mce-target"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "devmajor",
+      "policies": [],
+      "proxies": [],
+      "targets": [
+        {
+          "name": "mce.xml",
+          "tokens": [
+            {
+              "xpath": "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+              "value": "devmajor-mce-target"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tqcmajor",
+      "policies": [],
+      "proxies": [],
+      "targets": [
+        {
+          "name": "mce.xml",
+          "tokens": [
+            {
+              "xpath": "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+              "value": "tqcmajor-mce-target"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "preprod",
+      "policies": [],
+      "proxies": [],
+      "targets": [
+        {
+          "name": "mce.xml",
+          "tokens": [
+            {
+              "xpath": "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+              "value": "preprod-mce-target"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "training",
+      "policies": [],
+      "proxies": [],
+      "targets": [
+        {
+          "name": "mce.xml",
+          "tokens": [
+            {
+              "xpath": "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+              "value": "training-mce-target"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staging",
+      "policies": [],
+      "proxies": [],
+      "targets": [
+        {
+          "name": "mce.xml",
+          "tokens": [
+            {
+              "xpath": "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+              "value": "staging-mce-target"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cittamkeen",
+      "policies": [],
+      "proxies": [],
+      "targets": [
+        {
+          "name": "mce.xml",
+          "tokens": [
+            {
+              "xpath": "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+              "value": "cittamkeen-mce-target"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tqctamkeen1",
+      "policies": [],
+      "proxies": [],
+      "targets": [
+        {
+          "name": "mce.xml",
+          "tokens": [
+            {
+              "xpath": "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+              "value": "tqctamkeen1-mce-target"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tqctamkeen2",
+      "policies": [],
+      "proxies": [],
+      "targets": [
+        {
+          "name": "mce.xml",
+          "tokens": [
+            {
+              "xpath": "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+              "value": "tqctamkeen2-mce-target"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "preview",
+      "policies": [],
+      "proxies": [],
+      "targets": [
+        {
+          "name": "mce.xml",
+          "tokens": [
+            {
+              "xpath": "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+              "value": "preview-mce-target"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sandbox",
+      "policies": [],
+      "proxies": [],
+      "targets": [
+        {
+          "name": "mce.xml",
+          "tokens": [
+            {
+              "xpath": "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+              "value": "sandbox-mce-target"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "production",
+      "policies": [],
+      "proxies": [],
+      "targets": [
+        {
+          "name": "mce.xml",
+          "tokens": [
+            {
+              "xpath": "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+              "value": "production-mce-target"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

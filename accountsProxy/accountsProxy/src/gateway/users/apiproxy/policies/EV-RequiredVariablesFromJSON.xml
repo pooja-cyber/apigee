@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables match="first" async="false" continueOnError="false" enabled="true" name="EV-RequiredVariablesFromJSON">
+    <DisplayName>EV-RequiredVariablesFromJSON</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <JSONPayload>
+		<Variable name="du.api.verificationCode" type="string">
+			<JSONPath>$.verificationCode</JSONPath>
+		</Variable>
+        <Variable name="du.api.selfcareId" type="string">
+            <JSONPath>$.SelfcareID</JSONPath>
+        </Variable>
+        <Variable name="du.api.username" type="string">
+            <JSONPath>$.SelfcareUsername</JSONPath>
+        </Variable>
+        <Variable name="du.api.password" type="string">
+            <JSONPath>$.SelfcarePassword</JSONPath>
+        </Variable>
+        <Variable name="du.api.opflag" type="string">
+            <JSONPath>$.OpFlag</JSONPath>
+        </Variable>
+        <Variable name="du.api.currentUsername" type="string">
+            <JSONPath>$.SelfcareCurrentUsername</JSONPath>
+        </Variable>
+        <Variable name="du.api.currentPassword" type="string">
+            <JSONPath>$.SelfcareCurrentPassword</JSONPath>
+        </Variable>
+        <Variable name="du.api.newPassword" type="string">
+            <JSONPath>$.SelfcareNewPassword</JSONPath>
+        </Variable>
+        <Variable name="du.api.newUsername" type="string">
+            <JSONPath>$.SelfcareNewUsername</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</ExtractVariables>

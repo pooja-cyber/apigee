@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript async="false" continueOnError="false" enabled="true" timeLimit="200" name="JSC-CheckXmlInSANStorage">
+    <DisplayName>JSC-CheckXmlInSANStorage</DisplayName>
+    <Properties/>
+    <IncludeURL>jsc://JSC-Base64Library.js</IncludeURL>
+    <ResourceURL>jsc://JSC-CheckXmlInSANStorage.js</ResourceURL>
+</Javascript>

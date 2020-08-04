@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" 
+	name="AM_Set_SOAP_Method_Request_Response">
+    <DisplayName>AM_Set_SOAP_Method_Request_Response</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <AssignVariable>
+        <Name>du.config.soapMethodForRequest</Name>
+        <Value>TOBEREPLACED</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>du.config.soapMethodForResponse</Name>
+        <Value>TOBEREPLACED</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo type="request" transport="http" createNew="false"/>
+</AssignMessage>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SpikeArrestFault">
+    <DisplayName>AM-SpikeArrestFault</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <AssignVariable>
+        <Name>api-error.error</Name>
+        <Value>NetworkSpikeDetected</Value>
+        <Ref></Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.code</Name>
+        <Value>NB_50000</Value>
+        <Ref></Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.message</Name>
+        <Value>Server is experiencing network spike. Please check in some time.</Value>
+        <Ref></Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.status_code</Name>
+        <Value>500</Value>
+        <Ref></Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.reason_phrase</Name>
+        <Value>Network Spike Detected</Value>
+        <Ref></Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo type="request" transport="http" createNew="false"></AssignTo>
+</AssignMessage>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations async="false" continueOnError="false" enabled="true" name="KVM-GetTargetConfigurations" mapIdentifier="services-v1-config">
+    <DisplayName>KVM-GetTargetConfigurations</DisplayName>
+    <Properties/>
+    <Get assignTo="du.config.mceTargetBasepath">
+        <Key> 
+            <Parameter>mceTargetBasepath</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mceUsername">
+        <Key>
+            <Parameter>mceUsername</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mcePassword">
+        <Key>
+            <Parameter>mcePassword</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.applicationId">
+        <Key>
+            <Parameter>mceApplicationId</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.spikeArrest">
+        <Key>
+            <Parameter>spikeArrest</Parameter>
+        </Key>
+    </Get>
+    <!-- ServicesAPI Flags -->
+    <Get assignTo="du.config.isGetServiceStatusFlag">
+        <Key>
+            <Parameter>isGetServiceStatusFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetServiceParametersFlag">
+        <Key>
+            <Parameter>isGetServiceParametersFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isManageServicesFlag">
+        <Key>
+            <Parameter>isManageServicesFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isCancelScheduledFlag">
+        <Key>
+            <Parameter>isCancelScheduledFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetApplicableAddOnServicesFlag">
+        <Key>
+            <Parameter>isGetApplicableAddOnServicesFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetPrepaidBlackberryServicesFlag">
+        <Key>
+            <Parameter>isGetPrepaidBlackberryServicesFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isVerifyDuNumberFlag">
+        <Key>
+            <Parameter>isVerifyDuNumberFlag</Parameter>
+        </Key>
+    </Get>
+    <!--  -->
+     <Get assignTo="du.config.isGetPrepaidSettingsFlag">
+        <Key>
+            <Parameter>isGetPrepaidSettingsFlag</Parameter>
+        </Key>
+    </Get>
+     <Get assignTo="du.config.isManagePrepaidTopUpFlag">
+        <Key>
+            <Parameter>isManagePrepaidTopUpFlag</Parameter>
+        </Key>
+    </Get>
+     <Get assignTo="du.config.isManagePostpaidDataBundlesFlag">
+        <Key>
+            <Parameter>isManagePostpaidDataBundlesFlag</Parameter>
+        </Key>
+    </Get>
+     <Get assignTo="du.config.isManageMobilePostpaidFlag">
+        <Key>
+            <Parameter>isManageMobilePostpaidFlag</Parameter>
+        </Key>
+    </Get>
+     <Get assignTo="du.config.isManagePrepaidLineFlag">
+        <Key>
+            <Parameter>isManagePrepaidLineFlag</Parameter>
+        </Key>
+    </Get>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

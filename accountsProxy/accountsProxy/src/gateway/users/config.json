@@ -1,0 +1,229 @@
+{
+	"configurations":[
+		{
+			"name": "dev",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "default.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "dev-selfcare-target"
+						}
+					]
+				}
+			]
+		},
+
+		{
+			"name": "tqc",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "default.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "tqc-selfcare-target"
+						}
+					]
+				}
+			]
+		},
+
+		{
+			"name": "cit",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "default.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "cit-selfcare-target"
+						}
+					]
+				}
+			]
+		},
+
+		{
+			"name": "devmajor",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "default.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "devmajor-selfcare-target"
+						}
+					]
+				}
+			]
+		},
+
+		{
+			"name": "tqcmajor",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "default.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "tqcmajor-selfcare-target"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "preprod",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "default.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "preprod-selfcare-target"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "training",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "default.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "training-selfcare-target"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "staging",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "default.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "staging-selfcare-target"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "cittamkeen",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "default.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "cittamkeen-selfcare-target"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "tqctamkeen1",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "default.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "tqctamkeen1-selfcare-target"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "tqctamkeen2",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "default.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "tqctamkeen2-selfcare-target"
+						}
+					]
+				}
+			]
+		}
+
+	]
+}

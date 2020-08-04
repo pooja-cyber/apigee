@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="true" enabled="true" name="SC-CheckVerificationCode">
+    <DisplayName>SC-CheckVerificationCode</DisplayName>
+    <Request clearPayload="true" variable="verificationCodeRequest">
+        <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+        <Set>
+            <Headers>
+                <Header name="Content-Type">application/json</Header>
+                <Header name="Authorization">{request.header.Authorization}</Header>
+            </Headers>
+            <Payload variablePrefix="@" variableSuffix="#">{ "verificationCode" : "@du.api.verificationCode#", "OpFlag" : "@du.api.opflag#" }</Payload>
+            <Verb>POST</Verb>
+        </Set>
+    </Request>
+    <Response>calloutResponse</Response>
+    <Timeout>60000</Timeout>
+    <LocalTargetConnection>
+        <Path>/v1/users/{du.api.selfcareId}/verify-otp</Path>
+    </LocalTargetConnection>
+</ServiceCallout>

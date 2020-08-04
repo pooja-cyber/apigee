@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript async="false" continueOnError="false" enabled="true" timeLimit="200" name="JSC-ExtractManageServices-Payload">
+    <DisplayName>JSC-ExtractManageServices-Payload</DisplayName>
+    <Properties/>
+   <IncludeURL>jsc://JSC-RemoveEmptyTags.js</IncludeURL>
+    <ResourceURL>jsc://JSC-ExtractManageServices-Payload.js</ResourceURL>
+</Javascript>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+     #proxyDefaultFaultRule#
+    <FaultRules>
+       #genericUnhandledExceptionFaultRule#
+        #commonAccessTokenFaultRules#
+        #commonTraficManagementFaultRules#    
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>KVM-GetTargetConfigurations</Name>
+            </Step>
+             #commonProxyPreflowRequest#
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        #pingResourceFlow# 
+         <Flow name="GetBillInformation">
+             <Request>
+                 <Step>
+                     <Name>JSC-CheckRequiredParamsGetBillInfo</Name>
+                 </Step>
+                 <Step>
+                     <Name>JSC-CheckAccessTokenAttributesGetBillInfo</Name>
+                     <Condition>(du.config.isGetBillInformationFlag = "true")</Condition>
+                 </Step>
+                 <Step>
+                     <Name>AM-SOAPPayloadGetBillInformation</Name>
+                 </Step>
+             </Request>
+             <Response>
+                #commonXmlToJsonPolicy#
+                 <Step>
+                     <Name>JSC-CheckDocumentAvailable</Name>
+                 </Step>
+             </Response>
+             <Condition>(request.verb = "GET" and proxy.pathsuffix JavaRegex "(/?)$")</Condition>
+         </Flow>
+         <Flow name="GetBillPdf">
+             <Request>
+                 <Step>
+                     <Name>EV-ExtractDocumentRefNumber</Name>
+                 </Step>
+                 <Step>
+                     <Name>JSC-CheckPdfInSANStorage</Name>
+                 </Step>
+                 <Step>
+                     <Name>AM-SetVariablesForFileDownload</Name>
+                 </Step>
+             </Request>
+             <Response/>
+             <Condition>(proxy.pathsuffix MatchesPath "/{documentRefNumber}/pdf-file" and request.verb = "GET")</Condition>
+        </Flow>
+         <Flow name="GetBillXml">
+             <Request>
+                 <Step>
+                     <Name>EV-ExtractDocumentRefNumber</Name>
+                 </Step>
+                 <Step>
+                     <Name>JSC-CheckXmlInSANStorage</Name>
+                 </Step>
+                 <Step>
+                     <Name>AM-SetVariablesForFileDownload</Name>
+                 </Step>
+             </Request>
+             <Response/>
+             <Condition>(proxy.pathsuffix MatchesPath "/{documentRefNumber}/xml-file" and request.verb = "GET")</Condition>
+        </Flow>
+        #unknownResourceFlowGeneric# 
+   </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+    </PostFlow>
+
+    <HTTPProxyConnection>
+        <BasePath>/v1/billing</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+      #pingResourceRouteRule#
+    <RouteRule name="proxyChainingToSANStorage">
+        <TargetEndpoint>proxyChainingToSANStorage</TargetEndpoint>
+        <Condition>(du.api.route_request = "local")</Condition>
+    </RouteRule>
+    <RouteRule name="mock">
+        <TargetEndpoint>mock</TargetEndpoint>
+        <Condition>(du.config.request.mock = "true")</Condition>
+    </RouteRule>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

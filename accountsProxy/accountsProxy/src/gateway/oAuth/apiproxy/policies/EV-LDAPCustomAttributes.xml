@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-LDAPCustomAttributes">
+    <DisplayName>EV-LDAPCustomAttributes</DisplayName>
+    <Source clearPayload="false">authenticate.response</Source>
+    <VariablePrefix/>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <JSONPayload>
+        <Variable name="du.customerId" type="string">
+            <JSONPath>$.customerId</JSONPath>
+        </Variable>
+        <Variable name="du.accountId" type="string">
+            <JSONPath>$.accountId</JSONPath>
+        </Variable>
+        <Variable name="du.msisdns" type="string">
+            <JSONPath>$.msisdns</JSONPath>
+        </Variable>
+        <Variable name="du.customerCode" type="string">
+            <JSONPath>$.customerCode</JSONPath>
+        </Variable>
+    </JSONPayload>
+</ExtractVariables>

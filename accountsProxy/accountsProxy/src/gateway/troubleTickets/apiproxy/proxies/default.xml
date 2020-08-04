@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    #proxyDefaultFaultRule#
+    <FaultRules>
+    	#genericUnhandledExceptionFaultRule#
+        #commonAccessTokenFaultRules# 
+        #commonTraficManagementFaultRules#
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>KVM-GetTargetConfigurations</Name>
+            </Step>
+            #commonProxyPreflowRequest#
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        #pingResourceFlow#
+        <Flow name="CreateTroubleTickets">
+            <Description>Create Trouble Tickets</Description>
+            <Request>
+                #emptyBodyPayloadCheck#
+                <Step>
+                    <Name>JSC-ExtractAndBuildSoapMessageInJson</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-CreateTroubleTicketSoapPayload</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>((proxy.pathsuffix JavaRegex "(/?)$") and ( request.verb = "POST"))</Condition>
+        </Flow>
+        <Flow name="GetTroubleTickets">
+            <Description>Get Trouble Tickets By TroubleTicketId</Description>
+            <Request>
+                <Step>
+                    <Name>EV-ExtractVariablesForGetTroubleTicketInfo</Name>
+                </Step>
+                <Step>
+                    <Name>AM-MissingTroubleTicketId</Name>
+                    <Condition>(trouble_ticket_id = null)</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-BuildGetTroubleTicketSoapMessage</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>( proxy.pathsuffix Matches "/{trouble_ticket_id}") and ( request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="GetTroubleTicketsByAccountId">
+            <Description>Get Trouble Tickets By AccountId or Status</Description>
+            <Request> 
+                <Step>
+                    <Name>AM-MissingFilterParameters</Name>
+                    <Condition>(request.queryparam.account_id = null)</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-AccountIdNotInToken</Name>
+                    <Condition>((request.queryparam.account_id != accesstoken.customer_code) and (du.config.isGetTTInfoFlag = true))</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-BuildSoapMessageGetTroubleTicketByFilters</Name>
+                </Step>
+            </Request>
+            <Response></Response>
+            <Condition>((proxy.pathsuffix JavaRegex "(/?)$") and ( request.verb = "GET"))</Condition>
+        </Flow>
+        #unknownResourceFlowGeneric#
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Response>
+        #commonProxyPostflowResponse#
+        </Response>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/v1/trouble-tickets</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+        <!-- Comment/Remove the Virtual Host-secure while deploying API Proxy in Organization dudev -->
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    #pingResourceRouteRule#
+    <RouteRule name="mock">
+        <TargetEndpoint>mock</TargetEndpoint>
+        <Condition>(du.config.request.mock = "true")</Condition>
+    </RouteRule>
+     <RouteRule name="mce">
+        <TargetEndpoint>mce</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

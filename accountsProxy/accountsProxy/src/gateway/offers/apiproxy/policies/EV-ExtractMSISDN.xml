@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables match="first" async="false" continueOnError="false" enabled="true" name="EV-ExtractMSISDN">
+    <DisplayName>EV-ExtractMSISDN</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <URIPath>
+        <Pattern ignoreCase="true">/{msisdn}/bundles</Pattern>
+    </URIPath>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</ExtractVariables>

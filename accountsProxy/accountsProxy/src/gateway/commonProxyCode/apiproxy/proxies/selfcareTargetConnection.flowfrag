@@ -1,0 +1,15 @@
+<HTTPTargetConnection>
+    <LoadBalancer>
+        <MaxFailures>0</MaxFailures>
+        <RetryEnabled>true</RetryEnabled>
+        <Server name="TOBEREPLACED">
+            <IsEnabled>true</IsEnabled>
+        </Server>
+    </LoadBalancer>
+    <Path>{du.config.selfcareTargetBasepath}</Path>
+    <Properties>
+            <Property name="keepalive.timeout.millis">300000</Property>
+            <Property name="connect.timeout.millis">300000</Property>
+            <Property name="io.timeout.millis">300000</Property>
+        </Properties>
+</HTTPTargetConnection>

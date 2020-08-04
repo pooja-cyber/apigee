@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<StatisticsCollector async="false" continueOnError="false" enabled="true" name="SC-CaptureOrdersStatistics">
+    <DisplayName>SC-CaptureOrdersStatistics</DisplayName>
+    <Properties/>
+    <Statistics>
+        <Statistic name="OrderId" ref="orderId" type="STRING">0</Statistic>
+        <Statistic name="publicId" ref="publicId" type="STRING">0</Statistic>
+        <Statistic name="portalOrderNumber" ref="portalOrderNumber" type="STRING">0</Statistic>
+        <Statistic name="type" ref="du.api.type" type="STRING">0</Statistic>
+        <Statistic name="accountCode" ref="du.api.accountCode" type="STRING">0</Statistic>
+        <Statistic name="ActionCode" ref="du.api.ActionCode" type="STRING">0</Statistic>
+        <Statistic name="ProductType" ref="du.api.ProductType" type="STRING">0</Statistic>
+        <Statistic name="ServiceAccount" ref="du.api.ServiceAccount" type="STRING">0</Statistic>
+        <Statistic name="Name" ref="du.api.Name" type="STRING">0</Statistic>
+        <Statistic name="OrderItem" ref="du.api.OrderItem" type="STRING">0</Statistic>
+        <Statistic name="OrderType" ref="du.api.OrderType" type="STRING">0</Statistic>
+        <Statistic name="Value" ref="du.api.Value" type="STRING">0</Statistic>
+        <Statistic name="QuantityRequested" ref="du.api.QuantityRequested" type="STRING">0</Statistic>
+
+    </Statistics>
+</StatisticsCollector>

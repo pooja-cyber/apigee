@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables name="EV-GetJsonPayloadVariables" async="false" continueOnError="false" enabled="true">
+   <DisplayName>EV-GetJsonPayloadVariables</DisplayName>
+   <!-- Extracting Variables from JSON Payload -->
+   <JSONPayload>
+      <Variable name="activityId" type="string">
+         <JSONPath>$.ActivityId</JSONPath>
+      </Variable>
+     <Variable name="created" type="string">
+         <JSONPath>$.Created</JSONPath>
+      </Variable>
+     <Variable name="accountId" type="string">
+         <JSONPath>$.AccountId</JSONPath>
+      </Variable>
+     <Variable name="accountNumber" type="string">
+         <JSONPath>$.AccountNumber</JSONPath>
+      </Variable>
+     <Variable name="description" type="string">
+         <JSONPath>$.Description</JSONPath>
+      </Variable>
+     <Variable name="id" type="string">
+         <JSONPath>$.Id</JSONPath>
+      </Variable>
+     <Variable name="status" type="string">
+         <JSONPath>$.Status</JSONPath>
+      </Variable>
+     <Variable name="type" type="string">
+         <JSONPath>$.Type</JSONPath>
+      </Variable>
+     <Variable name="entityType" type="string">
+         <JSONPath>$.EntityType</JSONPath>
+      </Variable>
+   </JSONPayload>
+   <!--  -->
+   <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+   <Source>request</Source>
+</ExtractVariables>

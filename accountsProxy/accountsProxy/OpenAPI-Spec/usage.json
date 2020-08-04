@@ -1,0 +1,1696 @@
+{
+    "swagger": "2.0",
+    "host": "172.24.122.149:9001",
+    "schemes": [
+        "http"
+    ],
+    "info": {
+        "description": "Open API Specification for Usage API",
+        "title": "Open API Specification for Usage API",
+        "version": "0.0.1",
+        "termsOfService": "http://example.com/about/terms",
+        "contact": {
+            "name": "api.developer",
+            "url": "http://example.com/contact",
+            "email": "api.developer@du.ae"
+        },
+        "license": {
+            "name": "DU License",
+            "url": "http://api.developer.du.ae/license"
+        }
+    },
+    "definitions": {
+        "ErrorSchema": {
+            "description": "Error Schema",
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "Error Code"
+                },
+                "error": {
+                    "type": "string",
+                    "description": "Error Description"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error Message"
+                }
+            }
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/usage/data/{msisdn}/notification-thresholds": {
+            "get": {
+                "description": "Get Data Usage Notification Thresholds",
+                "summary": "Get Data Usage Notification Thresholds",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getDataUsageNotificationThresholds",
+                "tags": [
+                    "usage"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "ResultOfOperationReply": {
+                                    "type": "object",
+                                    "properties": {
+                                        "BeId": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "BusiSeq": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ResultCode": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ResultMessage": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "TransactionId": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Version": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "BeId",
+                                        "BusiSeq",
+                                        "ResultCode",
+                                        "ResultMessage",
+                                        "TransactionId",
+                                        "Version"
+                                    ]
+                                },
+                                "AccountLevelInfo": {
+                                    "type": "object",
+                                    "properties": {
+                                        "ObjectType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "AccountObject": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "LevelList": {
+                                            "type": "object",
+                                            "properties": {
+                                                "EntityInfo": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "ParamKey": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "ParamValue": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "ParamKey",
+                                                        "ParamValue"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "EntityInfo"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "ObjectType",
+                                        "AccountObject",
+                                        "LevelList"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "ResultOfOperationReply",
+                                "AccountLevelInfo",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer reNYU9XSSYeHEBhxKViBfVCLyTV4"
+                    },
+                    {
+                        "in": "path",
+                        "name": "msisdn",
+                        "description": "Msisdn Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            },
+            "post": {
+                "description": "Set Data Usage Notfication Thresholds",
+                "summary": "Set Data Usage Notification Thresholds",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "setDataUsageNotificationThresholds",
+                "tags": [
+                    "usage"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer mGgJ5vo6U4HcIXGX7w8AaHfkVYXj"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "AccessSessionRequest": {
+                                    "type": "object",
+                                    "properties": {
+                                        "accessChannel": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "beId": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "language": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "operatorCode": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "password": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "transactionId": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "version": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "accessChannel",
+                                        "beId",
+                                        "language",
+                                        "operatorCode",
+                                        "password",
+                                        "transactionId",
+                                        "version"
+                                    ]
+                                },
+                                "SubscrberValue": {
+                                    "type": "object",
+                                    "properties": {
+                                        "entityInfo": {
+                                            "type": "array",
+                                            "uniqueItems": true,
+                                            "minItems": 1,
+                                            "items": {
+                                                "required": [
+                                                    "paramKey",
+                                                    "paramValue"
+                                                ],
+                                                "properties": {
+                                                    "paramKey": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "paramValue": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "entityInfo"
+                                    ]
+                                },
+                                "AccountLevelInfos": {
+                                    "type": "object",
+                                    "properties": {
+                                        "objectType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "accountObject": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "levelList": {
+                                            "type": "array",
+                                            "uniqueItems": true,
+                                            "minItems": 1,
+                                            "items": {
+                                                "required": [
+                                                    "level",
+                                                    "sequenceNo",
+                                                    "action"
+                                                ],
+                                                "properties": {
+                                                    "level": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "sequenceNo": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "action": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "objectType",
+                                        "accountObject",
+                                        "levelList"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "AccessSessionRequest",
+                                "SubscrberValue",
+                                "AccountLevelInfos"
+                            ]
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "msisdn",
+                        "description": "Msisdn Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/usage/postpaid/bundles-balance": {
+            "get": {
+                "description": "Get Postpaid Bundles Balance",
+                "summary": "Get Postpaid Bundels Balance By Additional Parameters",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getPostpaidBundlesBalanceByAdditionalParameters",
+                "tags": [
+                    "usage"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "Items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "UnitOfMeasurement": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ActivationDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "BalanceDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ExpiryDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ExpDateCarryOver": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "FreeUnitApplied": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "FreeUnitCarryOver": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "FreeUnitGranted": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "FreeUnitName": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "FreeUnitElemntSeq": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "FreeUnitPackageVersion": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "LastEventDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "AccountingPeriodFrom": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "AccountingPeriodTo": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Balance": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ServiceDescription": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ApplicationPeriodType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "FreeUnitApplyPeriodLength": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "UnitOfMeasurement",
+                                        "ActivationDate",
+                                        "BalanceDate",
+                                        "ExpiryDate",
+                                        "ExpDateCarryOver",
+                                        "FreeUnitApplied",
+                                        "FreeUnitCarryOver",
+                                        "FreeUnitGranted",
+                                        "FreeUnitName",
+                                        "FreeUnitElemntSeq",
+                                        "FreeUnitPackageVersion",
+                                        "LastEventDate",
+                                        "AccountingPeriodFrom",
+                                        "AccountingPeriodTo",
+                                        "Balance",
+                                        "ServiceDescription",
+                                        "ApplicationPeriodType",
+                                        "FreeUnitApplyPeriodLength"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "Items",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "msisdn",
+                        "description": "Msisdn Number(Conditional Mandatory-Either Msisdn or Contract Id is mandatory)",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "contract_id",
+                        "description": "Contract Id(Conditional Mandatory-Either Msisdn or Contract Id is mandatory)",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "contract_id_pub",
+                        "description": "Contract Id Pub",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "bscs_con_type",
+                        "description": "Bscs Con Type",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "show_expired_fup",
+                        "description": "Show Expired Fup",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer reNYU9XSSYeHEBhxKViBfVCLyTV4"
+                    }
+                ]
+            }
+        },
+        "/usage/prepaid/{msisdn}/bundles-balance": {
+            "get": {
+                "description": "Get Prepaid Bundles Balance By Msisdn",
+                "summary": "Get Prepaid Bundles balance By Msisdn",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getPrepaidBundlesBalanceByMsisdn",
+                "tags": [
+                    "usage"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "MsisDn": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "AccountNumber": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "Product": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ServiceProvider": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "Status": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CreationDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "WalletExpiryDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "BalanceExpiryDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "Balance": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "InitialBalance": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "Language": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "Balances": {
+                                    "type": "object",
+                                    "properties": {
+                                        "BalanceItem": {
+                                            "type": "object",
+                                            "properties": {
+                                                "BalanceName": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Bucket": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "BucketValue": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "BucketExpiry": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "BucketValue",
+                                                        "BucketExpiry"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "BalanceName",
+                                                "Bucket"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "BalanceItem"
+                                    ]
+                                },
+                                "LastRechargeDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "LastCCRechargeDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "LastUseDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "LastRechargeAmount": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "PrevWalletExpiryDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "PrevBalanceExpiryDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "PrevBalance": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "LastExpCredit": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "TotalExpCredit": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "LastExpDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "FirstActivationDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "LastStateChangeDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "LastStateChangeReason": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "BypassNumber": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "WalletType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CharginDomain": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "FFD": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "FFN": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Number": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "Number"
+                                    ]
+                                },
+                                "FDN": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CUG": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Name": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "Name"
+                                    ]
+                                },
+                                "Currency": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "WalletID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "LastRpSwap": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ActivationDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "MsisDn",
+                                "AccountNumber",
+                                "Product",
+                                "ServiceProvider",
+                                "Status",
+                                "CreationDate",
+                                "WalletExpiryDate",
+                                "BalanceExpiryDate",
+                                "Balance",
+                                "InitialBalance",
+                                "Language",
+                                "Balances",
+                                "LastRechargeDate",
+                                "LastCCRechargeDate",
+                                "LastUseDate",
+                                "LastRechargeAmount",
+                                "PrevWalletExpiryDate",
+                                "PrevBalanceExpiryDate",
+                                "PrevBalance",
+                                "LastExpCredit",
+                                "TotalExpCredit",
+                                "LastExpDate",
+                                "FirstActivationDate",
+                                "LastStateChangeDate",
+                                "LastStateChangeReason",
+                                "BypassNumber",
+                                "WalletType",
+                                "CharginDomain",
+                                "FFD",
+                                "FFN",
+                                "FDN",
+                                "CUG",
+                                "Currency",
+                                "WalletID",
+                                "LastRpSwap",
+                                "ActivationDate",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "balance_type",
+                        "description": "Balance Type",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "wallet_type",
+                        "description": "Wallet type",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "list_type",
+                        "description": "List Type",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " Bearer TVYcjGXGCFLcAvSx6r94UAA8kI20"
+                        ]
+                    },
+                    {
+                        "in": "path",
+                        "name": "msisdn",
+                        "description": "Msisdn Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/usage/postpaid/{msisdn}/bundles-balance": {
+            "get": {
+                "description": "Get Postpaid Data Bundles By Msisdn",
+                "summary": "Get Postpaid Data Bundles By msisdn",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getPostpaidDataBundlesByMsisdn",
+                "tags": [
+                    "usage"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "Items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "UnitOfMeasurement": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ActivationDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "BalanceDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ExpiryDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ExpDateCarryOver": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "FreeUnitApplied": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "FreeUnitCarryOver": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "FreeUnitGranted": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "FreeUnitName": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "FreeUnitElemntSeq": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "FreeUnitPackageVersion": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "LastEventDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "AccountingPeriodFrom": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "AccountingPeriodTo": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Balance": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ServiceDescription": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ApplicationPeriodType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "FreeUnitApplyPeriodLength": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "UnitOfMeasurement",
+                                        "ActivationDate",
+                                        "BalanceDate",
+                                        "ExpiryDate",
+                                        "ExpDateCarryOver",
+                                        "FreeUnitApplied",
+                                        "FreeUnitCarryOver",
+                                        "FreeUnitGranted",
+                                        "FreeUnitName",
+                                        "FreeUnitElemntSeq",
+                                        "FreeUnitPackageVersion",
+                                        "LastEventDate",
+                                        "AccountingPeriodFrom",
+                                        "AccountingPeriodTo",
+                                        "Balance",
+                                        "ServiceDescription",
+                                        "ApplicationPeriodType",
+                                        "FreeUnitApplyPeriodLength"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "Items",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "show_expired_fup",
+                        "description": "Show Expired Fup",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer reNYU9XSSYeHEBhxKViBfVCLyTV4"
+                    },
+                    {
+                        "in": "path",
+                        "name": "msisdn",
+                        "description": "Msisdn Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/usage/prepaid/{msisdn}": {
+            "get": {
+                "description": "Get Prepaid Usage",
+                "summary": "Get Prepaid Usgae",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getPrepaidUsage",
+                "tags": [
+                    "usage"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "Msisdn": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "Edr": {
+                                    "type": "object",
+                                    "properties": {
+                                        "RecordDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "WalletType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "EdrType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ChargingDomainId": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "CallId": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ScpId": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "SequenceNumber": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ExtraInformation": {
+                                            "type": "object",
+                                            "properties": {
+                                                "EventClass": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "EventName": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Nack": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Tcs": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "AccountType": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "AcsCustId": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Balances": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "Balance": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "Balance"
+                                                    ]
+                                                },
+                                                "BalanceTypes": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "BalanceType": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "BalanceType"
+                                                    ]
+                                                },
+                                                "BonusType": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Costs": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "Cost": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "Cost"
+                                                    ]
+                                                },
+                                                "Cs": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "DiscountType": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Discounts": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "Discount": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "Discount"
+                                                    ]
+                                                },
+                                                "Duration": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Tn": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Host": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "NewBalanceExpiries": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "NewBalanceExpirie": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "NewBalanceExpirie"
+                                                    ]
+                                                },
+                                                "OldBalanceExpiries": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "OldBalanceExpirie": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "OldBalanceExpirie"
+                                                    ]
+                                                },
+                                                "NewAcctExpiry": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "NewAcctState": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "OldAcctExpiry": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "OldAcctState": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Pi": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Reference": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Result": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "User": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "VoucherType": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "TypeDescription": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Voucher": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "VoucherNumber": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "WalletType": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Fca": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Channel": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Imei": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "OrigValue": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "EventCount": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "EventClass",
+                                                "EventName",
+                                                "Nack",
+                                                "Tcs",
+                                                "AccountType",
+                                                "AcsCustId",
+                                                "Balances",
+                                                "BalanceTypes",
+                                                "BonusType",
+                                                "Costs",
+                                                "Cs",
+                                                "DiscountType",
+                                                "Discounts",
+                                                "Duration",
+                                                "Tn",
+                                                "Host",
+                                                "NewBalanceExpiries",
+                                                "OldBalanceExpiries",
+                                                "NewAcctExpiry",
+                                                "NewAcctState",
+                                                "OldAcctExpiry",
+                                                "OldAcctState",
+                                                "Pi",
+                                                "Reference",
+                                                "Result",
+                                                "User",
+                                                "VoucherType",
+                                                "TypeDescription",
+                                                "Voucher",
+                                                "VoucherNumber",
+                                                "WalletType",
+                                                "Fca",
+                                                "Channel",
+                                                "Imei",
+                                                "OrigValue",
+                                                "EventCount"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "RecordDate",
+                                        "WalletType",
+                                        "EdrType",
+                                        "ChargingDomainId",
+                                        "CallId",
+                                        "ScpId",
+                                        "SequenceNumber",
+                                        "ExtraInformation"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "Msisdn",
+                                "Edr",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "edr_types",
+                        "description": "Edr Types",
+                        "type": "string",
+                        "required": false,
+                        "default": "4,8,9"
+                    },
+                    {
+                        "in": "query",
+                        "name": "max_records",
+                        "description": "Max Records",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "days",
+                        "description": "Number of Days",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "end_date",
+                        "description": "End Date",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "start_date",
+                        "description": "Start date",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 9tkxkJ8g9AQxuVoAcdKnfUNK4MfW"
+                    },
+                    {
+                        "in": "path",
+                        "name": "msisdn",
+                        "description": "Msisdn Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        }
+    },
+    "security": [
+        {
+            "OauthSecurity": []
+        }
+    ],
+    "securityDefinitions": {
+        "OauthSecurity": {
+            "type": "oauth2",
+            "flow": "password",
+            "description": "oAuth 2.0 security implementation",
+            "tokenUrl": "http://172.24.122.149:9001/v1/oauth/token"
+        }
+    }
+}

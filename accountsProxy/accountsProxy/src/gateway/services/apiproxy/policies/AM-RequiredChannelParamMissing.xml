@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-RequiredChannelParamMissing">
+    <DisplayName>AM-RequiredChannelParamMissing</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <AssignVariable>
+        <Name>api-error.error</Name>
+        <Value>MissingParameter</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.code</Name>
+        <Value>NB_40002</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.message</Name>
+        <Value>Channel is required parameter.</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.status_code</Name>
+        <Value>400</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.reason_phrase</Name>
+        <Value>Bad Request</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.raise_fault</Name>
+        <Ref>api-error.variable_raise_fault</Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <AssignTo type="request" transport="http" createNew="false"/>
+</AssignMessage>

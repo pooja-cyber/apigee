@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    #proxyDefaultFaultRule#
+    <FaultRules>
+        #genericUnhandledExceptionFaultRule#
+        #commonAccessTokenFaultRules#
+        #commonTraficManagementFaultRules#
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+             <Step>
+                <Name>KVM-GetTargetConfigurations</Name>
+            </Step>
+        #commonProxyPreflowRequest#
+            <Step>
+                <Name>EV-GetCustomerCommonVariables</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        #pingResourceFlow#
+  <!-- Add during reverse shadow for getAccountLegalFlag Resource-->
+        <Flow name="getAccountLegalFlag">
+            <Description>Get Account Legal Flag</Description>
+           <Request>
+           		<Step>
+                    <Name>JSC-CheckCustomerId</Name>
+                </Step>
+           		<Step>
+                    <Name>AM-CustomerIDNotInToken</Name>
+                    <Condition>((customerId != accesstoken.customer_id) and(du.config.isAccountLegalFlag = true))</Condition>
+                </Step>
+           		 <Step>
+                    <Name>AM-GetAccountLegalFlag</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/{customerId}/legalflag") and (request.verb = "GET")</Condition>
+        </Flow>
+    <!-- End for getAccountLegalFlag Resource-->    
+        
+        <Flow name="SetUserPreferredLanguage">
+            <Description>Set User Preferred Language</Description>
+            <Request>
+                <Step>
+                    <Name>AM-CustomerIDNotInToken</Name>
+                    <Condition>((customerId != accesstoken.customer_id) and(du.config.isSetUserPreferredLanguage = true))</Condition>
+                </Step>
+                #emptyBodyPayloadCheck#
+                <Step>
+                    <Name>JSC-CheckAndBuildJsonSOAPUserPreferredLang</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-BuildSoapRequest</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/{msisdn}/language") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="SetUserPreferredLanguageByMsisdn">
+            <Description>SetUserPreferredLanguageByMsisdn</Description>
+            <Request>
+                <Step>
+                    <Name>JSC-CheckCustomerId</Name>
+                </Step>
+                <Step>
+                    <Name>AM-CustomerIDNotInToken</Name>
+                    <Condition>((customerId != accesstoken.customer_id) and (du.config.isSetUserPreferredLanguageFlag = true))</Condition>
+                </Step>
+                #emptyBodyPayloadCheck#
+                <Step>
+                    <Name>JSC-CheckMsisdnSetUserPreferredLanguage</Name>  
+                </Step>
+                <Step>
+                    <Name>JSC-CheckAndBuildJsonSOAPUserPreferredLang</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-BuildSoapRequest</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/{customerId}/language") and (request.verb = "PUT")</Condition>
+        </Flow>
+        <Flow name="GetCustomer">
+            <Description>Get Customer Information</Description>
+            <!-- GetCustomer Conditional Flow -->
+            <Request>
+                <Step>
+                    <Name>JSC-CheckRequiredParamsGetCustomer</Name>
+                </Step> 
+                <Step>
+                    <Name>AM-SOAPPayloadGetCustomer</Name>
+                    <Condition>(request.queryparam.document_number != null)</Condition>
+                </Step>
+                <!-- GetCustomerInformation Conditional Flow -->
+                <Step>
+                    <Name>AM-CustomerIDNotInToken</Name>
+                    <Condition>((request.queryparam.customer_id != accesstoken.customer_id) and (request.queryparam.customer_id != null) and (du.config.isGetCustomerInformationFlag = true))</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-CustomerCodeNotInToken</Name>
+                    <Condition>((request.queryparam.customer_code != accesstoken.customer_code) and (request.queryparam.customer_code != null) and (du.config.isGetCustomerInformationFlag = true))</Condition>
+                </Step>
+                <Step>
+                    <Name>JSC-MSISDNNoInToken</Name>
+                    <Condition>((request.queryparam.dir_num != null) and (du.config.isGetCustomerInformationFlag = true))</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-GetCustomerInformationPayload</Name>
+                    <Condition>( request.queryparam.customer_id != null or request.queryparam.customer_code != null or request.queryparam.dir_num != null)</Condition>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>((proxy.pathsuffix JavaRegex "(/?)$") and (request.verb = "GET"))</Condition>
+        </Flow>
+        <Flow name="GetCustomerContracts">
+            <Description>Get Customer Contracts for Customer Id</Description>
+            <Request>
+                <Step>
+                    <Name>JSC-CheckCustomerId</Name>
+                </Step>
+                <Step>
+                    <Name>AM-CustomerIDNotInToken</Name>
+                    <Condition>((customerId != accesstoken.customer_id) and (du.config.isGetCustomerAndContractsFlag = true))</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-GetCustomerandContracts</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/{customerId}/contracts") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="ManageCustomerProfile">
+            <Description>Manage Customer Profile Information</Description>
+            <Request>
+                <Step>
+                    <Name>JSC-CheckCustomerId</Name>
+                </Step>
+                <Step>
+                    <Name>AM-CustomerIDNotInToken</Name>
+                    <Condition>((customerId != accesstoken.customer_id) and (du.config.isManageCustomerProfileInfoFlag = true))</Condition>
+                </Step>
+                #emptyBodyPayloadCheck#
+                <Step>
+                    <Name>JSC-ExtractManageCustomerInput</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-ManageCustomerSoapPayload</Name>
+                </Step>
+            </Request>
+            <Response/>
+                <Condition>(proxy.pathsuffix MatchesPath "/{customerId}/profiles") and (request.verb = "PUT")</Condition>
+        </Flow>
+        <Flow name = "GetRequestHistory">
+            <Description>Get Request History</Description>
+            <Request>
+                <Step>
+                    <Name>JSC-CheckCustomerId</Name>
+                </Step>
+                <Step>
+                    <Name>AM-CustomerIDNotInToken</Name>
+                    <Condition>((customerId != accesstoken.customer_id) and (du.config.isGetRequestHistoryFlag = true))</Condition>
+                </Step>
+                <Step>
+                    <Name>JSC-BuildSoapPayloadGetRequestHistory</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step> 
+                    <Name>AM-SoapPayloadGetRequestHistory</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/{customerId}/requests") and (request.verb = "GET") </Condition>
+        </Flow>
+        <Flow name="ChangeCustomerDetails">
+            <Request>
+                <Step>
+                    <Name>JSC-CheckCustomerId</Name>
+                </Step>
+                <Step>
+                    <Name>AM-CustomerIDNotInToken</Name>
+                    <Condition>((customerId != accesstoken.customer_id) and (du.config.isChangeCustomerDetailsFlag = true))</Condition>
+                </Step>
+                #emptyBodyPayloadCheck#
+                <Step>
+                    <Name>JSC-BuildJSONSoapPayloadChangeCustomerDetails</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-SOAPPayloadChangeCustomerDetails</Name>
+                </Step>
+            </Request>
+            <Response></Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/{customerId}") and (request.verb = "PUT")</Condition>
+        </Flow>
+        #unknownResourceFlowGeneric#
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+            #commonProxyPostflowResponse#
+        </Response>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/v1/customers</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+        <!-- Comment/Remove the Virtual Host-secure while deploying API Proxy in Organization dudev -->
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    #pingResourceRouteRule#
+    <RouteRule name="mock">
+        <TargetEndpoint>mock</TargetEndpoint>
+        <Condition>(du.config.request.mock = "true")</Condition>
+    </RouteRule>
+    <RouteRule name="mce">
+        <TargetEndpoint>mce</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

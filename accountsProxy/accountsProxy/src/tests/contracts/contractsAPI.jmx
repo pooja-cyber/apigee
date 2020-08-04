@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.9" jmeter="3.0 r1743807">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Customers API" enabled="true">
+      <stringProp name="TestPlan.comments">Customers API</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Contracts API Test" enabled="true">
+        <stringProp name="TestPlan.comments">Contracts API Test</stringProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1471612512000</longProp>
+        <longProp name="ThreadGroup.end_time">1471612512000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>true</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">172.24.122.149</stringProp>
+          <stringProp name="HTTPSampler.port">9001</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <stringProp name="TestPlan.comments">Common Request Parameters</stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get OAuth Tokens" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="username" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value">jongossy</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">username</stringProp>
+              </elementProp>
+              <elementProp name="password" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value">flomaygo</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">password</stringProp>
+              </elementProp>
+              <elementProp name="grant_type" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value">password</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">grant_type</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/oauth/token</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Get OAuth Access Token and Refresh Token</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic SDdXVTVTVVJocTVDdXJldmQ3czF3RktSUktVcVcwM3Q6RGptdFJIT2ZBcTdjM3BhTw==</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Header Data</stringProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract OAuth Access Token" enabled="true">
+            <stringProp name="TestPlan.comments">Extract OAuth Access Token</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">access_token</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.access_token</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract OAuth Refresh Token" enabled="true">
+            <stringProp name="TestPlan.comments">Extract OAuth Refresh  Token</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">refresh_token</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.refresh_token</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ping Resource" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/contracts/ping</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Check for ping response from API</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Ping Response" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Response from ping request to API</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token-Header" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token for Ping Request</stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Change Contract Service Parameters-Success" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;COM&quot;: {&#xd;
+    &quot;DOCUMENT&quot;: {&#xd;
+      &quot;DOCUMENT_ID&quot;: &quot;&quot;,&#xd;
+      &quot;DOCUMENT_DATE&quot;: &quot;&quot;,&#xd;
+      &quot;DOCUMENT_NUMBER&quot;: &quot;&quot;,&#xd;
+      &quot;DOCUMENT_TYPE&quot;: &quot;&quot;,&#xd;
+      &quot;DOCUMENT_STATUS&quot;: &quot;&quot;,&#xd;
+      &quot;DOCUMENT_ACTION&quot;: &quot;&quot;,&#xd;
+      &quot;SEGMENT&quot;: &quot;&quot;,&#xd;
+      &quot;DOCUMENT_CLOSURE_DATE&quot;: &quot;&quot;,&#xd;
+      &quot;DOCUMENT_CREATED_DATE&quot;: &quot;&quot;,&#xd;
+      &quot;CUSTOMER&quot;: {&#xd;
+        &quot;CORRELATION&quot;: {&#xd;
+          &quot;CORRELATION_ID&quot;: &quot;&quot;,&#xd;
+          &quot;CORRELATION_DATE&quot;: &quot;&quot;,&#xd;
+          &quot;CORRELATION_NUMBER&quot;: &quot;&quot;,&#xd;
+          &quot;CORRELATION_TYPE&quot;: &quot;&quot;,&#xd;
+          &quot;STATUS&quot;: &quot;&quot;,&#xd;
+          &quot;DESCRIPTION&quot;: &quot;&quot;&#xd;
+        },&#xd;
+        &quot;CUSTOMER_ID&quot;: &quot;&quot;,&#xd;
+        &quot;CUSTOMER_ID_PUB&quot;: &quot;&quot;,&#xd;
+        &quot;CUSTOMER_PARENT&quot;: &quot;&quot;,&#xd;
+        &quot;CUSTOMER_CODE&quot;: &quot;&quot;,&#xd;
+        &quot;CUSTOMER_LEVEL&quot;: &quot;&quot;,&#xd;
+        &quot;ACTIVITY&quot;: {&#xd;
+          &quot;ACTIVITY_ID&quot;: &quot;&quot;,&#xd;
+          &quot;TYPE&quot;: &quot;&quot;,&#xd;
+          &quot;DESCRIPTION&quot;: &quot;&quot;,&#xd;
+          &quot;STATUS&quot;: &quot;&quot;&#xd;
+        },&#xd;
+        &quot;NAME&quot;: &quot;&quot;,&#xd;
+        &quot;TYPE&quot;: &quot;&quot;,&#xd;
+        &quot;CUSTOMER_SEGMENT&quot;: &quot;&quot;,&#xd;
+        &quot;INDUSTRY&quot;: &quot;&quot;,&#xd;
+        &quot;WEB_ADDRESS&quot;: &quot;&quot;,&#xd;
+        &quot;NUMBER_OF_EMPLOYEES&quot;: &quot;&quot;,&#xd;
+        &quot;NATURE_OF_BUSINESS&quot;: &quot;&quot;,&#xd;
+        &quot;PAYMENT_RESPONSIBLE_FLAG&quot;: &quot;&quot;,&#xd;
+        &quot;CONTRACT_RESPONSIBLE_FLAG&quot;: &quot;&quot;,&#xd;
+        &quot;VOICE_LANGUAGE_ID&quot;: &quot;&quot;,&#xd;
+        &quot;PASSWORD&quot;: &quot;&quot;,&#xd;
+        &quot;ACTIVATION_DATE&quot;: &quot;&quot;,&#xd;
+        &quot;VISA_NUMBER&quot;: &quot;&quot;,&#xd;
+        &quot;VISA_TYPE&quot;: &quot;&quot;,&#xd;
+        &quot;HOLDER_PARENT_ENTERPRISE_NAME&quot;: &quot;&quot;,&#xd;
+        &quot;HOLDER_REGISTRATION_DATE&quot;: &quot;&quot;,&#xd;
+        &quot;HOLDER_PHONE_NUMBER&quot;: &quot;&quot;,&#xd;
+        &quot;HOLDER_ORGANIZATION_TYPE&quot;: &quot;&quot;,&#xd;
+        &quot;PERSON_TO_CONTACT&quot;: &quot;&quot;,&#xd;
+        &quot;PHONE_NUMBER&quot;: &quot;&quot;,&#xd;
+        &quot;FAX_NUMBER&quot;: &quot;&quot;,&#xd;
+        &quot;EMAIL_ADDRESS&quot;: &quot;&quot;,&#xd;
+        &quot;SALES_CHANNEL&quot;: &quot;&quot;,&#xd;
+        &quot;SALES_MARKET&quot;: &quot;&quot;,&#xd;
+        &quot;SALES_OUTLET&quot;: &quot;&quot;,&#xd;
+        &quot;SALES_AGENT&quot;: &quot;&quot;,&#xd;
+        &quot;SALES_AGENT_LOCATION&quot;: &quot;&quot;,&#xd;
+        &quot;REGISTRATION_CERTIFICATE_FLAG&quot;: &quot;&quot;,&#xd;
+        &quot;CONTRACT_FORM_FLAG&quot;: &quot;&quot;,&#xd;
+        &quot;DIRECT_DEBIT_FORM_FLAG&quot;: &quot;&quot;,&#xd;
+        &quot;LETTER_AUTHORITHY_FLAG&quot;: &quot;&quot;,&#xd;
+        &quot;CREDIT_FORM_FLAG&quot;: &quot;&quot;,&#xd;
+        &quot;PASSPORT_COPY_FLAG&quot;: &quot;&quot;,&#xd;
+        &quot;ANNUAL_SALES&quot;: &quot;&quot;,&#xd;
+        &quot;DEBIT_LEVEL&quot;: &quot;&quot;,&#xd;
+        &quot;NET_WORTH&quot;: &quot;&quot;,&#xd;
+        &quot;ANNUAL_PROFIT&quot;: &quot;&quot;,&#xd;
+        &quot;INITIAL_CUSTOMER_STATUS&quot;: &quot;&quot;,&#xd;
+        &quot;CUSTOMER_STATUS&quot;: &quot;&quot;,&#xd;
+        &quot;STATUS_REASON&quot;: &quot;&quot;,&#xd;
+        &quot;PREFERRED_BILL_ACCOUNT&quot;: &quot;&quot;,&#xd;
+        &quot;MONTHLY_CUSTOMER_INCOME&quot;: &quot;&quot;,&#xd;
+        &quot;SUPPRESS_MARKETING_CALLS_FLAG&quot;: &quot;&quot;,&#xd;
+        &quot;IDENTIFICATION_DOCUMENT&quot;: {&#xd;
+          &quot;DOCUMENT_TYPE&quot;: &quot;&quot;,&#xd;
+          &quot;DOCUMENT_NUMBER&quot;: &quot;&quot;,&#xd;
+          &quot;EXPIRE_DATE&quot;: &quot;&quot;,&#xd;
+          &quot;PLACE_OF_ISSUE&quot;: &quot;&quot;&#xd;
+        },&#xd;
+        &quot;CREATION_DATE&quot;: &quot;&quot;,&#xd;
+        &quot;STATUS_DATE&quot;: &quot;&quot;,&#xd;
+        &quot;TERMS&quot;: &quot;&quot;,&#xd;
+        &quot;COST_CENTER&quot;: &quot;&quot;,&#xd;
+        &quot;INVOICE_LANGUAGE&quot;: &quot;&quot;,&#xd;
+        &quot;ITEMIZED_INVOICE&quot;: &quot;&quot;,&#xd;
+        &quot;BANK_GUARANTEE_AMOUNT&quot;: &quot;&quot;,&#xd;
+        &quot;MANUAL_MANAGEMENT_FLAG&quot;: &quot;&quot;,&#xd;
+        &quot;BLACKLIST_FLAG&quot;: &quot;&quot;,&#xd;
+        &quot;DEPOSIT_AMOUNT&quot;: &quot;&quot;,&#xd;
+        &quot;DEPOSIT_CURRENCY&quot;: &quot;&quot;,&#xd;
+        &quot;CREDIT_LIMIT&quot;: &quot;&quot;,&#xd;
+        &quot;CREDIT_LIMIT_CURRENCY&quot;: &quot;&quot;,&#xd;
+        &quot;CREDIT_THRESHOLD_1&quot;: &quot;&quot;,&#xd;
+        &quot;CREDIT_THRESHOLD_2&quot;: &quot;&quot;,&#xd;
+        &quot;CREDIT_THRESHOLD_3&quot;: &quot;&quot;,&#xd;
+        &quot;TAX_EXEMPT&quot;: &quot;&quot;,&#xd;
+        &quot;BILL_CYCLE&quot;: &quot;&quot;,&#xd;
+        &quot;BILL_DELIVERY_METHOD&quot;: &quot;&quot;,&#xd;
+        &quot;RATE_PLAN&quot;: &quot;&quot;,&#xd;
+        &quot;PREPAYMENT_REQUIRED_FLAG&quot;: &quot;&quot;,&#xd;
+        &quot;COPIES&quot;: &quot;&quot;,&#xd;
+        &quot;CUSTOMER_CATEGORY&quot;: &quot;&quot;,&#xd;
+        &quot;EXPECTED_PAYMENT_CURRENCY&quot;: &quot;&quot;,&#xd;
+        &quot;EXTERNAL_CUSTOMER_ID&quot;: &quot;&quot;,&#xd;
+        &quot;EXTERNAL_CUSTOMER_SET_ID&quot;: &quot;&quot;,&#xd;
+        &quot;FAMILY_ID&quot;: &quot;&quot;,&#xd;
+        &quot;DEALER_ID&quot;: &quot;&quot;,&#xd;
+        &quot;LEGACY_ID&quot;: &quot;&quot;,&#xd;
+        &quot;CASH_COLLECTOR&quot;: &quot;&quot;,&#xd;
+        &quot;PAYMENT_CONVERSION_RATETYPE&quot;: &quot;&quot;,&#xd;
+        &quot;REFUND_CONVERSION_RATETYPE&quot;: &quot;&quot;,&#xd;
+        &quot;EXTERNAL_CREDIT_CHECK_FLAG&quot;: &quot;&quot;,&#xd;
+        &quot;BILL_INFORMATION_FLAG&quot;: &quot;&quot;,&#xd;
+        &quot;DUNNING_FLAG&quot;: &quot;&quot;,&#xd;
+        &quot;LEVY_TAXES_CITY_AREA_FLAG&quot;: &quot;&quot;,&#xd;
+        &quot;TAX_JURISDICTION&quot;: &quot;&quot;,&#xd;
+        &quot;SUBSCRIPTION_REDUCTION&quot;: &quot;&quot;,&#xd;
+        &quot;RESSELER_FLAG&quot;: &quot;&quot;,&#xd;
+        &quot;BUSINESS_PARTNER_FLAG&quot;: &quot;&quot;,&#xd;
+        &quot;REFUND_CURRENCY&quot;: &quot;&quot;,&#xd;
+        &quot;TREATMENT_SEGMENT&quot;: &quot;&quot;,&#xd;
+        &quot;MODIFY_TREATMENT_SEGMENT&quot;: &quot;&quot;,&#xd;
+        &quot;RECURRING_PAYMENT&quot;: &quot;&quot;,&#xd;
+        &quot;USERNAME&quot;: &quot;&quot;,&#xd;
+        &quot;PAYMENT_ARRANGEMENT&quot;: {&#xd;
+          &quot;PAYMENT_METHOD&quot;: &quot;&quot;,&#xd;
+          &quot;CURRENT_PAYMENT_FLAG&quot;: &quot;&quot;,&#xd;
+          &quot;DIRECT_DEBIT_LIMIT_CURRENCY&quot;: &quot;&quot;,&#xd;
+          &quot;DIRECT_DEBIT_LIMIT_AMOUNT&quot;: &quot;&quot;,&#xd;
+          &quot;ACCOUNT_NUMBER&quot;: &quot;&quot;,&#xd;
+          &quot;ACCOUNT_OWNER&quot;: &quot;&quot;,&#xd;
+          &quot;BANK_CODE&quot;: &quot;&quot;,&#xd;
+          &quot;BANK_NAME&quot;: &quot;&quot;,&#xd;
+          &quot;BANK_BRANCH&quot;: &quot;&quot;,&#xd;
+          &quot;BANK_ACCOUNT_NUMBER&quot;: &quot;&quot;,&#xd;
+          &quot;CREDIT_CARD_COMPANY&quot;: &quot;&quot;,&#xd;
+          &quot;SWIFT_CODE&quot;: &quot;&quot;,&#xd;
+          &quot;CREDIT_CARD_NUMBER&quot;: &quot;&quot;,&#xd;
+          &quot;VALID_DATE&quot;: &quot;&quot;,&#xd;
+          &quot;CVV&quot;: &quot;&quot;&#xd;
+        },&#xd;
+        &quot;ACCOUNT_MANAGER&quot;: {&#xd;
+          &quot;ACCOUNT_MANAGER_NAME&quot;: &quot;&quot;,&#xd;
+          &quot;PHONE_NUMBER&quot;: &quot;&quot;&#xd;
+        },&#xd;
+        &quot;CONTRACT&quot;: {&#xd;
+          &quot;CORRELATION&quot;: {&#xd;
+            &quot;CORRELATION_ID&quot;: &quot;&quot;,&#xd;
+            &quot;CORRELATION_DATE&quot;: &quot;&quot;,&#xd;
+            &quot;CORRELATION_NUMBER&quot;: &quot;&quot;,&#xd;
+            &quot;CORRELATION_TYPE&quot;: &quot;&quot;,&#xd;
+            &quot;STATUS&quot;: &quot;&quot;,&#xd;
+            &quot;DESCRIPTION&quot;: &quot;&quot;&#xd;
+          },&#xd;
+          &quot;CONTRACT_ID&quot;: &quot;&quot;,&#xd;
+          &quot;CONTRACT_ID_PUB&quot;: &quot;&quot;,&#xd;
+          &quot;SIGNED_DATE&quot;: &quot;&quot;,&#xd;
+          &quot;ACTIVATION_DATE&quot;: &quot;&quot;,&#xd;
+          &quot;CONTRACT_STATUS&quot;: &quot;&quot;,&#xd;
+          &quot;STATUS_DATE&quot;: &quot;&quot;,&#xd;
+          &quot;REASON_FOR_STATUS&quot;: &quot;&quot;,&#xd;
+          &quot;DEACTIVATION_DATE&quot;: &quot;&quot;,&#xd;
+          &quot;RATE_PLAN_CODE&quot;: &quot;&quot;,&#xd;
+          &quot;RATE_PLAN_DESCRIPTION&quot;: &quot;&quot;,&#xd;
+          &quot;CONTRACT_CURRENCY&quot;: &quot;&quot;,&#xd;
+          &quot;ALLOW_FREE_UNITS_CARRY_OVER&quot;: &quot;&quot;,&#xd;
+          &quot;MARKET_CODE&quot;: &quot;&quot;,&#xd;
+          &quot;SUB_MARKET_CODE&quot;: &quot;&quot;,&#xd;
+          &quot;NETWORK_CODE&quot;: &quot;&quot;,&#xd;
+          &quot;ALTERNATIVE_RATE_PLAN_CODE&quot;: &quot;&quot;,&#xd;
+          &quot;VALID_FROM_DATE&quot;: &quot;&quot;,&#xd;
+          &quot;DEALER_ID&quot;: &quot;&quot;,&#xd;
+          &quot;SALES_PERSON&quot;: &quot;&quot;,&#xd;
+          &quot;DEALER_SALES_ADVISOR_ID&quot;: &quot;&quot;,&#xd;
+          &quot;CUSTOMER_SERVICE_LANGUAGE&quot;: &quot;&quot;,&#xd;
+          &quot;VIP_FLAG&quot;: &quot;&quot;,&#xd;
+          &quot;CAMPAIGN_CODE&quot;: &quot;&quot;,&#xd;
+          &quot;USE_GLOBAL_TAP_RATE_PLAN_FOR_ROAMING&quot;: &quot;&quot;,&#xd;
+          &quot;LIST_IN_OPERATOR_DIRECTORY&quot;: &quot;&quot;,&#xd;
+          &quot;LIST_IN_PUBLIC_DIRECTORY&quot;: &quot;&quot;,&#xd;
+          &quot;LOCAL_EXCHANGE_CARRIER&quot;: &quot;&quot;,&#xd;
+          &quot;CREATE_REQUEST_DEPOSIT&quot;: &quot;&quot;,&#xd;
+          &quot;IS_PREPAID&quot;: &quot;&quot;,&#xd;
+          &quot;MAIN_SUBSCRIBER_CONTRACT&quot;: &quot;&quot;,&#xd;
+          &quot;NUMERIC_PASSWORD&quot;: &quot;&quot;,&#xd;
+          &quot;AUTHORIZED_PERSON&quot;: &quot;&quot;,&#xd;
+          &quot;WITH_HOLD_DIRECTORY_LISTING&quot;: &quot;&quot;,&#xd;
+          &quot;ACCOUNT_OWNER&quot;: &quot;&quot;,&#xd;
+          &quot;ACCOUNT_OWNER_IS_USER_OF_NEW_LINE&quot;: &quot;&quot;,&#xd;
+          &quot;CAMPAIGN_ID&quot;: &quot;&quot;,&#xd;
+          &quot;DIRECT_MARKETING_BY_DU&quot;: &quot;&quot;,&#xd;
+          &quot;ARCHIVE_CALLS_FLAG&quot;: &quot;&quot;,&#xd;
+          &quot;PAYMENT_CONDITION_FOR_IMPLICIT_SERVICES&quot;: &quot;&quot;,&#xd;
+          &quot;DN_RETENTION_MODE&quot;: &quot;&quot;,&#xd;
+          &quot;CONTACT&quot;: {&#xd;
+            &quot;FIRST_NAME&quot;: &quot;&quot;,&#xd;
+            &quot;MIDDLE_NAME_1&quot;: &quot;&quot;,&#xd;
+            &quot;MIDDLE_NAME_2&quot;: &quot;&quot;,&#xd;
+            &quot;FAMILY_NAME&quot;: &quot;&quot;,&#xd;
+            &quot;TITLE&quot;: &quot;&quot;,&#xd;
+            &quot;BIRTH_DATE&quot;: &quot;&quot;,&#xd;
+            &quot;NATIONALITY&quot;: &quot;&quot;,&#xd;
+            &quot;GENDER&quot;: &quot;&quot;,&#xd;
+            &quot;MARITAL_STATUS&quot;: &quot;&quot;,&#xd;
+            &quot;COMPANY_NAME&quot;: &quot;&quot;,&#xd;
+            &quot;COMPANY_REGISTRATION_NUMBER&quot;: &quot;&quot;,&#xd;
+            &quot;JOB_DESCRIPTION&quot;: &quot;&quot;,&#xd;
+            &quot;DEPARTMENT&quot;: &quot;&quot;,&#xd;
+            &quot;HOME_PHONE&quot;: &quot;&quot;,&#xd;
+            &quot;WORK_PHONE&quot;: &quot;&quot;,&#xd;
+            &quot;CELLULAR_PHONE&quot;: &quot;&quot;,&#xd;
+            &quot;FAX_PHONE&quot;: &quot;&quot;,&#xd;
+            &quot;EMAIL_ADDRESS&quot;: &quot;&quot;,&#xd;
+            &quot;EMAIL_ADDRESS_2&quot;: &quot;&quot;,&#xd;
+            &quot;LANGUAGE&quot;: &quot;&quot;,&#xd;
+            &quot;PASSPORT_ID&quot;: &quot;&quot;,&#xd;
+            &quot;SMS_NUMBER&quot;: &quot;&quot;,&#xd;
+            &quot;ADDRESS&quot;: {&#xd;
+              &quot;ADDRESS_SEQUENCE&quot;: &quot;&quot;,&#xd;
+              &quot;ADDRESS_TYPE&quot;: &quot;&quot;,&#xd;
+              &quot;PO_BOX&quot;: &quot;&quot;,&#xd;
+              &quot;ADDRESS_DETAIL_1&quot;: &quot;&quot;,&#xd;
+              &quot;ADDRESS_DETAIL_2&quot;: &quot;&quot;,&#xd;
+              &quot;ADDRESS_DETAIL_3&quot;: &quot;&quot;,&#xd;
+              &quot;STREET_NAME&quot;: &quot;&quot;,&#xd;
+              &quot;AREA&quot;: &quot;&quot;,&#xd;
+              &quot;NUMBER&quot;: &quot;&quot;,&#xd;
+              &quot;FLOOR&quot;: &quot;&quot;,&#xd;
+              &quot;BUILDING_NAME&quot;: &quot;&quot;,&#xd;
+              &quot;CITY&quot;: &quot;&quot;,&#xd;
+              &quot;EMIRATE&quot;: &quot;&quot;,&#xd;
+              &quot;COUNTRY&quot;: &quot;&quot;,&#xd;
+              &quot;YEARS_AT_ADDRESS&quot;: &quot;&quot;,&#xd;
+              &quot;INTERNATIONAL_ZIP_CODE&quot;: &quot;&quot;,&#xd;
+              &quot;CONTACT_LOCATION_KEY&quot;: &quot;&quot;&#xd;
+            }&#xd;
+          },&#xd;
+          &quot;SIM&quot;: {&#xd;
+            &quot;SIM_NUMBER&quot;: &quot;&quot;,&#xd;
+            &quot;SIM_NUMBER_ID&quot;: &quot;&quot;,&#xd;
+            &quot;STATUS&quot;: &quot;&quot;,&#xd;
+            &quot;NUMBERING_PLAN&quot;: &quot;&quot;,&#xd;
+            &quot;IMSI&quot;: &quot;&quot;,&#xd;
+            &quot;TYPE&quot;: &quot;&quot;,&#xd;
+            &quot;REASON_CODE&quot;: &quot;&quot;,&#xd;
+            &quot;RETENTION_MODE&quot;: &quot;&quot;,&#xd;
+            &quot;DEALER&quot;: &quot;&quot;,&#xd;
+            &quot;PRIMARY&quot;: &quot;&quot;,&#xd;
+            &quot;PIN&quot;: &quot;&quot;,&#xd;
+            &quot;PIN2&quot;: &quot;&quot;,&#xd;
+            &quot;PUK&quot;: &quot;&quot;,&#xd;
+            &quot;PUK2&quot;: &quot;&quot;,&#xd;
+            &quot;LAST_MODIFICATION_DATE&quot;: &quot;&quot;,&#xd;
+            &quot;RES_ID&quot;: &quot;&quot;,&#xd;
+            &quot;RES_TYPE&quot;: &quot;&quot;&#xd;
+          },&#xd;
+          &quot;SERVICE&quot;: {&#xd;
+            &quot;CORRELATION&quot;: {&#xd;
+              &quot;CORRELATION_ID&quot;: &quot;&quot;,&#xd;
+              &quot;CORRELATION_DATE&quot;: &quot;&quot;,&#xd;
+              &quot;CORRELATION_NUMBER&quot;: &quot;&quot;,&#xd;
+              &quot;CORRELATION_TYPE&quot;: &quot;&quot;,&#xd;
+              &quot;STATUS&quot;: &quot;&quot;,&#xd;
+              &quot;DESCRIPTION&quot;: &quot;&quot;&#xd;
+            },&#xd;
+            &quot;SERVICE_ID&quot;: &quot;&quot;,&#xd;
+            &quot;DESCRIPTION&quot;: &quot;&quot;,&#xd;
+            &quot;ACTIVATION_DATE&quot;: &quot;&quot;,&#xd;
+            &quot;DEACTIVATION_DATE&quot;: &quot;&quot;,&#xd;
+            &quot;ACCESS_FEE&quot;: &quot;&quot;,&#xd;
+            &quot;SUBSCRIPTION_FEE&quot;: &quot;&quot;,&#xd;
+            &quot;SERVICE_PACKAGE_CODE&quot;: &quot;&quot;,&#xd;
+            &quot;SERVICE_DESCRIPTION&quot;: &quot;&quot;,&#xd;
+            &quot;PROFILE_ID&quot;: &quot;&quot;,&#xd;
+            &quot;PARAMETER_CONFIGURATION_REQUIRED&quot;: &quot;&quot;,&#xd;
+            &quot;RESOURCE_CONFIGURATION_REQUIRED&quot;: &quot;&quot;,&#xd;
+            &quot;EXTERNAL_SERVICE_ID&quot;: &quot;&quot;,&#xd;
+            &quot;OPERATOR_ASSISTED_ACTION&quot;: &quot;&quot;,&#xd;
+            &quot;TEMPLATE_ID&quot;: &quot;&quot;,&#xd;
+            &quot;ONE_TIME_CHARGE&quot;: &quot;&quot;,&#xd;
+            &quot;ONE_TIME_CHARGE_TYPE&quot;: &quot;&quot;,&#xd;
+            &quot;RECURRING_CHARGE&quot;: &quot;&quot;,&#xd;
+            &quot;RECURRING_CHARGE_TYPE&quot;: &quot;&quot;,&#xd;
+            &quot;RECURRING_CHARGE_PERIOD&quot;: &quot;&quot;,&#xd;
+            &quot;ADVANCED_RECURRING_CHARGE&quot;: &quot;&quot;,&#xd;
+            &quot;ADVANCED_RECURRING_CHARGE_TYPE&quot;: &quot;&quot;,&#xd;
+            &quot;ADVANCED_RECURRING_CHARGE_PERIOD&quot;: &quot;&quot;,&#xd;
+            &quot;SERVICE_TRIAL_END_DATE&quot;: &quot;&quot;,&#xd;
+            &quot;CUG_ACTION&quot;: &quot;&quot;,&#xd;
+            &quot;CUSTOMER_PAYMENT_CONDITION_USAGE_INDICATOR&quot;: &quot;&quot;,&#xd;
+            &quot;SERVICE_QUANTITY&quot;: &quot;&quot;,&#xd;
+            &quot;CUSTOMER_PREPAID_TP_ID&quot;: &quot;&quot;,&#xd;
+            &quot;SERVICE_STATUS&quot;: &quot;&quot;,&#xd;
+            &quot;SERVICE_STATUS_DATE&quot;: &quot;&quot;,&#xd;
+            &quot;LOCATION_A_SERVICE_INSTALATION_DATE&quot;: &quot;&quot;,&#xd;
+            &quot;LOCATION_B_SERVICE_INSTALATION_DATE&quot;: &quot;&quot;,&#xd;
+            &quot;SERVICE_PROVISIONING_DATE&quot;: &quot;&quot;,&#xd;
+            &quot;RESOURCE&quot;: {&#xd;
+              &quot;MSISDN&quot;: {&#xd;
+                &quot;MSISDN_ID&quot;: &quot;&quot;,&#xd;
+                &quot;MSISDN_NUMBER&quot;: &quot;&quot;,&#xd;
+                &quot;PATTERN&quot;: &quot;&quot;,&#xd;
+                &quot;STATUS&quot;: &quot;&quot;,&#xd;
+                &quot;DEACTIVATION_DATE&quot;: &quot;&quot;,&#xd;
+                &quot;TYPE&quot;: &quot;&quot;,&#xd;
+                &quot;NUMBERING_PLAN_CODE&quot;: &quot;&quot;,&#xd;
+                &quot;NETWORK_CODE&quot;: &quot;&quot;,&#xd;
+                &quot;RETENTION_MODE&quot;: &quot;&quot;,&#xd;
+                &quot;TIME_TO_LOCK&quot;: &quot;&quot;,&#xd;
+                &quot;PASSWORD&quot;: &quot;&quot;,&#xd;
+                &quot;LANGUAGE&quot;: &quot;&quot;,&#xd;
+                &quot;LOGICAL_HLR_CODE&quot;: &quot;&quot;,&#xd;
+                &quot;PHYSICAL_HLR_CODE&quot;: &quot;&quot;,&#xd;
+                &quot;MAIN_NUMBER_FLAG&quot;: &quot;&quot;,&#xd;
+                &quot;VANITY_NUMBER_FLAG&quot;: &quot;&quot;,&#xd;
+                &quot;NUMBER_ON_BILL&quot;: &quot;&quot;,&#xd;
+                &quot;UPPER_EXTENSION&quot;: &quot;&quot;,&#xd;
+                &quot;LOWER_EXTENSION&quot;: &quot;&quot;,&#xd;
+                &quot;PREFIX&quot;: &quot;&quot;,&#xd;
+                &quot;SUB_MARKET_ID&quot;: &quot;&quot;,&#xd;
+                &quot;RESERVATION&quot;: {&#xd;
+                  &quot;BOOKING_NUMBER&quot;: &quot;&quot;,&#xd;
+                  &quot;FIRST_NAME&quot;: &quot;&quot;,&#xd;
+                  &quot;LAST_NAME&quot;: &quot;&quot;&#xd;
+                }&#xd;
+              },&#xd;
+              &quot;PORT&quot;: {&#xd;
+                &quot;EXT_RESOURCE_TYPE_CODE&quot;: &quot;&quot;,&#xd;
+                &quot;PORT_ID&quot;: &quot;&quot;,&#xd;
+                &quot;PORT_NUM&quot;: &quot;&quot;,&#xd;
+                &quot;RETENTION&quot;: &quot;&quot;,&#xd;
+                &quot;STATUS&quot;: &quot;&quot;,&#xd;
+                &quot;NUMBERING_PLAN_CODE&quot;: &quot;&quot;&#xd;
+              }&#xd;
+            },&#xd;
+            &quot;PARAMETER&quot;: {&#xd;
+              &quot;NAME&quot;: &quot;&quot;,&#xd;
+              &quot;NUMBER&quot;: &quot;&quot;,&#xd;
+              &quot;TYPE&quot;: &quot;&quot;,&#xd;
+              &quot;ACTION&quot;: &quot;&quot;,&#xd;
+              &quot;VALUE&quot;: {&#xd;
+                &quot;VALUE&quot;: &quot;&quot;,&#xd;
+                &quot;DESCRIPTION&quot;: &quot;&quot;,&#xd;
+                &quot;SEQUENCE_NUMBER&quot;: &quot;&quot;,&#xd;
+                &quot;VALID_FROM&quot;: &quot;&quot;&#xd;
+              }&#xd;
+            },&#xd;
+            &quot;CUG_MEMBERSHIP&quot;: {&#xd;
+              &quot;CUG_ID&quot;: &quot;&quot;,&#xd;
+              &quot;BASIC_SERVICE_GROUP_ASSIGNMENT&quot;: {&#xd;
+                &quot;BSG_ID&quot;: &quot;&quot;,&#xd;
+                &quot;BSG_ACTION&quot;: &quot;&quot;&#xd;
+              }&#xd;
+            },&#xd;
+            &quot;BSG_CONFIGURATION&quot;: {&#xd;
+              &quot;BSG_ID&quot;: &quot;&quot;,&#xd;
+              &quot;PREFERED_CUG_ID&quot;: &quot;&quot;&#xd;
+            }&#xd;
+          },&#xd;
+          &quot;BILLING_ACCOUNT&quot;: {&#xd;
+            &quot;ACCOUNT_NAME&quot;: &quot;&quot;,&#xd;
+            &quot;GENERATE_CALL_DETAILS_FLAG&quot;: &quot;&quot;,&#xd;
+            &quot;BILL_MEDIUM&quot;: &quot;&quot;,&#xd;
+            &quot;NUMBER_OF_COPIES&quot;: &quot;&quot;,&#xd;
+            &quot;EXCHANGE_RATE_TYPE&quot;: &quot;&quot;,&#xd;
+            &quot;CURRENCY&quot;: &quot;&quot;,&#xd;
+            &quot;PAYMENT_TERMS&quot;: &quot;&quot;,&#xd;
+            &quot;PRIMARY_ACCOUNT_FLAG&quot;: &quot;&quot;,&#xd;
+            &quot;BILLING_ACCOUNT_CODE&quot;: &quot;&quot;,&#xd;
+            &quot;CHARGE_TYPE_ID&quot;: &quot;&quot;,&#xd;
+            &quot;DELETE&quot;: &quot;&quot;,&#xd;
+            &quot;PROFILE_ID&quot;: &quot;&quot;,&#xd;
+            &quot;SERVICE_ID&quot;: &quot;&quot;,&#xd;
+            &quot;VALID_TO&quot;: &quot;&quot;&#xd;
+          },&#xd;
+          &quot;RELATION&quot;: {&#xd;
+            &quot;RELATION_ACTION&quot;: &quot;&quot;,&#xd;
+            &quot;RELATION_TYPE&quot;: &quot;&quot;,&#xd;
+            &quot;RELATION_CODE&quot;: &quot;&quot;,&#xd;
+            &quot;RELATION_DESCRIPTION&quot;: &quot;&quot;,&#xd;
+            &quot;RELATION_CREATION_DATE&quot;: &quot;&quot;,&#xd;
+            &quot;RELATION_PRIMARY_PARTICIPANT_FLAG&quot;: &quot;&quot;,&#xd;
+            &quot;RELATION_START_DATE&quot;: &quot;&quot;,&#xd;
+            &quot;RELATION_END_DATE&quot;: &quot;&quot;,&#xd;
+            &quot;RELATE_TO&quot;: {&#xd;
+              &quot;RELATE_TO_ID&quot;: &quot;&quot;,&#xd;
+              &quot;VALID_FROM_DATE&quot;: &quot;&quot;,&#xd;
+              &quot;VALID_TO_DATE&quot;: &quot;&quot;,&#xd;
+              &quot;ADDITIONAL_INFORMATION&quot;: {&#xd;
+                &quot;NAME&quot;: &quot;&quot;,&#xd;
+                &quot;VALUE&quot;: &quot;&quot;&#xd;
+              }&#xd;
+            },&#xd;
+            &quot;RELATE_FROM&quot;: {&#xd;
+              &quot;RELATE_FROM_ID&quot;: &quot;&quot;,&#xd;
+              &quot;VALID_FROM_DATE&quot;: &quot;&quot;,&#xd;
+              &quot;VALID_TO_DATE&quot;: &quot;&quot;,&#xd;
+              &quot;ADDITIONAL_INFORMATION&quot;: {&#xd;
+                &quot;NAME&quot;: &quot;&quot;,&#xd;
+                &quot;VALUE&quot;: &quot;&quot;&#xd;
+              }&#xd;
+            }&#xd;
+          }&#xd;
+        },&#xd;
+        &quot;CONTACT&quot;: {&#xd;
+          &quot;FIRST_NAME&quot;: &quot;&quot;,&#xd;
+          &quot;MIDDLE_NAME_1&quot;: &quot;&quot;,&#xd;
+          &quot;MIDDLE_NAME_2&quot;: &quot;&quot;,&#xd;
+          &quot;FAMILY_NAME&quot;: &quot;&quot;,&#xd;
+          &quot;TITLE&quot;: &quot;&quot;,&#xd;
+          &quot;BIRTH_DATE&quot;: &quot;&quot;,&#xd;
+          &quot;NATIONALITY&quot;: &quot;&quot;,&#xd;
+          &quot;GENDER&quot;: &quot;&quot;,&#xd;
+          &quot;MARITAL_STATUS&quot;: &quot;&quot;,&#xd;
+          &quot;COMPANY_NAME&quot;: &quot;&quot;,&#xd;
+          &quot;COMPANY_REGISTRATION_NUMBER&quot;: &quot;&quot;,&#xd;
+          &quot;JOB_DESCRIPTION&quot;: &quot;&quot;,&#xd;
+          &quot;DEPARTMENT&quot;: &quot;&quot;,&#xd;
+          &quot;HOME_PHONE&quot;: &quot;&quot;,&#xd;
+          &quot;WORK_PHONE&quot;: &quot;&quot;,&#xd;
+          &quot;CELLULAR_PHONE&quot;: &quot;&quot;,&#xd;
+          &quot;FAX_PHONE&quot;: &quot;&quot;,&#xd;
+          &quot;EMAIL_ADDRESS&quot;: &quot;&quot;,&#xd;
+          &quot;EMAIL_ADDRESS_2&quot;: &quot;&quot;,&#xd;
+          &quot;LANGUAGE&quot;: &quot;&quot;,&#xd;
+          &quot;PASSPORT_ID&quot;: &quot;&quot;,&#xd;
+          &quot;SMS_NUMBER&quot;: &quot;&quot;,&#xd;
+          &quot;ADDRESS&quot;: {&#xd;
+            &quot;ADDRESS_SEQUENCE&quot;: &quot;&quot;,&#xd;
+            &quot;ADDRESS_TYPE&quot;: &quot;&quot;,&#xd;
+            &quot;PO_BOX&quot;: &quot;&quot;,&#xd;
+            &quot;ADDRESS_DETAIL_1&quot;: &quot;&quot;,&#xd;
+            &quot;ADDRESS_DETAIL_2&quot;: &quot;&quot;,&#xd;
+            &quot;ADDRESS_DETAIL_3&quot;: &quot;&quot;,&#xd;
+            &quot;STREET_NAME&quot;: &quot;&quot;,&#xd;
+            &quot;AREA&quot;: &quot;&quot;,&#xd;
+            &quot;NUMBER&quot;: &quot;&quot;,&#xd;
+            &quot;FLOOR&quot;: &quot;&quot;,&#xd;
+            &quot;BUILDING_NAME&quot;: &quot;&quot;,&#xd;
+            &quot;CITY&quot;: &quot;&quot;,&#xd;
+            &quot;EMIRATE&quot;: &quot;&quot;,&#xd;
+            &quot;COUNTRY&quot;: &quot;&quot;,&#xd;
+            &quot;YEARS_AT_ADDRESS&quot;: &quot;&quot;,&#xd;
+            &quot;INTERNATIONAL_ZIP_CODE&quot;: &quot;&quot;,&#xd;
+            &quot;CONTACT_LOCATION_KEY&quot;: &quot;&quot;&#xd;
+          }&#xd;
+        },&#xd;
+        &quot;EXTENDED_INFO_LIST&quot;: {&#xd;
+          &quot;EXTENDED_INFO&quot;: {&#xd;
+            &quot;INFO_NAME&quot;: &quot;&quot;,&#xd;
+            &quot;INFO_VALUE&quot;: &quot;&quot;&#xd;
+          }&#xd;
+        },&#xd;
+        &quot;BILLING_ACCOUNT&quot;: {&#xd;
+          &quot;ACCOUNT_NAME&quot;: &quot;&quot;,&#xd;
+          &quot;GENERATE_CALL_DETAILS_FLAG&quot;: &quot;&quot;,&#xd;
+          &quot;BILL_MEDIUM&quot;: &quot;&quot;,&#xd;
+          &quot;NUMBER_OF_COPIES&quot;: &quot;&quot;,&#xd;
+          &quot;EXCHANGE_RATE_TYPE&quot;: &quot;&quot;,&#xd;
+          &quot;CURRENCY&quot;: &quot;&quot;,&#xd;
+          &quot;PAYMENT_TERMS&quot;: &quot;&quot;,&#xd;
+          &quot;PRIMARY_ACCOUNT_FLAG&quot;: &quot;&quot;,&#xd;
+          &quot;BILLING_ACCOUNT_CODE&quot;: &quot;&quot;,&#xd;
+          &quot;CHARGE_TYPE_ID&quot;: &quot;&quot;,&#xd;
+          &quot;DELETE&quot;: &quot;&quot;,&#xd;
+          &quot;PROFILE_ID&quot;: &quot;&quot;,&#xd;
+          &quot;SERVICE_ID&quot;: &quot;&quot;,&#xd;
+          &quot;VALID_TO&quot;: &quot;&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;EXTRA_PARAMETERS&quot;: {&#xd;
+        &quot;NAME&quot;: &quot;&quot;,&#xd;
+        &quot;VALUE&quot;: &quot;&quot;&#xd;
+      }&#xd;
+    }&#xd;
+  }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/contracts/12345678</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Change Contract Service Parameters</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Response code is 201" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Check Response code is 201</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token</stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get applicable Commitments -Success" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/contracts/commitments?offer_id=123</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Get applicable Commitments</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Response code is 200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Check Response code is 200</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token</stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get applicable Commitments without Access Token -Failure" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/contracts/commitments?offer_id=123</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Get applicable Commitments</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Response code is 401" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="51509">401</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Check Response code is 401</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token</stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Change Contract Service Parameters-Missing Payload" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/contracts/12345678</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Change Contract Service Parameters</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Response code is 400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="51508">400</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Check Response code is 400</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token</stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get All CustomerContracts" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="customer_id" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">1234567890</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">customer_id</stringProp>
+              </elementProp>
+              <elementProp name="customer_code" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">12345</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">customer_code</stringProp>
+              </elementProp>
+              <elementProp name="dir_num" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">1234</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dir_num</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/contracts</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Get Customer Contracts Conditional Flow</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Response code is 200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Check Response code is 200</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token </stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Refresh Access Token" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="grant_type" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">refresh_token</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">grant_type</stringProp>
+              </elementProp>
+              <elementProp name="refresh_token" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${refresh_token}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">refresh_token</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/oauth/refresh-access-token</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Refresh Access Token</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic SDdXVTVTVVJocTVDdXJldmQ3czF3RktSUktVcVcwM3Q6RGptdFJIT2ZBcTdjM3BhTw==</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract new access token" enabled="true">
+            <stringProp name="TestPlan.comments">Extract new access token</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">new_access_token</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.access_token</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Contract rate Plan History" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/contracts/12345678/rateplans</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Get Contract rate Plan History Conditional Flow</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Response code is 200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Check Response code is 200</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${new_access_token}</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token </stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="" name="payments">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1472200987368</CreatedAt>
+    <CreatedBy>sgagandeep@kaartech.com</CreatedBy>
+    <Description>sgagandeep git revision unknown Kaarlp-617 ::payments API</Description>
+    <DisplayName>payments</DisplayName>
+    <LastModifiedAt>1472200987368</LastModifiedAt>
+    <LastModifiedBy>sgagandeep@kaartech.com</LastModifiedBy>
+    <Policies>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+    </Resources>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>mce</TargetEndpoint>
+        <TargetEndpoint>selfcare</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript async="false" continueOnError="false" enabled="true" timeLimit="200" 
+	name="JSC-GenerateRequestId">
+    <DisplayName>JSC-GenerateRequestId</DisplayName>
+    <Properties/>
+    <IncludeURL>jsc://Math.uuid.js</IncludeURL>
+    <ResourceURL>jsc://JSC-GenerateRequestId.js</ResourceURL>
+
+</Javascript>

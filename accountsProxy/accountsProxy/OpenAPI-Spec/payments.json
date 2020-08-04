@@ -1,0 +1,2047 @@
+{
+    "swagger": "2.0",
+    "host": "172.24.122.149:9001",
+    "schemes": [
+        "http"
+    ],
+    "info": {
+        "description": "Open API Specification for Payments API",
+        "title": "Open API Specification for Payments API",
+        "version": "0.0.1",
+        "termsOfService": "http://example.com/about/terms",
+        "contact": {
+            "name": "api.developer",
+            "url": "http://example.com/contact",
+            "email": "api.developer@du.ae"
+        },
+        "license": {
+            "name": "Du License",
+            "url": "http://api.developer.du.ae/license"
+        }
+    },
+    "definitions": {
+        "ErrorSchema": {
+            "description": "Error Schema",
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "Error Code"
+                },
+                "error": {
+                    "type": "string",
+                    "description": "Error Description"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error Message"
+                }
+            }
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/payments": {
+            "get": {
+                "description": "Get Payment Information",
+                "summary": "Get Payment Information",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getPaymentInformation",
+                "tags": [
+                    "payments"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "ListOfPaymentsHist": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Payment": {
+                                            "type": "object",
+                                            "properties": {
+                                                "PaymentID": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PaymentAmount": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PaymentDate": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PaymentMethod": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PaymentChannel": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ListOfinvoice": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "Invoice": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "InvoicePaid": {
+                                                                    "type": "string",
+                                                                    "minLength": 1
+                                                                },
+                                                                "AppliedAmount": {
+                                                                    "type": "string",
+                                                                    "minLength": 1
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "InvoicePaid",
+                                                                "AppliedAmount"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "Invoice"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "PaymentID",
+                                                "PaymentAmount",
+                                                "PaymentDate",
+                                                "PaymentMethod",
+                                                "PaymentChannel",
+                                                "ListOfinvoice"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "Payment"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "ListOfPaymentsHist",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "from_date",
+                        "description": "From date(Start Date)",
+                        "type": "string",
+                        "required": true,
+                        "default": "03/11/2014"
+                    },
+                    {
+                        "in": "query",
+                        "name": "to_date",
+                        "description": "To Date(End Date)",
+                        "type": "string",
+                        "required": true,
+                        "default": "3/12/2015"
+                    },
+                    {
+                        "in": "query",
+                        "name": "account_number",
+                        "description": "Account Number",
+                        "type": "string",
+                        "required": false,
+                        "default": "1.27559759"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 4DtYNelSXBnJRhjcZdbdLQ7xxvsB"
+                    }
+                ]
+            }
+        },
+        "/payments/prepaid/charges": {
+            "get": {
+                "description": "Get Prepaid Periodic Charges",
+                "summary": "Get Prepaid Periodic Charges",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getPrepaidPeriodicCharges",
+                "tags": [
+                    "payments"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "Charge_List": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Charge_Node": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Charge": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "State": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Subscription_Date": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Next_State_Change_Date": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Next_Charge_Date": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Charges_Remaining": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "Charge",
+                                                "State",
+                                                "Subscription_Date",
+                                                "Next_State_Change_Date",
+                                                "Next_Charge_Date",
+                                                "Charges_Remaining"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "Charge_Node"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "Charge_List",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "msisdn",
+                        "description": "Msisdn",
+                        "type": "string",
+                        "required": true,
+                        "default": "123459766"
+                    },
+                    {
+                        "in": "query",
+                        "name": "charge",
+                        "description": "Charge",
+                        "type": "string",
+                        "required": false,
+                        "default": "12345"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer NwaE8eEZqjZ8SPKLrsLgalK90uov"
+                    }
+                ]
+            }
+        },
+        "/payments/customer/{customerId}/restrictions": {
+            "get": {
+                "description": "Check Customer Payment Restrictions",
+                "summary": "Check Customer Payment Restrictions",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "checkCustomerPaymentRestrictions",
+                "tags": [
+                    "payments"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "CheckCustomerPaymentRestrictions": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "CheckCustomerPaymentRestrictions",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "channel",
+                        "description": "channel",
+                        "type": "string",
+                        "required": true,
+                        "default": "2"
+                    },
+                    {
+                        "in": "query",
+                        "name": "preview_flag",
+                        "description": "Preview Flag",
+                        "type": "string",
+                        "required": false,
+                        "default": "1"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer NwaE8eEZqjZ8SPKLrsLgalK90uov"
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "Customer Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/payments/credit-card": {
+            "post": {
+                "description": "Add Credit Card",
+                "summary": "Add Credit Card Information",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "addCreditCard",
+                "tags": [
+                    "payments"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "responseDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "responseCode",
+                                "responseDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer NwaE8eEZqjZ8SPKLrsLgalK90uov"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "SelfcareID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "creditCardNumber": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "creditCardType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "nameOnCard": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "creditCardCVV": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "creditCardExpiryMonth": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "creditCardExpiryYear": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "actionCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "SelfcareID",
+                                "creditCardNumber",
+                                "creditCardType",
+                                "nameOnCard",
+                                "creditCardCVV",
+                                "creditCardExpiryMonth",
+                                "creditCardExpiryYear",
+                                "actionCode"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "put": {
+                "description": "Update Credit Card",
+                "summary": "Update Credit Card Information",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "updateCreditCard",
+                "tags": [
+                    "payments"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "responseDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "responseCode",
+                                "responseDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer NwaE8eEZqjZ8SPKLrsLgalK90uov"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "SelfcareID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "creditCardNumber": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "creditCardType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "nameOnCard": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "creditCardCVV": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "creditCardExpiryMonth": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "creditCardExpiryYear": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "actionCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "SelfcareID",
+                                "creditCardNumber",
+                                "creditCardType",
+                                "nameOnCard",
+                                "creditCardCVV",
+                                "creditCardExpiryMonth",
+                                "creditCardExpiryYear",
+                                "actionCode"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "/payments/{selfcareId}/credit-card": {
+            "get": {
+                "description": "Retreive CC",
+                "summary": "Retreive Credit Card Information",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "retreiveCC",
+                "tags": [
+                    "payments"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "responseDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "creditCardNumber": {
+                                    "type": "string"
+                                },
+                                "creditCardExpiryMonth": {
+                                    "type": "string"
+                                },
+                                "creditCardExpiryYear": {
+                                    "type": "string"
+                                },
+                                "creditCardType": {
+                                    "type": "string"
+                                },
+                                "nameOnCard": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "responseCode",
+                                "responseDescription",
+                                "creditCardNumber",
+                                "creditCardExpiryMonth",
+                                "creditCardExpiryYear",
+                                "creditCardType",
+                                "nameOnCard"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer hZGjsioWMVWokUXBbxi0KLP0jakK"
+                    },
+                    {
+                        "in": "path",
+                        "name": "selfcareId",
+                        "description": "Selfcare Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/payments/{selfcareId}": {
+            "get": {
+                "description": "Get Customer Payment Information",
+                "summary": "Get Customer Payment Information",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getCustomerPaymentInformation",
+                "tags": [
+                    "payments"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "responseDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "customerInformation": {
+                                    "type": "object",
+                                    "properties": {
+                                        "customerID": {
+                                            "type": "string"
+                                        },
+                                        "custCode": {
+                                            "type": "string"
+                                        },
+                                        "userID": {
+                                            "type": "string"
+                                        },
+                                        "statusCode": {
+                                            "type": "string"
+                                        },
+                                        "salutation": {
+                                            "type": "string"
+                                        },
+                                        "firstName": {
+                                            "type": "string"
+                                        },
+                                        "lastName": {
+                                            "type": "string"
+                                        },
+                                        "maxFriends": {
+                                            "type": "string"
+                                        },
+                                        "addr1": {
+                                            "type": "string"
+                                        },
+                                        "addr2": {
+                                            "type": "string"
+                                        },
+                                        "town": {
+                                            "type": "string"
+                                        },
+                                        "county": {
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        },
+                                        "msisdn": {
+                                            "type": "string"
+                                        },
+                                        "accountType": {
+                                            "type": "string"
+                                        },
+                                        "languagePreference": {
+                                            "type": "string"
+                                        },
+                                        "cards": {
+                                            "type": "object",
+                                            "properties": {
+                                                "card": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "cardholderName": {
+                                                            "type": "string"
+                                                        },
+                                                        "cardType": {
+                                                            "type": "string"
+                                                        },
+                                                        "pan": {
+                                                            "type": "string"
+                                                        },
+                                                        "idNumber": {
+                                                            "type": "string"
+                                                        },
+                                                        "startYear": {
+                                                            "type": "string"
+                                                        },
+                                                        "startMonth": {
+                                                            "type": "string"
+                                                        },
+                                                        "expYear": {
+                                                            "type": "string"
+                                                        },
+                                                        "expMonth": {
+                                                            "type": "string"
+                                                        },
+                                                        "issue": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "cardholderName",
+                                                        "cardType",
+                                                        "pan",
+                                                        "idNumber",
+                                                        "startYear",
+                                                        "startMonth",
+                                                        "expYear",
+                                                        "expMonth",
+                                                        "issue"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "card"
+                                            ]
+                                        },
+                                        "banks": {
+                                            "type": "object",
+                                            "properties": {
+                                                "bank": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "idNumber": {
+                                                            "type": "string"
+                                                        },
+                                                        "bankName": {
+                                                            "type": "string"
+                                                        },
+                                                        "accHolderName": {
+                                                            "type": "string"
+                                                        },
+                                                        "accNumber": {
+                                                            "type": "string"
+                                                        },
+                                                        "bankBranchName": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "idNumber",
+                                                        "bankName",
+                                                        "accHolderName",
+                                                        "accNumber",
+                                                        "bankBranchName"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "bank"
+                                            ]
+                                        },
+                                        "friends": {
+                                            "type": "object",
+                                            "properties": {
+                                                "friend": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "accountNumber": {
+                                                            "type": "string"
+                                                        },
+                                                        "accountType": {
+                                                            "type": "string"
+                                                        },
+                                                        "nickname": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "accountNumber",
+                                                        "accountType",
+                                                        "nickname"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "friend"
+                                            ]
+                                        },
+                                        "recurringPayments": {
+                                            "type": "object",
+                                            "properties": {
+                                                "recurringPayment": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "nickname": {
+                                                            "type": "string"
+                                                        },
+                                                        "paymentMethod": {
+                                                            "type": "string"
+                                                        },
+                                                        "frequency": {
+                                                            "type": "string"
+                                                        },
+                                                        "frequencyParameter": {
+                                                            "type": "string"
+                                                        },
+                                                        "amount": {
+                                                            "type": "string"
+                                                        },
+                                                        "currency": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "nickname",
+                                                        "paymentMethod",
+                                                        "frequency",
+                                                        "frequencyParameter",
+                                                        "amount",
+                                                        "currency"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "recurringPayment"
+                                            ]
+                                        },
+                                        "subscribedPayments": {
+                                            "type": "object",
+                                            "properties": {
+                                                "subscribedPayment": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "nickname": {
+                                                            "type": "string"
+                                                        },
+                                                        "mopName": {
+                                                            "type": "string"
+                                                        },
+                                                        "maxAmount": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "nickname",
+                                                        "mopName",
+                                                        "maxAmount"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "subscribedPayment"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "customerID",
+                                        "custCode",
+                                        "userID",
+                                        "statusCode",
+                                        "salutation",
+                                        "firstName",
+                                        "lastName",
+                                        "maxFriends",
+                                        "addr1",
+                                        "addr2",
+                                        "town",
+                                        "county",
+                                        "email",
+                                        "msisdn",
+                                        "accountType",
+                                        "languagePreference",
+                                        "cards",
+                                        "banks",
+                                        "friends",
+                                        "recurringPayments",
+                                        "subscribedPayments"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "responseCode",
+                                "responseDescription",
+                                "customerInformation"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "customer_id",
+                        "description": "Customer Id",
+                        "type": "string",
+                        "required": true,
+                        "default": "1456436"
+                    },
+                    {
+                        "in": "query",
+                        "name": "agent_username",
+                        "description": "Agent Username",
+                        "type": "string",
+                        "required": true,
+                        "default": "WEBPortal"
+                    },
+                    {
+                        "in": "query",
+                        "name": "channel_id",
+                        "description": "Channel Id",
+                        "type": "string",
+                        "required": true,
+                        "default": "WEB"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer iBaBgT75rvw4mRgu12CsB2LtPHGd"
+                    },
+                    {
+                        "in": "path",
+                        "name": "selfcareId",
+                        "description": "Selfcare Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/payments/friend": {
+            "post": {
+                "description": "Add Friend",
+                "summary": "Add Friend",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "addFriend",
+                "tags": [
+                    "payments"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "responseDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "responseCode",
+                                "responseDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer iBaBgT75rvw4mRgu12CsB2LtPHGd"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "selfcareID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "customerID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "agentUserName": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "channelID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "nickName": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "accNum": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "accType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "selfcareID",
+                                "customerID",
+                                "agentUserName",
+                                "channelID",
+                                "nickName",
+                                "accNum",
+                                "accType"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "delete": {
+                "description": "Delete Friend",
+                "summary": "Delete Friend",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "deleteFriend",
+                "tags": [
+                    "payments"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "responseDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "responseCode",
+                                "responseDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer iBaBgT75rvw4mRgu12CsB2LtPHGd"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "selfcareID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "customerID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "agentUserName": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "channelID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "nickName": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "selfcareID",
+                                "customerID",
+                                "agentUserName",
+                                "channelID",
+                                "nickName"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "/payments/subscribed-payment": {
+            "post": {
+                "description": "Add Subscribed Payment",
+                "summary": "Add Subscribed Payment",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "addSubscribedPayment",
+                "tags": [
+                    "payments"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "responseDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "responseCode",
+                                "responseDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer iBaBgT75rvw4mRgu12CsB2LtPHGd"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "selfcareID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "customerID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "agentUserName": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "channelID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "dstNickname": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "paymentMethod": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "maxAmount": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "selfcareID",
+                                "customerID",
+                                "agentUserName",
+                                "channelID",
+                                "dstNickname",
+                                "paymentMethod",
+                                "maxAmount"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "delete": {
+                "description": "Delete Subscribed Payment",
+                "summary": "Delete Subscribed Payment",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "deleteSubscribedPayment",
+                "tags": [
+                    "payments"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "responseDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "responseCode",
+                                "responseDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer iBaBgT75rvw4mRgu12CsB2LtPHGd"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "selfcareID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "customerID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "agentUserName": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "channelID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "dstNickname": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "selfcareID",
+                                "customerID",
+                                "agentUserName",
+                                "channelID",
+                                "dstNickname"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "/payments/recurring-payment": {
+            "delete": {
+                "description": "Delete Recurring Payment",
+                "summary": "Delete Recurring Payment",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "deleteRecurringPayment",
+                "tags": [
+                    "payments"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "responseDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "responseCode",
+                                "responseDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer iBaBgT75rvw4mRgu12CsB2LtPHGd"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "selfcareID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "customerID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "agentUserName": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "channelID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "dstNickname": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "selfcareID",
+                                "customerID",
+                                "agentUserName",
+                                "channelID",
+                                "dstNickname"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "post": {
+                "description": "Add Recurring Payment",
+                "summary": "Add Recurring Payment",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "addRecurringPayment",
+                "tags": [
+                    "payments"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "responseDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "responseCode",
+                                "responseDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer G7sFiNiNbfWE1AniPLObWFJyu5sr"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "selfcareID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "customerID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "agentUserName": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "channelID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "dstNickname": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "paymentMethod": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "frequency": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "frequencyParameter": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "amount": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "currency": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "selfcareID",
+                                "customerID",
+                                "agentUserName",
+                                "channelID",
+                                "dstNickname",
+                                "paymentMethod",
+                                "frequency",
+                                "frequencyParameter",
+                                "amount",
+                                "currency"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "security": [
+        {
+            "OauthSecurity": []
+        }
+    ],
+    "securityDefinitions": {
+        "OauthSecurity": {
+            "type": "oauth2",
+            "flow": "password",
+            "description": "oAuth 2.0 security implementation",
+            "tokenUrl": "http://172.24.122.149:9001/v1/oauth/token"
+        }
+    }
+}

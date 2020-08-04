@@ -1,0 +1,11 @@
+<JavaCallout name="JC-DoAESDecryption">
+   <ClassName>com.ae.Encrypt</ClassName>
+   <Properties>
+		<Property name="secret-key">{du.config.secret-key}</Property>
+		<Property name="operation">decrypt</Property>
+		<Property name="input">{aes.input}</Property>
+		<!-- This is output variable name directly no need of {} -->
+		<Property name="output">aes.response</Property> 
+   </Properties>
+   <ResourceURL>java://AESEncryption-1.0.jar</ResourceURL>
+</JavaCallout>

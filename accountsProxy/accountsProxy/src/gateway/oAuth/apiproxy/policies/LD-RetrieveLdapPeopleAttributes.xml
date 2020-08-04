@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Ldap async="false" continueOnError="false" enabled="true" name="LD-RetrieveLdapPeopleAttributes">
+    <DisplayName>LD-RetrieveLdapPeopleAttributes</DisplayName>
+    <LdapResource>TOBEREPLACED</LdapResource>
+    <Search>
+        <SearchQuery>cn={du.username}</SearchQuery>
+        <Scope>subtree</Scope>
+        <BaseDN>ou=People,ou=customers,dc=du,dc=ae</BaseDN>
+        <Attributes>
+            <Attribute>uid</Attribute>
+            <Attribute>customerCode</Attribute>
+            <Attribute>cn</Attribute>
+            <Attribute>customerType</Attribute>
+        </Attributes>
+    </Search>
+</Ldap>

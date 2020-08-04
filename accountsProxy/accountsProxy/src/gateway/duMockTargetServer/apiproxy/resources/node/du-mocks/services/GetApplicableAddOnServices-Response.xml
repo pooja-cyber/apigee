@@ -1,0 +1,48 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservices.com/LCE/Du/WebServices" xmlns:head="http://www.du.ae/LCE/HeaderResponse" xmlns:lcew="http://xmlns.du.ae/LCE/Business/LCEWebServiceResponse" xmlns:get="http://xmlns.du.ae/LCE/Business/ServiceManagement/GetApplicableAddOnServices">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetApplicableAddOnServicesResponse>
+         <Response>
+            <head:Header>
+               <!--Optional:-->
+               <head:RequestId>?</head:RequestId>
+               <!--Optional:-->
+               <head:CorrelationId>?</head:CorrelationId>
+               <head:ResponseCode>?</head:ResponseCode>
+               <!--Optional:-->
+               <head:ResponseMessage>?</head:ResponseMessage>
+               <!--Optional:-->
+               <head:ErrorCode>?</head:ErrorCode>
+               <!--Optional:-->
+               <head:ErrorDescription>?</head:ErrorDescription>
+            </head:Header>
+            <!--Optional:-->
+            <lcew:Body msg="?" type="?">
+               <get:results>
+                  <get:execution-results>
+                     <get:result identifier="?">
+                        <get:com.accenture.selfcare.facts.AddonChange>
+                           <get:channel>?</get:channel>
+                           <get:rateplan>?</get:rateplan>
+                           <get:currentAddons>
+                              <!--Zero or more repetitions:-->
+                              <get:addOn>?</get:addOn>
+                           </get:currentAddons>
+                           <get:addonChangeResult>
+                              <!--Zero or more repetitions:-->
+                              <get:com.accenture.selfcare.facts.AddonChangeResult>
+                                 <get:addon>?</get:addon>
+                                 <!--Optional:-->
+                                 <get:price>?</get:price>
+                              </get:com.accenture.selfcare.facts.AddonChangeResult>
+                           </get:addonChangeResult>
+                        </get:com.accenture.selfcare.facts.AddonChange>
+                     </get:result>
+                     <get:fact-handle external-form="?" identifier="?">?</get:fact-handle>
+                  </get:execution-results>
+               </get:results>
+            </lcew:Body>
+         </Response>
+      </web:GetApplicableAddOnServicesResponse>
+   </soapenv:Body>
+</soapenv:Envelope>

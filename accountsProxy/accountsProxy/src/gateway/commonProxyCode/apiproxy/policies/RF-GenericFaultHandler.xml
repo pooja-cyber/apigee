@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-GenericFaultHandler">
+    <DisplayName>RF-GenericFaultHandler</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers>
+                <Header name="Content-Type">application/json</Header>
+            </Headers>
+            <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">{ &quot;code&quot;: &quot;@api-error.code#&quot;, &quot;error&quot; : &quot;@api-error.error#&quot;,&quot;message&quot;: &quot;@api-error.message#&quot; }
+            </Payload>
+            <StatusCode>{api-error.status_code}</StatusCode>
+            <ReasonPhrase>{api-error.reason_phrase}</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

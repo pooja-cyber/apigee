@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations async="false" continueOnError="false" enabled="true" name="KVM-GetOrdersInfo" mapIdentifier="orders-v1-config">
+    <DisplayName>KVM-GetOrdersInfo</DisplayName>
+    <Properties/>
+    <ExclusiveCache>false</ExclusiveCache>
+    <ExpiryTimeInSecs>0</ExpiryTimeInSecs>
+    <Get assignTo="du.config.mceUsername">
+        <Key>
+            <Parameter>mceUsername</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mcePassword">
+        <Key>
+            <Parameter>mcePassword</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mceApplicationId">
+        <Key>
+            <Parameter>mceApplicationId</Parameter>
+        </Key>
+    </Get>
+
+      <Get assignTo="du.config.isCancelScheduleRequestFlag">
+        <Key>
+            <Parameter>isCancelScheduleRequestFlag</Parameter>
+        </Key>
+    </Get>
+
+    <Get assignTo="du.config.isCreateFixedModificationFlag">
+        <Key>
+            <Parameter>isCreateFixedModificationFlag</Parameter>
+        </Key>
+    </Get>
+
+     <Get assignTo="du.config.isCreateMNPActivationFlag">
+        <Key>
+            <Parameter>isCreateMNPActivationFlag</Parameter>
+        </Key>
+    </Get>
+
+     <Get assignTo="du.config.isCreateMobileActivationFlag">
+        <Key>
+            <Parameter>isCreateMobileActivationFlag</Parameter>
+        </Key>
+    </Get>
+
+    <Get assignTo="du.config.isCreateMultiLineMobileActivationFlag">
+        <Key>
+            <Parameter>isCreateMultiLineMobileActivationFlag</Parameter>
+        </Key>
+    </Get>
+
+     <Get assignTo="du.config.isGetCRNOrderItemsFlag">
+        <Key>
+            <Parameter>isGetCRNOrderItemsFlag</Parameter>
+        </Key>
+    </Get>
+
+         <Get assignTo="du.config.isGetOMPFulfillmentRequestsFlag">
+        <Key>
+            <Parameter>isGetOMPFulfillmentRequestsFlag</Parameter>
+        </Key>
+    </Get>
+
+
+     <Get assignTo="du.config.isGetOMPOrdersFlag">
+        <Key>
+            <Parameter>isGetOMPOrdersFlag</Parameter>
+        </Key>
+    </Get>
+
+
+     <Get assignTo="du.config.isManageOffersFlag">
+        <Key>
+            <Parameter>isManageOffersFlag</Parameter>
+        </Key>
+    </Get>
+
+
+     <Get assignTo="du.config.isMNPGetRequestInfoFlag">
+        <Key>
+            <Parameter>isMNPGetRequestInfoFlag</Parameter>
+        </Key>
+    </Get>
+
+
+     <Get assignTo="du.config.isValidateFixedModificationFlag ">
+        <Key>
+            <Parameter>isValidateFixedModificationFlag </Parameter>
+        </Key>
+    </Get>
+
+    <Get assignTo="du.config.mceTargetBasepath">
+        <Key>
+            <Parameter>mceTargetBasepath</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.spikeArrest">
+        <Key>
+            <Parameter>spikeArrest</Parameter>
+        </Key>
+    </Get>
+
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

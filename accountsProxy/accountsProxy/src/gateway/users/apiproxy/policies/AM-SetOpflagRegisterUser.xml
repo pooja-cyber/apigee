@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetOpflagRegisterUser">
+    <DisplayName>AM-SetOpflagRegisterUser</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <AssignVariable>
+        <Name>du.api.opflag</Name>
+        <Value>0</Value>
+        <Ref>du.config.opflag-registerUser</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>selfcareId</Name>
+        <Value>0</Value>
+        <Ref>du.api.selfcareId</Ref>
+    </AssignVariable>    
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo type="request" transport="http" createNew="false"/>
+</AssignMessage>

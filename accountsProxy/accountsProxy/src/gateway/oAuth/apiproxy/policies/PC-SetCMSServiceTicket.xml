@@ -1,0 +1,15 @@
+<PopulateCache async="false" continueOnError="false" enabled="true" name="PC-SetCMSServiceTicket">
+    <DisplayName>PC-SetCMSServiceTicket</DisplayName>
+    <Properties/>
+    <CacheKey>
+        <Prefix/>
+        <KeyFragment>CMSServiceTicket</KeyFragment>
+    </CacheKey>
+    <!-- Omit this element if you're using the included shared cache. -->
+    
+    <Scope>Global</Scope>
+    <ExpirySettings>
+        <TimeoutInSec>300</TimeoutInSec>
+    </ExpirySettings>
+    <Source>cmsServiceResponse.content</Source>
+</PopulateCache>

@@ -1,0 +1,616 @@
+{
+    "swagger": "2.0",
+    "host": "172.24.122.149:9001",
+    "schemes": [
+        "http"
+    ],
+    "info": {
+        "description": "Open API Specification for Billing API",
+        "title": "Open API Specification for Billing API",
+        "version": "0.0.1",
+        "termsOfService": "http://example.com/about/terms",
+        "contact": {
+            "name": "api.developer",
+            "url": "http://example.com/contact",
+            "email": "api.developer@du.ae"
+        },
+        "license": {
+            "name": "Du License",
+            "url": "http://api.developer.du.ae/license"
+        }
+    },
+    "definitions": {
+        "ErrorSchema": {
+            "description": "Error Schema",
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "Error Code"
+                },
+                "error": {
+                    "type": "string",
+                    "description": "Error Description"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error Message"
+                }
+            }
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/billing": {
+            "get": {
+                "description": "Get Bill Information",
+                "summary": "Get Bill Information",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getBillInformation",
+                "tags": [
+                    "billing"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "DocumentsList": {
+                                    "type": "object",
+                                    "properties": {
+                                        "ComplaintStatus": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ComplaintDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "DueDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "EntryDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "InvoiceAmount": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "CurrentOpenAmount": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ReferenceDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "DocumentReferenceNumber": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "DocumentStatus": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "TransactionID": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "PaymentFlag": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "BillingAccountCode": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "BillingAccountName": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "BillingAccountID": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "InvoiceType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ContractID": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ContractIDPub": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "CustomerID": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "CustomerIDPub": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "CurrencyID": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "CurrencyIDPub": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "BtCseq": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "BtOhdisamtDoc": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "BtOhfulfildate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "BtOhinvtype": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "BtOhmod": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "BtOhshpdate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Details": {
+                                            "type": "object",
+                                            "properties": {
+                                                "DetailsList": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "AmountDoc": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "Global": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "Name": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "ProfileID": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "SeqNo": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "SnCode": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "SncodePub": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "AmountDoc",
+                                                        "Global",
+                                                        "Name",
+                                                        "ProfileID",
+                                                        "SeqNo",
+                                                        "SnCode",
+                                                        "SncodePub"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "DetailsList"
+                                            ]
+                                        },
+                                        "GLCurrencyID": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "GLCurrencyIDPub": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "PrimaryDocumentCurrencyID": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "PrimaryDocumentCurrencyIDPub": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "ComplaintStatus",
+                                        "ComplaintDate",
+                                        "DueDate",
+                                        "EntryDate",
+                                        "InvoiceAmount",
+                                        "CurrentOpenAmount",
+                                        "ReferenceDate",
+                                        "DocumentReferenceNumber",
+                                        "DocumentStatus",
+                                        "TransactionID",
+                                        "PaymentFlag",
+                                        "BillingAccountCode",
+                                        "BillingAccountName",
+                                        "BillingAccountID",
+                                        "InvoiceType",
+                                        "ContractID",
+                                        "ContractIDPub",
+                                        "CustomerID",
+                                        "CustomerIDPub",
+                                        "CurrencyID",
+                                        "CurrencyIDPub",
+                                        "BtCseq",
+                                        "BtOhdisamtDoc",
+                                        "BtOhfulfildate",
+                                        "BtOhinvtype",
+                                        "BtOhmod",
+                                        "BtOhshpdate",
+                                        "Details",
+                                        "GLCurrencyID",
+                                        "GLCurrencyIDPub",
+                                        "PrimaryDocumentCurrencyID",
+                                        "PrimaryDocumentCurrencyIDPub"
+                                    ]
+                                },
+                                "CustomerBalance": {
+                                    "type": "object",
+                                    "properties": {
+                                        "DueDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "LastBilledDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "OutstandingAmount": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "PreviousBalance": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "TotalInvoiceAmount": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "TotalPaidAmount": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "UnbilledAmount": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "TotalOpenAmount": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "TotalOccAmount": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "TotalUnpaidDeposit": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "DueDate",
+                                        "LastBilledDate",
+                                        "OutstandingAmount",
+                                        "PreviousBalance",
+                                        "TotalInvoiceAmount",
+                                        "TotalPaidAmount",
+                                        "UnbilledAmount",
+                                        "TotalOpenAmount",
+                                        "TotalOccAmount",
+                                        "TotalUnpaidDeposit"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "DocumentsList",
+                                "CustomerBalance",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "start_date",
+                        "description": "Start Date",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "end_date",
+                        "description": "End Date",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "customer_id",
+                        "description": "Customer Id(Conditional Mandatory-Any one of Customer Id, Msisdn or Contract Id is required\"",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "contract_id",
+                        "description": "Contract Id(Conditional Mandatory-Any one of Customer Id, Msisdn or Contract Id is required\"",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "msisdn",
+                        "description": "Msisdn Number(Conditional Mandatory-Any one of Customer Id, Msisdn or Contract Id is required\"",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "document_type",
+                        "description": "Document Type",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "customer_id_pub",
+                        "description": "Customer Id Pub",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "contract_id_pub",
+                        "description": "Contract Id Pub",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "bscs_con_type",
+                        "description": "Bscs Con Type",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer NnkpuVZnAlgUGXowG4YoZQYz9VU8"
+                    }
+                ]
+            }
+        },
+        "/billing/{documentNumber}/xml-file": {
+            "get": {
+                "description": "Get Bill XML Document",
+                "summary": "Get Bill XML Document",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getBillXmlDocument",
+                "tags": [
+                    "billing"
+                ],
+                "produces": [
+                    "application/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Autorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer NnkpuVZnAlgUGXowG4YoZQYz9VU8"
+                    },
+                    {
+                        "in": "path",
+                        "name": "documentNumber",
+                        "description": "Document Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/billing/{documentNumber}/pdf-file": {
+            "get": {
+                "description": "Get Bill PDF Document",
+                "summary": "Get Bill PDF Document",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getBillPdfDocument",
+                "tags": [
+                    "billing"
+                ],
+                "produces": [
+                    "application/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Autorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer NnkpuVZnAlgUGXowG4YoZQYz9VU8"
+                    },
+                    {
+                        "in": "path",
+                        "name": "documentNumber",
+                        "description": "Document Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        }
+    },
+    "security": [
+        {
+            "OauthSecurity": []
+        }
+    ],
+    "securityDefinitions": {
+        "OauthSecurity": {
+            "type": "oauth2",
+            "flow": "password",
+            "description": "oAuth 2.0 security implementation",
+            "tokenUrl": "http://172.24.122.149:9001/v1/oauth/token"
+        }
+    }
+}

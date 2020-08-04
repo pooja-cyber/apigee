@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-GetServiceCommonVariable">
+    <DisplayName>EV-GetServiceCommonVariable</DisplayName>
+    <Properties/>
+    <URIPath>
+        <Pattern ignoreCase="true">/{du.api.serviceCode}/parameters</Pattern>
+        <!-- <Pattern ignoreCase="true">/{du.api.id}</Pattern> -->
+        <Pattern ignoreCase="true">/prepaid/{msisdn}/parameters</Pattern>
+        <Pattern ignoreCase="true">/prepaid/{msisdn}/topup</Pattern>
+        <Pattern ignoreCase="true">/postpaid/{msisdn}/databundles</Pattern>
+        <Pattern ignoreCase="true">/postpaid/{msisdn}</Pattern>
+        <Pattern ignoreCase="true">/prepaid/{msisdn}</Pattern>
+    </URIPath>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <Source clearPayload="false">request</Source>
+</ExtractVariables>

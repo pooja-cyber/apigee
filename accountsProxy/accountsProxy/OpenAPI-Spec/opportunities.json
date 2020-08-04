@@ -1,0 +1,379 @@
+{
+    "swagger": "2.0",
+    "host": "172.24.122.149:9001",
+    "schemes": [
+        "http"
+    ],
+    "info": {
+        "description": "Open API Specification for Opportunities API",
+        "title": "Open API Specification for Opportunities API",
+        "version": "0.0.1",
+        "termsOfService": "http://example.com/about/terms",
+        "contact": {
+            "name": "api.developer",
+            "url": "http://example.com/contact",
+            "email": "api.developer@du.ae"
+        },
+        "license": {
+            "name": "Du License",
+            "url": "http://api.developer.du.ae/license"
+        }
+    },
+    "definitions": {
+        "ErrorSchema": {
+            "description": "Error Schema",
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "Error Code"
+                },
+                "error": {
+                    "type": "string",
+                    "description": "Error Description"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error Message"
+                }
+            }
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/opportunities": {
+            "post": {
+                "description": "Manage Enterprise Opportunity",
+                "summary": "Manage Enterprise Opportunity",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "manageEnterpriseOpportunity",
+                "tags": [
+                    "opportunities"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "Listeitcopportunity_Activityio": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Opportunity": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Account": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Channel": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Comments": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "AccountCode": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "CustomerAccountIndustry": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "CustomerNumberOfEmployees": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ServiceSubType": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ServiceType": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ContactEmailAddress": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ContactFirstName": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ContactLastName": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ContactMobile": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "MarketSegment": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Quantity": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PreferredContactTime": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Sponsor": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "Account",
+                                                "Channel",
+                                                "Comments",
+                                                "AccountCode",
+                                                "CustomerAccountIndustry",
+                                                "CustomerNumberOfEmployees",
+                                                "ServiceSubType",
+                                                "ServiceType",
+                                                "ContactEmailAddress",
+                                                "ContactFirstName",
+                                                "ContactLastName",
+                                                "ContactMobile",
+                                                "MarketSegment",
+                                                "Quantity",
+                                                "PreferredContactTime",
+                                                "Sponsor"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "Opportunity"
+                                    ]
+                                },
+                                "Error_spcCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "Error_spcMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "Listeitcopportunity_Activityio",
+                                "Error_spcCode",
+                                "Error_spcMessage",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 3Xcpml3907so4vo0g4vutMpXWST9"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "Listeitcopportunity_Activityio": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Opportunity": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Account": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Channel": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Comments": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "AccountCode": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "CustomerAccountIndustry": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "CustomerNumberOfEmployees": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ServiceSubType": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ServiceType": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ContactEmailAddress": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ContactFirstName": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ContactLastName": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ContactMobile": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "MarketSegment": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Quantity": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PreferredContactTime": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Sponsor": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "Account",
+                                                "Channel",
+                                                "Comments",
+                                                "AccountCode",
+                                                "CustomerAccountIndustry",
+                                                "CustomerNumberOfEmployees",
+                                                "ServiceSubType",
+                                                "ServiceType",
+                                                "ContactEmailAddress",
+                                                "ContactFirstName",
+                                                "ContactLastName",
+                                                "ContactMobile",
+                                                "MarketSegment",
+                                                "Quantity",
+                                                "PreferredContactTime",
+                                                "Sponsor"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "Opportunity"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "Listeitcopportunity_Activityio"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "security": [
+        {
+            "OauthSecurity": []
+        }
+    ],
+    "securityDefinitions": {
+        "OauthSecurity": {
+            "type": "oauth2",
+            "flow": "password",
+            "description": "oAuth 2.0 security implementation",
+            "tokenUrl": "http://172.24.122.149:9001/v1/oauth/token"
+        }
+    }
+}

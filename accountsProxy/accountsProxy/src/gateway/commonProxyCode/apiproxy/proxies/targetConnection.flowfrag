@@ -1,0 +1,13 @@
+<HTTPTargetConnection>
+    <LoadBalancer>
+        <MaxFailures>0</MaxFailures>
+        <RetryEnabled>true</RetryEnabled>
+        <Server name="TOBEREPLACED">
+            <IsEnabled>true</IsEnabled>
+            <IsFallback>false</IsFallback>
+            <Weight>1</Weight>
+        </Server>
+    </LoadBalancer>
+    <Path>{local.targetBasepath}</Path>
+    <Properties/>
+</HTTPTargetConnection>

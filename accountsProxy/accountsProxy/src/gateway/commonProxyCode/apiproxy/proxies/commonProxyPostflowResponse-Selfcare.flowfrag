@@ -1,0 +1,12 @@
+<Step>
+    <Name>X2J-XmlToJsonResponse</Name>
+    <Condition>(response.status.code = "200" or response.status.code = "201")</Condition>
+</Step>
+<Step>
+    <Name>JSC-CleanJsonResponse-Selfcare</Name>
+    <Condition>(response.status.code = "200" or response.status.code = "201")</Condition>
+</Step>
+<Step>
+	<Name>JSC-SelfcareResponseCodeMappings</Name>
+	<Condition>(response.status.code = "200" or response.status.code = "201")</Condition>
+</Step>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage
+	async="false"
+	continueOnError="false"
+	enabled="true"
+	name="AM-BuildSoapMessageGetTroubleTicketByFilters"
+>
+	<DisplayName>AM-BuildSoapMessageGetTroubleTicketByFilters</DisplayName>
+	<FaultRules />
+	<Properties />
+	<Set>
+		<Headers>
+			<Header name="Content-Type">application/soap+xml</Header>
+			<Header name="SOAPAction">/Processes/BusinessResources/Services/LCEWebServices.serviceagent//GetTTInfo</Header>
+		</Headers>
+		<QueryParams>
+			<QueryParam name="serviceName">GetTTInfo</QueryParam>
+			<QueryParam name="responseType">200</QueryParam>
+		</QueryParams>
+		<Payload contentType="application/xml">
+			<soapenv:Envelope
+				xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+				xmlns:web="http://www.webservices.com/LCE/Du/WebServices"
+				xmlns:head="http://www.du.ae/LCE/Header"
+				xmlns:lcew="http://xmlns.du.ae/LCE/Business/LCEWebServiceRequest"
+				xmlns:get="http://xmlns.du.ae/LCE/Business/RequestManagement/GetTTInfo"
+			>
+				<soapenv:Header />
+				<soapenv:Body>
+					<web:GetTTInfo>
+						<Request>
+							<head:Header>
+								<!--Optional: -->
+								<head:RequestId>{du.api.requestId}</head:RequestId>
+								<head:Credentials>
+									<head:ApplicationId>{du.config.applicationId}</head:ApplicationId>
+									<head:User>{du.config.mceUsername}</head:User>
+									<!--Optional: -->
+									<head:Password>{du.config.mcePassword}</head:Password>
+								</head:Credentials>
+								<!--Optional: -->
+								<head:CorrelationId></head:CorrelationId>
+							</head:Header>
+							<lcew:Body>
+								<!--Optional: -->
+								<get:AccountCode>{request.queryparam.account_id}</get:AccountCode>
+								<!--Optional: -->
+								<get:TTId>{request.queryparam.tt_id}</get:TTId>
+								<!--Optional: -->
+								<get:Status>{request.queryparam.status}</get:Status>
+							</lcew:Body>
+						</Request>
+					</web:GetTTInfo>
+				</soapenv:Body>
+			</soapenv:Envelope>
+		</Payload>
+		<Verb>POST</Verb>
+	</Set>
+	<IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+	<AssignVariable>
+        <Name>du.config.soapMethodForRequest</Name>
+        <Value>GetTTInfo</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>du.config.soapMethodForResponse</Name>
+        <Value>GetTTInfoResponse</Value>
+    </AssignVariable>
+	<AssignTo
+		type="request"
+		transport="http"
+		createNew="true" />
+</AssignMessage>

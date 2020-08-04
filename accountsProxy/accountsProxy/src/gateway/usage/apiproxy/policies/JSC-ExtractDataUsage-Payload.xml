@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript async="false" continueOnError="false" enabled="true" timeLimit="200" name="JSC-ExtractDataUsage-Payload">
+    <DisplayName>JSC-ExtractDataUsage-Payload</DisplayName>
+    <Properties/>
+    <IncludeURL>jsc://JSC-addNamespace.js</IncludeURL>
+    <ResourceURL>jsc://JSC-ExtractDataUsage-Payload.js</ResourceURL>
+</Javascript>

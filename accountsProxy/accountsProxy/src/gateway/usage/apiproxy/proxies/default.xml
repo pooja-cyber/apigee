@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+	<Description />
+	#proxyDefaultFaultRule#
+	<FaultRules>
+		#genericUnhandledExceptionFaultRule#
+        #commonAccessTokenFaultRules#
+        #commonTraficManagementFaultRules#
+    </FaultRules>
+	<PreFlow name="PreFlow">
+		<Request>
+			<Step>
+				<Name>KVM-GetTargetConfiguration</Name>
+			</Step>
+			#commonProxyPreflowRequest#
+			<Step>
+				<Name>EV-GetUsageCommonVariable</Name>
+			</Step>
+		</Request>
+		<Response />
+	</PreFlow>
+	
+	<Flows>
+		 #pingResourceFlow#
+		<Flow name="GetDataUsageNotificationThresholds">
+			<Description>Get Data Usage Notification Thresholds</Description>
+			<Request>
+				<Step>
+					<Name>AM-RequiredMsisdnParamMissing</Name>
+                    <Condition>(msisdn = null)</Condition>
+				</Step>
+				<Step>
+					<Name>JSC-ValidateMsisdn</Name>
+					<Condition>(du.config.isGetDataUsageNotificationThresholdsFlag = "true")
+					</Condition>
+				</Step>
+				<Step>
+					<Name>AM-GetDataUsageNotificationThresholds-Payload</Name>
+				</Step>
+			</Request>
+			<Response></Response> 
+			<Condition>(proxy.pathsuffix Matches "/data/{msisdn}/notification-thresholds") and (request.verb = "GET")
+			</Condition>
+		</Flow>
+		<Flow name="GetPostpaidbyadditionalparameters">
+			<Description>Get Postpaid Bundles Balance by additional parameters
+			</Description>
+			<Request>
+				<Step>
+					<Name>AM-RequiredParameters</Name>
+					<Condition>(request.queryparam.msisdn = null) and (request.queryparam.contract_id =null)</Condition>
+				</Step>
+				<Step>
+					<Name>JSC-ValidateMsisdn</Name>
+					<Condition>(request.queryparam.msisdn != null)and(du.config.isGetPostpaidBundlesBalanceByContractIdFlag = "true")
+					</Condition>
+				</Step>
+				<Step>
+					<Name>JSC-ValidateContractid</Name>
+					<Condition>(request.queryparam.contract_id != null)and(du.config.isGetPostpaidBundlesBalanceByContractIdFlag = "true")
+					</Condition>
+				</Step>
+				<Step>
+					<Name>AM-GetPostpaidbyadditionalparameters-Payload</Name>
+				</Step>
+			</Request>
+			<Response></Response>
+			<Condition>(proxy.pathsuffix Matches "/postpaid/bundles-balance") and (request.verb ="GET")
+			</Condition>
+		</Flow>
+		<Flow name="GetPostpaidbyMSISDN">
+			<Description>Get Postpaid Bundles Balance by MSISDN</Description>
+			<Request>
+				<Step>
+					<Name>AM-RequiredMsisdnParamMissing</Name>
+                    <Condition>(msisdn = null)</Condition>
+				</Step>
+				<Step>
+					<Name>JSC-ValidateMsisdn</Name>
+					<Condition>(du.config.isGetPostpaidBundlesBalanceByMSISIDNFlag = "true")
+					</Condition>
+				</Step>
+				<Step>
+					<Name>AM-GetPostpaidbyMSISDN-Payload</Name>
+				</Step>
+			</Request>
+			<Response></Response>
+			<Condition>(proxy.pathsuffix Matches "/postpaid/{msisdn}/bundles-balance") and (request.verb ="GET")
+			</Condition>
+		</Flow>
+		<Flow name="GetPrepaidbyMSISDN">
+			<Description>Get Prepaid Bundles Balance by MSISDN</Description>
+			<Request>
+				<Step>
+					<Name>AM-RequiredMsisdnParamMissing</Name>
+                    <Condition>(msisdn = null)</Condition>
+				</Step>
+				<Step>
+					<Name>JSC-ValidateMsisdn</Name>
+					<Condition>(du.config.isGetPrepaidBundlesBalanceByMSISIDNFlag = "true")
+					</Condition>
+				</Step>
+				<Step>
+					<Name>AM-GetPrepaidbyMSISDN-Payload</Name>
+				</Step>
+			</Request>
+			<Response></Response>
+			<Condition>(proxy.pathsuffix Matches "/prepaid/{msisdn}/bundles-balance") and (request.verb ="GET")
+			</Condition>
+		</Flow>
+		<Flow name="PrepaidGetUsage">
+			<Description>Prepaid Get Usage</Description>
+			<Request>
+				<Step>
+					<Name>AM-RequiredMsisdnParamMissing</Name>
+                    <Condition>(msisdn = null)</Condition>
+				</Step>
+				<Step>
+					<Name>JSC-ValidateMsisdn</Name>
+					<Condition>(du.config.isGetPrepaidUsageFlag = "true")
+					</Condition>
+				</Step>
+				<Step>
+					<Name>JSC-ExtractPrepaidUsage</Name>
+				</Step>
+				#commonJsonToXmlPolicy#
+				<Step>
+					<Name>AM-PrepaidGetUsage-Payload</Name>
+				</Step>
+			</Request>
+			<Response></Response>
+			<Condition>(proxy.pathsuffix Matches "/prepaid/{msisdn}") and (request.verb ="GET")
+			</Condition>
+		</Flow>
+		<Flow name="SetDataUsageNotificationThresholds">
+			<Description>Set Data Usage Notification Thresholds</Description>
+			<Request>
+				<Step>
+					<Name>AM-RequiredMsisdnParamMissing</Name>
+                    <Condition>(msisdn = null)</Condition>
+				</Step>
+				<Step>
+					<Name>JSC-ValidateMsisdn</Name>
+					<Condition>(du.config.isSetDataUsageNotificationThresholdsFlag = "true")
+					</Condition>
+				</Step>
+				#emptyBodyPayloadCheck#
+				<Step>
+					<Name>JSC-ExtractDataUsage-Payload</Name>
+				</Step>
+				#commonJsonToXmlPolicy#
+				<Step>
+					<Name>AM-SetDataUsageNotificationThresholds-Payload</Name>
+				</Step>
+			</Request>
+			<Response></Response>
+			<Condition>(proxy.pathsuffix Matches "/data/{msisdn}/notification-thresholds") and (request.verb = "POST")
+			</Condition>
+		</Flow>
+		#unknownResourceFlowGeneric#
+	</Flows>
+	<PostFlow name="PostFlow">
+		<Request />
+		<Response>
+			 #commonProxyPostflowResponse#
+		</Response>
+	</PostFlow>
+	<HTTPProxyConnection>
+		<BasePath>/v1/usage</BasePath>
+		<Properties />
+		<VirtualHost>default</VirtualHost>
+		<!-- Comment/Remove the Virtual Host-secure while deploying API Proxy in Organization dudev -->
+		<VirtualHost>secure</VirtualHost>
+	</HTTPProxyConnection>
+	#pingResourceRouteRule#
+	<RouteRule name="mock">
+        <TargetEndpoint>mock</TargetEndpoint>
+        <Condition>(du.config.request.mock="true")</Condition>
+    </RouteRule>
+	<RouteRule name="default">
+		<TargetEndpoint>default</TargetEndpoint>
+	</RouteRule>
+</ProxyEndpoint>

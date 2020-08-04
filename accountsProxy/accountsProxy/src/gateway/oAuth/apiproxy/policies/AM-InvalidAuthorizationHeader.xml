@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-InvalidAuthorizationHeader">
+    <DisplayName>AM-InvalidAuthorizationHeader</DisplayName>
+    <Properties/>
+    
+    <AssignVariable>
+        <Name>api-error.error</Name>
+        <Value>invalid_authorization_header</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.code</Name>
+        <Value>NB_40001</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.message</Name>
+        <Value>Please send Base64 Encoded App client Key and secret.</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.status_code</Name>
+        <Value>400</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.reason_phrase</Name>
+        <Value>Bad Request</Value>
+        <Ref/>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="response"/>
+</AssignMessage>

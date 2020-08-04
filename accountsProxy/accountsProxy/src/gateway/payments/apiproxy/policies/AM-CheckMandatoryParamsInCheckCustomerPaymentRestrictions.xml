@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-CheckMandatoryParamsInCheckCustomerPaymentRestrictions">
+    <DisplayName>AM-CheckMandatoryParamsInCheckCustomerPaymentRestrictions</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>api-error.error</Name>
+        <Value>MissingParameters</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.code</Name>
+        <Value>NB_40002</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.message</Name>
+        <Value>customerId or channel value is missing</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.status_code</Name>
+        <Value>400</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.reason_phrase</Name>
+        <Value>MissingParameter</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>api-error.raise_fault</Name>
+        <Ref>api-error.variable_raise_fault</Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

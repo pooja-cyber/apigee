@@ -1,0 +1,114 @@
+{
+  "swagger": "2.0",
+  "host": "devmajor-apigwnonprod.corp.du.ae:9101",
+  "schemes": [
+    "http"
+  ],
+  "info": {
+    "description": "Open API Spec for GetAccountLegalFlag",
+    "title": "Open API Spec for GetAccountLegalFlag",
+    "version": "0.0.1",
+    "termsOfService": "http://example.com/about/terms",
+    "contact": {
+      "name": "API Docs",
+      "url": "http://example.com/contact",
+      "email": "apidocs@example.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://example.com"
+    }
+  },
+  "basePath": "/v1",
+  "paths": {
+    "/customers/{customerId}/legalflag": {
+      "get": {
+        "description": "GetAccountLegalFlag",
+        "summary": "GetAccountLegalFlag",
+        "externalDocs": {
+          "description": "Find out more",
+          "url": "http://docs.example.com/management/apis/get/entities"
+        },
+        "operationId": "GetAccountLegalFlag",
+        "tags": [
+          "customers"
+        ],
+        "produces": [
+          "application/json;charset=UTF-8"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "AccountList": {
+                  "type": "object",
+                  "properties": {
+                    "Account": {
+                      "type": "object",
+                      "properties": {
+                        "CustomerID": {
+                          "type": "number"
+                        },
+                        "LegalFlag": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "CustomerID",
+                        "LegalFlag"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "Account"
+                  ]
+                },
+                "RequestId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "CorrelationId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ResponseCode": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "AccountList",
+                "RequestId",
+                "CorrelationId",
+                "ResponseCode"
+              ]
+            }
+          }
+        },
+        "security": [],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "OAuth Bearer Token Header",
+            "required": true,
+            "type": "string",
+            "enum": [
+              " Bearer xqncSdIgguhhyOcVibMF1HlhW3tL"
+            ]
+          },
+          {
+            "in": "path",
+            "name": "customerId",
+            "description": "Customer ID",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    }
+  }
+}

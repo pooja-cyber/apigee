@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-RevokeTokenSuccessMessage">
+    <DisplayName>AM-RevokeTokenSuccessMessage</DisplayName>
+    <Properties/>
+    <Set>
+        <Payload contentType="application/json">
+            \{ "message": "Successfully revoked refresh and access tokens." }
+        </Payload>
+        <StatusCode>200</StatusCode>
+        <ReasonPhrase>OK</ReasonPhrase>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="response"/>
+</AssignMessage>

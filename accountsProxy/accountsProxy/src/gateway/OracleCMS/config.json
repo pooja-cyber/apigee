@@ -1,0 +1,224 @@
+{
+	"configurations":[
+		{
+			"name": "dev",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "oracle-cms.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "dev-oracle-cms-target"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "tqc",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "oracle-cms.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "tqc-oracle-cms-target"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "cit",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "oracle-cms.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "cit-oracle-cms-target"
+						}
+					]
+				}
+			]
+		},
+        {
+			"name": "devmajor",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "oracle-cms.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "devmajor-oracle-cms-target"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "tqcmajor",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "oracle-cms.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "tqcmajor-oracle-cms-target"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "preprod",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "oracle-cms.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "preprod-oracle-cms-target"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "training",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "oracle-cms.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "training-oracle-cms-target"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "staging",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "oracle-cms.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "staging-oracle-cms-target"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "cittamkeen",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "oracle-cms.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "cittamkeen-oracle-cms-target"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "tqctamkeen1",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "oracle-cms.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "tqctamkeen1-oracle-cms-target"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "tqctamkeen2",
+			"policies": [
+				
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				{
+					"name" : "oracle-cms.xml",
+					"tokens" : [
+						{
+							"xpath" : "/TargetEndpoint/HTTPTargetConnection/LoadBalancer/Server/@name",
+							"value" : "tqctamkeen2-oracle-cms-target"
+						}
+					]
+				}
+			]
+		}
+	]
+}

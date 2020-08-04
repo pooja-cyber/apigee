@@ -1,0 +1,44 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservices.com/LCE/Du/WebServices" xmlns:head="http://www.du.ae/LCE/HeaderResponse" xmlns:lcew="http://xmlns.du.ae/LCE/Business/LCEWebServiceResponse" xmlns:get="http://xmlns.du.ae/LCE/Business/ServiceManagement/GetApplicableCommitments">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetApplicableCommitmentsResponse>
+         <Response>
+            <head:Header>
+               <!--Optional:-->
+               <head:RequestId>?</head:RequestId>
+               <!--Optional:-->
+               <head:CorrelationId>?</head:CorrelationId>
+               <head:ResponseCode>?</head:ResponseCode>
+               <!--Optional:-->
+               <head:ResponseMessage>?</head:ResponseMessage>
+               <!--Optional:-->
+               <head:ErrorCode>?</head:ErrorCode>
+               <!--Optional:-->
+               <head:ErrorDescription>?</head:ErrorDescription>
+            </head:Header>
+            <!--Optional:-->
+            <lcew:Body>
+               <!--Zero or more repetitions:-->
+               <get:CommitmentsPackageList>
+                  <!--Optional:-->
+                  <get:CommitmentPeriod>?</get:CommitmentPeriod>
+                  <!--Optional:-->
+                  <get:CommitmentName>?</get:CommitmentName>
+                  <!--Optional:-->
+                  <get:MonthlyAmount>?</get:MonthlyAmount>
+                  <!--Optional:-->
+                  <get:FeeAmount>?</get:FeeAmount>
+                  <!--Optional:-->
+                  <get:PkgName>?</get:PkgName>
+                  <!--Optional:-->
+                  <get:PkgChargeAmount>?</get:PkgChargeAmount>
+                  <!--Optional:-->
+                  <get:OtcAmountCurrency>?</get:OtcAmountCurrency>
+                  <!--Optional:-->
+                  <get:CommitmentType>?</get:CommitmentType>
+               </get:CommitmentsPackageList>
+            </lcew:Body>
+         </Response>
+      </web:GetApplicableCommitmentsResponse>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables match="first" async="false" continueOnError="false" enabled="true" name="EV-ExtractVariablesForGetTroubleTicketInfo">
+    <DisplayName>EV-ExtractVariablesForGetTroubleTicketInfo</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <URIPath>
+        <Pattern ignoreCase="true">/{trouble_ticket_id}</Pattern>
+    </URIPath>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</ExtractVariables>

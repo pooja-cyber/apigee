@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript async="false" continueOnError="false" enabled="true" timeLimit="200" name="JSC-CheckMissingMsisdn">
+    <DisplayName>JSC-CheckMissingMsisdn</DisplayName>
+    <Properties/>
+    <ResourceURL>jsc://JSC-CheckMissingMsisdn.js</ResourceURL>
+</Javascript>

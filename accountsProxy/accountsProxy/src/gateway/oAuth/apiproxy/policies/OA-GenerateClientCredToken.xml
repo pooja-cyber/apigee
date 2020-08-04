@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAuthV2 async="false" continueOnError="false" enabled="true" name="OA-GenerateClientCredToken">
+    <DisplayName>OA-GenerateClientCredToken</DisplayName>
+    <Operation>GenerateAccessToken</Operation>
+    
+    <ExternalAccessToken>apigee.access_token</ExternalAccessToken>
+    <!-- This is in millseconds, so expire in an hour -->
+    <ExpiresIn>1800000</ExpiresIn>
+    <RefreshTokenExpiresIn>15552000000</RefreshTokenExpiresIn>
+    <SupportedGrantTypes>
+        <GrantType>client_credentials</GrantType>
+    </SupportedGrantTypes>
+    <GrantType>du.grantType</GrantType>
+    <GenerateResponse enabled="true"/>
+    <GenerateErrorResponse enabled="true"/>
+</OAuthV2>

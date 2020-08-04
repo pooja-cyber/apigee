@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations mapIdentifier="activities-v1-config" async="false" continueOnError="false" enabled="true" name="KVM-GetTargetConfigurations">
+    <DisplayName>KVM-GetTargetConfigurations</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Get assignTo="du.config.mceTargetBasepath">
+        <Key> 
+            <Parameter>mceTargetBasepath</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.spikeArrest">
+        <Key> 
+            <Parameter>spikeArrest</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mceUsername">
+        <Key> 
+            <Parameter>mceUsername</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mcePassword">
+        <Key> 
+            <Parameter>mcePassword</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mceApplicationId">
+        <Key> 
+            <Parameter>mceApplicationId</Parameter>
+        </Key>
+    </Get>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

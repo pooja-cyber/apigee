@@ -1,0 +1,12 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.thirdparties.ericsson.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:addFriendResponse>
+         <!--Optional:-->
+         <return>
+            <responseCode>?</responseCode>
+            <responseDescription>?</responseDescription>
+         </return>
+      </web:addFriendResponse>
+   </soapenv:Body>
+</soapenv:Envelope>

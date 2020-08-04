@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations mapIdentifier="TOBEREPLACED" async="false" continueOnError="false" enabled="true" name="KVM-GetTargetConfigurations">
+    <DisplayName>KVM-GetTargetConfigurations</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Get assignTo="du.config.mceTargetBasepath">
+        <Key> 
+            <Parameter>mceTargetBasepath</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.selfcareTargetBasepath">
+        <Key> 
+            <Parameter>selfcareTargetBasepath</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mceUsername">
+        <Key>
+            <Parameter>mceUsername</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mcePassword">
+        <Key>
+            <Parameter>mcePassword</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.selfcareUsername">
+        <Key>
+            <Parameter>selfcareUsername</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.selfcarePassword">
+        <Key>
+            <Parameter>selfcarePassword</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.opflag-generateOtp">
+        <Key>
+            <Parameter>opflag-generateOtp</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.opflag-resendOTP">
+        <Key>
+            <Parameter>opflag-resendOTP</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.opflag-registerUser">
+        <Key>
+            <Parameter>opflag-registerUser</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.opflag-verifyOTP">
+        <Key>
+            <Parameter>opflag-verifyOTP</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.opflag-forgotpassGenerateOTP">
+        <Key>
+            <Parameter>opflag-forgotpassGenerateOTP</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.opflag-forgotpassResendOTP">
+        <Key>
+            <Parameter>opflag-forgotpassResendOTP</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.opflag-resetPassword">
+        <Key>
+            <Parameter>opflag-resetPassword</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.applicationId">
+        <Key>
+            <Parameter>mceApplicationId</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.spikeArrest">
+        <Key>
+            <Parameter>spikeArrest</Parameter>
+        </Key>
+    </Get>
+    <!-- TroubleTicketsAPI flags -->
+    <Get assignTo="du.config.isCreateTTFlag">
+        <Key>
+            <Parameter>isCreateTTFlag </Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetTTInfoFlag">
+        <Key>
+            <Parameter>isGetTTInfoFlag</Parameter>
+        </Key>
+    </Get>
+    <!-- OffersAPI Flags -->
+    <Get assignTo="du.config.isGetApplicableBroadbandSpeedsFlag">
+        <Key>
+            <Parameter>isGetApplicableBroadbandSpeedsFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetApplicableBundlesFlag">
+        <Key>
+            <Parameter>isGetApplicableBundlesFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetApplicableRateplansFlag">
+        <Key>
+            <Parameter>isGetApplicableRateplansFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetAvailableOffersFlag">
+        <Key>
+            <Parameter>isGetAvailableOffersFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetContractOffersFlag">
+        <Key>
+            <Parameter>isGetContractOffersFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetEligibleBundlesFlag">
+        <Key>
+            <Parameter>isGetEligibleBundlesFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetEligibleContractOffersFlag">
+        <Key>
+            <Parameter>isGetEligibleContractOffersFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetTVPackagesFlag">
+        <Key>
+            <Parameter>isGetTVPackagesFlag</Parameter>
+        </Key>
+    </Get>
+    <!-- UsersAPI Flags -->
+    <Get assignTo="du.config.isGenerateOTPForUserRegistrationFlag">
+        <Key>
+            <Parameter>isGenerateOTPForUserRegistrationFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isResendOTPForUserRegistrationFlag">
+        <Key>
+            <Parameter>isResendOTPForUserRegistrationFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isVerifyOTPFlag">
+        <Key>
+            <Parameter>isVerifyOTPFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isRegisterUserFlag">
+        <Key>
+            <Parameter>isRegisterUserFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGenerateOTPForForgotPasswordFlag">
+        <Key>
+            <Parameter>isGenerateOTPForForgotPasswordFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isResendOTPForForgotPasswordFlag">
+        <Key>
+            <Parameter>isResendOTPForForgotPasswordFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isResetPasswordFlag">
+        <Key>
+            <Parameter>isResetPasswordFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isUpdateSelfcareUsernameAndPasswordFlag">
+        <Key>
+            <Parameter>isUpdateSelfcareUsernameAndPasswordFlag</Parameter>
+        </Key>
+    </Get>
+    <!-- AccountsAPI Flags -->
+    <Get assignTo="du.config.isCreateCustomerAccountFlag">
+        <Key>
+            <Parameter>isCreateCustomerAccountFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetAccountFlag">
+        <Key>
+            <Parameter>isGetAccountFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetAccountInformationFlag">
+        <Key>
+            <Parameter>isGetAccountInformationFlag</Parameter>
+        </Key>
+    </Get>
+
+    <Get assignTo="du.config.isManageContactMethodFlag">
+        <Key>
+            <Parameter>isManageContactMethodFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetAccountInformationFlag">
+        <Key>
+            <Parameter>isGetAccountInformationFlag</Parameter>
+        </Key>
+    </Get>
+    <!-- BillingsAPI Flags -->
+    <Get assignTo="du.config.isGetBillInformationFlag">
+        <Key>
+            <Parameter>isGetBillInformationFlag</Parameter>
+        </Key>
+    </Get>
+    <!-- ContractsAPI Flags-->
+    <Get assignTo="du.config.isChangeCustomerServiceParametersFlag">
+        <Key>
+            <Parameter>isChangeCustomerServiceParametersFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetAllCustomerContractsFlag">
+        <Key>
+            <Parameter>isGetAllCustomerContractsFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetApplicableCommitmentsFlag">
+        <Key>
+            <Parameter>isGetApplicableCommitmentsFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetContractRatePlanHistoryFlag">
+        <Key>
+            <Parameter>isGetContractRatePlanHistoryFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetContractRatePlanHistoryFlag">
+        <Key>
+            <Parameter>isGetContractRatePlanHistoryFlag</Parameter>
+        </Key>
+    </Get>
+    <!-- CustomersAPI Flags -->
+    <Get assignTo="du.config.isGetCustomerFlag">
+        <Key>
+            <Parameter>isGetCustomerFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetCustomerInformationFlag">
+        <Key>
+            <Parameter>isGetCustomerInformationFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isChangeCustomerDetailsFlag">
+        <Key>
+            <Parameter>isChangeCustomerDetailsFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetCustomerBillsFlag">
+        <Key>
+            <Parameter>isGetCustomerBillsFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetCustomerAndContractsFlag">
+        <Key>
+            <Parameter>isGetCustomerAndContractsFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetRequestHistoryFlag">
+        <Key>
+            <Parameter>isGetRequestHistoryFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isManageCustomerProfileInfoFlag">
+        <Key>
+            <Parameter>isManageCustomerProfileInfoFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isSetUserPreferredLanguageFlag">
+        <Key>
+            <Parameter>isSetUserPreferredLanguageFlag</Parameter>
+        </Key>
+    </Get>
+    <!-- DevicesAPI Flags -->
+    <Get assignTo="du.config.isManageHandsetConfigurationFlag">
+        <Key>
+            <Parameter>isManageHandsetConfigurationFlag</Parameter>
+        </Key>
+    </Get>
+    <!-- OpportunitiesAPI Flags -->
+     <Get assignTo="du.config.isManageEnterpriseOpportunityFlag">
+        <Key>
+            <Parameter>isManageEnterpriseOpportunityFlag</Parameter>
+        </Key>
+    </Get>
+     <Get assignTo="du.config.isManageEnterpriseOpportunityFlag">
+        <Key>
+            <Parameter>isManageEnterpriseOpportunityFlag</Parameter>
+        </Key>
+    </Get>
+    <!-- OrdersAPI Flags -->
+    <Get assignTo="du.config.isCancelScheduleRequestFlag">
+        <Key>
+            <Parameter>isCancelScheduleRequestFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isCreateFixedModificationFlag">
+        <Key>
+            <Parameter>isCreateFixedModificationFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isCreateMNPActivationFlag">
+        <Key>
+            <Parameter>isCreateMNPActivationFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isCreateMobileActivationFlag">
+        <Key>
+            <Parameter>isCreateMobileActivationFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isCreateMultiLineMobileActivationFlag">
+        <Key>
+            <Parameter>isCreateMultiLineMobileActivationFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetCRNOrderItemsFlag">
+        <Key>
+            <Parameter>isGetCRNOrderItemsFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetOMPFulfillmentRequestsFlag">
+        <Key>
+            <Parameter>isGetOMPFulfillmentRequestsFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetOMPOrdersFlag">
+        <Key>
+            <Parameter>isGetOMPOrdersFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isManageOffersFlag">
+        <Key>
+            <Parameter>isManageOffersFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isMNPGetRequestInfoFlag">
+        <Key>
+            <Parameter>isMNPGetRequestInfoFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isValidateFixedModificationFlag">
+        <Key>
+            <Parameter>isValidateFixedModificationFlag</Parameter>
+        </Key>
+    </Get>
+    <!-- ServicesAPI Flags -->
+    <Get assignTo="du.config.isGetApplicableAddOnServicesFlag">
+        <Key>
+            <Parameter>isGetApplicableAddOnServicesFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetApplicableAddOnServicesFlag">
+        <Key>
+            <Parameter>isGetApplicableAddOnServicesFlag</Parameter>
+        </Key>
+    </Get>
+    <!-- UsageAPI Flags -->
+    <Get assignTo="du.config.isGetDataUsageNotificationThresholdsFlag">
+        <Key>
+            <Parameter>isGetDataUsageNotificationThresholdsFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetPostpaidBundlesBalanceByContractIdFlag">
+        <Key>
+            <Parameter>isGetPostpaidBundlesBalanceByContractIdFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetPostpaidBundlesBalanceByMSISIDNFlag">
+        <Key>
+            <Parameter>isGetPostpaidBundlesBalanceByMSISIDNFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetPrepaidBundlesBalanceByMSISIDNFlag">
+        <Key>
+            <Parameter>isGetPrepaidBundlesBalanceByMSISIDNFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetPrepaidUsageFlag">
+        <Key>
+            <Parameter>isGetPrepaidUsageFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isSetDataUsageNotificationThresholdsFlag">
+        <Key>
+            <Parameter>isSetDataUsageNotificationThresholdsFlag</Parameter>
+        </Key>
+    </Get>
+    <!-- UsersAPI Flags -->
+    <Get assignTo="du.config.isGenerateOTPForUserRegistrationFlag">
+        <Key>
+            <Parameter>isGenerateOTPForUserRegistrationFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isResendOTPForUserRegistrationFlag">
+        <Key>
+            <Parameter>isResendOTPForUserRegistrationFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isVerifyOTPFlag">
+        <Key>
+            <Parameter>isVerifyOTPFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isRegisterUserFlag">
+        <Key>
+            <Parameter>isRegisterUserFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGenerateOTPForForgotPasswordFlag">
+        <Key>
+            <Parameter>isGenerateOTPForForgotPasswordFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isResendOTPForForgotPasswordFlag">
+        <Key>
+            <Parameter>isResendOTPForForgotPasswordFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isResetPasswordFlag">
+        <Key>
+            <Parameter>isResetPasswordFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isUpdateSelfcareUsernameAndPasswordFlag">
+        <Key>
+            <Parameter>isUpdateSelfcareUsernameAndPasswordFlag</Parameter>
+        </Key>
+    </Get>
+    <!-- Payments API -->
+    <Get assignTo="du.config.isGetPaymentInformationFlag">
+        <Key>
+            <Parameter>isGetPaymentInformationFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetPrepaidPeriodicChargesFlag">
+        <Key>
+            <Parameter>isGetPrepaidPeriodicChargesFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isCheckCustomerPaymentRestrictionsFlag">
+        <Key>
+            <Parameter>isCheckCustomerPaymentRestrictionsFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isAddUpdateCCFlag">
+        <Key>
+            <Parameter>isAddUpdateCCFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isRetrieveCCFlag">
+        <Key>
+            <Parameter>isRetrieveCCFlag</Parameter>
+        </Key>
+    </Get>
+     <Get assignTo="du.config.isVerifyCCCodeFlag">
+        <Key>
+            <Parameter>isVerifyCCCodeFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetServiceStatusFlag">
+        <Key>
+            <Parameter>isGetServiceStatusFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetServiceParametersFlag">
+        <Key>
+            <Parameter>isGetServiceParametersFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isManageServicesFlag">
+        <Key>
+            <Parameter>isManageServicesFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isCancelScheduledFlag">
+        <Key>
+            <Parameter>isCancelScheduledFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetApplicableAddOnServicesFlag">
+        <Key>
+            <Parameter>isGetApplicableAddOnServicesFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetPrepaidBlackberryServicesFlag">
+        <Key>
+            <Parameter>isGetPrepaidBlackberryServicesFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isVerifyDuNumberFlag">
+        <Key>
+            <Parameter>isVerifyDuNumberFlag</Parameter>
+        </Key>
+    </Get>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

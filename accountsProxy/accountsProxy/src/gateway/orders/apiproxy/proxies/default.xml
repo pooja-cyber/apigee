@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    #proxyDefaultFaultRule#
+    <FaultRules>
+        #genericUnhandledExceptionFaultRule#
+        #commonAccessTokenFaultRules#
+        #commonTraficManagementFaultRules#
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+            <Name>KVM-GetOrdersInfo</Name>
+        </Step>
+        #commonProxyPreflowRequest#
+        </Request>
+        <Response>
+            <Step>
+                <Name>SC-CaptureOrdersStatistics</Name>
+            </Step>
+        </Response>
+    </PreFlow>
+    <Flows>
+        #pingResourceFlow#
+        <!-- Add the conditional flows here -->
+
+   
+   <Flow name="MNPGetRequestInfo">
+            <Description>MNP Get Request Info</Description>
+            <Request>
+                <Step>
+                    <Name>EV-ExtractPublicId</Name>
+                </Step>
+                <Step>
+                    <Name>JSC-CheckMNPRequestInfo</Name>
+                </Step>
+                <Step>
+                    <Name>JSC-ValidateMNPRequestInfo</Name>
+                </Step>
+                <Step>
+                    <Name>JSC-BuildJsonSoapPayloadGetMNPRequestInfo</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-MNPGetRequestInfoPayload</Name>
+                </Step> 
+            </Request>
+            <Response/>
+             <Condition>((proxy.pathsuffix MatchesPath "/{id}") and (request.verb = "GET")) and ((request.queryparam.type = "MNP"))</Condition>
+        </Flow>
+
+
+
+
+    <Flow name="GetOMPFulfillmentRequests">
+            <Description>Get OMP Fulfillment Requests</Description>
+            <Request>
+                <Step>
+                    <Name>EV-ExtractPublicId</Name>
+                </Step>
+                <Step>
+                    <Name>JSC-CheckOMPfulfilment</Name>
+                </Step>
+                <Step>
+                    <Name>AM-GetOMPFulfillmentRequestsPayload</Name>
+                </Step>
+            </Request>
+            <Response/>
+             <Condition>((proxy.pathsuffix MatchesPath "/{id}") and (request.verb = "GET") and (request.queryparam.type="OMPfulfillment"))</Condition>
+        </Flow>
+
+
+    <Flow name="GetOMPOrders">
+            <Description>Get OMP Orders</Description>
+            <Request>
+                <Step>
+                    <Name>JSC-CheckOMP</Name>
+                </Step>
+                 <Step>
+                    <Name>JSC-BuildJsonSoapPayloadGetOMPOrders</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-GetOMPOrdersPayload</Name>
+                </Step>
+            </Request>
+            <Response/>
+             <Condition>((proxy.pathsuffix JavaRegex "(/?)$") and (request.verb = "GET") and (request.queryparam.type = "OMP"))</Condition>
+    </Flow>
+
+
+        <Flow name="CreateMultiLineMobileActivation">
+            <Description>Create Multi Line Mobile Activation</Description>
+            <Request>
+
+                <Step>
+                    <Name>JSC-CheckType</Name>
+                </Step>
+                      
+                <Step>
+                    <Name>JSC-CheckCreateMultiLineMobileActivation</Name>
+                </Step>
+                #emptyBodyPayloadCheck#
+
+                <Step>
+                    <Name>JSC-BuildJsonSoapPayloadCreateMultiLineMobileActivation</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-CreateMultiLineMobileActivationBuildSoapRequest</Name>
+                </Step>
+            </Request>
+            <Response/>
+             <Condition>((proxy.pathsuffix JavaRegex "(/?)$") and (request.verb = "POST") ) and (request.queryparam.type = "multilinemobileactivation")</Condition>
+        </Flow>
+
+ <Flow name="CreateMobileActivation">
+            <Description>Create Mobile Activation</Description>
+            <Request>
+
+                <Step>
+                    <Name>JSC-CheckType</Name>
+                </Step>
+                      
+                <Step>
+                    <Name>JSC-CheckCreateMobileActivation</Name>
+                </Step>
+                #emptyBodyPayloadCheck#
+
+                <Step>
+                    <Name>JSC-BuildJsonSoapPayloadCreateMobileActivation</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-CreateMobileActivationBuildSoapRequest</Name>
+                </Step>
+            </Request>
+            <Response/>
+             <Condition>((proxy.pathsuffix JavaRegex "(/?)$") and (request.verb = "POST") ) and (request.queryparam.type = "mobileactivation")</Condition>
+        </Flow>
+
+
+        <Flow name="CreateMNPActivation">
+            <Description>Create MNP Activation</Description>
+            <Request>
+
+                <Step>
+                    <Name>JSC-CheckType</Name>
+                </Step>
+                      
+                <Step>
+                    <Name>JSC-CheckCreateMNPActivation</Name>
+                </Step>
+                #emptyBodyPayloadCheck#
+
+                <Step>
+                    <Name>JSC-BuildJsonSoapPayloadCreateMNPActivation</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-CreateMNPActivationBuildSoapRequest</Name>
+                </Step>
+            </Request>
+            <Response/>
+             <Condition>((proxy.pathsuffix JavaRegex "(/?)$") and (request.verb = "POST") ) and (request.queryparam.type = "mnpactivation")</Condition>
+        </Flow>
+
+
+
+   <Flow name="ValidateFixedModification">
+            <Description>Validate Fixed Modification</Description>
+            <Request>
+                      
+                <Step>
+                    <Name>JSC-CheckValidateFixedModification</Name>
+                </Step>
+                #emptyBodyPayloadCheck#
+
+                <Step>
+                    <Name>JSC-BuildJsonSoapPayloadValidateFixedModification</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-ValidateFixedModificationBuildSoapRequest</Name>
+                </Step>
+            </Request>
+            <Response/>
+             <Condition>((proxy.pathsuffix MatchesPath "/validate") and (request.verb = "POST"))</Condition>
+        </Flow>
+
+
+
+
+    <Flow name="CreateFixedModification">
+            <Description>Create Fixed Modification</Description>
+            <Request>
+                      
+                <Step>
+                    <Name>JSC-CheckCreateFixedModification</Name>
+                </Step>
+                #emptyBodyPayloadCheck#
+
+                <Step>
+                    <Name>SC-ValidateFixedModification</Name>
+                </Step>
+
+                <Step>
+                    <Name>AM-ValidateFixedModificationFailed</Name>
+                    <Condition>(calloutResponse.status.code >= "400")</Condition>
+                </Step>
+
+                 <Step>
+                    <Name>JSC-BuildJsonSoapPayloadCreateFixedModification</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-CreateFixedModificationBuildSoapRequest</Name>
+                </Step>
+            </Request>
+            <Response/>
+             <Condition>((proxy.pathsuffix JavaRegex "(/?)$") and (request.verb = "POST"))</Condition>
+        </Flow>
+
+
+
+
+
+   <Flow name="ManageOffers">
+            <Description>Manage Offers</Description>
+            <Request>
+                
+                <Step>
+                    <Name>EV-ExtractPortalOrderNumber</Name>
+                </Step>
+
+                <Step>
+                    <Name>JSC-CheckPortalOrderNumber</Name>
+                </Step>
+
+                <Step>
+                    <Name>JSC-CheckValidateManageOffers</Name>
+                </Step>
+                    <Step>
+                    <Name>JSC-CheckValidateAccountManageOffers</Name>
+                </Step>
+
+                #emptyBodyPayloadCheck#
+
+                <Step>
+                    <Name>JSC-BuildJsonSoapPayloadManageOffers</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-ManageOffersBuildSoapRequest</Name>
+                </Step>
+            </Request>
+            <Response/>
+             <Condition>((proxy.pathsuffix MatchesPath "/{PortalOrderNumber}/offers") and (request.verb = "PUT"))</Condition>
+        </Flow>
+         <Flow name="GetCRMOrderItems">
+            <Description>Get CRM Order Items</Description>
+            <Request>
+                <Step>
+                    <Name>EV-ExtractOrderNumber</Name>
+                </Step>
+                <Step>
+                    <Name>JSC-CheckOrderNumber</Name>
+                </Step>
+                <Step>
+                    <Name>AM-GetCRMOrderItemsPayload</Name>
+                </Step>
+            </Request>
+            <Response/>
+             <Condition>((proxy.pathsuffix MatchesPath "/{id}") and (request.verb = "GET"))</Condition>
+        </Flow>
+
+
+
+
+        #unknownResourceFlowGeneric#
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+            #commonProxyPostflowResponse#
+        </Response>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/v1/orders</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+        <!-- Comment/Remove the Virtual Host-secure while deploying API Proxy in Organization dudev -->
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    #pingResourceRouteRule#
+    <RouteRule name="mock">
+       <TargetEndpoint>mock</TargetEndpoint>
+       <Condition>(du.config.request.mock = "true")</Condition>
+   </RouteRule>
+    <RouteRule name="default">
+       <TargetEndpoint>default</TargetEndpoint>
+   </RouteRule>
+</ProxyEndpoint>

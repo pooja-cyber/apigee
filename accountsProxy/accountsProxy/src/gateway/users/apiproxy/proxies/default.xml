@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+
+    <Description/>
+    #proxyDefaultFaultRule#
+    <FaultRules>
+    	#genericUnhandledExceptionFaultRule#
+        #commonAccessTokenFaultRules#
+        #commonTraficManagementFaultRules#
+        #basicAuthFaultRules#
+        #invalidApiKeyFaultRules#
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>KVM-GetTargetConfigurations</Name>
+            </Step>
+            #commonProxyPreflowRequest-Selfcare#
+            <Step>
+                <Name>EV-RequiredVariableFromURI</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        #pingResourceFlow#
+        <Flow name="GenerateOTP">
+            <Request>
+                #emptyBodyPayloadCheck#
+                <Step>
+                    <Name>EV-RequiredVariablesFromJSON</Name>
+                </Step>
+                <Step>
+                    <Name>AM-RequiredVariableMissingGenerateOTP</Name>
+                    <Condition>(du.api.selfcareId = null) </Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SetOpflagValueGenerateOTP</Name>
+                </Step>
+                #selfcareRequestEncryptionFlow#
+                <Step>
+                    <Name>JSC-BuildJSONPayloadGenerateOTP</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-SOAPPayloadGenerateOTP</Name>
+                </Step>
+            </Request>
+            <Response></Response>
+            <Condition>( proxy.pathsuffix JavaRegex "/register/generate-otp(/?)$" ) and ( request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="VerifyOTPForSelfcareId">
+            <Request>
+                #emptyBodyPayloadCheck#
+                <Step>
+                    <Name>EV-RequiredVariablesFromJSON</Name>
+                </Step>
+                <Step>
+                    <Name>AM-RequiredVariableMissingVerifyOTP</Name>
+                    <Condition>(du.api.verificationCode = null) || (selfcareId = null) || ( du.api.opflag = null)</Condition>
+                </Step>
+                
+                #selfcareRequestEncryptionFlow#
+                <Step>
+                    <Name>JSC-BuildJsonPayloadVerifyOTP</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-SOAPPayloadVerifyOTP</Name>
+                </Step>
+            </Request>
+            <Response>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/{selfcareId}/verify-otp" || proxy.pathsuffix MatchesPath "/{selfcareId}/verify-otp/" ) and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="ResendOTP">
+            <Request>
+                #emptyBodyPayloadCheck#
+                <Step>
+                    <Name>EV-RequiredVariablesFromJSON</Name>
+                </Step>
+                <Step>
+                    <Name>AM-RequiredVariableMissingGenerateOTP</Name>
+                    <Condition>(du.api.selfcareId = null)</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SetOpflagResendOTP</Name>
+                </Step>
+                #selfcareRequestEncryptionFlow#
+                <Step>
+                    <Name>JSC-BuildJsonPayloadResendOTP</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-SOAPPayloadResendOTP</Name>
+                </Step>
+            </Request>
+            <Response>
+            </Response>
+            <Condition>( proxy.pathsuffix JavaRegex "/register/resend-otp(/?)$") and ( request.verb = "POST") </Condition>
+        </Flow>
+        <Flow name="ForgotPasswordGenerateOTP">
+            <Request>
+                
+                <Step>
+                    <Name>AM-SelfcareIdMissing</Name>
+                    <Condition> (selfcareId = null)</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SetOpflagForgotPasswordGenerateOTP</Name>
+                </Step>
+                #selfcareRequestEncryptionFlow#
+                <Step>
+                    <Name>JSC-BuildJsonPayloadForgotPasswordGenerateOTP</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-SOAPPayloadForgotpasswordGenerateOTP</Name>
+                </Step>
+            </Request>
+            <Response>
+            </Response>
+            <Condition>( proxy.pathsuffix MatchesPath "/{selfcareId}/forgot-password/generate-otp") and ( request.verb = "POST") </Condition>
+        </Flow>
+        <Flow name="ForgotPasswordResendOTP">
+            <Request>
+                <Step>
+                    <Name>AM-SelfcareIdMissing</Name>
+                    <Condition> (selfcareId = null)</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SetOpflagForgotPasswordResendOTP</Name>
+                </Step>
+                #selfcareRequestEncryptionFlow#
+                <Step>
+                    <Name>JSC-BuildJsonPayloadForgotPasswordResendOTP</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-SOAPPayloadForgotpasswordResendOTP</Name>
+                </Step>
+            </Request>
+            <Response>
+            </Response>
+            <Condition>( proxy.pathsuffix MatchesPath "/{selfcareId}/forgot-password/resend-otp") and ( request.verb = "POST") </Condition>
+        </Flow>
+        <Flow name="UpdateSelfcareUsernamePassword">
+            <Request>
+                #emptyBodyPayloadCheck#
+                
+                <Step>
+                    <Name>EV-RequiredVariablesFromJSON</Name>
+                </Step>
+                <Step>
+                    <Name>JSC-RequiredVariableMissingUpdateUsernamePassword</Name>                    
+                </Step>
+                #selfcareRequestEncryptionFlow#
+                <Step>
+                    <Name>JSC-BuildJsonPayloadChangeSelfcareUsernamePassword</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-SOAPPayloadUpdateUsernamePassword</Name>
+                </Step>
+            </Request>
+            <Response>
+            </Response>
+            <Condition>(proxy.pathsuffix JavaRegex "(/?)$") and ( request.verb = "PUT")</Condition>
+        </Flow>
+        <Flow name="RegisterUser">
+            <Request>
+                #emptyBodyPayloadCheck#
+                <Step>
+                    <Name>JSC-CheckPayloadRegisterUser</Name>
+                </Step>
+                <Step>
+                    <Name>EV-RequiredVariablesFromJSON</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SetVerifyOTPOpflagRegister</Name>
+                </Step>
+                <Step>
+                    <Name>SC-CheckVerificationCode</Name>
+                </Step>
+                <Step>
+                    <Name>AM-VerifyOTPFailed</Name>
+                    <Condition>calloutResponse.status.code >= 400</Condition>
+                </Step>
+                <Step>
+                    <Name>JSC-CheckVerificationCodeResponse</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SetOpflagRegisterUser</Name>
+                </Step>
+                #selfcareRequestEncryptionFlow#
+                <Step>
+                    <Name>JSC-BuildJsonPayloadRegisterSelfcareUser</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-SOAPPayloadRegisterUser</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>AX-CollectAnalytics</Name>
+                </Step>
+            </Response>
+            <Condition>( request.verb = "POST") and ( proxy.pathsuffix MatchesPath "/register")</Condition>
+        </Flow>
+        <Flow name="ResetPassword">
+            <Request>
+                #emptyBodyPayloadCheck#
+                <Step>
+                    <Name>JSC-CheckPayloadResetPassword</Name>
+                </Step>
+                <Step>
+                    <Name>EV-RequiredVariableFromURI</Name>
+                </Step>
+                <Step>
+                    <Name>EV-RequiredVariablesFromJSON</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SetSelfcareIdVariable</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SetVerifyOTPOpflagForgotPassword</Name>
+                </Step>
+                <Step>
+                    <Name>SC-CheckVerificationCode</Name>
+                </Step>
+                <Step>
+                    <Name>JSC-CheckVerificationCodeResponse</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SetOpflagResetPassword</Name>
+                </Step>
+                #selfcareRequestEncryptionFlow#
+                <Step>
+                    <Name>JSC-BuildJsonPayloadForgotSelfcarePassword</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-SOAPPayloadResetUserPassword</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>AX-CollectAnalytics</Name>
+                </Step>
+            </Response>
+            <Condition>( request.verb = "POST") and ( proxy.pathsuffix MatchesPath "/{selfcareId}/forgot-password/reset-password")</Condition>
+        </Flow>
+        #unknownResourceFlowGeneric#
+        
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Response>
+        #commonProxyPostflowResponse-Selfcare#
+        <Step>
+            <Name>EV-BackupResponseCodeMessage</Name>
+            <Condition>(proxy.pathsuffix != "/ping")</Condition>
+        </Step>
+        <Step>
+            <Name>JSC-RemoveResponseCodeMessageFromPayload</Name>
+        </Step>
+        <Step>
+            <Name>JC-DoAESDecryption</Name>
+            <Condition>(proxy.pathsuffix != "/ping") and ( aes.input != null)</Condition>
+        </Step>
+        <Step>
+            <Name>JSC-AddResponseCodeMessage</Name>
+            <Condition>(proxy.pathsuffix != "/ping")</Condition>
+        </Step>
+        </Response>
+    </PostFlow>
+    
+    <HTTPProxyConnection>
+        <BasePath>/v1/users</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+        <!-- Comment/Remove the Virtual Host-secure while deploying API Proxy in Organization dudev -->
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    #pingResourceRouteRule#
+    <RouteRule name="mock">
+        <TargetEndpoint>mock</TargetEndpoint>
+        <Condition>(du.config.request.mock = "true")</Condition>
+    </RouteRule>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

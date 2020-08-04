@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations mapIdentifier="users-v1-config" async="false" continueOnError="false" enabled="true" name="KVM-GetTargetConfigurations">
+    <DisplayName>KVM-GetTargetConfigurations</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    
+    <Get assignTo="du.config.selfcareTargetBasepath">
+        <Key> 
+            <Parameter>selfcareTargetBasepath</Parameter>
+        </Key>
+    </Get>
+    
+    <Get assignTo="du.config.selfcareUsername">
+        <Key>
+            <Parameter>selfcareUsername</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.selfcarePassword">
+        <Key>
+            <Parameter>selfcarePassword</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.opflag-generateOtp">
+        <Key>
+            <Parameter>opflag-generateOtp</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.opflag-resendOTP">
+        <Key>
+            <Parameter>opflag-resendOTP</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.opflag-registerUser">
+        <Key>
+            <Parameter>opflag-registerUser</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.opflag-verifyOTP">
+        <Key>
+            <Parameter>opflag-verifyOTP</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.opflag-forgotpassGenerateOTP">
+        <Key>
+            <Parameter>opflag-forgotpassGenerateOTP</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.opflag-forgotpassResendOTP">
+        <Key>
+            <Parameter>opflag-forgotpassResendOTP</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.opflag-resetPassword">
+        <Key>
+            <Parameter>opflag-resetPassword</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.spikeArrest">
+        <Key>
+            <Parameter>spikeArrest</Parameter>
+        </Key>
+    </Get>
+    
+    <!-- UsersAPI Flags -->
+    <Get assignTo="du.config.isGenerateOTPForUserRegistrationFlag">
+        <Key>
+            <Parameter>isGenerateOTPForUserRegistrationFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isResendOTPForUserRegistrationFlag">
+        <Key>
+            <Parameter>isResendOTPForUserRegistrationFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isVerifyOTPFlag">
+        <Key>
+            <Parameter>isVerifyOTPFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isRegisterUserFlag">
+        <Key>
+            <Parameter>isRegisterUserFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGenerateOTPForForgotPasswordFlag">
+        <Key>
+            <Parameter>isGenerateOTPForForgotPasswordFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isResendOTPForForgotPasswordFlag">
+        <Key>
+            <Parameter>isResendOTPForForgotPasswordFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isResetPasswordFlag">
+        <Key>
+            <Parameter>isResetPasswordFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isUpdateSelfcareUsernameAndPasswordFlag">
+        <Key>
+            <Parameter>isUpdateSelfcareUsernameAndPasswordFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.secret-key">
+        <Key>
+            <Parameter>secret-key</Parameter>
+        </Key>
+    </Get>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

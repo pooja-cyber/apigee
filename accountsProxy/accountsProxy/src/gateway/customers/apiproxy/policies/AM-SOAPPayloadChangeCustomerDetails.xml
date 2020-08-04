@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SOAPPayloadChangeCustomerDetails">
+    <DisplayName>AM-SOAPPayloadChangeCustomerDetails</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">application/xml;charset="UTF-8"</Header>
+            <Header name="SOAPAction">/LCEWebServices/AccountManagement/ChangeCustomerDetails</Header>
+        </Headers>
+        <QueryParams>
+            <QueryParam name="serviceName">ChangeCustomerDetails</QueryParam>
+            <QueryParam name="responseType">201</QueryParam>
+        </QueryParams>
+        <FormParams/>
+        <Payload contentType="application/xml">{request.content}</Payload>
+        <Path/>
+        <Verb>POST</Verb>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignVariable>
+        <Name>du.config.soapMethodForRequest</Name>
+        <Value>ChangeCustomerDetails</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>du.config.soapMethodForResponse</Name>
+        <Value>ChangeCustomerDetailsResponse</Value>
+    </AssignVariable>
+    <AssignTo createNew="true" transport="http" type="request"/>
+</AssignMessage>

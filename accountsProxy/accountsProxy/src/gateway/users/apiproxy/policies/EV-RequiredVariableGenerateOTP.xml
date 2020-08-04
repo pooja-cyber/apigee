@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables match="first" async="false" continueOnError="false" enabled="true" name="EV-RequiredVariableGenerateOTP">
+    <DisplayName>EV-RequiredVariableGenerateOTP</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <JSONPayload>
+		<Variable name="du.api.selfcareId" type="string">
+			<JSONPath>$.selfcare_id</JSONPath>
+		</Variable>
+		<Variable name="du.api.username" type="string">
+			<JSONPath>$.username</JSONPath>
+		</Variable>
+		<Variable name="du.api.password" type="string">
+			<JSONPath>$.password</JSONPath>
+		</Variable>
+    </JSONPayload>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</ExtractVariables>

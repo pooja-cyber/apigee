@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations mapIdentifier="oauth-v1-config" async="false" continueOnError="false" enabled="true" name="KVM-GetTargetConfigurations">
+    <DisplayName>KVM-GetTargetConfigurations</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    
+    <Get assignTo="du.config.spikeArrest">
+        <Key>
+            <Parameter>spikeArrest</Parameter>
+        </Key>
+    </Get>
+    
+    
+    <!--
+    ============================================================== 
+        CMS related  KVMs 
+    ==============================================================
+    -->
+    <Get assignTo="du.config.cmsUsername">
+        <Key>
+            <Parameter>cmsUsername</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.cmsPassword">
+        <Key>
+            <Parameter>cmsPassword</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.CASHost">
+        <Key>
+            <Parameter>CASHost</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.CASPort">
+        <Key>
+            <Parameter>CASPort</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.cmsCASUrl">
+        <Key>
+            <Parameter>cmsCASUrl</Parameter>
+        </Key>
+    </Get>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

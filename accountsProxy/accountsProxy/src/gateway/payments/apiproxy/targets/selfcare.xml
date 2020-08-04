@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TargetEndpoint name="selfcare">
+    <Description/>
+   #proxyDefaultFaultRule#
+    <FaultRules>
+        #commonTargetErrorsFaultRules#
+        #genericUnhandledExceptionFaultRule#
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+            #commonTargetPreflowRequest#
+        </Request>
+        <Response>
+            #commonTargetPostflowResponse#
+            <!-- Common proxy postfow is added in Target Response as we have two backends LCE and Selfcare, This flow fragment is only for selfcare requests, not for LCE requests-->
+            #commonProxyPostflowResponse-Selfcare#
+            <!-- Steps for decrypting the response before sending back to client -->
+            <Step>
+                <Name>EV-BackupResponseCodeMessage</Name>
+                <Condition>(proxy.pathsuffix != "/ping")</Condition>
+            </Step>
+            <Step>
+                <Name>JSC-RemoveResponseCodeMessageFromPayload</Name>
+            </Step>
+            <Step>
+                <Name>JC-DoAESDecryption</Name>
+                <Condition>(proxy.pathsuffix != "/ping") and ( aes.input != null)</Condition>
+            </Step>
+            <Step>
+                <Name>JSC-AddResponseCodeMessage</Name>
+                <Condition>(proxy.pathsuffix != "/ping")</Condition>
+            </Step>
+        </Response>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+        </Response>
+    </PostFlow>
+    #selfcareTargetConnection#
+    <!-- #mockTargetProxyChaining# -->
+</TargetEndpoint>

@@ -1,0 +1,12 @@
+<FaultRule name="spike_arrest_fault">
+  <Condition>( fault.name = "SpikeArrestViolation")</Condition>
+  <Step>
+    <Name>AM-SpikeArrestFault</Name>
+  </Step>
+</FaultRule>
+<FaultRule name="quota_voilation_fault">
+  <Condition>( fault.name = "QuotaViolation")</Condition>
+  <Step>
+    <Name>AM-QuotaExceededFault</Name>
+  </Step>
+</FaultRule>

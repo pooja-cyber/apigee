@@ -1,0 +1,1136 @@
+{
+    "swagger": "2.0",
+    "host": "172.24.122.149:9001",
+    "schemes": [
+        "http"
+    ],
+    "info": {
+        "description": "Open API Specification for Orders API",
+        "title": "Open API Specification for Orders API",
+        "version": "0.0.1",
+        "termsOfService": "http://example.com/about/terms",
+        "contact": {
+            "name": "api.developer",
+            "url": "http://example.com/contact",
+            "email": "api.developer@du.ae"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "Du License"
+        }
+    },
+    "definitions": {
+        "ErrorSchema": {
+            "description": "Error Schema",
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "Error Code"
+                },
+                "error": {
+                    "type": "string",
+                    "description": "Error Description"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error Message"
+                }
+            }
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/orders/{Order Number}": {
+            "get": {
+                "description": "Get CRM Order Items",
+                "summary": "Get CRM Order Items",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": " getCRMOrderItems",
+                "tags": [
+                    "orders"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "OrderNumber": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "OrderType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ServiceAccount": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ListOfOrderItems": {
+                                    "type": "object",
+                                    "properties": {
+                                        "OrderItem": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Quantity": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ProductName": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ActionCode": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "CreationDate": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Cost": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Unit": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "StatusReason": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ListOfOrderItemAttributes": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "OrderItemAttribute": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "Name": {
+                                                                    "type": "string",
+                                                                    "minLength": 1
+                                                                },
+                                                                "Value": {
+                                                                    "type": "string",
+                                                                    "minLength": 1
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "Name",
+                                                                "Value"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "OrderItemAttribute"
+                                                    ]
+                                                },
+                                                "OrderItem": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "Quantity": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "ProductName": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "ActionCode": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "CreationDate": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "Cost": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "Unit": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "StatusReason": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "ListOfOrderItemAttributes": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "OrderItemAttribute": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "Name": {
+                                                                            "type": "string",
+                                                                            "minLength": 1
+                                                                        },
+                                                                        "Value": {
+                                                                            "type": "string",
+                                                                            "minLength": 1
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "Name",
+                                                                        "Value"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "OrderItemAttribute"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "Quantity",
+                                                        "ProductName",
+                                                        "ActionCode",
+                                                        "CreationDate",
+                                                        "Cost",
+                                                        "Unit",
+                                                        "StatusReason",
+                                                        "ListOfOrderItemAttributes"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "Quantity",
+                                                "ProductName",
+                                                "ActionCode",
+                                                "CreationDate",
+                                                "Cost",
+                                                "Unit",
+                                                "StatusReason",
+                                                "ListOfOrderItemAttributes",
+                                                "OrderItem"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "OrderItem"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "OrderNumber",
+                                "OrderType",
+                                "ServiceAccount",
+                                "ListOfOrderItems",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": " Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 5RzgDZUhCGU8ACncKEbTIE7KzAB9"
+                    },
+                    {
+                        "in": "path",
+                        "name": "Order Number",
+                        "description": "Order Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/orders": {
+            "get": {
+                "description": " Get OMP Orders",
+                "summary": " Get OMP Orders",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": " getOMPOrders",
+                "tags": [
+                    "orders"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "ListOfOrders": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Orders": {
+                                            "type": "object",
+                                            "properties": {
+                                                "PublicId": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ServiceId": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "DealerId": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PartnerDealerId": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Type": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "CreationDate": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "LastUpdateDate": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "User": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Status": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "CustomerType": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Comments": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "SiebelOrder": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "AccountId": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ErrorMessage": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "LastUpdateBy": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ClientSystem": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "PublicId",
+                                                "ServiceId",
+                                                "DealerId",
+                                                "PartnerDealerId",
+                                                "Type",
+                                                "CreationDate",
+                                                "LastUpdateDate",
+                                                "User",
+                                                "Status",
+                                                "CustomerType",
+                                                "Comments",
+                                                "SiebelOrder",
+                                                "AccountId",
+                                                "ErrorMessage",
+                                                "LastUpdateBy",
+                                                "ClientSystem"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "Orders"
+                                    ]
+                                },
+                                "NumberOfResults": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "TotalResults": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "ListOfOrders",
+                                "NumberOfResults",
+                                "TotalResults",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "type",
+                        "description": "Type",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "serviceId",
+                        "description": "Service Id",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "index",
+                        "description": "Index",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "numberOfResults",
+                        "description": "Number of Results",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "accountId",
+                        "description": "Account Id",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": " Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 5RzgDZUhCGU8ACncKEbTIE7KzAB9"
+                    }
+                ]
+            },
+            "post": {
+                "description": "Create Fixed Modification",
+                "summary": "Create Fixed Modification",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "createFixedModification",
+                "tags": [
+                    "orders"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "type",
+                        "description": "Type mandatory for Create Mobile Activation,Create MNP Activation, Create MultiLine Mobile Activation",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "Account Code",
+                        "description": "Account Code mandatory for Create Mobile Activation,Create MNP Activation, Create MultiLine Mobile Activation",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 5RzgDZUhCGU8ACncKEbTIE7KzAB9"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "ListOfOrder": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Order": {
+                                            "type": "object",
+                                            "properties": {
+                                                "SEOFWorkOrderType": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Account": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "CurrencyCode": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "IntegrationId": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "OrderNumber": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "OrderType": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ServiceAccount": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Status": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "SourceSystem": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ReferenceId": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ListOfOrderItems": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "OrderItem": {
+                                                            "type": "array",
+                                                            "uniqueItems": true,
+                                                            "minItems": 1,
+                                                            "items": {
+                                                                "required": [
+                                                                    "QuantityRequested",
+                                                                    "ActionCode",
+                                                                    "CurrencyCode",
+                                                                    "LineNumber",
+                                                                    "ProductIntegrationId",
+                                                                    "ServiceId",
+                                                                    "EITCPromIntegrationId"
+                                                                ],
+                                                                "properties": {
+                                                                    "QuantityRequested": {
+                                                                        "type": "string",
+                                                                        "minLength": 1
+                                                                    },
+                                                                    "ActionCode": {
+                                                                        "type": "string",
+                                                                        "minLength": 1
+                                                                    },
+                                                                    "CurrencyCode": {
+                                                                        "type": "string",
+                                                                        "minLength": 1
+                                                                    },
+                                                                    "LineNumber": {
+                                                                        "type": "string",
+                                                                        "minLength": 1
+                                                                    },
+                                                                    "ProductIntegrationId": {
+                                                                        "type": "string",
+                                                                        "minLength": 1
+                                                                    },
+                                                                    "ServiceId": {
+                                                                        "type": "string",
+                                                                        "minLength": 1
+                                                                    },
+                                                                    "EITCPromIntegrationId": {
+                                                                        "type": "string",
+                                                                        "minLength": 1
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "OrderItem"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "SEOFWorkOrderType",
+                                                "Account",
+                                                "CurrencyCode",
+                                                "IntegrationId",
+                                                "OrderNumber",
+                                                "OrderType",
+                                                "ServiceAccount",
+                                                "Status",
+                                                "SourceSystem",
+                                                "ReferenceId",
+                                                "ListOfOrderItems"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "Order"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "ListOfOrder"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "/orders/{Portal Order Number}/offers": {
+            "put": {
+                "description": "Manage Offers",
+                "summary": "Manage Offers",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "manageOffers",
+                "tags": [
+                    "orders"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "OMPublicId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "OMPublicId",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 5RzgDZUhCGU8ACncKEbTIE7KzAB9"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "CustomerSegment": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "AccountIntegrationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "AccountCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ContractCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "RateplanType": {
+                                    "type": "string"
+                                },
+                                "DealerId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "PrimaryServiceId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "EmailAddress": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ContactFirstName": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ContactLastName": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "CustomerSegment",
+                                "AccountIntegrationId",
+                                "AccountCode",
+                                "ContractCode",
+                                "RateplanType",
+                                "DealerId",
+                                "PrimaryServiceId",
+                                "EmailAddress",
+                                "ContactFirstName",
+                                "ContactLastName"
+                            ]
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "Portal Order Number",
+                        "description": "Portal Order Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/orders/{Public Id}/": {
+            "get": {
+                "description": "MNP Get Request Info and GET OMP Fulfillments",
+                "summary": "Both the resources in 'DESCRIPTION' have same basepath and verb, Queryparams are used to decide which resource gets executed",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getOrders",
+                "tags": [
+                    "orders"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "Response FOr Get OMP Fulfillment Request",
+                            "type": "object",
+                            "properties": {
+                                "ListOfFulfillmentRequests": {
+                                    "type": "object",
+                                    "properties": {
+                                        "FulfillmentRequest": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Id": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Name": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ExecutionNumber": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "System": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "UpdatedDate": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Status": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ErrorMessage": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "Id",
+                                                "Name",
+                                                "ExecutionNumber",
+                                                "System",
+                                                "UpdatedDate",
+                                                "Status",
+                                                "ErrorMessage"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "FulfillmentRequest"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "ListOfFulfillmentRequests",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "type",
+                        "description": "Type mandatory for  Get OMP Fullfilment and MNP Get request info ",
+                        "type": "string",
+                        "required": false,
+                        "enum": [
+                            "MNP",
+                            "OMPfulfillment"
+                        ]
+                    },
+                    {
+                        "in": "query",
+                        "name": "account_code",
+                        "description": "Account Code for MNP Get Request Info ,Mandatory",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 5RzgDZUhCGU8ACncKEbTIE7KzAB9"
+                    },
+                    {
+                        "in": "path",
+                        "name": "Public Id",
+                        "description": "Public Id Mandatory for both MNP Get request info and Get OMP Fulfillments",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        }
+    },
+    "security": [
+        {
+            "OauthSecurity": []
+        }
+    ],
+    "securityDefinitions": {
+        "OauthSecurity": {
+            "type": "oauth2",
+            "flow": "password",
+            "description": "oAuth 2.0 security implementation",
+            "tokenUrl": "http://172.24.122.149:9001/v1/oauth/token"
+        }
+    }
+}

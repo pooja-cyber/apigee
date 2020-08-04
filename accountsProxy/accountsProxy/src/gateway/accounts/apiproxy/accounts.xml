@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="Accounts">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1472623447634</CreatedAt>
+    <CreatedBy>ateeb.shaik@gmail.com</CreatedBy>
+    <Description>Accounts API</Description>
+    <DisplayName>Accounts</DisplayName>
+    <LastModifiedAt>1472627252741</LastModifiedAt>
+    <LastModifiedBy>ateeb.shaik@gmail.com</LastModifiedBy>
+    <Policies>
+        <Policy>AM-AccountsPayload</Policy>
+        <Policy>EV-ExtractAccountDetails</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources/>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+    <validate>false</validate>
+</APIProxy>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SpikeArrest async="false" continueOnError="false" enabled="true" name="SA-SpikeArrestCheck">
+    <DisplayName>SA-SpikeArrestCheck</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Rate ref="du.config.spikeArrest">1000ps</Rate>
+</SpikeArrest>

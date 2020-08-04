@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PopulateCache async="false" continueOnError="false" enabled="true" name="PC_Set_Cache_Target_Basepath">
+    <DisplayName>PC_Set_Cache_Target_Basepath</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <CacheKey>
+        <Prefix>target</Prefix>
+        <KeyFragment>basepath</KeyFragment>
+    </CacheKey>
+    <CacheResource>trouble_tickets-v1-target</CacheResource>
+    <Scope>Global</Scope>
+    <Source>trouble_tickets.targetBasepath</Source>
+</PopulateCache>

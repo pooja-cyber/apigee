@@ -1,0 +1,20 @@
+<Step>
+    <Name>SC-GetCMSTGTTicket</Name>
+    <Condition>verifyapikey.VA-VerifyAPIKey.apiproduct.isCMSEnabled = "true"</Condition>
+</Step>
+<Step>
+    <Name>JSC-RemoveProtocolFromLocationURL</Name>
+    <Condition>verifyapikey.VA-VerifyAPIKey.apiproduct.isCMSEnabled = "true" and cmsTGTResponse.status.code = 201</Condition>
+</Step>
+<Step>
+    <Name>SC-GetCMSServiceTicket</Name>
+    <Condition>(verifyapikey.VA-VerifyAPIKey.apiproduct.isCMSEnabled = "true" and cmsTGTResponse.status.code = 201)</Condition>
+</Step>
+<Step>
+    <Name>AM-SetCMSMultiTicket</Name>
+    <Condition>(verifyapikey.VA-VerifyAPIKey.apiproduct.isCMSEnabled = "true" and cmsServiceResponse.status.code = 200)</Condition>
+</Step>
+<Step>
+    <Name>PC-SetCMSServiceTicket</Name>
+    <Condition>(verifyapikey.VA-VerifyAPIKey.apiproduct.isCMSEnabled = "true" and cmsServiceResponse.status.code = 200)</Condition>
+</Step>

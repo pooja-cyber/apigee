@@ -1,0 +1,1166 @@
+{
+    "swagger": "2.0",
+    "host": "172.24.122.149:9001",
+    "schemes": [
+        "http"
+    ],
+    "info": {
+        "description": "Open API Specification for Accounts API",
+        "title": "Open API Specification for Accounts API",
+        "version": "0.0.1",
+        "termsOfService": "http://example.com/about/terms",
+        "contact": {
+            "name": "api.developer",
+            "url": "http://example.com/contact",
+            "email": "api.developer@du.ae"
+        },
+        "license": {
+            "name": "Du License",
+            "url": "http://api.developer.du.ae/license"
+        }
+    },
+    "definitions": {
+        "ErrorSchema": {
+            "description": "Error Schema",
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "Error Code"
+                },
+                "error": {
+                    "type": "string",
+                    "description": "Error Description"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error Message"
+                }
+            }
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/accounts/{accountNumber}": {
+            "get": {
+                "description": "Get Account Information",
+                "summary": "Get Account Information",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getAccountInformation",
+                "tags": [
+                    "accounts"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "Mobile": {
+                                    "type": "object",
+                                    "properties": {
+                                        "MSISDN": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Status": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "RatePlan": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ICCID": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "StatusReason": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ContractCode": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "BillingStatus": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "MSISDN",
+                                        "Status",
+                                        "RatePlan",
+                                        "ICCID",
+                                        "StatusReason",
+                                        "ContractCode",
+                                        "BillingStatus"
+                                    ]
+                                },
+                                "Account": {
+                                    "type": "object",
+                                    "properties": {
+                                        "AccountCode": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "AccountName": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ArabicName": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "IntegrationId": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Segment": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "StreetName": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Unit": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "PO_BOX": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Area": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "City": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Emirate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Country": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Email": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "PhoneNumber": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "DateOfBirth": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "BillLanguage": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "RecurringPayment": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "MonthlyIncome": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "AlternativeContactNumber": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Status": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "DeliverBill": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "EstablishmentCard": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "TradeLicense": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "IssueDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ExpiryDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "AccountManager": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ContactNumber": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "AccountManager2": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ContactNumber2": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "PaymentResponsibleFlag": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ContractResponsibleFlag": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "AccountType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "AccountLevel": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "AccountLevelCode": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "BillingProfile": {
+                                            "type": "object",
+                                            "properties": {
+                                                "PaymentMethod": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "CreditLimit": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "BillingCycle": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "BlacklistFlag": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PaymentResponsible": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "EmailBillTo": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "PaymentMethod",
+                                                "CreditLimit",
+                                                "BillingCycle",
+                                                "BlacklistFlag",
+                                                "PaymentResponsible",
+                                                "EmailBillTo"
+                                            ]
+                                        },
+                                        "BillingContact": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Title": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ArabicName": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "FullName": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PreferedLanguage": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "JobTitle": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Departament": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ContactMobileNumber": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "Title",
+                                                "ArabicName",
+                                                "FullName",
+                                                "PreferedLanguage",
+                                                "JobTitle",
+                                                "Departament",
+                                                "ContactMobileNumber"
+                                            ]
+                                        },
+                                        "BillingAdress": {
+                                            "type": "object",
+                                            "properties": {
+                                                "StartDate": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "BuildingName": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "BuildingNumber": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "FloorNumber": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "StartDate",
+                                                "BuildingName",
+                                                "BuildingNumber",
+                                                "FloorNumber"
+                                            ]
+                                        },
+                                        "ShippingAdress": {
+                                            "type": "object",
+                                            "properties": {
+                                                "StreetName": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PO_BOX": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Emirate": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "City": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "StreetName",
+                                                "PO_BOX",
+                                                "Emirate",
+                                                "City"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "AccountCode",
+                                        "AccountName",
+                                        "ArabicName",
+                                        "IntegrationId",
+                                        "Segment",
+                                        "StreetName",
+                                        "Unit",
+                                        "PO_BOX",
+                                        "Area",
+                                        "City",
+                                        "Emirate",
+                                        "Country",
+                                        "Email",
+                                        "PhoneNumber",
+                                        "DateOfBirth",
+                                        "BillLanguage",
+                                        "RecurringPayment",
+                                        "MonthlyIncome",
+                                        "AlternativeContactNumber",
+                                        "Status",
+                                        "DeliverBill",
+                                        "EstablishmentCard",
+                                        "TradeLicense",
+                                        "IssueDate",
+                                        "ExpiryDate",
+                                        "AccountManager",
+                                        "ContactNumber",
+                                        "AccountManager2",
+                                        "ContactNumber2",
+                                        "PaymentResponsibleFlag",
+                                        "ContractResponsibleFlag",
+                                        "AccountType",
+                                        "AccountLevel",
+                                        "AccountLevelCode",
+                                        "BillingProfile",
+                                        "BillingContact",
+                                        "BillingAdress",
+                                        "ShippingAdress"
+                                    ]
+                                },
+                                "Customer": {
+                                    "type": "object",
+                                    "properties": {
+                                        "CustomerId": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Name": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "DocumentType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "DocumentNumber": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Nationality": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "DocumentIssueDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "DocumentExpiryDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "VisaType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "VisaExpiryDate": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "VisaNumber": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Gender": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Language": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "DateOfBirth": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Title": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "PreferredLanguage": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Type": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "PreferredContactMethod": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "PromoOptInOut": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "AccessTechnology": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "CustomerId",
+                                        "Name",
+                                        "DocumentType",
+                                        "DocumentNumber",
+                                        "Nationality",
+                                        "DocumentIssueDate",
+                                        "DocumentExpiryDate",
+                                        "VisaType",
+                                        "VisaExpiryDate",
+                                        "VisaNumber",
+                                        "Gender",
+                                        "Language",
+                                        "DateOfBirth",
+                                        "Title",
+                                        "PreferredLanguage",
+                                        "Type",
+                                        "PreferredContactMethod",
+                                        "PromoOptInOut",
+                                        "AccessTechnology"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "Mobile",
+                                "Account",
+                                "Customer",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer jbp4hIGCthnIzdxr7AEJrnqh1lO8"
+                    },
+                    {
+                        "in": "path",
+                        "name": "accountNumber",
+                        "description": "Account Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            },
+            "put": {
+                "description": "Manage Contact Method",
+                "summary": "Manage Contact Method",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "manageContactMethod",
+                "tags": [
+                    "accounts"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "SiebelMessage": {
+                                    "type": "object",
+                                    "properties": {
+                                        "IntObjectFormat": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "IntObjectName": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "MessageId": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "MessageType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ListOfEitcEaiOutput": {
+                                            "type": "object",
+                                            "properties": {
+                                                "EitcOutput": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "operation": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "StatusCode": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "StatusMessage": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "RequestId": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "ExternalId": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "SiebelRequestType": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "SourceSystem": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        },
+                                                        "Channel": {
+                                                            "type": "string",
+                                                            "minLength": 1
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "operation",
+                                                        "StatusCode",
+                                                        "StatusMessage",
+                                                        "RequestId",
+                                                        "ExternalId",
+                                                        "SiebelRequestType",
+                                                        "SourceSystem",
+                                                        "Channel"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "EitcOutput"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "IntObjectFormat",
+                                        "IntObjectName",
+                                        "MessageId",
+                                        "MessageType",
+                                        "ListOfEitcEaiOutput"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "SiebelMessage",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer jbp4hIGCthnIzdxr7AEJrnqh1lO8"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "Contact": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "minItems": 1,
+                                    "items": {
+                                        "required": [
+                                            "FirstName",
+                                            "LastName",
+                                            "PreferredContactMethod"
+                                        ],
+                                        "properties": {
+                                            "FirstName": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "LastName": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "PreferredContactMethod": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "required": [
+                                "Contact"
+                            ]
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "accountNumber",
+                        "description": "Account Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/accounts": {
+            "post": {
+                "description": "Create Customer Account",
+                "summary": "Create Customer Account",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "createCustomerAccount",
+                "tags": [
+                    "accounts"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "AccountNumber": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "IntegrationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "AccountNumber",
+                                "IntegrationId",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer jbp4hIGCthnIzdxr7AEJrnqh1lO8"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "ContactDetails": {
+                                    "type": "object",
+                                    "properties": {
+                                        "DocumentNumber": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "DocumentType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "UnifiedNumber": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "AbsherId": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "FirstName": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "LastName": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ArabicName": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Address": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Country": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "StreetName": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Unit": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PO_BOX": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Emirate": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "City": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Area": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "Country",
+                                                "StreetName",
+                                                "Unit",
+                                                "PO_BOX",
+                                                "Emirate",
+                                                "City",
+                                                "Area"
+                                            ]
+                                        },
+                                        "DateOfBirth": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Nationality": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Email": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "PhoneNumber": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Gender": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Title": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "MonthlyIncome": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "DocumentNumber",
+                                        "DocumentType",
+                                        "UnifiedNumber",
+                                        "AbsherId",
+                                        "FirstName",
+                                        "LastName",
+                                        "ArabicName",
+                                        "Address",
+                                        "DateOfBirth",
+                                        "Nationality",
+                                        "Email",
+                                        "PhoneNumber",
+                                        "Gender",
+                                        "Title",
+                                        "MonthlyIncome"
+                                    ]
+                                },
+                                "EmployeeID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ExpiryDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "IssueDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "AccountType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "MarketType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "InvoiceType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "InvoiceLanguage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ParentAccountID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "PersonalizedOffers": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "VisaType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "VisaExpiryDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "VisaNumber": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "ContactDetails",
+                                "EmployeeID",
+                                "ExpiryDate",
+                                "IssueDate",
+                                "AccountType",
+                                "MarketType",
+                                "InvoiceType",
+                                "InvoiceLanguage",
+                                "ParentAccountID",
+                                "PersonalizedOffers",
+                                "VisaType",
+                                "VisaExpiryDate",
+                                "VisaNumber"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "security": [
+        {
+            "OauthSecurity": []
+        }
+    ],
+    "securityDefinitions": {
+        "OauthSecurity": {
+            "type": "oauth2",
+            "flow": "password",
+            "description": "oAuth 2.0 security implementation",
+            "tokenUrl": "http://172.24.122.149:9001/v1/oauth/token"
+        }
+    }
+}

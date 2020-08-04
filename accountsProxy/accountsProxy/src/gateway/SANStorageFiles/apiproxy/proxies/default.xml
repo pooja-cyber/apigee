@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    #proxyDefaultFaultRule#
+    <FaultRules>
+        #genericUnhandledExceptionFaultRule#
+        #invalidApiKeyFaultRules#
+        #commonTraficManagementFaultRules#   
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>KVM-SANStorage</Name>
+            </Step>
+            <Step>
+                <Name>SA-SpikeArrestCheck</Name>
+            </Step>
+            <Step>
+                <Name>AM-AuthorizationHeaderMissing</Name>
+                <Condition>( request.header.Authorization = null ) or ( request.header.Authorization = "" )</Condition>
+            </Step>
+            <Step>
+                <Name>BA-ExtractClientKeyClientSecret</Name>
+            </Step>
+            <Step>
+                <Name>AM-AuthorizationBadRequest</Name>
+                <Condition>(du.app.clientKey = null or du.app.clientSecret = null)</Condition>
+            </Step>
+            <Step>
+                <Name>VA-VerifyAPIKey</Name>
+            </Step>
+            <Step>
+                <Name>AM-InvalidClientSecret</Name>
+                <Condition>du.app.clientSecret != verifyapikey.VA-VerifyAPIKey.client_secret</Condition>
+            </Step>
+        </Request>
+        <Response>
+        </Response>
+    </PreFlow>
+    <Flows>
+        <Flow name="upload">
+            <Request>
+                <Step>
+                    <Name>JC-SANFileOperations</Name>
+                </Step>
+            </Request>
+            <Response></Response>
+            <Condition>( request.verb = "POST") and (proxy.pathsuffix JavaRegex "(/?)$"</Condition>
+        </Flow>
+        <Flow name="download-exists">
+            <Request></Request>
+            <Response>
+                <Step>
+                    <Name>JC-SANFileOperations</Name>
+                </Step>
+            </Response>
+            <Condition>(request.verb = "GET") </Condition>
+        </Flow>
+        
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request>
+        </Request>
+        <Response></Response>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/files</BasePath>
+        <Properties>
+            <Property name="response.streaming.enabled">true</Property>
+            <Property name="request.streaming.enabled">true</Property>
+        </Properties>
+        <VirtualHost>default</VirtualHost>
+        <!-- Comment/Remove the Virtual Host-secure while deploying API Proxy in Organization dudev -->
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="no-route"/>
+    
+</ProxyEndpoint>

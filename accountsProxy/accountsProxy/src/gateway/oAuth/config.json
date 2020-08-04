@@ -1,0 +1,425 @@
+{
+	"configurations":[
+		{
+			"name": "dev",
+			"policies": [ 
+				{
+					"name" : "LD-LdapAuthentication.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "tqc-ldap"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapContractsAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "tqc-ldap"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapPeopleAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "tqc-ldap"
+						}
+					]
+				}
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				
+			]
+		},
+		{
+			"name": "tqc",
+			"policies": [ 
+				{
+					"name" : "LD-LdapAuthentication.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "tqc-ldap"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapContractsAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "tqc-ldap"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapPeopleAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "tqc-ldap"
+						}
+					]
+				}
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				
+			]
+		},
+		{
+			"name": "cit",
+			"policies": [ 
+				{
+					"name" : "LD-LdapAuthentication.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "tqc-ldap"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapContractsAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "tqc-ldap"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapPeopleAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "tqc-ldap"
+						}
+					]
+				}
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				
+			]
+		},
+		{
+			"name": "devmajor",
+			"policies": [ 
+				{
+					"name" : "LD-LdapAuthentication.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapContractsAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapPeopleAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				}
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				
+			]
+		},
+		{
+			"name": "tqcmajor",
+			"policies": [ 
+				{
+					"name" : "LD-LdapAuthentication.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapContractsAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapPeopleAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				}
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				
+			]
+		},
+		{
+			"name": "preprod",
+			"policies": [ 
+				{
+					"name" : "LD-LdapAuthentication.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapContractsAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapPeopleAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				}
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				
+			]
+		},
+		{
+			"name": "training",
+			"policies": [ 
+				{
+					"name" : "LD-LdapAuthentication.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapContractsAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapPeopleAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				}
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				
+			]
+		},
+		{
+			"name": "staging",
+			"policies": [ 
+				{
+					"name" : "LD-LdapAuthentication.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapContractsAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapPeopleAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				}
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				
+			]
+		},
+		{
+			"name": "cittamkeen",
+			"policies": [ 
+				{
+					"name" : "LD-LdapAuthentication.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapContractsAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapPeopleAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				}
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				
+			]
+		},
+		{
+			"name": "tqctamkeen1",
+			"policies": [ 
+				{
+					"name" : "LD-LdapAuthentication.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapContractsAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapPeopleAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				}
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				
+			]
+		},
+		{
+			"name": "tqctamkeen2",
+			"policies": [ 
+				{
+					"name" : "LD-LdapAuthentication.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapContractsAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				},
+				{
+					"name" : "LD-RetrieveLdapPeopleAttributes.xml",
+					"tokens" : [
+						{
+							"xpath" : "/Ldap/LdapResource",
+							"value" : "ldap-resource"
+						}
+					]
+				}
+			],
+			"proxies":[
+				
+			],
+			"targets" : [
+				
+			]
+		}
+
+		
+		
+	]
+}

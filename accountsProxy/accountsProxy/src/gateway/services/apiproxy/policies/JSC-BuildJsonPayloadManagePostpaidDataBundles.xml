@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript async="false" continueOnError="false" enabled="true" timeLimit="200" name="JSC-BuildJsonPayloadManagePostpaidDataBundles">
+    <DisplayName>JSC-BuildJsonPayloadManagePostpaidDataBundles</DisplayName>
+    <Properties/>
+    <!-- <IncludeURL>jsc://JSC-AddNamespace.js</IncludeURL> -->
+    <ResourceURL>jsc://JSC-BuildJsonPayloadManagePostpaidDataBundles.js</ResourceURL>
+</Javascript>

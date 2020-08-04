@@ -1,0 +1,551 @@
+{
+    "swagger": "2.0",
+    "host": "172.24.122.149:9001",
+    "schemes": [
+        "http"
+    ],
+    "info": {
+        "description": "Open API Specification for TroubleTickets API",
+        "title": "Open API Specification for TroubleTickets API",
+        "version": "0.0.1",
+        "termsOfService": "http://example.com/about/terms",
+        "contact": {
+            "name": "api.developer",
+            "url": "http://example.com/contact",
+            "email": "api.developer@du.ae"
+        },
+        "license": {
+            "name": "Du License",
+            "url": "http://api.developer.du.ae/license"
+        }
+    },
+    "definitions": {
+        "ErrorSchema": {
+            "description": "Error Schema",
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "Error Code"
+                },
+                "error": {
+                    "type": "string",
+                    "description": "Error Description"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error Message"
+                }
+            }
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/trouble-tickets/{trouble_ticket_id}": {
+            "get": {
+                "description": "Get trouble Ticket",
+                "summary": "Get Trouble Ticket By Trouble Ticket Id",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getTroubleTicket",
+                "tags": [
+                    "trouble-tickets"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "TTInfo": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Reference": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "DateCreated": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "RequestType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ServiceType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "PlanType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Status": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "Reference",
+                                        "DateCreated",
+                                        "RequestType",
+                                        "ServiceType",
+                                        "PlanType",
+                                        "Status"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "TTInfo",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer XjQ0iJ0Qv7lC25dn7IAdFGAXASG7"
+                    },
+                    {
+                        "in": "path",
+                        "name": "trouble_ticket_id",
+                        "description": "Trouble Ticket Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/trouble-tickets": {
+            "get": {
+                "description": "Get Trouble Ticket By Account Id or status",
+                "summary": "Get Trouble Ticket By Additional Parameters",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getTroubleTicketByAccountId",
+                "tags": [
+                    "trouble-tickets"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "TTInfo": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Reference": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "DateCreated": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "RequestType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ServiceType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "PlanType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Status": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "Reference",
+                                        "DateCreated",
+                                        "RequestType",
+                                        "ServiceType",
+                                        "PlanType",
+                                        "Status"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "TTInfo",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "account_id",
+                        "description": "Account Id",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "status",
+                        "description": "Status",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "oAuth Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer XjQ0iJ0Qv7lC25dn7IAdFGAXASG7"
+                    }
+                ]
+            },
+            "post": {
+                "description": "Create Trouble Ticket",
+                "summary": "Create Trouble Ticket",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "createTroubleTicket",
+                "tags": [
+                    "trouble-tickets"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "TTID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "TTID",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "oAuth Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer XjQ0iJ0Qv7lC25dn7IAdFGAXASG7"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "SrNumber": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "AcctNumber": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "DocNumber": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "DocType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "EntityType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "Nationality": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "SrArea": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "SrDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "SrSubArea": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "SrType": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ServiceID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ComNeeded": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ExternalID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ApOrderID": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "InvoiceNumber": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "B2bHeader": {
+                                    "description": "Test",
+                                    "type": "object",
+                                    "properties": {
+                                        "RequestID": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    }
+                                },
+                                "SmartScriptQuestions": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "minItems": 1,
+                                    "items": {
+                                        "properties": {
+                                            "Name": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "Value": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "security": [
+        {
+            "OauthSecurity": []
+        }
+    ],
+    "securityDefinitions": {
+        "OauthSecurity": {
+            "type": "oauth2",
+            "flow": "password",
+            "description": "oAuth 2.0 security implementation",
+            "tokenUrl": "http://172.24.122.149:9001/v1/oauth/token"
+        }
+    }
+}

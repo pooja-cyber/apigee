@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-MNPGetRequestInfoPayload">
+    <DisplayName>AM-MNPGetRequestInfoPayload</DisplayName>
+    <Properties/>
+    <Set>
+         <Headers>
+             <Header name="Content-Type">application/xml;charset="UTF-8"</Header>
+         <Header name ="SOAPAction">/LCEWebServices/RequestManagement/MNPGetRequestInfo</Header>
+        </Headers>
+           <QueryParams>
+            <QueryParam name="serviceName">MNPGetRequestInfo</QueryParam>
+            <QueryParam name="responseType">200</QueryParam>
+        </QueryParams>
+        <FormParams/>
+        <Payload contentType="application/xml">{request.content}</Payload>
+        <Path/>
+        <Verb>POST</Verb>
+    </Set>
+
+       <AssignVariable>
+        <Name>du.config.soapMethodForRequest</Name>
+        <Value>MNPGetRequestInfo</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>du.config.soapMethodForResponse</Name>
+        <Value>MNPGetRequestInfoResponse</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

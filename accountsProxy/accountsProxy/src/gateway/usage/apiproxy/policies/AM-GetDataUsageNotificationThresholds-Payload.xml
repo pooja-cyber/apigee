@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-GetDataUsageNotificationThresholds-Payload">
+    <DisplayName>AM-GetDataUsageNotificationThresholds-Payload</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+          <Header name="Content-Type">application/xml;charset="UTF-8"</Header>
+      <Header name="SOAPAction">/Processes/BusinessResources/Services/LCEWebServices.serviceagent//GetDataUsageNotificationThresholds</Header>
+        </Headers>
+        <QueryParams>
+            <QueryParam name="serviceName">GetDataUsageNotificationThresholds</QueryParam>
+            <QueryParam name="responseType">200</QueryParam>
+        </QueryParams>
+        <Payload>
+            <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservices.com/LCE/Du/WebServices" xmlns:head="http://www.du.ae/LCE/Header" xmlns:lcew="http://xmlns.du.ae/LCE/Business/LCEWebServiceRequest" xmlns:get="http://xmlns.du.ae/LCE/Business/ServiceManagement/GetDataUsageNotificationThresholds">
+               <soapenv:Header/>
+               <soapenv:Body>
+                  <web:GetDataUsageNotificationThresholds>
+                     <Request>
+                        <head:Header>
+                           <!--Optional:-->
+                           <head:RequestId>{du.api.requestId}</head:RequestId>
+                           <head:Credentials>
+                              <head:ApplicationId>{du.config.applicationId}</head:ApplicationId>
+                              <head:User>{du.config.mceUsername}</head:User>
+                              <!--Optional:-->
+                              <head:Password>{du.config.mcePassword}</head:Password>
+                           </head:Credentials>
+                           <!--Optional:-->
+                           <head:CorrelationId></head:CorrelationId>
+                        </head:Header>
+                        <lcew:Body>
+                           <get:AccessSessionRequest>
+                              <!--You may enter the following 7 items in any order-->
+                            <get:AccessChannel>{request.queryparam.access_channel}</get:AccessChannel>
+                              <!--Optional:-->
+                              <get:BeId>{request.queryparam.be_id}</get:BeId>
+                              <get:Language>{request.queryparam.language}</get:Language>
+                              <get:OperatorCode>{request.queryparam.operator_code}</get:OperatorCode>
+                              <get:Password>{request.queryparam.password}</get:Password>
+                          <get:TransactionId>{request.queryparam.transaction_id}</get:TransactionId>
+                              <get:Version>{request.queryparam.version}</get:Version>
+                           </get:AccessSessionRequest>
+                           <get:SubscrberRequest>
+                              <!--1 or more repetitions:-->
+                              <get:EntityInfo>
+                                 <!--You may enter the following 2 items in any order-->
+                                 <get:ParamKey>{request.queryparam.param_key}</get:ParamKey>
+                                 <get:ParamValue>{msisdn}</get:ParamValue>
+                              </get:EntityInfo>
+                           </get:SubscrberRequest>
+                           <get:ObjectType>{request.queryparam.object_type}</get:ObjectType>
+                           <get:AccountObject>{request.queryparam.account_object}</get:AccountObject>
+                        </lcew:Body>
+                     </Request>
+                  </web:GetDataUsageNotificationThresholds>
+               </soapenv:Body>
+            </soapenv:Envelope>
+        </Payload>
+        <Verb>POST</Verb>
+        <Path/>
+    </Set>
+    <AssignVariable>
+        <Name>du.config.soapMethodForRequest</Name>
+        <Value>GetDataUsageNotificationThresholds</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>du.config.soapMethodForResponse</Name>
+        <Value>GetDataUsageNotificationThresholdsResponse</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="true" transport="http" type="request"/>
+</AssignMessage>

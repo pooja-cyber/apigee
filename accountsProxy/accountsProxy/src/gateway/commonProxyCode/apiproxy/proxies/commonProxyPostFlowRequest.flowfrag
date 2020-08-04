@@ -1,0 +1,8 @@
+<Step>
+	<Name>JSC-CalculatePingResponseTime</Name>
+	<Condition>(proxy.pathsuffix MatchesPath "/ping") and (request.verb = "GET")</Condition>
+</Step>
+<Step>
+	<Name>AM-PingResponsePayload</Name>
+	<Condition>(proxy.pathsuffix MatchesPath "/ping") and (request.verb = "GET")</Condition>
+</Step>

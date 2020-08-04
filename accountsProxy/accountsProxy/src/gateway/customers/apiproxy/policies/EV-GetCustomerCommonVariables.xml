@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-GetCustomerCommonVariables">
+    <DisplayName>EV-GetCustomerCommonVariables</DisplayName>
+    <Properties/>
+    <URIPath>
+        <Pattern ignoreCase="true">/{customerId}/contracts</Pattern>
+        <!-- <Pattern ignoreCase="true">/{msisdn}/language</Pattern> -->
+        <Pattern ignoreCase="true">/{customerId}/language</Pattern>
+        <Pattern ignoreCase="true">/{customerId}/profiles</Pattern>
+        <Pattern ignoreCase="true">/{customerId}/requests</Pattern>
+        <Pattern ignoreCase="true">/{customerId}/legalflag</Pattern>
+        <Pattern ignoreCase="true">/{customerId}</Pattern>
+        
+    </URIPath>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <Source clearPayload="false">request</Source>
+</ExtractVariables>

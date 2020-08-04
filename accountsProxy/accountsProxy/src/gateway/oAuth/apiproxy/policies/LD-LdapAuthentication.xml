@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Ldap async="false" continueOnError="false" enabled="true" name="LD-LdapAuthentication">
+    <DisplayName>LD-LdapAuthentication</DisplayName>
+    <LdapResource>TOBEREPLACED</LdapResource>
+    <Authentication>
+        <SearchQuery>cn={du.username}</SearchQuery>
+        <Password ref="du.password"/>
+        <Scope>subtree</Scope>
+        <BaseDN>ou=People,ou=customers,dc=du,dc=ae</BaseDN>
+    </Authentication>
+</Ldap>

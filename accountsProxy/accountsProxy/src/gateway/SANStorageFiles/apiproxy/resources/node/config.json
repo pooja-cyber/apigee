@@ -1,0 +1,171 @@
+{
+    "mockDirectory": "./du-mocks",
+    "staticDirectory" : "./du-mocks/SAN",
+    "staticPath" : "/SAN",
+    "quiet": false,
+    "port": "8888",
+    "latency": 20,
+    "logRequestHeaders": false,
+    "webServices": {
+        "": {
+            "latency": 20,
+            "verbs": ["post"],
+            "switch": ["serviceName", "responseType"],
+            "responses": {
+                "post": {"httpStatus": 200, "mockFile": "unKnownResource.json"}
+            },
+            "switchResponses": {
+                "serviceNameCreateTTresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"trouble-tickets/CreateTT-Response.xml"
+                },
+                "serviceNameGetTTInforesponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"trouble-tickets/GetTTInfo-Res.xml"
+                },
+                "serviceNameGetCustomerAndContractsresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile"   : "customers/GetCustomerAndContracts-ResponseXml.xml"
+                },
+                "serviceNameManageContactMethodresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile"   : "customers/ManageContactMethod-Response.xml"
+                },
+                "serviceNameGetAllCustomerContractsresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile"   : "customers/GetAllCustomerContracts-Response.xml"
+                },
+                "serviceNameManageCustomerProfileInforesponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile"   : "customers/ManageCustomerProfileInfo-Response.xml"
+                },
+                "serviceNameGetCustomerresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile"   : "customers/GetCustomer-Response.xml"
+                },
+                "serviceNameCreateCustomerAccountresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile"   : "customers/CreateCustomerAccount-Response.xml"
+                },
+                "serviceNameChangeCustomerDetailsresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile"   : "customers/ChangeCustomerDetails-Response.xml"
+                },
+               "serviceNameSetUserPreferredLanguageresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"customers/SetUserPreferredLanguage-Response.xml"
+				},
+				"serviceNameGetCustomerInformationresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"customers/GetCustomerInformation-Response.xml"
+				},
+				"serviceNameGetDataUsageNotificationThresholdsresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"usage/GetDataUsageNotificationThersholds-Response.xml"
+				},
+				"serviceNameGetPostpaidBundlesBalanceresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"usage/GetPostpaidBundlesBalance-Response.xml"
+				},
+				"serviceNameGetPrepaidBundlesBalanceresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"usage/GetPrepaidBundlesBalance-Response.xml"
+				},
+				"serviceNamePrepaidGetUsageresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"usage/PrepaidGetUsage-Response.xml"
+				},
+				"serviceNameSetDataUsageNotificationThersholdsresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile"   : "usage/SetDataUsageNotificationThersholds-Response.xml"
+                },
+                "serviceNameChangeContractServiceParametersresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile"   : "contracts/ChangeContractServiceParameters-Response.xml"
+                },
+                "serviceNameGetContractRatePlanHistoryresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile"   : "contracts/GetContractRatePlanHistory-Response.xml"
+                },
+                "serviceNameGetAccountInformationresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile"   : "accounts/GetAccountInformation-Response.xml"
+                },
+                "serviceNameGetAccountresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile"   : "accounts/GetAccount-Response.xml"
+                },
+                "serviceNameGetRequestHistoryresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile"   : "accounts/GetRequestHistory-Response.xml"
+                },
+	            "serviceNamechangeSelfcareUsernamePasswordresponseType201":{
+	              "httpStatus" : 201,
+	              "mockFile" : "users/changeSelfcareUsernamePassword.xml"
+	            },
+	            "serviceNameforgotPasswordSelfcareresponseType201":{
+	              "httpStatus" : 201,
+	              "mockFile"  : "users/forgotPasswordSelfcare.xml"
+	            },
+	            "serviceNameregisterSelfcareUserresponseType201":{
+	              "httpStatus"  : 201,
+	              "mockFile"    : "users/registerSelfcareUserResponse.xml"
+	            },
+	            "serviceNameverifyCoderesponseType200":{
+	              "httpStatus" : 200,
+	              "mockFile"  : "users/verifyCode.xml"
+            	},
+              "serviceNameManageHandsetConfigurationresponseType201":{
+                "httpStatus"  : 201,
+                "mockFile"    : "devices/ManageHandsetConfiguration-Response.xml"
+              },
+              "serviceNameGetCommitmentsresponseType200":{
+                "httpStatus"  : 200,
+                "mockFile"    : "contracts/GetCommitments-Response.xml"
+              },
+                "serviceNameverifyCoderesponseType201":{
+                "httpStatus" : 201,
+                "mockFile"  : "users/verifyCode.xml"
+              },
+              "serviceNameGetApplicableBroadbandSpeedresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"offers/GetApplicableBroadbandSpeed-Response.xml"
+              },
+              "serviceNameGetApplicableBundlesresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"offers/GetApplicableBundles-Response.xml"
+              },
+              "serviceNameGetApplicableRateplansresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"offers/GetApplicableRateplans-Response.xml"
+              },
+              "serviceNameGetAvailableOffersresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"offers/GetAvailableOffers-Response.xml"
+              },
+               "serviceNameGetContractOffersresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"offers/GetContractOffers-Response.xml"
+              },
+              "serviceNameGetEligibleBundlesresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"offers/GetEligibleBundles-Response.xml"
+              },
+              "serviceNameGetEligibleContractOffersresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"offers/GetEligibleContractOffers-Response.xml"
+              },
+              "serviceNameGetTVPackagesresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"offers/GetTVPackages-Response.xml"
+              },
+              "serviceNameGetBillInformationresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"billing/GetBillInformationResponse.xml"
+              }
+
+            }
+        }
+
+    }
+}

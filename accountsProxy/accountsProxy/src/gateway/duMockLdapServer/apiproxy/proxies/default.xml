@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <FaultRules/>
+    <PreFlow name="PreFlow">
+        <Request/>
+        <Response/>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <Flows>
+        <Flow name="Authentication">
+            <Description>Mock LDAP Authentication Plan</Description>
+            <Request>
+                <Step>
+                    <Name>EV-UsernamePassword</Name>
+                </Step>
+                <Step>
+                    <Name>JS-MockVerifyCredentials</Name>
+                </Step>
+                <Step>
+                    <Name>RF-InvalidUserCredentials</Name>
+                    <Condition>(du.validLogin = false)</Condition>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>AM-SuccessResponse</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/authenticate") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="Unknown Resource">
+            <Description>Handling all Unknown Resources here</Description>
+            <Request>
+              #unknownResource#
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath>/dumockldapserver</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="noroute"/>
+</ProxyEndpoint>

@@ -1,0 +1,47 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservices.com/LCE/Du/WebServices" xmlns:head="http://www.du.ae/LCE/HeaderResponse" xmlns:lcew="http://xmlns.du.ae/LCE/Business/LCEWebServiceResponse" xmlns:man="http://xmlns.du.ae/LCE/Business/AccountManagement/ManageContactMethod">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:ManageContactMethodResponse>
+         <Response>
+            <head:Header>
+               <!--Optional:-->
+               <head:RequestId>?</head:RequestId>
+               <!--Optional:-->
+               <head:CorrelationId>?</head:CorrelationId>
+               <head:ResponseCode>?</head:ResponseCode>
+               <!--Optional:-->
+               <head:ResponseMessage>?</head:ResponseMessage>
+               <!--Optional:-->
+               <head:ErrorCode>?</head:ErrorCode>
+               <!--Optional:-->
+               <head:ErrorDescription>?</head:ErrorDescription>
+            </head:Header>
+            <!--Optional:-->
+            <lcew:Body>
+               <man:SiebelMessage IntObjectFormat="?" IntObjectName="?" MessageId="?" MessageType="?">
+                  <!--Optional:-->
+                  <man:ListOfEitcEaiOutput>
+                     <!--Zero or more repetitions:-->
+                     <man:EitcOutput operation="?">
+                        <!--Optional:-->
+                        <man:StatusCode>?</man:StatusCode>
+                        <!--Optional:-->
+                        <man:StatusMessage>?</man:StatusMessage>
+                        <!--Optional:-->
+                        <man:RequestId>?</man:RequestId>
+                        <!--Optional:-->
+                        <man:ExternalId>?</man:ExternalId>
+                        <!--Optional:-->
+                        <man:SiebelRequestType>?</man:SiebelRequestType>
+                        <!--Optional:-->
+                        <man:SourceSystem>?</man:SourceSystem>
+                        <!--Optional:-->
+                        <man:Channel>?</man:Channel>
+                     </man:EitcOutput>
+                  </man:ListOfEitcEaiOutput>
+               </man:SiebelMessage>
+            </lcew:Body>
+         </Response>
+      </web:ManageContactMethodResponse>
+   </soapenv:Body>
+</soapenv:Envelope>

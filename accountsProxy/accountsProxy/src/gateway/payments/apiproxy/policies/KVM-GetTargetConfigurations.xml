@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations mapIdentifier="payments-v1-config" async="false" continueOnError="false" enabled="true" name="KVM-GetTargetConfigurations">
+    <DisplayName>KVM-GetTargetConfigurations</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Get assignTo="du.config.mceTargetBasepath">
+        <Key> 
+            <Parameter>mceTargetBasepath</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.selfcareTargetBasepath">
+        <Key> 
+            <Parameter>selfcareTargetBasepath</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mceUsername">
+        <Key>
+            <Parameter>mceUsername</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mcePassword">
+        <Key>
+            <Parameter>mcePassword</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.selfcareUsername">
+        <Key>
+            <Parameter>selfcareUsername</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.selfcarePassword">
+        <Key>
+            <Parameter>selfcarePassword</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.applicationId">
+        <Key>
+            <Parameter>mceApplicationId</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.spikeArrest">
+        <Key>
+            <Parameter>spikeArrest</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.secretKey">
+        <Key>
+            <Parameter>secret-key</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetPaymentInformationFlag">
+        <Key>
+            <Parameter>isGetPaymentInformationFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetPrepaidPeriodicChargesFlag">
+        <Key>
+            <Parameter>isGetPrepaidPeriodicChargesFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isCheckCustomerPaymentRestrictionsFlag">
+        <Key>
+            <Parameter>isCheckCustomerPaymentRestrictionsFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.ismanageCreditCardFlag">
+        <Key>
+            <Parameter>ismanageCreditCardFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isRetrieveCCFlag">
+        <Key>
+            <Parameter>isRetrieveCCFlag</Parameter>
+        </Key>
+    </Get>
+     <Get assignTo="du.config.isVerifyCCCodeFlag">
+        <Key>
+            <Parameter>isVerifyCCCodeFlag</Parameter>
+        </Key>
+    </Get>   To be added in KVM edge
+    <Get assignTo="du.config.isAddCreditCardFlag">
+        <Key>
+            <Parameter>isAddCreditCardFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isUpdateCreditCardFlag">
+        <Key>
+            <Parameter>isUpdateCreditCardFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isRetreiveCCInfoFlag">
+        <Key>
+            <Parameter>isRetreiveCCInfoFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetCustomerPaymentInformationFlag">
+        <Key>
+            <Parameter>isGetCustomerPaymentInformationFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isAddFriendFlag">
+        <Key>
+            <Parameter>isAddFriendFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isDeleteFriendFlag">
+        <Key>
+            <Parameter>isDeleteFriendFlag</Parameter>
+        </Key>
+    </Get>
+     <Get assignTo="du.config.isAddSubscribedPaymentFlag">
+        <Key>
+            <Parameter>isAddSubscribedPaymentFlag</Parameter>
+        </Key>
+    </Get>
+     <Get assignTo="du.config.isDeleteSubscribedPaymentFlag">
+        <Key>
+            <Parameter>isDeleteSubscribedPaymentFlag</Parameter>
+        </Key>
+    </Get>
+     <Get assignTo="du.config.isAddRecurringPaymentFlag">
+        <Key>
+            <Parameter>isAddRecurringPaymentFlag</Parameter>
+        </Key>
+    </Get>
+     <Get assignTo="du.config.isDeleteRecurringPaymentFlag">
+        <Key>
+            <Parameter>isDeleteRecurringPaymentFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isPaymentResponsibleFlag">
+        <Key>
+            <Parameter>isPaymentResponsibleFlag</Parameter>
+        </Key>
+    </Get>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

@@ -1,0 +1,12 @@
+<ExtractVariables name="EV-BackupResponseCodeMessage">
+   <DisplayName>EV-BackupResponseCodeMessage</DisplayName>
+   <Source>response</Source>
+   <JSONPayload>
+      <Variable name="du.api.responseCode" type="string">
+         <JSONPath>$.responseCode</JSONPath>
+      </Variable>
+      <Variable name="du.api.responseDescription" type="string">
+         <JSONPath>$.responseDescription</JSONPath>
+      </Variable>
+   </JSONPayload>
+</ExtractVariables>

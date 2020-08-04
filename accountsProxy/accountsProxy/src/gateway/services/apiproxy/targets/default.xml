@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TargetEndpoint name="default">
+    <Description/>
+    #proxyDefaultFaultRule#
+    <FaultRules>
+        #commonTargetErrorsFaultRules#
+        #genericUnhandledExceptionFaultRule#
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+            #commonTargetPreflowRequest#   
+        </Request>
+        <Response/>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+        	#commonTargetPostflowResponse#
+        </Response>
+    </PostFlow>
+    #mockTargetProxyChaining#
+</TargetEndpoint>

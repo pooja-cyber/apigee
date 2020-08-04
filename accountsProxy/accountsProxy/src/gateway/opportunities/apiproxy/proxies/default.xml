@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    #proxyDefaultFaultRule#
+    <FaultRules>
+        #genericUnhandledExceptionFaultRule#
+        #commonAccessTokenFaultRules#
+        #commonTraficManagementFaultRules#
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+        #commonProxyPreflowRequest#
+        <Step>
+             <Name>KVM-GetOpportunitiesInfo</Name>
+        </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        #pingResourceFlow#
+        <!-- Add the conditional flows here -->
+        <Flow name="Manage Enterprise Opportunity">
+            <Description>Manage Enterprise Opportunity</Description>
+            <Request>
+                
+                <Step>
+                    <Name>JSC-CheckAccountManageEnterpriseOpportunity</Name>
+                </Step>
+                #emptyBodyPayloadCheck#
+                 <Step>
+                    <Name>JSC-BuildJsonSoapPayloadAccountManageEnterpriseOpportunity</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-BuildSoapRequest</Name>
+                </Step>
+            </Request>
+            <Response>
+             <Step>
+                    <Name>SC-ManageEnterpriseOpportunity</Name>
+             </Step>
+            </Response>
+             <Condition>((proxy.pathsuffix JavaRegex "(/?)$") and (request.verb = "POST"))</Condition>
+        </Flow>
+        #unknownResourceFlowGeneric#
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+            #commonProxyPostflowResponse#
+        </Response>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/v1/opportunities</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+        <!-- Comment/Remove the Virtual Host-secure while deploying API Proxy in Organization dudev -->
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    #pingResourceRouteRule#
+    <RouteRule name="mock">
+        <TargetEndpoint>mock</TargetEndpoint>
+        <Condition>(du.config.request.mock="true")</Condition>
+    </RouteRule>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

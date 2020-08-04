@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-UnknownResource">
+    <DisplayName>RF-UnknownResource</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="application/json">{ "code": "NB_40400", "error_code": "resource_not_found", "message": "Invalid Operation, Resource Not Found"}</Payload>
+            <StatusCode>404</StatusCode>
+            <ReasonPhrase>Not found</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

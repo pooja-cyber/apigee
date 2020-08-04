@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="oracle-cms">
+    <Description/>
+    <FaultRules>
+        #genericUnhandledExceptionFaultRule#
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>LC-GetCMSServiceTicket</Name>
+            </Step>
+            <Step>
+                <Name>AM-MissingCMSTicket</Name>
+                <Condition>((du.config.CMSServiceTicket = null))</Condition>
+            </Step>
+            <Step>
+                <Name>AM-AddCMSMultiTicketParam</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response></Response>
+    </PostFlow>
+    <!-- #mockTargetProxyChaining# -->
+    #oracleCmsTargetConnection#
+</TargetEndpoint>

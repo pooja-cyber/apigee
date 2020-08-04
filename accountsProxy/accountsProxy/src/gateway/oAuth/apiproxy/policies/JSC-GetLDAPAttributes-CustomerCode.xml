@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript async="false" continueOnError="false" enabled="true" timeLimit="200" name="JSC-GetLDAPAttributes-CustomerCode">
+    <DisplayName>JSC-GetLDAPAttributes-CustomerCode</DisplayName>
+    <Properties/>
+    <ResourceURL>jsc://JSC-GetLDAPAttributes-CustomerCode.js</ResourceURL>
+</Javascript>

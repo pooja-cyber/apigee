@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="5" name="SANStorageFiles">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1471441947410</CreatedAt>
+    <CreatedBy>asagar@apigee.com</CreatedBy>
+    <DisplayName>SANStorageFiles</DisplayName>
+    <LastModifiedAt>1471441947410</LastModifiedAt>
+    <LastModifiedBy>asagar@apigee.com</LastModifiedBy>
+    <Policies/>
+    <ProxyEndpoints/>
+    <Resources/>
+    <TargetServers/>
+    <TargetEndpoints/>
+    <validate>false</validate>
+</APIProxy>

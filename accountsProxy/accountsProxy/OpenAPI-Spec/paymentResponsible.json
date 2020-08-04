@@ -1,0 +1,101 @@
+{
+  "swagger": "2.0",
+  "host": "devmajor-apigwnonprod.corp.du.ae:9101",
+  "schemes": [
+    "http"
+  ],
+  "info": {
+    "description": "Open API specification for GetPaymentResponsible API",
+    "title": "Open API specification for GetPaymentResponsible API",
+    "version": "0.0.1",
+    "termsOfService": "http://example.com/about/terms",
+    "contact": {
+      "name": "API Docs",
+      "url": "http://example.com/contact",
+      "email": "apidocs@example.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://example.com"
+    }
+  },
+  "basePath": "/v1",
+  "paths": {
+    "/payments/responsible": {
+      "get": {
+        "description": "GetPaymentResponsible",
+        "summary": "GetPaymentResponsible",
+        "externalDocs": {
+          "description": "Find out more",
+          "url": "http://docs.example.com/management/apis/get/entities"
+        },
+        "operationId": "getPaymentResponsible",
+        "tags": [
+          "payments"
+        ],
+        "produces": [
+          "application/json;charset=UTF-8"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "PAYMENT_RESPONSIBLE": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "RequestId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "CorrelationId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ResponseCode": {
+                  "type": "number"
+                },
+                "ErrorCode": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "PAYMENT_RESPONSIBLE",
+                "RequestId",
+                "CorrelationId",
+                "ResponseCode",
+                "ErrorCode"
+              ]
+            }
+          }
+        },
+        "security": [],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "msisdn",
+            "description": "msisdn",
+            "type": "string",
+            "required": true,
+            "enum": [
+              "971550102043"
+            ]
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "oAuth bearer token header",
+            "required": true,
+            "type": "string",
+            "enum": [
+              " Bearer y931sokGoazXBlcw0NFLPj4Aw6lB"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

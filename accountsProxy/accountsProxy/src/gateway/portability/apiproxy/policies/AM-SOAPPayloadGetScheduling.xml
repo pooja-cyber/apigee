@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage
+	async="false"
+	continueOnError="false"
+	enabled="true"
+	name="AM-SOAPPayloadGetScheduling"
+>
+	<DisplayName>AM-SOAPPayloadGetScheduling</DisplayName>
+	<FaultRules />
+	<Properties />
+	<Set>
+		<Headers>
+			<Header name="Content-Type">application/xml;charset="UTF-8"</Header>
+        <Header name="SOAPAction">/LCEWebServices/ServiceManagement/GetScheduling</Header>
+		</Headers>
+		<QueryParams>
+			<QueryParam name="serviceName">GetScheduling</QueryParam>
+			<QueryParam name="responseType">200</QueryParam>
+		</QueryParams>
+		<Payload contentType="application/xml">
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservices.com/LCE/Du/WebServices" xmlns:head="http://www.du.ae/LCE/Header" xmlns:lcew="http://xmlns.du.ae/LCE/Business/LCEWebServiceRequest" xmlns:get="http://xmlns.du.ae/LCE/Business/ServiceManagement/GetScheduling">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetScheduling>
+         <Request>
+            <head:Header>
+               <!--Optional:-->
+               <head:RequestId>{du.api.requestId}</head:RequestId>
+               <head:Credentials>
+                  <head:ApplicationId>{du.config.mceApplicationId}</head:ApplicationId>
+                  <head:User>{du.config.mceUsername}</head:User>
+                  <!--Optional:-->
+                  <head:Password>{du.config.mcePassword}</head:Password>
+               </head:Credentials>
+               <!--Optional:-->
+               <head:CorrelationId></head:CorrelationId>
+            </head:Header>
+            <lcew:Body>
+               <!--Optional:-->
+               <get:Action>{request.queryparam.action}</get:Action>
+               <!--Optional:-->
+               <get:Contract>{request.queryparam.contract}</get:Contract>
+               <!--Optional:-->
+               <get:OperationType>{request.queryparam.operation_type}</get:OperationType>
+               <!--Optional:-->
+               <get:Rateplan>{request.queryparam.rate_plan}</get:Rateplan>
+               <!--Optional:-->
+               <get:NewRateplan>{request.queryparam.new_rate_plan}</get:NewRateplan>
+               <!--Optional:-->
+               <get:Service>{request.queryparam.service}</get:Service>
+               <!--Optional:-->
+               <get:SourceFUPackageID>{request.queryparam.source_fu_package_id}</get:SourceFUPackageID>
+               <!--Optional:-->
+               <get:SourceOfferID>{request.queryparam.source_offer_id}</get:SourceOfferID>
+               <!--Optional:-->
+               <get:TargetFUPackageID>{request.queryparam.target_fu_package_id}</get:TargetFUPackageID>
+               <!--Optional:-->
+               <get:TargetOfferID>{request.queryparam.target_offer_id}</get:TargetOfferID>
+            </lcew:Body>
+         </Request>
+      </web:GetScheduling>
+   </soapenv:Body>
+</soapenv:Envelope>
+		</Payload>
+		<Verb>POST</Verb>
+	</Set>
+	<IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+	<AssignVariable>
+        <Name>du.config.soapMethodForRequest</Name>
+        <Value>GetScheduling</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>du.config.soapMethodForResponse</Name>
+        <Value>GetSchedulingResponse</Value>
+    </AssignVariable>
+	<AssignTo
+		type="request"
+		transport="http"
+		createNew="true" />
+</AssignMessage>

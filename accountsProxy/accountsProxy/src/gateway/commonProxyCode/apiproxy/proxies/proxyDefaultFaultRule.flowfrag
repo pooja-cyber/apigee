@@ -1,0 +1,7 @@
+<DefaultFaultRule name="DefaultFaultRule">
+    <Step>
+        <FaultRules/>
+        <Name>RF-GenericFaultHandler</Name>
+    </Step>
+    <AlwaysEnforce>true</AlwaysEnforce>
+</DefaultFaultRule>

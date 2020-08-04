@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Ldap async="false" continueOnError="false" enabled="true" name="LD-RetrieveLdapContractsAttributes">
+    <DisplayName>LD-RetrieveLdapContractsAttributes</DisplayName>
+    <LdapResource>TOBEREPLACED</LdapResource>
+    <Search>
+        <SearchQuery>customerID={ldap.LD-RetrieveLdapPeopleAttributes.search.result.attribute.uid}</SearchQuery>
+        <Scope>subtree</Scope>
+        <BaseDN>ou=Contracts,ou=customers,dc=du,dc=ae</BaseDN>
+        <Attributes>
+            <Attribute>customerID</Attribute>
+            <Attribute>contractCode</Attribute>
+            <Attribute>serviceNumber</Attribute>
+            <Attribute>ratePlan</Attribute>
+        </Attributes>
+    </Search>
+</Ldap>

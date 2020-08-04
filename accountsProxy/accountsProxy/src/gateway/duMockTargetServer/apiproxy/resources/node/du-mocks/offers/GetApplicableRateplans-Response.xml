@@ -1,0 +1,45 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservices.com/LCE/Du/WebServices" xmlns:head="http://www.du.ae/LCE/HeaderResponse" xmlns:lcew="http://xmlns.du.ae/LCE/Business/LCEWebServiceResponse" xmlns:get="http://xmlns.du.ae/LCE/Business/ServiceManagement/GetApplicableRateplans">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetApplicableRateplansResponse>
+         <Response>
+            <head:Header>
+               <!--Optional:-->
+               <head:RequestId>?</head:RequestId>
+               <!--Optional:-->
+               <head:CorrelationId>?</head:CorrelationId>
+               <head:ResponseCode>?</head:ResponseCode>
+               <!--Optional:-->
+               <head:ResponseMessage>?</head:ResponseMessage>
+               <!--Optional:-->
+               <head:ErrorCode>?</head:ErrorCode>
+               <!--Optional:-->
+               <head:ErrorDescription>?</head:ErrorDescription>
+            </head:Header>
+            <!--Optional:-->
+            <lcew:Body>
+               <!--Optional:-->
+               <get:AvailableRateplans>
+                  <!--Zero or more repetitions:-->
+                  <get:Rateplan>
+                     <!--Optional:-->
+                     <get:NewRatePlan>?</get:NewRatePlan>
+                     <!--Optional:-->
+                     <get:NewSpeed>?</get:NewSpeed>
+                     <!--Optional:-->
+                     <get:UPClassification>?</get:UPClassification>
+                     <!--Optional:-->
+                     <get:Sequence>?</get:Sequence>
+                     <!--Optional:-->
+                     <get:Price>?</get:Price>
+                     <!--Optional:-->
+                     <get:SiteVisitRequired>?</get:SiteVisitRequired>
+                     <!--Optional:-->
+                     <get:isDeprecated>?</get:isDeprecated>
+                  </get:Rateplan>
+               </get:AvailableRateplans>
+            </lcew:Body>
+         </Response>
+      </web:GetApplicableRateplansResponse>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,51 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservices.com/LCE/Du/WebServices" xmlns:head="http://www.du.ae/LCE/HeaderResponse" xmlns:lcew="http://xmlns.du.ae/LCE/Business/LCEWebServiceResponse" xmlns:get="http://xmlns.du.ae/LCE/Business/ServiceManagement/GetCustomerInfoByDoc">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetCustomerInfoByDocResponse>
+         <Response>
+            <head:Header>
+               <!--Optional:-->
+               <head:RequestId>?</head:RequestId>
+               <!--Optional:-->
+               <head:CorrelationId>?</head:CorrelationId>
+               <head:ResponseCode>?</head:ResponseCode>
+               <!--Optional:-->
+               <head:ResponseMessage>?</head:ResponseMessage>
+               <!--Optional:-->
+               <head:ErrorCode>?</head:ErrorCode>
+               <!--Optional:-->
+               <head:ErrorDescription>?</head:ErrorDescription>
+            </head:Header>
+            <!--Optional:-->
+            <lcew:Body>
+               <!--Zero or more repetitions:-->
+               <get:Customer_List>
+                  <!--Optional:-->
+                  <get:Customer_Code>?</get:Customer_Code>
+                  <!--Optional:-->
+                  <get:Customer_Type>?</get:Customer_Type>
+                  <!--Optional:-->
+                  <get:Out_Standing_Balance>?</get:Out_Standing_Balance>
+                  <!--Zero or more repetitions:-->
+                  <get:Contract_List>
+                     <!--Optional:-->
+                     <get:Msisdn>?</get:Msisdn>
+                     <!--Optional:-->
+                     <get:Contract_Type>?</get:Contract_Type>
+                     <!--Optional:-->
+                     <get:Segment>?</get:Segment>
+                     <!--Optional:-->
+                     <get:Rateplan_Shdes>?</get:Rateplan_Shdes>
+                     <!--Optional:-->
+                     <get:Rateplan_Des>?</get:Rateplan_Des>
+                  </get:Contract_List>
+               </get:Customer_List>
+               <!--Optional:-->
+               <get:Error_Code>?</get:Error_Code>
+               <!--Optional:-->
+               <get:Error_Des>?</get:Error_Des>
+            </lcew:Body>
+         </Response>
+      </web:GetCustomerInfoByDocResponse>
+   </soapenv:Body>
+</soapenv:Envelope>

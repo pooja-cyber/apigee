@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAuthV2 async="false" continueOnError="false" enabled="true" name="OA-GenerateAccessToken">
+    <DisplayName>OA-GenerateAccessToken</DisplayName>
+    <Operation>GenerateAccessToken</Operation>
+    <Attributes>
+        <Attribute name="selfcare_username" ref="du.api.selfcare_username" display="true">undefined</Attribute>
+        <Attribute name="customer_id" ref="du.api.customerId" display="true">undefined</Attribute>
+        <Attribute name="contract_id" ref="du.api.contractCode" display="true">undefined</Attribute>
+        <Attribute name="msisdns" ref="du.api.msisdn" display="true">undefined</Attribute>
+        <Attribute name="customer_code" ref="du.api.customerCode" display="true">undefined</Attribute>
+        <Attribute name="segment" ref="du.api.segment" display="true">undefined</Attribute>
+        <Attribute name="rate_plan" ref="du.api.ratePlan" display="true">undefined</Attribute>
+    </Attributes>
+    <ExternalAccessToken>apigee.access_token</ExternalAccessToken>
+    <!-- This is in millseconds, so expire in an hour -->
+    <ExpiresIn>1800000</ExpiresIn>
+    <!-- This is used for searching/revoking token by user id-->
+    <AppEndUser>du.api.selfcare_username</AppEndUser>
+    <RefreshTokenExpiresIn>15552000000</RefreshTokenExpiresIn>
+    <SupportedGrantTypes>
+        <GrantType>password</GrantType>
+    </SupportedGrantTypes>
+    <GrantType>du.grantType</GrantType>
+    <UserName>du.username</UserName>
+    <PassWord>du.password</PassWord>
+    <GenerateResponse enabled="true"/>
+    <GenerateErrorResponse enabled="true"/>
+</OAuthV2>

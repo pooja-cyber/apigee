@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-GetAccountInformationPayload">
+    <DisplayName>AM-GetAccountInformationPayload</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+            <Header name="SOAPAction">/Processes/BusinessResources/Services/LCEWebServices.serviceagent//GetAccountInformation</Header>
+            <Header name="Content-Type">application/xml;charset="UTF-8"</Header>
+        </Headers>
+        <QueryParams>
+            <QueryParam name="serviceName">GetAccountInformation</QueryParam>
+            <QueryParam name="responseType">200</QueryParam>
+        </QueryParams>
+          <Payload contentType="application/xml">{request.content}</Payload>
+        <Path/>
+        <Verb>POST</Verb>
+    </Set>
+    <AssignVariable>
+        <Name>du.config.soapMethodForRequest</Name>
+        <Value>GetAccountInformation</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>du.config.soapMethodForResponse</Name>
+        <Value>GetAccountInformationResponse</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="true" transport="http" type="request"/>
+</AssignMessage>

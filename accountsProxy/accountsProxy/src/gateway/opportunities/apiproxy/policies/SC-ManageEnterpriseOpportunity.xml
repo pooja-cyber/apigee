@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<StatisticsCollector async="false" continueOnError="false" enabled="true" name="SC-ManageEnterpriseOpportunity">
+    <DisplayName>SC-ManageEnterpriseOpportunity</DisplayName>
+    <Properties/>
+    <Statistics>
+        <Statistic name="Account" ref="du.api.Account" type="STRING">0</Statistic>
+        <Statistic name="AccountCode" ref="du.api.AccountCode" type="STRING">0</Statistic>
+        <Statistic name="Quantity" ref="du.api.Quantity" type="STRING">0</Statistic>
+        <Statistic name="ServiceType" ref="du.api.ServiceType" type="STRING">0</Statistic>
+        <Statistic name="ServiceSubType" ref="du.api.ServiceSubType" type="STRING">0</Statistic>
+    </Statistics>
+</StatisticsCollector>

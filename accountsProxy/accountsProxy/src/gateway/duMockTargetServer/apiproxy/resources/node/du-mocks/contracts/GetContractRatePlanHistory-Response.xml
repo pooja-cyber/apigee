@@ -1,0 +1,47 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservices.com/LCE/Du/WebServices" xmlns:head="http://www.du.ae/LCE/HeaderResponse" xmlns:lcew="http://xmlns.du.ae/LCE/Business/LCEWebServiceResponse" xmlns:get="http://xmlns.du.ae/LCE/Business/ServiceManagement/GetContractRatePlanHistory">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetContractRatePlanHistoryResponse>
+         <Response>
+            <head:Header>
+               <!--Optional:-->
+               <head:RequestId>?</head:RequestId>
+               <!--Optional:-->
+               <head:CorrelationId>?</head:CorrelationId>
+               <head:ResponseCode>?</head:ResponseCode>
+               <!--Optional:-->
+               <head:ResponseMessage>?</head:ResponseMessage>
+               <!--Optional:-->
+               <head:ErrorCode>?</head:ErrorCode>
+               <!--Optional:-->
+               <head:ErrorDescription>?</head:ErrorDescription>
+            </head:Header>
+            <!--Optional:-->
+            <lcew:Body>
+               <!--Optional:-->
+               <get:ContractId>?</get:ContractId>
+               <!--Optional:-->
+               <get:ContractIdPub>?</get:ContractIdPub>
+               <!--Optional:-->
+               <get:RateplanHistoryList>
+                  <!--Zero or more repetitions:-->
+                  <get:RateplanHistoryNode>
+                     <!--Optional:-->
+                     <get:RateplanCode>?</get:RateplanCode>
+                     <!--Optional:-->
+                     <get:RateplanCodePub>?</get:RateplanCodePub>
+                     <!--Optional:-->
+                     <get:RateplanDesc>?</get:RateplanDesc>
+                     <!--Optional:-->
+                     <get:RateplanSeqNo>?</get:RateplanSeqNo>
+                     <!--Optional:-->
+                     <get:RateplanUserLastMod>?</get:RateplanUserLastMod>
+                     <!--Optional:-->
+                     <get:RateplanValidFrom>?</get:RateplanValidFrom>
+                  </get:RateplanHistoryNode>
+               </get:RateplanHistoryList>
+            </lcew:Body>
+         </Response>
+      </web:GetContractRatePlanHistoryResponse>
+   </soapenv:Body>
+</soapenv:Envelope>

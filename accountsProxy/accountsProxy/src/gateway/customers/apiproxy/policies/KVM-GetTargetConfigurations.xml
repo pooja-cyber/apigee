@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations mapIdentifier="customers-v1-config" async="false" continueOnError="false" enabled="true" name="KVM-GetTargetConfigurations">
+    <DisplayName>KVM-GetTargetConfigurations</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Get assignTo="du.config.mceTargetBasepath">
+        <Key> 
+            <Parameter>mceTargetBasepath</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mceUsername">
+        <Key>
+            <Parameter>mceUsername</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mcePassword">
+        <Key>
+            <Parameter>mcePassword</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.applicationId">
+        <Key>
+            <Parameter>mceApplicationId</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.spikeArrest">
+        <Key>
+            <Parameter>spikeArrest</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetCustomerFlag">
+        <Key>
+            <Parameter>isGetCustomerFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetCustomerInformationFlag">
+        <Key>
+            <Parameter>isGetCustomerInformationFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isChangeCustomerDetailsFlag">
+        <Key>
+            <Parameter>isChangeCustomerDetailsFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetCustomerAndContractsFlag">
+        <Key>
+            <Parameter>isGetCustomerAndContractsFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetRequestHistoryFlag">
+        <Key>
+            <Parameter>isGetRequestHistoryFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isManageCustomerProfileInfoFlag">
+        <Key>
+            <Parameter>isManageCustomerProfileInfoFlag</Parameter>
+        </Key>
+    </Get>
+	<!-- Added for reverse shadow-->
+    <Get assignTo="du.config.isAccountLegalFlag">
+        <Key>
+            <Parameter>isAccountLegalFlag</Parameter>
+        </Key>
+    </Get>
+	<!-- End-->
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

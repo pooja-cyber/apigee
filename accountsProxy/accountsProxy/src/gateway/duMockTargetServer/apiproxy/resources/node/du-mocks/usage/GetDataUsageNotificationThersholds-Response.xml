@@ -1,0 +1,51 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservices.com/LCE/Du/WebServices" xmlns:head="http://www.du.ae/LCE/HeaderResponse" xmlns:lcew="http://xmlns.du.ae/LCE/Business/LCEWebServiceResponse" xmlns:get="http://xmlns.du.ae/LCE/Business/ServiceManagement/GetDataUsageNotificationThresholds">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetDataUsageNotificationThresholdsResponse>
+         <Response>
+            <head:Header>
+               <!--Optional:-->
+               <head:RequestId>?</head:RequestId>
+               <!--Optional:-->
+               <head:CorrelationId>?</head:CorrelationId>
+               <head:ResponseCode>?</head:ResponseCode>
+               <!--Optional:-->
+               <head:ResponseMessage>?</head:ResponseMessage>
+               <!--Optional:-->
+               <head:ErrorCode>?</head:ErrorCode>
+               <!--Optional:-->
+               <head:ErrorDescription>?</head:ErrorDescription>
+            </head:Header>
+            <!--Optional:-->
+            <lcew:Body>
+               <get:ResultOfOperationReply>
+                  <!--You may enter the following 6 items in any order-->
+                  <!--Optional:-->
+                  <get:BeId>?</get:BeId>
+                  <!--Optional:-->
+                  <get:BusiSeq>?</get:BusiSeq>
+                  <get:ResultCode>?</get:ResultCode>
+                  <!--Optional:-->
+                  <get:ResultMessage>?</get:ResultMessage>
+                  <!--Optional:-->
+                  <get:TransactionId>?</get:TransactionId>
+                  <get:Version>?</get:Version>
+               </get:ResultOfOperationReply>
+               <get:AccountLevelInfo>
+                  <get:ObjectType>?</get:ObjectType>
+                  <get:AccountObject>?</get:AccountObject>
+                  <!--Zero or more repetitions:-->
+                  <get:LevelList>
+                     <!--1 or more repetitions:-->
+                     <get:EntityInfo>
+                        <!--You may enter the following 2 items in any order-->
+                        <get:ParamKey>?</get:ParamKey>
+                        <get:ParamValue>?</get:ParamValue>
+                     </get:EntityInfo>
+                  </get:LevelList>
+               </get:AccountLevelInfo>
+            </lcew:Body>
+         </Response>
+      </web:GetDataUsageNotificationThresholdsResponse>
+   </soapenv:Body>
+</soapenv:Envelope>

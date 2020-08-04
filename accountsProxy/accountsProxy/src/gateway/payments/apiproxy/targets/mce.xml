@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TargetEndpoint name="mce">
+    <Description/>
+    #proxyDefaultFaultRule#
+    <FaultRules>
+        #commonTargetErrorsFaultRules#
+        #genericUnhandledExceptionFaultRule#
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+            #commonTargetPreflowRequest#   
+        </Request>
+        <Response>
+            #commonTargetPostflowResponse#
+            #commonProxyPostflowResponse#
+        </Response>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+        </Response>
+    </PostFlow>
+    #mceTargetConnection#
+    <!-- #mockTargetProxyChaining# -->
+</TargetEndpoint>

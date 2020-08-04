@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-GetPrepaidBlackberryServices-Payload">
+    <DisplayName>AM-GetPrepaidBlackberryServices-Payload</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">application/xml;charset="UTF-8"</Header>
+            <Header name="SOAPAction">/Processes/BusinessResources/Services/LCEWebServices.serviceagent//GetPrepaidBlackberryServices</Header>
+        </Headers>
+        <QueryParams>
+            <QueryParam name="serviceName">GetPrepaidBlackberryServices</QueryParam>
+            <QueryParam name="responseType">200</QueryParam>
+        </QueryParams>
+         <Payload contentType="application/xml">
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservices.com/LCE/Du/WebServices" xmlns:head="http://www.du.ae/LCE/Header" xmlns:lcew="http://xmlns.du.ae/LCE/Business/LCEWebServiceRequest" xmlns:get="http://xmlns.du.ae/LCE/Business/ServiceManagement/GetPrepaidBlackberryServices">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetPrepaidBlackberryServices>
+         <Request>
+            <head:Header>
+               <!--Optional:-->
+               <head:RequestId>{du.api.requestId}</head:RequestId>
+               <head:Credentials>
+                  <head:ApplicationId>{du.config.applicationId}</head:ApplicationId>
+                  <head:User>{du.config.mceUsername}</head:User>
+                  <!--Optional:-->
+                  <head:Password>{du.config.mcePassword}</head:Password>
+               </head:Credentials>
+               <!--Optional:-->
+               <head:CorrelationId/>
+            </head:Header>
+            <lcew:Body>
+               <get:MSISDN>{request.queryparam.msisdn}</get:MSISDN>
+            </lcew:Body>
+         </Request>
+      </web:GetPrepaidBlackberryServices>
+   </soapenv:Body>
+</soapenv:Envelope>
+</Payload>
+        <Verb>POST</Verb>
+        <Path/>
+    </Set>
+    <AssignVariable>
+        <Name>du.config.soapMethodForRequest</Name>
+        <Value>GetPrepaidBlackberryServices</Value>
+    </AssignVariable>
+     <AssignVariable>
+        <Name>du.config.soapMethodForResponse</Name>
+        <Value>GetPrepaidBlackberryServicesResponse</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="true" transport="http" type="request"/>
+</AssignMessage>

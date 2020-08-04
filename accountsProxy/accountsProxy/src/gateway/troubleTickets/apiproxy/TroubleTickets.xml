@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="32" name="TroubleTickets">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1471343515991</CreatedAt>
+    <CreatedBy>zubermohammad@gmail.com</CreatedBy>
+    <Description>Trouble Tickets</Description>
+    <DisplayName>TroubleTickets</DisplayName>
+    <LastModifiedAt>1471345642872</LastModifiedAt>
+    <LastModifiedBy>zubermohammad@gmail.com</LastModifiedBy>
+    <Policies>
+        <Policy>AM-BuildGetTroubleTicketsSoapMessage</Policy>
+        <Policy>AM-BuildSoapMessageGetTroubleTicketByFilters</Policy>
+        <Policy>AM-CreateTroubleTicketSoapPayload</Policy>
+        <Policy>AM-MissingFilterParameters</Policy>
+        <Policy>EV-ExtractVariablesForGetTroubleTicketInfo</Policy>
+        <Policy>JSC-ExtractAndBuildSoapMessageInJson</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://JSC-ExtractAndBuildSoapMessageInJson</Resource>
+    </Resources>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+    <validate>false</validate>
+</APIProxy>

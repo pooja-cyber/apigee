@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-BuildSoapPayloadDeleteSubscribedPayment">
+    <DisplayName>AM-BuildSoapPayloadDeleteSubscribedPayment</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">application/xml;charset="UTF-8"</Header>
+        </Headers>
+        <QueryParams>
+            <QueryParam name="serviceName">deleteSubscribedPayment</QueryParam>
+            <QueryParam name="responseType">201</QueryParam>
+        </QueryParams>
+        <Payload contentType="application/xml">{request.content}</Payload>
+        <Verb>POST</Verb>
+        <Path/>
+    </Set>
+    <AssignVariable>
+        <Name>du.config.soapMethodForRequest</Name>
+        <Value>deleteSubscribedPayment</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>du.config.soapMethodForResponse</Name>
+        <Value>deleteSubscribedPaymentResponse</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>du.api.targetServer</Name>
+        <Value>selfcare</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="true" transport="http" type="request"/>
+</AssignMessage>

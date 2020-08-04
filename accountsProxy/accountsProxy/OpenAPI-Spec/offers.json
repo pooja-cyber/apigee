@@ -1,0 +1,1370 @@
+{
+    "swagger": "2.0",
+    "host": "172.24.122.149:9001",
+    "schemes": [
+        "http"
+    ],
+    "info": {
+        "description": "Open API Specification for Offers API",
+        "title": "Open API Specification for Offers API",
+        "version": "0.0.1",
+        "termsOfService": "http://example.com/about/terms",
+        "contact": {
+            "name": "api.developer",
+            "url": "http://example.com/contact",
+            "email": "api.developer@du.ae"
+        },
+        "license": {
+            "name": "Du License",
+            "url": "http://api.developer.du.ae/license"
+        }
+    },
+    "definitions": {
+        "ErrorSchema": {
+            "description": "Error Schema",
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "Error Code"
+                },
+                "error": {
+                    "type": "string",
+                    "description": "Error Description"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error Message"
+                }
+            }
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/offers/{msisdn}/bundles": {
+            "get": {
+                "description": "Get Eligible Bundles",
+                "summary": "Get Eligible Bundles",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "GetEligibleBundles",
+                "tags": [
+                    "offers"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "Offers": {
+                                    "type": "object",
+                                    "properties": {
+                                        "ProductId": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Description": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "DiscoveryHandle": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "DiscoveryHandleDescription": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Price": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Tickets": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Description": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ResourceType": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Quota": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "Description",
+                                                "ResourceType",
+                                                "Quota"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "ProductId",
+                                        "Description",
+                                        "DiscoveryHandle",
+                                        "DiscoveryHandleDescription",
+                                        "Price",
+                                        "Tickets"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "Offers",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Header Token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 5RzgDZUhCGU8ACncKEbTIE7KzAB9"
+                    },
+                    {
+                        "in": "path",
+                        "name": "msisdn",
+                        "description": "msisdn",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/offers/rate-plans": {
+            "get": {
+                "description": "Get Applicable Rate Plans",
+                "summary": "Get Applicable Rate Plans",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getApplicableRatePlans",
+                "tags": [
+                    "offers"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "AvailableRateplans": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Rateplan": {
+                                            "type": "object",
+                                            "properties": {
+                                                "NewRatePlan": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "NewSpeed": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "UPClassification": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Sequence": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Price": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "SiteVisitRequired": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "isDeprecated": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "NewRatePlan",
+                                                "NewSpeed",
+                                                "UPClassification",
+                                                "Sequence",
+                                                "Price",
+                                                "SiteVisitRequired",
+                                                "isDeprecated"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "Rateplan"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "AvailableRateplans",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "channel",
+                        "description": "Channel",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "downgrade_flag",
+                        "description": "Downgrade Flag",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "current_rate_plan",
+                        "description": "Current Rate Plan",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 5RzgDZUhCGU8ACncKEbTIE7KzAB9"
+                    }
+                ]
+            }
+        },
+        "/offers/bundles": {
+            "get": {
+                "description": "Get Applicable Bundles",
+                "summary": "Get Applicable Bundles",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getApplicableBundles",
+                "tags": [
+                    "offers"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "AvailableBundles": {
+                                    "type": "object",
+                                    "properties": {
+                                        "NewBundleID": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "UPClassification": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Sequence": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Price": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "NewBundleID",
+                                        "UPClassification",
+                                        "Sequence",
+                                        "Price"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "AvailableBundles",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "channel",
+                        "description": "Channel",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "downgrade_flag",
+                        "description": "Downgrade Flag",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "rate_plan",
+                        "description": "Rate Plan",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 5RzgDZUhCGU8ACncKEbTIE7KzAB9"
+                    }
+                ]
+            }
+        },
+        "/offers/contracts/eligible": {
+            "get": {
+                "description": "Get Eligible Contract Offers",
+                "summary": "Get Eligible Contract Offers",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getEligibleContractOffers",
+                "tags": [
+                    "offers"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "ContractId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ContractIdPub": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ListOfOffers": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Offer": {
+                                            "type": "object",
+                                            "properties": {
+                                                "PackageId": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PackageIdPub": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PackageName": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PackageStatus": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "StatusDate": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ChargeCommitment": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "PackageId",
+                                                "PackageIdPub",
+                                                "PackageName",
+                                                "PackageStatus",
+                                                "StatusDate",
+                                                "ChargeCommitment"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "Offer"
+                                    ]
+                                },
+                                "Channel": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "DowngradeOffersEligibilityFlag": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "ContractId",
+                                "ContractIdPub",
+                                "ListOfOffers",
+                                "Channel",
+                                "DowngradeOffersEligibilityFlag",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "channel",
+                        "description": "Channel",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "contract_id",
+                        "description": "Contract Id",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 5RzgDZUhCGU8ACncKEbTIE7KzAB9"
+                    }
+                ]
+            }
+        },
+        "/offers/contracts": {
+            "get": {
+                "description": "Get Contract Offers",
+                "summary": "Get Contract Offers",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getContractOffers",
+                "tags": [
+                    "offers"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "ContractId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ContractIdPub": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ListOfOffers": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Offer": {
+                                            "type": "object",
+                                            "properties": {
+                                                "PackageId": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PackageIdPub": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PackageName": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "PackageStatus": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "StatusDate": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "ChargeCommitment": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "PackageId",
+                                                "PackageIdPub",
+                                                "PackageName",
+                                                "PackageStatus",
+                                                "StatusDate",
+                                                "ChargeCommitment"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "Offer"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "ContractId",
+                                "ContractIdPub",
+                                "ListOfOffers",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "contract_id",
+                        "description": "Contract Id",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "package_id_pub",
+                        "description": "Package Id Pub",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 5RzgDZUhCGU8ACncKEbTIE7KzAB9"
+                    }
+                ]
+            }
+        },
+        "/offers/tv-packages": {
+            "get": {
+                "description": "Get TV Packages",
+                "summary": "Get TV Packages",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getTVPackages",
+                "tags": [
+                    "offers"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "ListOfTv": {
+                                    "type": "object",
+                                    "properties": {
+                                        "TvSiid": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "RatePlanCode": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "RatePlanDesc": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ServicePackageCode": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ServicePackageDesc": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ServiceCode": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "ServiceDesc": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "MrcCharge": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "YrcCharge": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "Status": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "PriceType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "FamilyType": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "FamilyTypeOrder": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "TvSiid",
+                                        "RatePlanCode",
+                                        "RatePlanDesc",
+                                        "ServicePackageCode",
+                                        "ServicePackageDesc",
+                                        "ServiceCode",
+                                        "ServiceDesc",
+                                        "MrcCharge",
+                                        "YrcCharge",
+                                        "Status",
+                                        "PriceType",
+                                        "FamilyType",
+                                        "FamilyTypeOrder"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "ListOfTv",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "account_id",
+                        "description": "Account Id",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "contract_id",
+                        "description": "Contract Id",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "source_system",
+                        "description": "Source System",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 5RzgDZUhCGU8ACncKEbTIE7KzAB9"
+                    }
+                ]
+            }
+        },
+        "/offers/broadband": {
+            "get": {
+                "description": "Get Applicable Broadband Speed",
+                "summary": "Get Applicable Broadband Speed",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getApplicableBroadbandSpeed",
+                "tags": [
+                    "offers"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "ApplicableSpeeds": {
+                                    "type": "object",
+                                    "properties": {
+                                        "newSpeed": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "upgradeClass": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "sequence": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "price": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "newSpeed",
+                                        "upgradeClass",
+                                        "sequence",
+                                        "price"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "ApplicableSpeeds",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "channel",
+                        "description": "channel ",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "downgrade_flag",
+                        "description": "Downgrade Flag",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "preview_flag",
+                        "description": "preview flag",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "access_type",
+                        "description": "Access Type",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "current_rate_plan",
+                        "description": "current rate plan",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "current_speed",
+                        "description": "current speed",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Header Param Description",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 5RzgDZUhCGU8ACncKEbTIE7KzAB9"
+                    }
+                ]
+            }
+        },
+        "/offers": {
+            "get": {
+                "description": "Get Avilable Offers ",
+                "summary": "Get Available Offers ",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "getAvailableOffers",
+                "tags": [
+                    "offers"
+                ],
+                "produces": [
+                    "application/json;charset=UTF-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "ListOfOffers": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Offer": {
+                                            "type": "object",
+                                            "properties": {
+                                                "Name": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "Description": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "Name",
+                                                "Description"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "Offer"
+                                    ]
+                                },
+                                "RequestId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "CorrelationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ResponseMessage": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorCode": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "ErrorDescription": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "ListOfOffers",
+                                "RequestId",
+                                "CorrelationId",
+                                "ResponseCode",
+                                "ResponseMessage",
+                                "ErrorCode",
+                                "ErrorDescription"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "offer_type",
+                        "description": "offer type",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "msisdn",
+                        "description": "MSISDN",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "imei",
+                        "description": "IMEI ",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "query",
+                        "name": "sgsnip",
+                        "description": "SGSNIP",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Header Bearer Token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer 5RzgDZUhCGU8ACncKEbTIE7KzAB9"
+                    }
+                ]
+            }
+        }
+    },
+    "security": [
+        {
+            "OauthSecurity": []
+        }
+    ],
+    "securityDefinitions": {
+        "OauthSecurity": {
+            "type": "oauth2",
+            "flow": "password",
+            "description": "oAuth 2.0 security implementation",
+            "tokenUrl": "http://172.24.122.149:9001/v1/oauth/token"
+        }
+    }
+}

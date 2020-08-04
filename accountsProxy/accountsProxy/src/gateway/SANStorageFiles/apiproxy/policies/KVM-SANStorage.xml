@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations mapIdentifier="sanstorage-v1-config" async="false" continueOnError="false" enabled="true" name="KVM-SANStorage">
+    <DisplayName>KVM-SANStorage</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Get assignTo="du.config.spikeArrest">
+        <Key> 
+            <Parameter>spikeArrest</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.directoryList">
+        <Key> 
+            <Parameter>directoryList</Parameter>
+        </Key>
+    </Get>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

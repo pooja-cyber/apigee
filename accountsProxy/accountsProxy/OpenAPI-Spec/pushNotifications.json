@@ -1,0 +1,468 @@
+{
+    "swagger": "2.0",
+    "host": "172.24.122.149:9001",
+    "schemes": [
+        "http"
+    ],
+    "info": {
+        "description": "Open API Specifications for Push Notifications",
+        "title": "Open API Specifications for notification and registration APIs",
+        "version": "0.0.1",
+        "termsOfService": "http://example.com/about/terms",
+        "contact": {
+            "name": "api.developer",
+            "url": "http://example.com/contact",
+            "email": "api.developer@du.ae"
+        },
+        "license": {
+            "name": "Du License",
+            "url": "http://api.developer.du.ae/license"
+        }
+    },
+    "definitions": {
+        "ErrorSchema": {
+            "description": "Error Schema",
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "Error Code"
+                },
+                "error": {
+                    "type": "string",
+                    "description": "Error Description"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Error Message"
+                }
+            }
+        }
+    },
+    "basePath": "/pn/v2",
+    "paths": {
+        "/notification": {
+            "post": {
+                "description": "Send a notification",
+                "summary": "Notification to a msisdns or accountCodes or platform or version or appName or appVersion (defined in target object)",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "notification",
+                "tags": [
+                    "notification"
+                ],
+                "produces": [
+                    "application/json; charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "notificationId": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "status",
+                                "message",
+                                "notificationId"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": " Bearer Nuc9DppmFRS77LBAds0xTMZfwA31=="
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload specifying the notification content and target device(s)\"",
+                        "required": true,
+                        "schema": {
+                            "description": "Any one of the body parameters in target object is required. If more than one is given, Logical AND of the parameters is the target",
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "object",
+                                    "properties": {
+                                        "alert": {
+                                            "type": "object",
+                                            "properties": {
+                                                "title": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "body": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "title",
+                                                "body"
+                                            ]
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "key1": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                },
+                                                "key2": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "alert",
+                                        "data"
+                                    ]
+                                },
+                                "target": {
+                                    "type": "object",
+                                    "properties": {
+                                        "platform": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "msisdns": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "accountCodes": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "appName": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "appVersion": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "version": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    }
+                                }
+                            },
+                            "required": [
+                                "message",
+                                "target"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "/registration": {
+            "post": {
+                "description": "Device Registration",
+                "summary": "Register Device with Apigee BAAS",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "deviceRegistration",
+                "tags": [
+                    "registration"
+                ],
+                "produces": [
+                    "application/json; charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "status",
+                                "message"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer rB3JhRBuU1VgGNvg0IhUXHWOnDQM"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "deviceToken": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "notifier": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "platform": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "version": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "appName": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "appVersion": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "deviceToken",
+                                "notifier",
+                                "platform",
+                                "version",
+                                "appName",
+                                "appVersion"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "delete": {
+                "description": "Unregister Device",
+                "summary": "Unregister Device from Notifications Service",
+                "externalDocs": {
+                    "description": "Find out more",
+                    "url": "http://docs.example.com/management/apis/get/entities"
+                },
+                "operationId": "unregisterDevice",
+                "tags": [
+                    "unregister"
+                ],
+                "produces": [
+                    "application/json; charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "status",
+                                "message"
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorSchema"
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Authorization Bearer Token Header",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer rB3JhRBuU1VgGNvg0IhUXHWOnDQM"
+                    },
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "Body Payload Content Type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            " application/json"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "JSON Body Payload with deviceToken and Notifier",
+                        "required": true,
+                        "schema": {
+                            "description": "",
+                            "type": "object",
+                            "properties": {
+                                "deviceToken": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "notifier": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "deviceToken",
+                                "notifier"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "security": [
+        {
+            "OauthSecurity": []
+        }
+    ],
+    "securityDefinitions": {
+        "OauthSecurity": {
+            "type": "oauth2",
+            "flow": "password",
+            "description": "oAuth 2.0 security implementation",
+            "tokenUrl": "http://172.24.122.149:9001/v1/oauth/token"
+        }
+    }
+}

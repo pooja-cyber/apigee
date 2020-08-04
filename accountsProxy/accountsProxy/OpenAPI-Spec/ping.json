@@ -1,0 +1,83 @@
+{
+  "swagger": "2.0",
+  "host": "172.24.122.149:9001",
+  "schemes": [
+    "http"
+  ],
+  "info": {
+    "description": "API Specification document for Ping Resource",
+    "title": "API Specification Doc for Ping resource",
+    "version": "0.0.1",
+    "termsOfService": "http://example.com/about/terms",
+    "contact": {
+      "name": "api.developer",
+      "url": "http://example.com/contact",
+      "email": "api.developer@du.ae"
+    },
+    "license": {
+      "name": "Du License",
+      "url": "http://api.developer.du.ae/license"
+    }
+  },
+  "basePath": "/v1",
+  "paths": {
+    "/users/ping": {
+      "get": {
+        "description": "Api specification for Ping Resource",
+        "summary": "API Specification for Ping ",
+        "externalDocs": {
+          "description": "Find out more",
+          "url": "http://docs.example.com/management/apis/get/entities"
+        },
+        "operationId": "pingUsersApi",
+        "tags": [
+          "users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "error": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "message": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "code",
+                "error",
+                "message"
+              ]
+            }
+          }
+        },
+        "security": [],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "Authorization Base 64 encoded client key client secret",
+            "required": true,
+            "type": "string",
+            "enum": [
+              " Bearer wchqjOFI3EdC6tEuBurf1xYLAqy9"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

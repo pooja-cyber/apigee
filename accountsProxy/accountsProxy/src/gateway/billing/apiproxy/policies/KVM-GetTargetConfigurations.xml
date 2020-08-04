@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations async="false" continueOnError="false" enabled="true" name="KVM-GetTargetConfigurations" mapIdentifier="billing-v1-config">
+    <DisplayName>KVM-GetTargetConfigurations</DisplayName>
+    <Properties/>
+    <ExclusiveCache>false</ExclusiveCache>
+    <Get assignTo="du.config.mceUsername">
+        <Key>
+            <Parameter>mceUsername</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mcePassword">
+        <Key>
+            <Parameter>mcePassword</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mceTargetBasepath">
+        <Key>
+            <Parameter>mceTargetBasepath</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.applicationId">
+        <Key>
+            <Parameter>mceApplicationId</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.directoryList">
+        <Key>
+            <Parameter>directoryList</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.clientKey">
+        <Key>
+            <Parameter>clientKey</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.clientSecret">
+        <Key>
+            <Parameter>clientSecret</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.sanStorageUrl">
+        <Key>
+            <Parameter>sanStorageUrl</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetBillInformationFlag">
+        <Key>
+            <Parameter>isGetBillInformationFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.spikeArrest">
+        <Key>
+            <Parameter>spikeArrest</Parameter>
+        </Key>
+    </Get>
+
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<XMLToJSON async="false" continueOnError="false" enabled="true" name="X2J-XmlToJsonResponse">
+    <DisplayName>X2J-XmlToJsonResponse</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Format>yahoo</Format>
+    <Source>response</Source>
+</XMLToJSON>

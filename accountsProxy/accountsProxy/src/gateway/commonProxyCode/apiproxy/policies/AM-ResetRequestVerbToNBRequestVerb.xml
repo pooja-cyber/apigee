@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-ResetRequestVerbToNBRequestVerb">
+    <DisplayName>AM-ResetRequestVerbToNBRequestVerb</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <AssignVariable>
+        <Name>request.verb</Name>
+        <Ref>du.config.request.verb</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>debug.response</Name>
+        <Value>Debug Response</Value>
+        <Ref>response.content</Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <AssignTo type="request" transport="http" createNew="false">request</AssignTo>
+</AssignMessage>

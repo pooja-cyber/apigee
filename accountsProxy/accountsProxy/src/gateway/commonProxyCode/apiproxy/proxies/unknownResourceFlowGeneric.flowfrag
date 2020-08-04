@@ -1,0 +1,9 @@
+<Flow name="UnknownResource">
+    <Request>
+        <Step>
+            <FaultRules/>
+            <Name>AM-ResourceNotFoundFlowFault</Name>
+        </Step>
+    </Request>
+    <Response/>
+</Flow>

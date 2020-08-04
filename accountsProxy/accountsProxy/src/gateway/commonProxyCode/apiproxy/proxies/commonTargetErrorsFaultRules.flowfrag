@@ -1,0 +1,24 @@
+<FaultRule name="bad_request_fault">
+    <Condition>(response.status.code = "400")</Condition>
+    <Step>
+        <Name>AM-BadRequestError</Name>
+    </Step>
+</FaultRule>
+<FaultRule name="unauthorized_fault">
+    <Condition>(response.status.code = "401")</Condition>
+    <Step>
+        <Name>AM-AuthenticationError</Name>
+    </Step>
+</FaultRule>
+<FaultRule name="serivce_not_found_fault">
+    <Condition>(response.status.code = "404")</Condition>
+    <Step>
+        <Name>AM-ServiceNotFoundFault</Name>
+    </Step>
+</FaultRule>
+<FaultRule name="gateway_timeout_fault">
+    <Condition>(response.status.code = "504")</Condition>
+    <Step>
+        <Name>AM-GatewayTimeoutFault</Name>
+    </Step>
+</FaultRule>

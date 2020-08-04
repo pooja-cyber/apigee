@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    #proxyDefaultFaultRule#
+    <FaultRules>
+        #genericUnhandledExceptionFaultRule#
+        #commonAccessTokenFaultRules#
+        #commonTraficManagementFaultRules#
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+             <Step>
+                <Name>KVM-GetCustomerinfo</Name>
+            </Step>
+        #commonProxyPreflowRequest#
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        #pingResourceFlow#
+        <!-- Add the conditional flows here -->
+        <Flow name="GetCustomerInformationByDoc">
+            <Description>Get Customer Information By Doc</Description>
+            <Request>
+                <Step>
+                    <Name>JSC-CheckDocumentDetails</Name>
+                </Step>
+                
+                <Step>
+                    <Name>AM-SoapRequestGetCustomerInformationByDoc</Name>
+                </Step>
+            </Request>
+            <Response/>
+           <Condition>((proxy.pathsuffix JavaRegex "(/?)$") and (request.verb = "GET"))</Condition>
+        </Flow>
+        #unknownResourceFlowGeneric#
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+            #commonProxyPostflowResponse#
+        </Response>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/v1/customer-info</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+        <!-- Comment/Remove the Virtual Host-secure while deploying API Proxy in Organization dudev -->
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    #pingResourceRouteRule#
+     <RouteRule name="mock">
+        <TargetEndpoint>mock</TargetEndpoint>
+        <Condition>(du.config.request.mock = "true")</Condition>
+    </RouteRule>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage 	async="false" continueOnError="false" enabled="true"
+	name="AM-SOAPPayloadGenerateOTP">
+	<DisplayName>AM-SOAPPayloadGenerateOTP</DisplayName>
+	<FaultRules />
+	<Properties />
+	<Set>
+		<Headers>
+			<Header name="Content-Type">application/xml</Header>
+		</Headers>
+		<QueryParams>
+			<QueryParam name="serviceName">registerSelfcareUser</QueryParam>
+			<QueryParam name="responseType">201</QueryParam>
+		</QueryParams>
+		<Payload contentType="application/xml">{request.content}</Payload>
+		<Verb>POST</Verb>
+	</Set>
+	<IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+	<AssignVariable>
+        <Name>du.config.soapMethodForRequest</Name>
+        <Value>registerSelfcareUser</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>du.config.soapMethodForResponse</Name>
+        <Value>registerSelfcareUserResponse</Value>
+    </AssignVariable>
+	<AssignTo
+		type="request"
+		transport="http"
+		createNew="true" />
+</AssignMessage>

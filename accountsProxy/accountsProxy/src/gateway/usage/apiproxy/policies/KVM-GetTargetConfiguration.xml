@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations async="false" continueOnError="false" enabled="true" name="KVM-GetTargetConfiguration" mapIdentifier="usage-v1-config">
+    <DisplayName>KVM-GetTargetConfiguration</DisplayName>
+    <Properties/>
+    <Get assignTo="du.config.mceTargetBasepath">
+        <Key> 
+            <Parameter>mceTargetBasepath</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mceUsername">
+        <Key>
+            <Parameter>mceUsername</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.mcePassword">
+        <Key>
+            <Parameter>mcePassword</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.applicationId">
+        <Key>
+            <Parameter>mceApplicationId</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.spikeArrest">
+        <Key>
+            <Parameter>spikeArrest</Parameter>
+        </Key>
+    </Get>
+    <!-- UsageAPI Flags -->
+    <Get assignTo="du.config.isGetDataUsageNotificationThresholdsFlag">
+        <Key>
+            <Parameter>isGetDataUsageNotificationThresholdsFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetPostpaidBundlesBalanceByContractIdFlag">
+        <Key>
+            <Parameter>isGetPostpaidBundlesBalanceByContractIdFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetPostpaidBundlesBalanceByMSISIDNFlag">
+        <Key>
+            <Parameter>isGetPostpaidBundlesBalanceByMSISIDNFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetPrepaidBundlesBalanceByMSISIDNFlag">
+        <Key>
+            <Parameter>isGetPrepaidBundlesBalanceByMSISIDNFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isGetPrepaidUsageFlag">
+        <Key>
+            <Parameter>isGetPrepaidUsageFlag</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="du.config.isSetDataUsageNotificationThresholdsFlag">
+        <Key>
+            <Parameter>isSetDataUsageNotificationThresholdsFlag</Parameter>
+        </Key>
+    </Get>    
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

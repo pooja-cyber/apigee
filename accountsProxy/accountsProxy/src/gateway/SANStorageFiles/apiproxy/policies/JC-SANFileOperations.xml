@@ -1,0 +1,9 @@
+<JavaCallout name="JC-SANFileOperations">
+   <ClassName>com.du.api.SANFileOperations</ClassName>
+   <Properties>
+   		<Property name="file-name">{request.queryparam.file_name}</Property>
+   		<Property name="dir-name">{request.queryparam.dir_name}</Property>
+		<Property name="operation">{request.queryparam.operation}</Property>
+   </Properties>
+   <ResourceURL>java://SANFileOperations-1.0.jar</ResourceURL>
+</JavaCallout>

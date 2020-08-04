@@ -1,0 +1,14 @@
+<Flow name="Ping Resource">
+	<Description>Ping Resource for API monitoring</Description>
+    <Request>
+    	<Step>
+			<Name>JSC-CalculatePingResponseTime</Name>
+		</Step>
+		<Step>
+			<Name>AM-PingResponsePayload</Name>
+		</Step>
+    </Request>
+    <Response>
+    </Response>	
+    <Condition>(proxy.pathsuffix JavaRegex "/ping(/?)$") and (request.verb = "GET")</Condition>
+</Flow>

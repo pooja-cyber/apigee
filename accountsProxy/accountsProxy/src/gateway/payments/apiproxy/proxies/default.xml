@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    #proxyDefaultFaultRule#
+    <FaultRules>
+        #genericUnhandledExceptionFaultRule#
+        #commonAccessTokenFaultRules#
+        #commonTraficManagementFaultRules#
+        #basicAuthFaultRules#
+        #invalidApiKeyFaultRules#
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>KVM-GetTargetConfigurations</Name>
+            </Step>
+            #commonProxyPreflowRequest#
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        #pingResourceFlow#
+         <!-- Add during reverse shadow for GetPaymentResponsible Resource-->
+         <Flow name="GetPaymentResponsible">
+         	<Description>Get Payment Responsible</Description>
+         	<Request>
+         		<Step>
+         			<Name>AM-CheckMandatoryParamsGetPrepaidPeriodicCharges</Name>
+         			<Condition>(request.queryparam.msisdn = null)</Condition>
+         		</Step>
+         		<Step>
+                    <Name>JSC-MsisdnNotInToken</Name>
+                    <Condition>(du.config.isGetPrepaidPeriodicChargesFlag = true)</Condition>
+                </Step>
+                 <Step>
+                    <Name>AM-BuildSoapPayloadGetPaymentResponsible</Name>
+                 </Step>         		
+         	</Request>
+         	<Response></Response>
+         	<Condition>(proxy.pathsuffix MatchesPath "/responsible") and request.verb="GET"</Condition>
+         </Flow>
+             <!-- Add during reverse shadow for GetPaymentResponsible Resource-->
+        <Flow name="GetPaymentInformation">
+            <Description>Get Payments</Description>
+            <Request>
+                <Step>
+                    <Name>AM-CheckMandatoryParamsGetPaymentInformation</Name>
+                    <Condition>((request.queryparam.from_date = null) or (request.queryparam.to_date = null)) </Condition>
+                </Step>
+                 <Step>
+                    <Name>JSC-BuildJsonPayloadGetPaymentInformation</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-BuildSoapRequestGetPaymentInformation</Name>
+                </Step>
+            </Request>
+            <Response/>
+           <Condition>((proxy.pathsuffix JavaRegex "(/?)$") and (request.verb = "GET"))</Condition>
+        </Flow>
+        <Flow name = "GetPrepaidPeriodicCharges">
+            <Description>Get Prepaid Periodic Charges</Description>
+            <Request>
+                <Step>
+                    <Name>AM-CheckMandatoryParamsGetPrepaidPeriodicCharges</Name>
+                    <Condition>(request.queryparam.msisdn = null)</Condition>
+                </Step>
+                <Step>
+                    <Name>JSC-MsisdnNotInToken</Name>
+                    <Condition>(du.config.isGetPrepaidPeriodicChargesFlag = true)</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-BuildSoapPayloadGetPrepaidPeriodicCharges</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/prepaid/charges" and request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name ="CheckCustomerPaymentRestrictions">
+            <Description>Check Customer Payment Restrictions</Description>
+            <Request>
+                <Step>
+                    <Name>EV-GetCustomerIdFromUri</Name>
+                </Step>
+                <Step>
+                    <Name>AM-CheckMandatoryParamsInCheckCustomerPaymentRestrictions</Name>
+                    <Condition>(customerId = null or request.queryparam.channel = null)</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-CustomerIdNotInToken</Name>
+                    <Condition>(customerId != accesstoken.customer_id and du.config.isCheckCustomerPaymentRestrictionsFlag = true)</Condition>
+                </Step>               
+                <Step>
+                    <Name>AM-BuildSoapPayloadForCheckCustomerPaymentRestrictions</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/customer/{customerId}/restrictions" and request.verb = "GET")</Condition>
+        </Flow>
+        <!-- Selfcare -->
+        <Flow name = "AddCreditCard">
+            <Description>Add Credit Card Information</Description>
+            <Request>
+                #emptyBodyPayloadCheck#
+                <Step>
+                    <Name>EV-ExtractSelfcareIdAddUpdateCC</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SelfcareIdMissingAddUpdateCC</Name>
+                    <Condition>(selfcareId = null)</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SelfcareIdNotInToken</Name>
+                    <Condition>(selfcareId != accesstoken.selfcare_username and du.config.isAddCreditCardFlag = true)</Condition>
+                </Step>
+                #selfcareRequestEncryptionPaymentsApi#
+                <Step>
+                    <Name>JSC-BuildJsonPayloadAddUpdateCreditCard</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-BuildJsonPayloadAddUpdateCreditCard</Name>
+                </Step>                 
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/credit-card" and request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name = "UpdateCreditCard">
+            <Description>Update Credit Card Information</Description>
+            <Request>
+                #emptyBodyPayloadCheck#
+                <Step>
+                    <Name>EV-ExtractSelfcareIdAddUpdateCC</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SelfcareIdMissingAddUpdateCC</Name>
+                    <Condition>(selfcareId = null)</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SelfcareIdNotInToken</Name>
+                    <Condition>(selfcareId != accesstoken.selfcare_username and du.config.isUpdateCreditCardFlag = true)</Condition>
+                </Step>
+                #selfcareRequestEncryptionPaymentsApi#
+                <Step>
+                    <Name>JSC-BuildJsonPayloadAddUpdateCreditCard</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-BuildJsonPayloadAddUpdateCreditCard</Name>
+                </Step>                 
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/credit-card" and request.verb = "PUT")</Condition>
+        </Flow>
+        <Flow name = "RetreiveCC">
+            <Description>Retreive Credit Card Information</Description>
+            <Request>
+                <Step>
+                    <Name>EV-ExtractSelfcareIdInRetreiveCC</Name>
+                </Step>
+                <Step>
+                    <Name>AM-CheckMandatoryParamsRetreiveCC</Name>
+                    <Condition>(selfcareId = null)</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SelfcareIdNotInToken</Name>
+                    <Condition>(selfcareId != accesstoken.selfcare_username and du.config.isRetreiveCCInfoFlag = true)</Condition>
+                </Step>
+                #selfcareRequestEncryptionPaymentsApi#
+                <Step>
+                    <Name>JSC-BuildJsonPayloadRetreiveCC</Name>
+                </Step>
+                #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-BuildSoapPayloadRetreiveCC</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/{selfcareId}/credit-card" and request.verb = "GET")</Condition>
+        </Flow>
+
+        <Flow name = "GetCustomerPaymentInformation">
+            <Description>Get Customer Payment Information</Description>
+            <Request>
+                <Step>
+                    <Name>EV-ExtractSelfcareIdGetCustPaymentInfo</Name>
+                </Step>
+                <Step>
+                    <Name>JSC-CheckMandatoryParamsGetCustPaymentInfo</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SelfcareIdNotInToken</Name>
+                    <Condition>(selfcareId != accesstoken.selfcare_username and du.config.isGetCustomerPaymentInformationFlag = true)</Condition>
+                </Step>
+                <Step>
+                    <Name>JSC-BuildSoapObjectGetCustPaymentInfo</Name>
+                </Step>
+                #selfcareRequestEncryptionPaymentsApi#
+                <Step>
+                    <Name>JSC-BuildJSONPayloadGetCustPaymentInfo</Name>
+                </Step>
+                 #commonJsonToXmlPolicy#
+                <Step>
+                    <Name>AM-BuildSoapPayloadGetCustPaymentInfo</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/{selfcareId}" and request.verb = "GET")</Condition>
+        </Flow>
+
+        <Flow name = "AddFriend">
+            <Description>Add Friend</Description>
+            <Request>
+                #emptyBodyPayloadCheck#
+                <Step>
+                    <Name>EV-ExtractSelfcareId</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SelfcareIdMissingAddUpdateCC</Name>
+                    <Condition>(selfcareId = null)</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SelfcareIdNotInToken</Name>
+                    <Condition>(selfcareId != accesstoken.selfcare_username and du.config.isAddFriendFlag = true)</Condition>
+                </Step>
+                #selfcareRequestEncryptionPaymentsApi#
+            <Step>
+                <Name>JSC-BuildJsonPayloadAddFriend</Name>
+            </Step>
+            #commonJsonToXmlPolicy#
+            <Step>
+                <Name>AM-BuildSoapPayloadAddFriend</Name>
+            </Step>
+        </Request>
+        <Response/>
+        <Condition>(proxy.pathsuffix MatchesPath "/friend" and request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name = "DeleteFriend">
+            <Description>Delete Friend</Description>
+            <Request>
+                #emptyBodyPayloadCheck#
+                <Step>
+                    <Name>EV-ExtractSelfcareId</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SelfcareIdMissingAddUpdateCC</Name>
+                    <Condition>(selfcareId = null)</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SelfcareIdNotInToken</Name>
+                    <Condition>(selfcareId != accesstoken.selfcare_username and du.config.isDeleteFriendFlag = true)</Condition>
+                </Step>
+                #selfcareRequestEncryptionPaymentsApi#
+            <Step>
+                <Name>JSC-BuildJsonPayloadDeleteFriend</Name>
+            </Step>
+            #commonJsonToXmlPolicy#
+            <Step>
+                <Name>AM-BuildSoapPayloadDeleteFriend</Name>
+            </Step>
+        </Request>
+        <Response/>
+        <Condition>(proxy.pathsuffix MatchesPath "/friend" and request.verb = "DELETE")</Condition>
+        </Flow>
+       <Flow name = "AddSubscribedPayment">
+            <Description>Add Subscribed Payment</Description>
+            <Request>
+                #emptyBodyPayloadCheck#
+                <Step>
+                    <Name>EV-ExtractSelfcareId</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SelfcareIdMissingAddUpdateCC</Name>
+                    <Condition>(selfcareId = null)</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SelfcareIdNotInToken</Name>
+                    <Condition>(selfcareId != accesstoken.selfcare_username and du.config.isAddSubscribedPaymentFlag = true)</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-CustomerIdNotInToken</Name>
+                    <Condition>(customerId != accesstoken.customer_id and du.config.isAddSubscribedPaymentFlag = true)</Condition>
+                </Step>
+                #selfcareRequestEncryptionPaymentsApi#
+            <Step>
+                <Name>JSC-BuildJsonPayloadAddSubscribedPayment</Name>
+            </Step>
+            #commonJsonToXmlPolicy#
+            <Step>
+                <Name>AM-BuildSoapPayloadAddSubscribedPayment</Name>
+            </Step>
+        </Request>
+        <Response/>
+        <Condition>(proxy.pathsuffix MatchesPath "/subscribed-payment" and request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name = "DeleteSubscribedPayment">
+             <Description>Delete Subscribed Payment</Description>
+             <Request>
+                 #emptyBodyPayloadCheck#
+                 <Step>
+                     <Name>EV-ExtractSelfcareId</Name>
+                 </Step>
+                 <Step>
+                     <Name>AM-SelfcareIdMissingAddUpdateCC</Name>
+                     <Condition>(selfcareId = null)</Condition>
+                 </Step>
+                 <Step>
+                     <Name>AM-SelfcareIdNotInToken</Name>
+                     <Condition>(selfcareId != accesstoken.selfcare_username and du.config.isDeleteSubscribedPaymentFlag = true)</Condition>
+                 </Step>
+                 <Step>
+                    <Name>AM-CustomerIdNotInToken</Name>
+                    <Condition>(customerId != accesstoken.customer_id and du.config.isAddSubscribedPaymentFlag = true)</Condition>
+                </Step>
+                 #selfcareRequestEncryptionPaymentsApi#
+             <Step>
+                 <Name>JSC-BuildJsonPayloadDeleteSubscribedPayment</Name>
+             </Step>
+             #commonJsonToXmlPolicy#
+             <Step>
+                 <Name>AM-BuildSoapPayloadDeleteSubscribedPayment</Name>
+             </Step>
+         </Request>
+         <Response/>
+         <Condition>(proxy.pathsuffix MatchesPath "/subscribed-payment" and request.verb = "DELETE")</Condition>
+         </Flow>
+         <Flow name = "AddRecurringPayment">
+             <Description>Add Recurring Payment</Description>
+             <Request>
+                 #emptyBodyPayloadCheck#
+                 <Step>
+                     <Name>EV-ExtractSelfcareId</Name>
+                 </Step>
+                 <Step>
+                     <Name>AM-SelfcareIdMissingAddUpdateCC</Name>
+                     <Condition>(selfcareId = null)</Condition>
+                 </Step>
+                 <Step>
+                     <Name>AM-SelfcareIdNotInToken</Name>
+                     <Condition>(selfcareId != accesstoken.selfcare_username and du.config.isAddRecurringPaymentFlag = true)</Condition>
+                 </Step>
+                 <Step>
+                    <Name>AM-CustomerIdNotInToken</Name>
+                    <Condition>(customerId != accesstoken.customer_id and du.config.isAddSubscribedPaymentFlag = true)</Condition>
+                </Step>
+                 #selfcareRequestEncryptionPaymentsApi#
+             <Step>
+                 <Name>JSC-BuildJsonPayloadAddRecurringPayment</Name>
+             </Step>
+             #commonJsonToXmlPolicy#
+             <Step>
+                 <Name>AM-BuildSoapPayloadAddRecurringPayment</Name>
+             </Step>
+         </Request>
+         <Response/>
+         <Condition>(proxy.pathsuffix MatchesPath "/recurring-payment" and request.verb = "POST")</Condition>
+         </Flow>
+         <Flow name = "DeleteRecurringPayment">
+             <Description>Delete Recurring Payment</Description>
+             <Request>
+                 #emptyBodyPayloadCheck#
+                 <Step>
+                     <Name>EV-ExtractSelfcareId</Name>
+                 </Step>
+                 <Step>
+                     <Name>AM-SelfcareIdMissingAddUpdateCC</Name>
+                     <Condition>(selfcareId = null)</Condition>
+                 </Step>
+                 <Step>
+                     <Name>AM-SelfcareIdNotInToken</Name>
+                     <Condition>(selfcareId != accesstoken.selfcare_username and du.config.isDeleteRecurringPaymentFlag = true)</Condition>
+                 </Step>
+                 <Step>
+                    <Name>AM-CustomerIdNotInToken</Name>
+                    <Condition>(customerId != accesstoken.customer_id and du.config.isAddSubscribedPaymentFlag = true)</Condition>
+                </Step>
+                 #selfcareRequestEncryptionPaymentsApi#
+             <Step>
+                 <Name>JSC-BuildJsonPayloadDeleteRecurringPayment</Name>
+             </Step>
+             #commonJsonToXmlPolicy#
+             <Step>
+                 <Name>AM-BuildSoapPayloadDeleteRecurringPayment</Name>
+             </Step>
+         </Request>
+         <Response/>
+         <Condition>(proxy.pathsuffix MatchesPath "/recurring-payment" and request.verb = "DELETE")</Condition>
+         </Flow>
+        #unknownResourceFlowGeneric#
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/v1/payments</BasePath>
+        <Properties>
+            <Property name="api.timeout">300000</Property>
+        </Properties>
+        <VirtualHost>default</VirtualHost>
+        <!-- Comment/Remove the Virtual Host-secure while deploying API Proxy in Organization dudev -->
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    #pingResourceRouteRule#
+    <RouteRule name="mock-mce">
+        <TargetEndpoint>mock-mce</TargetEndpoint>
+        <Condition>(du.config.request.mock = "true" and du.api.targetServer = "mce")</Condition>
+    </RouteRule>
+    <RouteRule name="mock-selfcare">
+        <TargetEndpoint>mock-selfcare</TargetEndpoint>
+        <Condition>(du.config.request.mock = "true" and du.api.targetServer = "selfcare")</Condition>
+    </RouteRule>
+    <RouteRule name="mce">
+        <TargetEndpoint>mce</TargetEndpoint>
+        <Condition>(du.api.targetServer = "mce")</Condition>
+    </RouteRule>
+    <RouteRule name="selfcare">
+        <TargetEndpoint>selfcare</TargetEndpoint>
+        <Condition>(du.api.targetServer = "selfcare")</Condition>
+    </RouteRule>
+</ProxyEndpoint>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript async="false" continueOnError="false" enabled="true" timeLimit="200" name="JSC-BuildJsonSoapPayloadAccountManageEnterpriseOpportunity">
+    <DisplayName>JSC-BuildJsonSoapPayloadAccountManageEnterpriseOpportunity</DisplayName>
+    <Properties/>
+    <IncludeURL>jsc://JSC-AddNamespace.js</IncludeURL>
+    <ResourceURL>jsc://JSC-BuildJsonSoapPayloadAccountManageEnterpriseOpportunity.js</ResourceURL>
+</Javascript>

@@ -1,0 +1,2076 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.9" jmeter="3.0 r1743807">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Orders API" enabled="true">
+      <stringProp name="TestPlan.comments">Orders API</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Orders API Test" enabled="true">
+        <stringProp name="TestPlan.comments">Orders API Test</stringProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1471612512000</longProp>
+        <longProp name="ThreadGroup.end_time">1471612512000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>true</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">172.24.122.149</stringProp>
+          <stringProp name="HTTPSampler.port">9001</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <stringProp name="TestPlan.comments">Common Request Parameters</stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get OAuth Tokens" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="username" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value">jongossy</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">username</stringProp>
+              </elementProp>
+              <elementProp name="password" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value">flomaygo</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">password</stringProp>
+              </elementProp>
+              <elementProp name="grant_type" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value">password</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">grant_type</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/oauth/token</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Get OAuth Access Token and Refresh Token</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic SDdXVTVTVVJocTVDdXJldmQ3czF3RktSUktVcVcwM3Q6RGptdFJIT2ZBcTdjM3BhTw==</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Header Data</stringProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract OAuth Access Token" enabled="true">
+            <stringProp name="TestPlan.comments">Extract OAuth Access Token</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">access_token</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.access_token</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract OAuth Refresh Token" enabled="true">
+            <stringProp name="TestPlan.comments">Extract OAuth Refresh  Token</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">refresh_token</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.refresh_token</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Ping Resource" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/devices/ping</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Check for ping response from API</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Ping Response" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Response from ping request to API</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token-Header" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token for Ping Request</stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Refresh Access Token" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="grant_type" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">refresh_token</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">grant_type</stringProp>
+              </elementProp>
+              <elementProp name="refresh_token" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${refresh_token}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">refresh_token</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/oauth/refresh-access-token</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Refresh Access Token</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic SDdXVTVTVVJocTVDdXJldmQ3czF3RktSUktVcVcwM3Q6RGptdFJIT2ZBcTdjM3BhTw==</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract new access token" enabled="true">
+            <stringProp name="TestPlan.comments">Extract new access token</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">new_access_token</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.access_token</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get CRM Order Items - Success" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#xd;
+  &#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/orders/123456</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Get CRM Order Items</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Response code is 200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Check Response code is 200</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${new_access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token </stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get CRM Order Items Missing OrderId - Negative" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#xd;
+  &#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/orders/</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Get CRM Order Items</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Response code is 400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="51508">400</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Check Response code is 400</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${new_access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token </stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get CRM Order Items Missing Authorization Header - Negative" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#xd;
+  &#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/orders/123</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Get CRM Order Items</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Response code is 401" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="51509">401</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Check Response code is 401</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token </stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Fixed Modification  - Success" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;ListOfOrder&quot;: {&#xd;
+    &quot;Order&quot;: {&#xd;
+      &quot;SEOFWorkOrderType&quot;: &quot;  &quot;,&#xd;
+      &quot;Id&quot;: &quot;  &quot;,&#xd;
+      &quot;Created&quot;: &quot;  &quot;,&#xd;
+      &quot;Updated&quot;: &quot;  &quot;,&#xd;
+      &quot;ConflictId&quot;: &quot;  &quot;,&#xd;
+      &quot;ModId&quot;: &quot;  &quot;,&#xd;
+      &quot;Account&quot;: &quot;AB-999&quot;,&#xd;
+      &quot;Comments&quot;: &quot;  &quot;,&#xd;
+      &quot;ContactFaxNumber&quot;: &quot;  &quot;,&#xd;
+      &quot;ContactFirstName&quot;: &quot;  &quot;,&#xd;
+      &quot;ContactHomePhone&quot;: &quot;  &quot;,&#xd;
+      &quot;ContactLastName&quot;: &quot;  &quot;,&#xd;
+      &quot;ContactTitle&quot;: &quot;  &quot;,&#xd;
+      &quot;ContactWorkPhone&quot;: &quot;  &quot;,&#xd;
+      &quot;CurrencyCode&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCCompanyName&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCContactMiddleName1&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCContactMiddleName2&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCContactMobileNumber&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCCustomerSegment&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCDepartment&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCServiceAccountIntegrationId&quot;: &quot;  &quot;,&#xd;
+      &quot;EmailAddress&quot;: &quot;  &quot;,&#xd;
+      &quot;IntegrationId&quot;: &quot;  &quot;,&#xd;
+      &quot;JobTitle&quot;: &quot;  &quot;,&#xd;
+      &quot;OrderAccountType&quot;: &quot;  &quot;,&#xd;
+      &quot;OrderDate&quot;: &quot;  &quot;,&#xd;
+      &quot;OrderNumber&quot;: &quot;  &quot;,&#xd;
+      &quot;OrderPriority&quot;: &quot;  &quot;,&#xd;
+      &quot;OrderType&quot;: &quot;  &quot;,&#xd;
+      &quot;RequestedShipDate&quot;: &quot;  &quot;,&#xd;
+      &quot;ServiceAccount&quot;: &quot;  &quot;,&#xd;
+      &quot;ServiceAccountId&quot;: &quot;  &quot;,&#xd;
+      &quot;ServiceAccountNumber&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCServiceAccountType&quot;: &quot;  &quot;,&#xd;
+      &quot;Status&quot;: &quot;  &quot;,&#xd;
+      &quot;RatePlanCode&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCServiceAccountOCCRateplan&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCLargeAccountCode&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCServiceAccountSegment&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCEDMSUrl&quot;: &quot;  &quot;,&#xd;
+      &quot;SourceSystem&quot;: &quot;  &quot;,&#xd;
+      &quot;DeliveryBlock&quot;: &quot;  &quot;,&#xd;
+      &quot;HoldFlag&quot;: &quot;  &quot;,&#xd;
+      &quot;ReferenceId&quot;: &quot;  &quot;,&#xd;
+      &quot;ListOfAddresses&quot;: {&#xd;
+        &quot;Address&quot;: {&#xd;
+          &quot;-IsPrimaryMVG&quot;: &quot;  &quot;,&#xd;
+          &quot;-operation&quot;: &quot;  &quot;,&#xd;
+          &quot;-searchspec&quot;: &quot;  &quot;,&#xd;
+          &quot;AccountAddress&quot;: &quot;  &quot;,&#xd;
+          &quot;AccountAddressCountry&quot;: &quot;  &quot;,&#xd;
+          &quot;AccountAddressPostalCode&quot;: &quot;  &quot;,&#xd;
+          &quot;AccountAddressState&quot;: &quot;  &quot;,&#xd;
+          &quot;AccountAddressStreet2&quot;: &quot;  &quot;,&#xd;
+          &quot;AccountAddressCity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAccountAddressStreet&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressBuildingName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressCounty&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressFloor&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressNearestLandmark&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCApartmentNumber&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCBuildingNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressZone&quot;: &quot;  &quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;ListOfActivities&quot;: {&#xd;
+        &quot;Activity&quot;: {&#xd;
+          &quot;Id&quot;: &quot;  &quot;,&#xd;
+          &quot;Created&quot;: &quot;  &quot;,&#xd;
+          &quot;Updated&quot;: &quot;  &quot;,&#xd;
+          &quot;ConflictId&quot;: &quot;  &quot;,&#xd;
+          &quot;ModId&quot;: &quot;  &quot;,&#xd;
+          &quot;ActivityUID&quot;: &quot;  &quot;,&#xd;
+          &quot;Status&quot;: &quot;  &quot;,&#xd;
+          &quot;Comment&quot;: &quot;  &quot;,&#xd;
+          &quot;Description2&quot;: &quot;  &quot;,&#xd;
+          &quot;DurationMinutes&quot;: &quot;  &quot;,&#xd;
+          &quot;Planned&quot;: &quot;  &quot;,&#xd;
+          &quot;PrimaryOwnedBy&quot;: &quot;  &quot;,&#xd;
+          &quot;Type&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCServiceRegion&quot;: &quot;  &quot;,&#xd;
+          &quot;IntegrationReturnCode&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCRescheduleReason&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCActivityFailedSequence&quot;: &quot;  &quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;ListOfOrderItems&quot;: {&#xd;
+        &quot;OrderItem&quot;: {&#xd;
+          &quot;Id&quot;: &quot;  &quot;,&#xd;
+          &quot;Created&quot;: &quot;  &quot;,&#xd;
+          &quot;Updated&quot;: &quot;  &quot;,&#xd;
+          &quot;ConflictId&quot;: &quot;  &quot;,&#xd;
+          &quot;ModId&quot;: &quot;  &quot;,&#xd;
+          &quot;ProductId&quot;: &quot;  &quot;,&#xd;
+          &quot;QuantityRequested&quot;: &quot;  &quot;,&#xd;
+          &quot;ActionCode&quot;: &quot;  &quot;,&#xd;
+          &quot;AdjustedListPrice-Display&quot;: &quot;  &quot;,&#xd;
+          &quot;AssetIntegrationId&quot;: &quot;  &quot;,&#xd;
+          &quot;AssetStatus&quot;: &quot;  &quot;,&#xd;
+          &quot;LocationAServiceInstallationDate&quot;: &quot;  &quot;,&#xd;
+          &quot;LocationBServiceInstallationDate&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceActivationDate&quot;: &quot;  &quot;,&#xd;
+          &quot;BillingAccount&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceProvisioningDate&quot;: &quot;  &quot;,&#xd;
+          &quot;WorkOrderClosureDate&quot;: &quot;  &quot;,&#xd;
+          &quot;WorkOrderCreatedDate&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactFirstName&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactLastName&quot;: &quot;  &quot;,&#xd;
+          &quot;CoveredQuoteItemId&quot;: &quot;  &quot;,&#xd;
+          &quot;CurrencyCode&quot;: &quot;  &quot;,&#xd;
+          &quot;Description3&quot;: &quot;  &quot;,&#xd;
+          &quot;DiscountPercent&quot;: &quot;  &quot;,&#xd;
+          &quot;DueDate&quot;: &quot;  &quot;,&#xd;
+          &quot;EAISyncDate&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAccountOwnerofNewLineFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressApartNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressBuildingName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressCity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressCountry&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressCounty&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressFloor&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressLandmark&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressPlot&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressPoBox&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressState&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressStreet&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOCCEntity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressStreet2&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressType&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAuthorizedPersonFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCBuildingNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCCampaignId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCCampaignName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCDealerID2&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCGAID&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressCity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressCountry&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressCounty&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressFloor&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressState&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldApartNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldBuildingName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldGAID&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldLandmark&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldPOBox&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldPlot&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPassword&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPrimaryServiceId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCServiceAccountIntegrationId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCServiceStatusChangeReason&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCVIPFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;ExcludePricingFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCRelationshipName&quot;: &quot;  &quot;,&#xd;
+          &quot;IntegrationId&quot;: &quot;  &quot;,&#xd;
+          &quot;LineNumber&quot;: &quot;  &quot;,&#xd;
+          &quot;MRCCxTotal&quot;: &quot;  &quot;,&#xd;
+          &quot;NRCCxTotal&quot;: &quot;  &quot;,&#xd;
+          &quot;NetPrice&quot;: &quot;  &quot;,&#xd;
+          &quot;ParentOrderItemId&quot;: &quot;  &quot;,&#xd;
+          &quot;PreviousBillingAccount&quot;: &quot;  &quot;,&#xd;
+          &quot;PriceType&quot;: &quot;  &quot;,&#xd;
+          &quot;ProdPromId&quot;: &quot;  &quot;,&#xd;
+          &quot;ProdPromName&quot;: &quot;  &quot;,&#xd;
+          &quot;ProdPromRuleId&quot;: &quot;  &quot;,&#xd;
+          &quot;ProdPromInstanceId&quot;: &quot;  &quot;,&#xd;
+          &quot;Product&quot;: &quot;  &quot;,&#xd;
+          &quot;ProductIntegrationId&quot;: &quot;  &quot;,&#xd;
+          &quot;ProductType&quot;: &quot;  &quot;,&#xd;
+          &quot;Quantity&quot;: &quot;  &quot;,&#xd;
+          &quot;RootOrderItemId&quot;: &quot;  &quot;,&#xd;
+          &quot;SalesServiceFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceAccount&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceAccountId&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceAddressId&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceId&quot;: &quot;  &quot;,&#xd;
+          &quot;RequestId&quot;: &quot;  &quot;,&#xd;
+          &quot;OriginatorId&quot;: &quot;  &quot;,&#xd;
+          &quot;PreviousRequestId&quot;: &quot;  &quot;,&#xd;
+          &quot;PreviousOriginatorId&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceStartDate&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceType&quot;: &quot;  &quot;,&#xd;
+          &quot;Status&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCDeposit&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAutoAssetReady&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactBirth&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactEmail&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactGender&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactMiddleName1&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactMiddleName2&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactNationality&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactTitle2&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceInstanceFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCResourceType&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAllowFUCarryOver&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCListinPubDir&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCLogicalHLR&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCMarket&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCNetwork&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCNumberingPlan&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPhysicalHLR&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPostpaidFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCArchiveCalls&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCCustomerServiceLang&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCSignedOn&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCSubmarket&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCTargetSystem&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCWithholdDirectoryList&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCSalesPerson&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCServiceIdCalc&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCListinOperDir&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContactAddrArea&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContactAddrCity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContactAddrEmirate&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContactAddrPOBox&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContactAddrIntegId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContractContactIntegId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContactAddrId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCSubZone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldSubZone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCModeOfReuse&quot;: &quot;  &quot;,&#xd;
+          &quot;CoveredProduct&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldProdPromName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPromValidDate&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldPromIntegrationId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldPromotionId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPromIntegrationId&quot;: &quot;  &quot;,&#xd;
+          &quot;RatePlanCode&quot;: &quot;  &quot;,&#xd;
+          &quot;MinimumLot&quot;: &quot;  &quot;,&#xd;
+          &quot;Note&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressStreet&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressStreet2&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressType&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldBuildingNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCBSCSDepositReferenceId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCCustomerDeliveryDate&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldQuantity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCTechContactLastName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCTechContactFirstName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCTechContactPhone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToTechContactFName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToTechContactLName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToTechContactPhone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressApartNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressBuildingName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressCity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressCountry&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressCounty&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressFloor&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressLandmark&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressPlot&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressPoBox&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressStreet&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressStreet2&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressType&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToBuildingNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToGAID&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressZone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressZone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToSubZone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCSectorNumber&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldSectorNumber&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressState&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToAddressCity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToOldSubZone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToOldGAID&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToPlot&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToPOBox&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToLandmark&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToBuildingName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToApartNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToAddressState&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToAddressFloor&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToAddressCounty&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToAddressCountry&quot;: &quot;  &quot;,&#xd;
+          &quot;UnitofMeasure&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCProdPromType&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPrimaryProductLine&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCBillCycles&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCMultipleResources&quot;: &quot;  &quot;,&#xd;
+          &quot;FieldReplacableUnit&quot;: &quot;  &quot;,&#xd;
+          &quot;ListofBitStreamInformation&quot;: {&#xd;
+            &quot;BitStreamInformation&quot;: {&#xd;
+              &quot;Name&quot;: &quot;  &quot;,&#xd;
+              &quot;Value&quot;: &quot;  &quot;&#xd;
+            }&#xd;
+          },&#xd;
+          &quot;ListOfOrderItemXa&quot;: {&#xd;
+            &quot;OrderItemXa&quot;: {&#xd;
+              &quot;Id&quot;: &quot;  &quot;,&#xd;
+              &quot;Created&quot;: &quot;  &quot;,&#xd;
+              &quot;Updated&quot;: &quot;  &quot;,&#xd;
+              &quot;ConflictId&quot;: &quot;  &quot;,&#xd;
+              &quot;ModId&quot;: &quot;  &quot;,&#xd;
+              &quot;EITCTargetSystemXA&quot;: &quot;  &quot;,&#xd;
+              &quot;ActionCode&quot;: &quot;  &quot;,&#xd;
+              &quot;IntegrationId&quot;: &quot;  &quot;,&#xd;
+              &quot;Name&quot;: &quot;  &quot;,&#xd;
+              &quot;ProductId&quot;: &quot;  &quot;,&#xd;
+              &quot;Value&quot;: &quot;  &quot;,&#xd;
+              &quot;PreviousValue&quot;: &quot;  &quot;&#xd;
+            }&#xd;
+          }&#xd;
+        }&#xd;
+      }&#xd;
+    }&#xd;
+  }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/orders</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Create Fixed Modification</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Response code is 201" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Check Response code is 201</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${new_access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token </stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Fixed Modification Invalid Account in Body Payload- Failure" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;ListOfOrder&quot;: {&#xd;
+    &quot;Order&quot;: {&#xd;
+      &quot;SEOFWorkOrderType&quot;: &quot;  &quot;,&#xd;
+      &quot;Id&quot;: &quot;  &quot;,&#xd;
+      &quot;Created&quot;: &quot;  &quot;,&#xd;
+      &quot;Updated&quot;: &quot;  &quot;,&#xd;
+      &quot;ConflictId&quot;: &quot;  &quot;,&#xd;
+      &quot;ModId&quot;: &quot;  &quot;,&#xd;
+      &quot;Account&quot;: &quot;AB-99&quot;,&#xd;
+      &quot;Comments&quot;: &quot;  &quot;,&#xd;
+      &quot;ContactFaxNumber&quot;: &quot;  &quot;,&#xd;
+      &quot;ContactFirstName&quot;: &quot;  &quot;,&#xd;
+      &quot;ContactHomePhone&quot;: &quot;  &quot;,&#xd;
+      &quot;ContactLastName&quot;: &quot;  &quot;,&#xd;
+      &quot;ContactTitle&quot;: &quot;  &quot;,&#xd;
+      &quot;ContactWorkPhone&quot;: &quot;  &quot;,&#xd;
+      &quot;CurrencyCode&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCCompanyName&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCContactMiddleName1&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCContactMiddleName2&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCContactMobileNumber&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCCustomerSegment&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCDepartment&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCServiceAccountIntegrationId&quot;: &quot;  &quot;,&#xd;
+      &quot;EmailAddress&quot;: &quot;  &quot;,&#xd;
+      &quot;IntegrationId&quot;: &quot;  &quot;,&#xd;
+      &quot;JobTitle&quot;: &quot;  &quot;,&#xd;
+      &quot;OrderAccountType&quot;: &quot;  &quot;,&#xd;
+      &quot;OrderDate&quot;: &quot;  &quot;,&#xd;
+      &quot;OrderNumber&quot;: &quot;  &quot;,&#xd;
+      &quot;OrderPriority&quot;: &quot;  &quot;,&#xd;
+      &quot;OrderType&quot;: &quot;  &quot;,&#xd;
+      &quot;RequestedShipDate&quot;: &quot;  &quot;,&#xd;
+      &quot;ServiceAccount&quot;: &quot;  &quot;,&#xd;
+      &quot;ServiceAccountId&quot;: &quot;  &quot;,&#xd;
+      &quot;ServiceAccountNumber&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCServiceAccountType&quot;: &quot;  &quot;,&#xd;
+      &quot;Status&quot;: &quot;  &quot;,&#xd;
+      &quot;RatePlanCode&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCServiceAccountOCCRateplan&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCLargeAccountCode&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCServiceAccountSegment&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCEDMSUrl&quot;: &quot;  &quot;,&#xd;
+      &quot;SourceSystem&quot;: &quot;  &quot;,&#xd;
+      &quot;DeliveryBlock&quot;: &quot;  &quot;,&#xd;
+      &quot;HoldFlag&quot;: &quot;  &quot;,&#xd;
+      &quot;ReferenceId&quot;: &quot;  &quot;,&#xd;
+      &quot;ListOfAddresses&quot;: {&#xd;
+        &quot;Address&quot;: {&#xd;
+          &quot;-IsPrimaryMVG&quot;: &quot;  &quot;,&#xd;
+          &quot;-operation&quot;: &quot;  &quot;,&#xd;
+          &quot;-searchspec&quot;: &quot;  &quot;,&#xd;
+          &quot;AccountAddress&quot;: &quot;  &quot;,&#xd;
+          &quot;AccountAddressCountry&quot;: &quot;  &quot;,&#xd;
+          &quot;AccountAddressPostalCode&quot;: &quot;  &quot;,&#xd;
+          &quot;AccountAddressState&quot;: &quot;  &quot;,&#xd;
+          &quot;AccountAddressStreet2&quot;: &quot;  &quot;,&#xd;
+          &quot;AccountAddressCity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAccountAddressStreet&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressBuildingName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressCounty&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressFloor&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressNearestLandmark&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCApartmentNumber&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCBuildingNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressZone&quot;: &quot;  &quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;ListOfActivities&quot;: {&#xd;
+        &quot;Activity&quot;: {&#xd;
+          &quot;Id&quot;: &quot;  &quot;,&#xd;
+          &quot;Created&quot;: &quot;  &quot;,&#xd;
+          &quot;Updated&quot;: &quot;  &quot;,&#xd;
+          &quot;ConflictId&quot;: &quot;  &quot;,&#xd;
+          &quot;ModId&quot;: &quot;  &quot;,&#xd;
+          &quot;ActivityUID&quot;: &quot;  &quot;,&#xd;
+          &quot;Status&quot;: &quot;  &quot;,&#xd;
+          &quot;Comment&quot;: &quot;  &quot;,&#xd;
+          &quot;Description2&quot;: &quot;  &quot;,&#xd;
+          &quot;DurationMinutes&quot;: &quot;  &quot;,&#xd;
+          &quot;Planned&quot;: &quot;  &quot;,&#xd;
+          &quot;PrimaryOwnedBy&quot;: &quot;  &quot;,&#xd;
+          &quot;Type&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCServiceRegion&quot;: &quot;  &quot;,&#xd;
+          &quot;IntegrationReturnCode&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCRescheduleReason&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCActivityFailedSequence&quot;: &quot;  &quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;ListOfOrderItems&quot;: {&#xd;
+        &quot;OrderItem&quot;: {&#xd;
+          &quot;Id&quot;: &quot;  &quot;,&#xd;
+          &quot;Created&quot;: &quot;  &quot;,&#xd;
+          &quot;Updated&quot;: &quot;  &quot;,&#xd;
+          &quot;ConflictId&quot;: &quot;  &quot;,&#xd;
+          &quot;ModId&quot;: &quot;  &quot;,&#xd;
+          &quot;ProductId&quot;: &quot;  &quot;,&#xd;
+          &quot;QuantityRequested&quot;: &quot;  &quot;,&#xd;
+          &quot;ActionCode&quot;: &quot;  &quot;,&#xd;
+          &quot;AdjustedListPrice-Display&quot;: &quot;  &quot;,&#xd;
+          &quot;AssetIntegrationId&quot;: &quot;  &quot;,&#xd;
+          &quot;AssetStatus&quot;: &quot;  &quot;,&#xd;
+          &quot;LocationAServiceInstallationDate&quot;: &quot;  &quot;,&#xd;
+          &quot;LocationBServiceInstallationDate&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceActivationDate&quot;: &quot;  &quot;,&#xd;
+          &quot;BillingAccount&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceProvisioningDate&quot;: &quot;  &quot;,&#xd;
+          &quot;WorkOrderClosureDate&quot;: &quot;  &quot;,&#xd;
+          &quot;WorkOrderCreatedDate&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactFirstName&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactLastName&quot;: &quot;  &quot;,&#xd;
+          &quot;CoveredQuoteItemId&quot;: &quot;  &quot;,&#xd;
+          &quot;CurrencyCode&quot;: &quot;  &quot;,&#xd;
+          &quot;Description3&quot;: &quot;  &quot;,&#xd;
+          &quot;DiscountPercent&quot;: &quot;  &quot;,&#xd;
+          &quot;DueDate&quot;: &quot;  &quot;,&#xd;
+          &quot;EAISyncDate&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAccountOwnerofNewLineFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressApartNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressBuildingName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressCity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressCountry&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressCounty&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressFloor&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressLandmark&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressPlot&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressPoBox&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressState&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressStreet&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOCCEntity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressStreet2&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressType&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAuthorizedPersonFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCBuildingNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCCampaignId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCCampaignName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCDealerID2&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCGAID&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressCity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressCountry&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressCounty&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressFloor&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressState&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldApartNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldBuildingName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldGAID&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldLandmark&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldPOBox&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldPlot&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPassword&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPrimaryServiceId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCServiceAccountIntegrationId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCServiceStatusChangeReason&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCVIPFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;ExcludePricingFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCRelationshipName&quot;: &quot;  &quot;,&#xd;
+          &quot;IntegrationId&quot;: &quot;  &quot;,&#xd;
+          &quot;LineNumber&quot;: &quot;  &quot;,&#xd;
+          &quot;MRCCxTotal&quot;: &quot;  &quot;,&#xd;
+          &quot;NRCCxTotal&quot;: &quot;  &quot;,&#xd;
+          &quot;NetPrice&quot;: &quot;  &quot;,&#xd;
+          &quot;ParentOrderItemId&quot;: &quot;  &quot;,&#xd;
+          &quot;PreviousBillingAccount&quot;: &quot;  &quot;,&#xd;
+          &quot;PriceType&quot;: &quot;  &quot;,&#xd;
+          &quot;ProdPromId&quot;: &quot;  &quot;,&#xd;
+          &quot;ProdPromName&quot;: &quot;  &quot;,&#xd;
+          &quot;ProdPromRuleId&quot;: &quot;  &quot;,&#xd;
+          &quot;ProdPromInstanceId&quot;: &quot;  &quot;,&#xd;
+          &quot;Product&quot;: &quot;  &quot;,&#xd;
+          &quot;ProductIntegrationId&quot;: &quot;  &quot;,&#xd;
+          &quot;ProductType&quot;: &quot;  &quot;,&#xd;
+          &quot;Quantity&quot;: &quot;  &quot;,&#xd;
+          &quot;RootOrderItemId&quot;: &quot;  &quot;,&#xd;
+          &quot;SalesServiceFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceAccount&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceAccountId&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceAddressId&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceId&quot;: &quot;  &quot;,&#xd;
+          &quot;RequestId&quot;: &quot;  &quot;,&#xd;
+          &quot;OriginatorId&quot;: &quot;  &quot;,&#xd;
+          &quot;PreviousRequestId&quot;: &quot;  &quot;,&#xd;
+          &quot;PreviousOriginatorId&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceStartDate&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceType&quot;: &quot;  &quot;,&#xd;
+          &quot;Status&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCDeposit&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAutoAssetReady&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactBirth&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactEmail&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactGender&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactMiddleName1&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactMiddleName2&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactNationality&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactTitle2&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceInstanceFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCResourceType&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAllowFUCarryOver&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCListinPubDir&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCLogicalHLR&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCMarket&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCNetwork&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCNumberingPlan&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPhysicalHLR&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPostpaidFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCArchiveCalls&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCCustomerServiceLang&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCSignedOn&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCSubmarket&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCTargetSystem&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCWithholdDirectoryList&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCSalesPerson&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCServiceIdCalc&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCListinOperDir&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContactAddrArea&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContactAddrCity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContactAddrEmirate&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContactAddrPOBox&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContactAddrIntegId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContractContactIntegId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContactAddrId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCSubZone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldSubZone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCModeOfReuse&quot;: &quot;  &quot;,&#xd;
+          &quot;CoveredProduct&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldProdPromName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPromValidDate&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldPromIntegrationId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldPromotionId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPromIntegrationId&quot;: &quot;  &quot;,&#xd;
+          &quot;RatePlanCode&quot;: &quot;  &quot;,&#xd;
+          &quot;MinimumLot&quot;: &quot;  &quot;,&#xd;
+          &quot;Note&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressStreet&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressStreet2&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressType&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldBuildingNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCBSCSDepositReferenceId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCCustomerDeliveryDate&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldQuantity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCTechContactLastName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCTechContactFirstName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCTechContactPhone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToTechContactFName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToTechContactLName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToTechContactPhone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressApartNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressBuildingName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressCity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressCountry&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressCounty&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressFloor&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressLandmark&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressPlot&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressPoBox&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressStreet&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressStreet2&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressType&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToBuildingNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToGAID&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressZone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressZone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToSubZone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCSectorNumber&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldSectorNumber&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressState&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToAddressCity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToOldSubZone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToOldGAID&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToPlot&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToPOBox&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToLandmark&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToBuildingName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToApartNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToAddressState&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToAddressFloor&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToAddressCounty&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToAddressCountry&quot;: &quot;  &quot;,&#xd;
+          &quot;UnitofMeasure&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCProdPromType&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPrimaryProductLine&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCBillCycles&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCMultipleResources&quot;: &quot;  &quot;,&#xd;
+          &quot;FieldReplacableUnit&quot;: &quot;  &quot;,&#xd;
+          &quot;ListofBitStreamInformation&quot;: {&#xd;
+            &quot;BitStreamInformation&quot;: {&#xd;
+              &quot;Name&quot;: &quot;  &quot;,&#xd;
+              &quot;Value&quot;: &quot;  &quot;&#xd;
+            }&#xd;
+          },&#xd;
+          &quot;ListOfOrderItemXa&quot;: {&#xd;
+            &quot;OrderItemXa&quot;: {&#xd;
+              &quot;Id&quot;: &quot;  &quot;,&#xd;
+              &quot;Created&quot;: &quot;  &quot;,&#xd;
+              &quot;Updated&quot;: &quot;  &quot;,&#xd;
+              &quot;ConflictId&quot;: &quot;  &quot;,&#xd;
+              &quot;ModId&quot;: &quot;  &quot;,&#xd;
+              &quot;EITCTargetSystemXA&quot;: &quot;  &quot;,&#xd;
+              &quot;ActionCode&quot;: &quot;  &quot;,&#xd;
+              &quot;IntegrationId&quot;: &quot;  &quot;,&#xd;
+              &quot;Name&quot;: &quot;  &quot;,&#xd;
+              &quot;ProductId&quot;: &quot;  &quot;,&#xd;
+              &quot;Value&quot;: &quot;  &quot;,&#xd;
+              &quot;PreviousValue&quot;: &quot;  &quot;&#xd;
+            }&#xd;
+          }&#xd;
+        }&#xd;
+      }&#xd;
+    }&#xd;
+  }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/orders</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Create Fixed Modification</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Response code is 401" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="51509">401</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Check Response code is 401</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${new_access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token </stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Fixed Modification Missing Account in Body Payload- Failure" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;ListOfOrder&quot;: {&#xd;
+    &quot;Order&quot;: {&#xd;
+      &quot;SEOFWorkOrderType&quot;: &quot;  &quot;,&#xd;
+      &quot;Id&quot;: &quot;  &quot;,&#xd;
+      &quot;Created&quot;: &quot;  &quot;,&#xd;
+      &quot;Updated&quot;: &quot;  &quot;,&#xd;
+      &quot;ConflictId&quot;: &quot;  &quot;,&#xd;
+      &quot;ModId&quot;: &quot;  &quot;,&#xd;
+    &#xd;
+      &quot;Comments&quot;: &quot;  &quot;,&#xd;
+      &quot;ContactFaxNumber&quot;: &quot;  &quot;,&#xd;
+      &quot;ContactFirstName&quot;: &quot;  &quot;,&#xd;
+      &quot;ContactHomePhone&quot;: &quot;  &quot;,&#xd;
+      &quot;ContactLastName&quot;: &quot;  &quot;,&#xd;
+      &quot;ContactTitle&quot;: &quot;  &quot;,&#xd;
+      &quot;ContactWorkPhone&quot;: &quot;  &quot;,&#xd;
+      &quot;CurrencyCode&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCCompanyName&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCContactMiddleName1&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCContactMiddleName2&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCContactMobileNumber&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCCustomerSegment&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCDepartment&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCServiceAccountIntegrationId&quot;: &quot;  &quot;,&#xd;
+      &quot;EmailAddress&quot;: &quot;  &quot;,&#xd;
+      &quot;IntegrationId&quot;: &quot;  &quot;,&#xd;
+      &quot;JobTitle&quot;: &quot;  &quot;,&#xd;
+      &quot;OrderAccountType&quot;: &quot;  &quot;,&#xd;
+      &quot;OrderDate&quot;: &quot;  &quot;,&#xd;
+      &quot;OrderNumber&quot;: &quot;  &quot;,&#xd;
+      &quot;OrderPriority&quot;: &quot;  &quot;,&#xd;
+      &quot;OrderType&quot;: &quot;  &quot;,&#xd;
+      &quot;RequestedShipDate&quot;: &quot;  &quot;,&#xd;
+      &quot;ServiceAccount&quot;: &quot;  &quot;,&#xd;
+      &quot;ServiceAccountId&quot;: &quot;  &quot;,&#xd;
+      &quot;ServiceAccountNumber&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCServiceAccountType&quot;: &quot;  &quot;,&#xd;
+      &quot;Status&quot;: &quot;  &quot;,&#xd;
+      &quot;RatePlanCode&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCServiceAccountOCCRateplan&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCLargeAccountCode&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCServiceAccountSegment&quot;: &quot;  &quot;,&#xd;
+      &quot;EITCEDMSUrl&quot;: &quot;  &quot;,&#xd;
+      &quot;SourceSystem&quot;: &quot;  &quot;,&#xd;
+      &quot;DeliveryBlock&quot;: &quot;  &quot;,&#xd;
+      &quot;HoldFlag&quot;: &quot;  &quot;,&#xd;
+      &quot;ReferenceId&quot;: &quot;  &quot;,&#xd;
+      &quot;ListOfAddresses&quot;: {&#xd;
+        &quot;Address&quot;: {&#xd;
+          &quot;-IsPrimaryMVG&quot;: &quot;  &quot;,&#xd;
+          &quot;-operation&quot;: &quot;  &quot;,&#xd;
+          &quot;-searchspec&quot;: &quot;  &quot;,&#xd;
+          &quot;AccountAddress&quot;: &quot;  &quot;,&#xd;
+          &quot;AccountAddressCountry&quot;: &quot;  &quot;,&#xd;
+          &quot;AccountAddressPostalCode&quot;: &quot;  &quot;,&#xd;
+          &quot;AccountAddressState&quot;: &quot;  &quot;,&#xd;
+          &quot;AccountAddressStreet2&quot;: &quot;  &quot;,&#xd;
+          &quot;AccountAddressCity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAccountAddressStreet&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressBuildingName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressCounty&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressFloor&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressNearestLandmark&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCApartmentNumber&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCBuildingNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressZone&quot;: &quot;  &quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;ListOfActivities&quot;: {&#xd;
+        &quot;Activity&quot;: {&#xd;
+          &quot;Id&quot;: &quot;  &quot;,&#xd;
+          &quot;Created&quot;: &quot;  &quot;,&#xd;
+          &quot;Updated&quot;: &quot;  &quot;,&#xd;
+          &quot;ConflictId&quot;: &quot;  &quot;,&#xd;
+          &quot;ModId&quot;: &quot;  &quot;,&#xd;
+          &quot;ActivityUID&quot;: &quot;  &quot;,&#xd;
+          &quot;Status&quot;: &quot;  &quot;,&#xd;
+          &quot;Comment&quot;: &quot;  &quot;,&#xd;
+          &quot;Description2&quot;: &quot;  &quot;,&#xd;
+          &quot;DurationMinutes&quot;: &quot;  &quot;,&#xd;
+          &quot;Planned&quot;: &quot;  &quot;,&#xd;
+          &quot;PrimaryOwnedBy&quot;: &quot;  &quot;,&#xd;
+          &quot;Type&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCServiceRegion&quot;: &quot;  &quot;,&#xd;
+          &quot;IntegrationReturnCode&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCRescheduleReason&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCActivityFailedSequence&quot;: &quot;  &quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;ListOfOrderItems&quot;: {&#xd;
+        &quot;OrderItem&quot;: {&#xd;
+          &quot;Id&quot;: &quot;  &quot;,&#xd;
+          &quot;Created&quot;: &quot;  &quot;,&#xd;
+          &quot;Updated&quot;: &quot;  &quot;,&#xd;
+          &quot;ConflictId&quot;: &quot;  &quot;,&#xd;
+          &quot;ModId&quot;: &quot;  &quot;,&#xd;
+          &quot;ProductId&quot;: &quot;  &quot;,&#xd;
+          &quot;QuantityRequested&quot;: &quot;  &quot;,&#xd;
+          &quot;ActionCode&quot;: &quot;  &quot;,&#xd;
+          &quot;AdjustedListPrice-Display&quot;: &quot;  &quot;,&#xd;
+          &quot;AssetIntegrationId&quot;: &quot;  &quot;,&#xd;
+          &quot;AssetStatus&quot;: &quot;  &quot;,&#xd;
+          &quot;LocationAServiceInstallationDate&quot;: &quot;  &quot;,&#xd;
+          &quot;LocationBServiceInstallationDate&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceActivationDate&quot;: &quot;  &quot;,&#xd;
+          &quot;BillingAccount&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceProvisioningDate&quot;: &quot;  &quot;,&#xd;
+          &quot;WorkOrderClosureDate&quot;: &quot;  &quot;,&#xd;
+          &quot;WorkOrderCreatedDate&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactFirstName&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactLastName&quot;: &quot;  &quot;,&#xd;
+          &quot;CoveredQuoteItemId&quot;: &quot;  &quot;,&#xd;
+          &quot;CurrencyCode&quot;: &quot;  &quot;,&#xd;
+          &quot;Description3&quot;: &quot;  &quot;,&#xd;
+          &quot;DiscountPercent&quot;: &quot;  &quot;,&#xd;
+          &quot;DueDate&quot;: &quot;  &quot;,&#xd;
+          &quot;EAISyncDate&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAccountOwnerofNewLineFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressApartNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressBuildingName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressCity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressCountry&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressCounty&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressFloor&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressLandmark&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressPlot&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressPoBox&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressState&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressStreet&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOCCEntity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressStreet2&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressType&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAuthorizedPersonFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCBuildingNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCCampaignId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCCampaignName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCDealerID2&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCGAID&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressCity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressCountry&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressCounty&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressFloor&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressState&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldApartNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldBuildingName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldGAID&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldLandmark&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldPOBox&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldPlot&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPassword&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPrimaryServiceId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCServiceAccountIntegrationId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCServiceStatusChangeReason&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCVIPFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;ExcludePricingFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCRelationshipName&quot;: &quot;  &quot;,&#xd;
+          &quot;IntegrationId&quot;: &quot;  &quot;,&#xd;
+          &quot;LineNumber&quot;: &quot;  &quot;,&#xd;
+          &quot;MRCCxTotal&quot;: &quot;  &quot;,&#xd;
+          &quot;NRCCxTotal&quot;: &quot;  &quot;,&#xd;
+          &quot;NetPrice&quot;: &quot;  &quot;,&#xd;
+          &quot;ParentOrderItemId&quot;: &quot;  &quot;,&#xd;
+          &quot;PreviousBillingAccount&quot;: &quot;  &quot;,&#xd;
+          &quot;PriceType&quot;: &quot;  &quot;,&#xd;
+          &quot;ProdPromId&quot;: &quot;  &quot;,&#xd;
+          &quot;ProdPromName&quot;: &quot;  &quot;,&#xd;
+          &quot;ProdPromRuleId&quot;: &quot;  &quot;,&#xd;
+          &quot;ProdPromInstanceId&quot;: &quot;  &quot;,&#xd;
+          &quot;Product&quot;: &quot;  &quot;,&#xd;
+          &quot;ProductIntegrationId&quot;: &quot;  &quot;,&#xd;
+          &quot;ProductType&quot;: &quot;  &quot;,&#xd;
+          &quot;Quantity&quot;: &quot;  &quot;,&#xd;
+          &quot;RootOrderItemId&quot;: &quot;  &quot;,&#xd;
+          &quot;SalesServiceFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceAccount&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceAccountId&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceAddressId&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceId&quot;: &quot;  &quot;,&#xd;
+          &quot;RequestId&quot;: &quot;  &quot;,&#xd;
+          &quot;OriginatorId&quot;: &quot;  &quot;,&#xd;
+          &quot;PreviousRequestId&quot;: &quot;  &quot;,&#xd;
+          &quot;PreviousOriginatorId&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceStartDate&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceType&quot;: &quot;  &quot;,&#xd;
+          &quot;Status&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCDeposit&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAutoAssetReady&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactBirth&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactEmail&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactGender&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactMiddleName1&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactMiddleName2&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactNationality&quot;: &quot;  &quot;,&#xd;
+          &quot;ContactTitle2&quot;: &quot;  &quot;,&#xd;
+          &quot;ServiceInstanceFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCResourceType&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAllowFUCarryOver&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCListinPubDir&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCLogicalHLR&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCMarket&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCNetwork&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCNumberingPlan&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPhysicalHLR&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPostpaidFlag&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCArchiveCalls&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCCustomerServiceLang&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCSignedOn&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCSubmarket&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCTargetSystem&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCWithholdDirectoryList&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCSalesPerson&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCServiceIdCalc&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCListinOperDir&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContactAddrArea&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContactAddrCity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContactAddrEmirate&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContactAddrPOBox&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContactAddrIntegId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContractContactIntegId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCContactAddrId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCSubZone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldSubZone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCModeOfReuse&quot;: &quot;  &quot;,&#xd;
+          &quot;CoveredProduct&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldProdPromName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPromValidDate&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldPromIntegrationId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldPromotionId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPromIntegrationId&quot;: &quot;  &quot;,&#xd;
+          &quot;RatePlanCode&quot;: &quot;  &quot;,&#xd;
+          &quot;MinimumLot&quot;: &quot;  &quot;,&#xd;
+          &quot;Note&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressStreet&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressStreet2&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressType&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldBuildingNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCBSCSDepositReferenceId&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCCustomerDeliveryDate&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldQuantity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCTechContactLastName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCTechContactFirstName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCTechContactPhone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToTechContactFName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToTechContactLName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToTechContactPhone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressApartNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressBuildingName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressCity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressCountry&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressCounty&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressFloor&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressLandmark&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressPlot&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressPoBox&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressStreet&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressStreet2&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressType&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToBuildingNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToGAID&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldAddressZone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCAddressZone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToSubZone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCSectorNumber&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldSectorNumber&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToAddressState&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToAddressCity&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToOldSubZone&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCToOldGAID&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToPlot&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToPOBox&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToLandmark&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToBuildingName&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToApartNo&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToAddressState&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToAddressFloor&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToAddressCounty&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCOldToAddressCountry&quot;: &quot;  &quot;,&#xd;
+          &quot;UnitofMeasure&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCProdPromType&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCPrimaryProductLine&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCBillCycles&quot;: &quot;  &quot;,&#xd;
+          &quot;EITCMultipleResources&quot;: &quot;  &quot;,&#xd;
+          &quot;FieldReplacableUnit&quot;: &quot;  &quot;,&#xd;
+          &quot;ListofBitStreamInformation&quot;: {&#xd;
+            &quot;BitStreamInformation&quot;: {&#xd;
+              &quot;Name&quot;: &quot;  &quot;,&#xd;
+              &quot;Value&quot;: &quot;  &quot;&#xd;
+            }&#xd;
+          },&#xd;
+          &quot;ListOfOrderItemXa&quot;: {&#xd;
+            &quot;OrderItemXa&quot;: {&#xd;
+              &quot;Id&quot;: &quot;  &quot;,&#xd;
+              &quot;Created&quot;: &quot;  &quot;,&#xd;
+              &quot;Updated&quot;: &quot;  &quot;,&#xd;
+              &quot;ConflictId&quot;: &quot;  &quot;,&#xd;
+              &quot;ModId&quot;: &quot;  &quot;,&#xd;
+              &quot;EITCTargetSystemXA&quot;: &quot;  &quot;,&#xd;
+              &quot;ActionCode&quot;: &quot;  &quot;,&#xd;
+              &quot;IntegrationId&quot;: &quot;  &quot;,&#xd;
+              &quot;Name&quot;: &quot;  &quot;,&#xd;
+              &quot;ProductId&quot;: &quot;  &quot;,&#xd;
+              &quot;Value&quot;: &quot;  &quot;,&#xd;
+              &quot;PreviousValue&quot;: &quot;  &quot;&#xd;
+            }&#xd;
+          }&#xd;
+        }&#xd;
+      }&#xd;
+    }&#xd;
+  }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/orders</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Create Fixed Modification</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Response code is 400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="51508">400</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Check Response code is 400</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${new_access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token </stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Manage Offers -Success" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+ 		&quot;PortalOrderNumber&quot;: &quot;  &quot;,&#xd;
+ 		&quot;CustomerSegment&quot;: &quot;123&quot;,&#xd;
+ 		&quot;AccountIntegrationId&quot;: &quot;123&quot;,&#xd;
+ 		&quot;AccountCode&quot;: &quot;AB-999&quot;,&#xd;
+ 		&quot;ContractCode&quot;: &quot;  &quot;,&#xd;
+ 		&quot;RateplanType&quot;: &quot;  &quot;,&#xd;
+ 		&quot;AccountType&quot;: &quot;  &quot;,&#xd;
+ 		&quot;DealerId&quot;: &quot;  &quot;,&#xd;
+ 		&quot;PrimaryServiceId&quot;: &quot;  &quot;,&#xd;
+ 		&quot;EmailAddress&quot;: &quot;  &quot;,&#xd;
+ 		&quot;ContactFirstName&quot;: &quot;  &quot;,&#xd;
+ 		&quot;ContactLastName&quot;: &quot;  &quot;,&#xd;
+ 		&quot;ListOfOffers&quot;: {&#xd;
+ 			&quot;HandsetOffer&quot;: {&#xd;
+ 				&quot;ContractTerm&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferId&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferName&quot;: &quot;  &quot;,&#xd;
+ 				&quot;HandsetName&quot;: &quot;  &quot;,&#xd;
+ 				&quot;HandsetBundleType&quot;: &quot;  &quot;,&#xd;
+ 				&quot;IMEI&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Action&quot;: &quot;  &quot;,&#xd;
+ 				&quot;StartDate&quot;: &quot;  &quot;,&#xd;
+ 				&quot;EndDate&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Type&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Option&quot;: &quot;  &quot;,&#xd;
+ 				&quot;From_Offer&quot;: &quot;  &quot;&#xd;
+ 			},&#xd;
+ 			&quot;ProductOffer&quot;: {&#xd;
+ 				&quot;OfferIdOld&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferNameOld&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferId&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferName&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Action&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Type&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Option&quot;: &quot;  &quot;,&#xd;
+ 				&quot;From_Offer&quot;: &quot;  &quot;&#xd;
+ 			}&#xd;
+ 		},&#xd;
+ 		&quot;ListOfObjects&quot;: {&#xd;
+ 			&quot;Object&quot;: {&#xd;
+ 				&quot;Id&quot;: &quot;  &quot;,&#xd;
+ 				&quot;IsToSendEmail&quot;: &quot;  &quot;&#xd;
+ 			},&#xd;
+ 			&quot;Rewards&quot;: {&#xd;
+ 				&quot;RewardType&quot;: &quot;  &quot;,&#xd;
+ 				&quot;RewardDetails&quot;: {&#xd;
+ 					&quot;RewardDetailName&quot;: &quot;  &quot;,&#xd;
+ 					&quot;RewardDetailValue&quot;: &quot;  &quot;,&#xd;
+ 					&quot;CampId&quot;: &quot;  &quot;&#xd;
+ 				}&#xd;
+ 			}&#xd;
+ 		},&#xd;
+ 		&quot;ListOfActivities&quot;: {&#xd;
+ 			&quot;Activity&quot;: {&#xd;
+ 				&quot;Status&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Description&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Owned&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Type&quot;: &quot;  &quot;&#xd;
+ 			}&#xd;
+ 		}&#xd;
+ 	}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/orders/1234/offers</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Manage Offers</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Response code is 201" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Check Response code is 201</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${new_access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token </stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Manage Offers Missing Customer Segment -Negative" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+ 		&quot;PortalOrderNumber&quot;: &quot;  &quot;,&#xd;
+ 	&#xd;
+ 		&quot;AccountIntegrationId&quot;: &quot;123&quot;,&#xd;
+ 		&quot;AccountCode&quot;: &quot;AB-999&quot;,&#xd;
+ 		&quot;ContractCode&quot;: &quot;  &quot;,&#xd;
+ 		&quot;RateplanType&quot;: &quot;  &quot;,&#xd;
+ 		&quot;AccountType&quot;: &quot;  &quot;,&#xd;
+ 		&quot;DealerId&quot;: &quot;  &quot;,&#xd;
+ 		&quot;PrimaryServiceId&quot;: &quot;  &quot;,&#xd;
+ 		&quot;EmailAddress&quot;: &quot;  &quot;,&#xd;
+ 		&quot;ContactFirstName&quot;: &quot;  &quot;,&#xd;
+ 		&quot;ContactLastName&quot;: &quot;  &quot;,&#xd;
+ 		&quot;ListOfOffers&quot;: {&#xd;
+ 			&quot;HandsetOffer&quot;: {&#xd;
+ 				&quot;ContractTerm&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferId&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferName&quot;: &quot;  &quot;,&#xd;
+ 				&quot;HandsetName&quot;: &quot;  &quot;,&#xd;
+ 				&quot;HandsetBundleType&quot;: &quot;  &quot;,&#xd;
+ 				&quot;IMEI&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Action&quot;: &quot;  &quot;,&#xd;
+ 				&quot;StartDate&quot;: &quot;  &quot;,&#xd;
+ 				&quot;EndDate&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Type&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Option&quot;: &quot;  &quot;,&#xd;
+ 				&quot;From_Offer&quot;: &quot;  &quot;&#xd;
+ 			},&#xd;
+ 			&quot;ProductOffer&quot;: {&#xd;
+ 				&quot;OfferIdOld&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferNameOld&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferId&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferName&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Action&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Type&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Option&quot;: &quot;  &quot;,&#xd;
+ 				&quot;From_Offer&quot;: &quot;  &quot;&#xd;
+ 			}&#xd;
+ 		},&#xd;
+ 		&quot;ListOfObjects&quot;: {&#xd;
+ 			&quot;Object&quot;: {&#xd;
+ 				&quot;Id&quot;: &quot;  &quot;,&#xd;
+ 				&quot;IsToSendEmail&quot;: &quot;  &quot;&#xd;
+ 			},&#xd;
+ 			&quot;Rewards&quot;: {&#xd;
+ 				&quot;RewardType&quot;: &quot;  &quot;,&#xd;
+ 				&quot;RewardDetails&quot;: {&#xd;
+ 					&quot;RewardDetailName&quot;: &quot;  &quot;,&#xd;
+ 					&quot;RewardDetailValue&quot;: &quot;  &quot;,&#xd;
+ 					&quot;CampId&quot;: &quot;  &quot;&#xd;
+ 				}&#xd;
+ 			}&#xd;
+ 		},&#xd;
+ 		&quot;ListOfActivities&quot;: {&#xd;
+ 			&quot;Activity&quot;: {&#xd;
+ 				&quot;Status&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Description&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Owned&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Type&quot;: &quot;  &quot;&#xd;
+ 			}&#xd;
+ 		}&#xd;
+ 	}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/orders/1234/offers</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Manage Offers</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Response code is 400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="51508">400</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Check Response code is 400</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${new_access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token </stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Manage Offers Missing Account InegrationId Segment -Negative" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+ 		&quot;PortalOrderNumber&quot;: &quot;  &quot;,&#xd;
+ 		&quot;CustomerSegment&quot;: &quot;123&quot;,&#xd;
+ 		&#xd;
+ 		&quot;AccountCode&quot;: &quot;AB-999&quot;,&#xd;
+ 		&quot;ContractCode&quot;: &quot;  &quot;,&#xd;
+ 		&quot;RateplanType&quot;: &quot;  &quot;,&#xd;
+ 		&quot;AccountType&quot;: &quot;  &quot;,&#xd;
+ 		&quot;DealerId&quot;: &quot;  &quot;,&#xd;
+ 		&quot;PrimaryServiceId&quot;: &quot;  &quot;,&#xd;
+ 		&quot;EmailAddress&quot;: &quot;  &quot;,&#xd;
+ 		&quot;ContactFirstName&quot;: &quot;  &quot;,&#xd;
+ 		&quot;ContactLastName&quot;: &quot;  &quot;,&#xd;
+ 		&quot;ListOfOffers&quot;: {&#xd;
+ 			&quot;HandsetOffer&quot;: {&#xd;
+ 				&quot;ContractTerm&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferId&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferName&quot;: &quot;  &quot;,&#xd;
+ 				&quot;HandsetName&quot;: &quot;  &quot;,&#xd;
+ 				&quot;HandsetBundleType&quot;: &quot;  &quot;,&#xd;
+ 				&quot;IMEI&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Action&quot;: &quot;  &quot;,&#xd;
+ 				&quot;StartDate&quot;: &quot;  &quot;,&#xd;
+ 				&quot;EndDate&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Type&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Option&quot;: &quot;  &quot;,&#xd;
+ 				&quot;From_Offer&quot;: &quot;  &quot;&#xd;
+ 			},&#xd;
+ 			&quot;ProductOffer&quot;: {&#xd;
+ 				&quot;OfferIdOld&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferNameOld&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferId&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferName&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Action&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Type&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Option&quot;: &quot;  &quot;,&#xd;
+ 				&quot;From_Offer&quot;: &quot;  &quot;&#xd;
+ 			}&#xd;
+ 		},&#xd;
+ 		&quot;ListOfObjects&quot;: {&#xd;
+ 			&quot;Object&quot;: {&#xd;
+ 				&quot;Id&quot;: &quot;  &quot;,&#xd;
+ 				&quot;IsToSendEmail&quot;: &quot;  &quot;&#xd;
+ 			},&#xd;
+ 			&quot;Rewards&quot;: {&#xd;
+ 				&quot;RewardType&quot;: &quot;  &quot;,&#xd;
+ 				&quot;RewardDetails&quot;: {&#xd;
+ 					&quot;RewardDetailName&quot;: &quot;  &quot;,&#xd;
+ 					&quot;RewardDetailValue&quot;: &quot;  &quot;,&#xd;
+ 					&quot;CampId&quot;: &quot;  &quot;&#xd;
+ 				}&#xd;
+ 			}&#xd;
+ 		},&#xd;
+ 		&quot;ListOfActivities&quot;: {&#xd;
+ 			&quot;Activity&quot;: {&#xd;
+ 				&quot;Status&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Description&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Owned&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Type&quot;: &quot;  &quot;&#xd;
+ 			}&#xd;
+ 		}&#xd;
+ 	}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/orders/1234/offers</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Manage Offers</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Response code is 400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="51508">400</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Check Response code is 400</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${new_access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token </stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Manage Offers Missing Account Code -Negative" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+ 		&quot;PortalOrderNumber&quot;: &quot;  &quot;,&#xd;
+ 		&quot;CustomerSegment&quot;: &quot;123&quot;,&#xd;
+ 		&quot;AccountIntegrationId&quot;: &quot;123&quot;,&#xd;
+ 		&#xd;
+ 		&quot;ContractCode&quot;: &quot;  &quot;,&#xd;
+ 		&quot;RateplanType&quot;: &quot;  &quot;,&#xd;
+ 		&quot;AccountType&quot;: &quot;  &quot;,&#xd;
+ 		&quot;DealerId&quot;: &quot;  &quot;,&#xd;
+ 		&quot;PrimaryServiceId&quot;: &quot;  &quot;,&#xd;
+ 		&quot;EmailAddress&quot;: &quot;  &quot;,&#xd;
+ 		&quot;ContactFirstName&quot;: &quot;  &quot;,&#xd;
+ 		&quot;ContactLastName&quot;: &quot;  &quot;,&#xd;
+ 		&quot;ListOfOffers&quot;: {&#xd;
+ 			&quot;HandsetOffer&quot;: {&#xd;
+ 				&quot;ContractTerm&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferId&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferName&quot;: &quot;  &quot;,&#xd;
+ 				&quot;HandsetName&quot;: &quot;  &quot;,&#xd;
+ 				&quot;HandsetBundleType&quot;: &quot;  &quot;,&#xd;
+ 				&quot;IMEI&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Action&quot;: &quot;  &quot;,&#xd;
+ 				&quot;StartDate&quot;: &quot;  &quot;,&#xd;
+ 				&quot;EndDate&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Type&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Option&quot;: &quot;  &quot;,&#xd;
+ 				&quot;From_Offer&quot;: &quot;  &quot;&#xd;
+ 			},&#xd;
+ 			&quot;ProductOffer&quot;: {&#xd;
+ 				&quot;OfferIdOld&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferNameOld&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferId&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferName&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Action&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Type&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Option&quot;: &quot;  &quot;,&#xd;
+ 				&quot;From_Offer&quot;: &quot;  &quot;&#xd;
+ 			}&#xd;
+ 		},&#xd;
+ 		&quot;ListOfObjects&quot;: {&#xd;
+ 			&quot;Object&quot;: {&#xd;
+ 				&quot;Id&quot;: &quot;  &quot;,&#xd;
+ 				&quot;IsToSendEmail&quot;: &quot;  &quot;&#xd;
+ 			},&#xd;
+ 			&quot;Rewards&quot;: {&#xd;
+ 				&quot;RewardType&quot;: &quot;  &quot;,&#xd;
+ 				&quot;RewardDetails&quot;: {&#xd;
+ 					&quot;RewardDetailName&quot;: &quot;  &quot;,&#xd;
+ 					&quot;RewardDetailValue&quot;: &quot;  &quot;,&#xd;
+ 					&quot;CampId&quot;: &quot;  &quot;&#xd;
+ 				}&#xd;
+ 			}&#xd;
+ 		},&#xd;
+ 		&quot;ListOfActivities&quot;: {&#xd;
+ 			&quot;Activity&quot;: {&#xd;
+ 				&quot;Status&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Description&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Owned&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Type&quot;: &quot;  &quot;&#xd;
+ 			}&#xd;
+ 		}&#xd;
+ 	}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/orders/1234/offers</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Manage Offers</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Response code is 400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="51508">400</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Check Response code is 400</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${new_access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token </stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Manage Offers Incorrect Account Code -Negative" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+ 		&quot;PortalOrderNumber&quot;: &quot;  &quot;,&#xd;
+ 		&quot;CustomerSegment&quot;: &quot;123&quot;,&#xd;
+ 		&quot;AccountIntegrationId&quot;: &quot;123&quot;,&#xd;
+ 		&quot;AccountCode&quot;: &quot;99&quot;,&#xd;
+ 		&quot;ContractCode&quot;: &quot;  &quot;,&#xd;
+ 		&quot;RateplanType&quot;: &quot;  &quot;,&#xd;
+ 		&quot;AccountType&quot;: &quot;  &quot;,&#xd;
+ 		&quot;DealerId&quot;: &quot;  &quot;,&#xd;
+ 		&quot;PrimaryServiceId&quot;: &quot;  &quot;,&#xd;
+ 		&quot;EmailAddress&quot;: &quot;  &quot;,&#xd;
+ 		&quot;ContactFirstName&quot;: &quot;  &quot;,&#xd;
+ 		&quot;ContactLastName&quot;: &quot;  &quot;,&#xd;
+ 		&quot;ListOfOffers&quot;: {&#xd;
+ 			&quot;HandsetOffer&quot;: {&#xd;
+ 				&quot;ContractTerm&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferId&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferName&quot;: &quot;  &quot;,&#xd;
+ 				&quot;HandsetName&quot;: &quot;  &quot;,&#xd;
+ 				&quot;HandsetBundleType&quot;: &quot;  &quot;,&#xd;
+ 				&quot;IMEI&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Action&quot;: &quot;  &quot;,&#xd;
+ 				&quot;StartDate&quot;: &quot;  &quot;,&#xd;
+ 				&quot;EndDate&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Type&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Option&quot;: &quot;  &quot;,&#xd;
+ 				&quot;From_Offer&quot;: &quot;  &quot;&#xd;
+ 			},&#xd;
+ 			&quot;ProductOffer&quot;: {&#xd;
+ 				&quot;OfferIdOld&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferNameOld&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferId&quot;: &quot;  &quot;,&#xd;
+ 				&quot;OfferName&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Action&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Type&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Renewal_Option&quot;: &quot;  &quot;,&#xd;
+ 				&quot;From_Offer&quot;: &quot;  &quot;&#xd;
+ 			}&#xd;
+ 		},&#xd;
+ 		&quot;ListOfObjects&quot;: {&#xd;
+ 			&quot;Object&quot;: {&#xd;
+ 				&quot;Id&quot;: &quot;  &quot;,&#xd;
+ 				&quot;IsToSendEmail&quot;: &quot;  &quot;&#xd;
+ 			},&#xd;
+ 			&quot;Rewards&quot;: {&#xd;
+ 				&quot;RewardType&quot;: &quot;  &quot;,&#xd;
+ 				&quot;RewardDetails&quot;: {&#xd;
+ 					&quot;RewardDetailName&quot;: &quot;  &quot;,&#xd;
+ 					&quot;RewardDetailValue&quot;: &quot;  &quot;,&#xd;
+ 					&quot;CampId&quot;: &quot;  &quot;&#xd;
+ 				}&#xd;
+ 			}&#xd;
+ 		},&#xd;
+ 		&quot;ListOfActivities&quot;: {&#xd;
+ 			&quot;Activity&quot;: {&#xd;
+ 				&quot;Status&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Description&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Owned&quot;: &quot;  &quot;,&#xd;
+ 				&quot;Type&quot;: &quot;  &quot;&#xd;
+ 			}&#xd;
+ 		}&#xd;
+ 	}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/orders/1234/offers</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Manage Offers</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Response code is 401" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="51509">401</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Check Response code is 401</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Set OAuth Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${new_access_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Set OAuth Token </stringProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

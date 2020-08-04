@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables match="first" async="false" continueOnError="false" enabled="true" name="EV-RequiredVariableFromURI">
+    <DisplayName>EV-RequiredVariableFromURI</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <URIPath>
+        <Pattern ignoreCase="true">/{selfcareId}/verify-otp</Pattern>
+        <Pattern ignoreCase="true">/{selfcareId}/forgot-password/generate-otp</Pattern>
+        <Pattern ignoreCase="true">/{selfcareId}/forgot-password/resend-otp</Pattern>
+        <Pattern ignoreCase="true">/{selfcareId}/forgot-password/generate-otp</Pattern>
+        <Pattern ignoreCase="true">/{selfcareId}/forgot-password/reset-password</Pattern>
+        <!-- <Pattern ignoreCase="true">/{du.api.selfcareId}/reset-password</Pattern> -->
+        <Pattern ignoreCase="true">/{selfcareId}</Pattern>
+    </URIPath>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</ExtractVariables>

@@ -1,0 +1,349 @@
+{
+    "mockDirectory": "./du-mocks",
+    "staticDirectory" : "./du-mocks/SAN",
+    "staticPath" : "/SAN",
+    "quiet": false,
+    "port": "8888",
+    "latency": 20,
+    "logRequestHeaders": false,
+    "webServices": {
+        "": {
+            "latency": 20,
+            "verbs": ["post"],
+            "switch": ["serviceName", "responseType"],
+            "responses": {
+                "post": {"httpStatus": 200, "mockFile": "unKnownResource.xml"}
+            },
+            "switchResponses": {
+				"serviceNameGetAccountLegalFlagresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"customers/GetAccountLegalFlag-Response"
+                },
+				"serviceNameCreateSelfcareActivityResponseresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"acitivities/CreateSelfcareActivityResponse-Response"
+                },
+				"serviceNameGetProductHandsetOffersHistoryResponseresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"offers/GetProductHandsetOffersHistoryResponse-Response"
+                },
+				"serviceNameGetPaymentResponsibleresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"payments/GetPaymentResponsible-Response"
+                },
+                "serviceNameCreateTTresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"trouble-tickets/CreateTT-Response.xml"
+                },
+                "serviceNameGetTTInforesponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"trouble-tickets/GetTTInfo-Res.xml"
+                },
+                "serviceNameGetCustomerAndContractsresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile"   : "customers/GetCustomerAndContracts-ResponseXml.xml"
+                },
+                "serviceNameManageContactMethodresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile"   : "customers/ManageContactMethod-Response.xml"
+                },
+                "serviceNameGetAllCustomerContractsresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile"   : "customers/GetAllCustomerContracts-Response.xml"
+                },
+                "serviceNameManageCustomerProfileInforesponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile"   : "customers/ManageCustomerProfileInfo-Response.xml"
+                },
+                "serviceNameGetCustomerresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile"   : "customers/GetCustomer-Response.xml"
+                },
+                "serviceNameCreateCustomerAccountresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile"   : "customers/CreateCustomerAccount-Response.xml"
+                },
+                "serviceNameChangeCustomerDetailsresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile"   : "customers/ChangeCustomerDetails-Response.xml"
+                },
+               "serviceNameSetUserPreferredLanguageresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"customers/SetUserPreferredLanguage-Response.xml"
+        				},
+        				"serviceNameGetCustomerInformationresponseType200":{
+                          "httpStatus" : 200,
+                          "mockFile":"customers/GetCustomerInformation-Response.xml"
+        				},
+        				"serviceNameGetDataUsageNotificationThresholdsresponseType200":{
+                          "httpStatus" : 200,
+                          "mockFile":"usage/GetDataUsageNotificationThersholds-Response.xml"
+        				},
+        				"serviceNameGetPostpaidBundlesBalanceresponseType200":{
+                          "httpStatus" : 200,
+                          "mockFile":"usage/GetPostpaidBundlesBalance-Response.xml"
+        				},
+        				"serviceNameGetPrepaidBundlesBalanceresponseType200":{
+                          "httpStatus" : 200,
+                          "mockFile":"usage/GetPrepaidBundlesBalance-Response.xml"
+        				},
+        				"serviceNamePrepaidGetUsageresponseType200":{
+                          "httpStatus" : 200,
+                          "mockFile":"usage/PrepaidGetUsage-Response.xml"
+        				},
+        				"serviceNameSetDataUsageNotificationThersholdsresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile"   : "usage/SetDataUsageNotificationThersholds-Response.xml"
+                },
+                "serviceNameChangeContractServiceParametersresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile"   : "contracts/ChangeContractServiceParameters-Response.xml"
+                },
+                "serviceNameGetContractRatePlanHistoryresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile"   : "contracts/GetContractRatePlanHistory-Response.xml"
+                },
+                "serviceNameGetAccountInformationresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile"   : "accounts/GetAccountInformation-Response.xml"
+                },
+                "serviceNameGetAccountresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile"   : "accounts/GetAccount-Response.xml"
+                },
+                "serviceNameGetRequestHistoryresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile"   : "accounts/GetRequestHistory-Response.xml"
+                },
+	            "serviceNamechangeSelfcareUsernamePasswordresponseType201":{
+	              "httpStatus" : 201,
+	              "mockFile" : "users/changeSelfcareUsernamePassword.xml"
+	            },
+	            "serviceNameforgotPasswordSelfcareresponseType201":{
+	              "httpStatus" : 201,
+	              "mockFile"  : "users/forgotPasswordSelfcare.xml"
+	            },
+	            "serviceNameregisterSelfcareUserresponseType201":{
+	              "httpStatus"  : 201,
+	              "mockFile"    : "users/registerSelfcareUserResponse.xml"
+	            },
+	            "serviceNameverifyCoderesponseType200":{
+	              "httpStatus" : 200,
+	              "mockFile"  : "users/verifyCode.xml"
+            	},
+              "serviceNameverifyCoderesponseType592":{
+                "httpStatus" : 201,
+                "mockFile"  : "users/verifyCode_592.xml"
+              },
+              "serviceNameManageHandsetConfigurationresponseType201":{
+                "httpStatus"  : 201,
+                "mockFile"    : "devices/ManageHandsetConfiguration-Response.xml"
+              },
+              "serviceNameGetApplicableCommitmentsresponseType200":{
+                "httpStatus"  : 200,
+                "mockFile"    : "contracts/GetApplicableCommitments-Response.xml"
+              },
+                "serviceNameverifyCoderesponseType201":{
+                "httpStatus" : 201,
+                "mockFile"  : "users/verifyCode.xml"
+              },
+              "serviceNameGetApplicableBroadbandSpeedresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"offers/GetApplicableBroadbandSpeed-Response.xml"
+              },
+              "serviceNameGetApplicableBundlesresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"offers/GetApplicableBundles-Response.xml"
+              },
+              "serviceNameGetApplicableRateplansresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"offers/GetApplicableRateplans-Response.xml"
+              },
+              "serviceNameGetAvailableOffersresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"offers/GetAvailableOffers-Response.xml"
+              },
+               "serviceNameGetContractOffersresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"offers/GetContractOffers-Response.xml"
+              },
+              "serviceNameGetEligibleBundlesresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"offers/GetEligibleBundles-Response.xml"
+              },
+              "serviceNameGetEligibleContractOffersresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"offers/GetEligibleContractOffers-Response.xml"
+              },
+              "serviceNameGetTVPackagesresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"offers/GetTVPackages-Response.xml"
+              },
+              "serviceNameGetBillInformationresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"billing/GetBillInformationResponse.xml"
+              },
+              "serviceNameCancelPortabilityRequestresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"portability/CancelPortabilityRequest-Response.xml"
+              },
+              "serviceNameGetSchedulingresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"portability/GetScheduling-Response.xml"
+              },
+              "serviceNameManageEnterpriseOpportunityresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"opportunities/ManageEnterpriseOpportunity-Response.xml"
+              },
+              "serviceNameCheckCustomerPaymentRestrictionsresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"payments/CheckCustomerPaymentRestrictions-Response.xml"
+              },
+              "serviceNamegetCustomerPaymentInformationresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"payments/getCustomerPaymentInformation-Response.xml"
+              },
+              "serviceNameGetPaymentInformationresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"payments/GetPaymentInformation-Response.xml"
+              },
+              "serviceNameGetPrepaidPeriodicChargesresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"payments/GetPrepaidPeriodicCharges-Response.xml"
+              },
+              "serviceNameretrieveCreditCardInforesponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"payments/retrieveCreditCardInfo-Response.xml"
+              },
+              "serviceNameverifyCoderesponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"payments/verifyCode-Response.xml"
+              },
+              "serviceNamemanageCreditCardresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"payments/manageCreditCard-Response.xml"
+              },
+              "serviceNameaddFriendresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"payments/addFriend-Response.xml"
+              },
+              "serviceNameaddRecurringPaymentresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"payments/addRecurringPayment-Response.xml"
+              },
+              "serviceNameaddSubscribedPaymentresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"payments/addSubscribedPayment-Response.xml"
+              },
+              "serviceNamedeleteFriendresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"payments/deleteFriend-Response.xml"
+              },
+              "serviceNamedeleteRecurringPaymentresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"payments/deleteRecurringPayment-Response.xml"
+              },
+              "serviceNamedeleteSubscribedPaymentresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"payments/deleteSubscribedPayment-Response.xml"
+              },
+              "serviceNameGetOMPOrdersresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"orders/GetOMPOrders-Response.xml"
+              },
+              "serviceNameGetOMPFulfillmentRequestsresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"orders/GetOMPFulfillmentRequests-Response.xml"
+              },
+              "serviceNameGetCRMOrderItemsresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"orders/GetCRMOrderItems-Response.xml"
+              },
+              "serviceNameCreateMultiLineMobileActivationresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"orders/CreateMultiLineMobileActivation-Response.xml"
+              },
+              "serviceNameCreateMobileActivationresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"orders/CreateMobileActivation-Response.xml"
+              },
+              "serviceNameCreateMNPActivationresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"orders/CreateMNPActivation-Response.xml"
+              },
+              "serviceNameCreateFixedModificationresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"orders/CreateFixedModification-Response.xml"
+              },
+              "serviceNameValidateFixedModificationresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"orders/ValidateFixedModification-Response.xml"
+              },
+              "serviceNameMNPGetRequestInforesponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"orders/MNPGetRequestInfo-Response.xml"
+              },
+              "serviceNameManageOffersresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"orders/ManageOffers-Response.xml"
+              },
+              "serviceNameVerifyDuNumberresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"services/VerifyDuNumber-Response.xml"
+              },
+              "serviceNameGetApplicableAddOnServicesresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"services/GetApplicableAddOnServices-Response.xml"
+              },
+              "serviceNameGetPrepaidBlackberryServicesresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"services/GetPrepaidBlackberryServices-Response.xml"
+              },
+              "serviceNameGetServiceParametersresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"services/GetServiceParameters-Response.xml"
+              },
+              "serviceNameGetServiceStatusresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"services/GetServiceStatus-Response.xml"
+              },
+              "serviceNameManageServicesresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"services/ManageServices-Response.xml"
+              },
+              "serviceNameCancelScheduledRequestresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"services/CancelScheduledRequest-Response.xml"
+              },
+              "serviceNameGetPrepaidSettingsresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"services/GetPrepaidSettings-Response.xml"
+              },
+              "serviceNameManageMobilePostpaidresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"services/ManageMobilePostpaid-Response.xml"
+              },
+              "serviceNameManagePostpaidDataBundlesresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"services/ManagePostpaidDataBundles-Response.xml"
+              },
+              "serviceNameManagePrepaidLineresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"services/ManagePrepaidLine-Response.xml"
+              },
+              "serviceNameManagePrepaidTopUpresponseType201":{
+                  "httpStatus" : 201,
+                  "mockFile":"services/ManagePrepaidTopUp-Response.xml"
+              },
+              "serviceNameGetCustomerInformationByDocresponseType200":{
+                  "httpStatus" : 200,
+                  "mockFile":"customerInfo/GetCustomerInformationByDoc-Response.xml"
+              }
+
+
+
+            }
+        }
+
+    }
+}

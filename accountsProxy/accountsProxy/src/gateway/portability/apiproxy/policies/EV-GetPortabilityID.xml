@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-GetPortabilityID">
+    <DisplayName>EV-GetPortabilityID</DisplayName>
+    <Properties/>
+    <URIPath>
+        <Pattern ignoreCase="true">/{portability_id}/request</Pattern>
+    </URIPath>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <Source clearPayload="false">request</Source>
+</ExtractVariables>

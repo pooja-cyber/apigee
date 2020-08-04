@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="12" name="customers">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1472200987368</CreatedAt>
+    <CreatedBy>vbharanidaran@kaartech.com</CreatedBy>
+    <Description/>
+    <DisplayName>contracts</DisplayName>
+    <LastModifiedAt>1472200987368</LastModifiedAt>
+    <LastModifiedBy>vbharanidaran@kaartech.com</LastModifiedBy>
+    <Policies>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+    </Resources>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

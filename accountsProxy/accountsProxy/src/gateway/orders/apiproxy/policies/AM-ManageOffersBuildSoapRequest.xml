@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-ManageOffersBuildSoapRequest">
+    <DisplayName>AM-ManageOffersBuildSoapRequest</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+             <Header name="Content-Type">application/xml;charset="UTF-8"</Header>
+             <Header name ="SOAPAction">/LCEWebServices/ServiceManagement/ManageOffers</Header>
+        </Headers>
+        <QueryParams>
+            <QueryParam name="serviceName">ManageOffers</QueryParam>
+            <QueryParam name="responseType">201</QueryParam>
+        </QueryParams>
+        <Payload contentType="application/soap+xml">{request.content}</Payload>
+        <Verb>POST</Verb>
+        <Path/>
+    </Set>
+    <AssignVariable>
+        <Name>du.config.soapMethodForRequest</Name>
+        <Value>ManageOffers</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>du.config.soapMethodForResponse</Name>
+        <Value>ManageOffersResponse</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="true" transport="http" type="request"/>
+</AssignMessage>

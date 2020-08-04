@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetGlobalVariables">
+   <DisplayName>AM-SetGlobalVariables</DisplayName>
+   <FaultRules/>
+   <Properties/>
+   <AssignVariable>
+       <Name>du.config.request.verb</Name>
+       <Value>GET</Value>
+       <Ref>request.verb</Ref>
+   </AssignVariable>
+   <AssignVariable>
+       <Name>du.config.request.mock</Name>
+       <Value>false</Value>
+       <Ref>request.queryparam.mock</Ref>
+   </AssignVariable>
+   <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+   <AssignTo type="request" transport="http" createNew="false"/>
+</AssignMessage>

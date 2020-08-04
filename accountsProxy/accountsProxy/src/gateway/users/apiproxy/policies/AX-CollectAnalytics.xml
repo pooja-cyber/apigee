@@ -1,0 +1,11 @@
+<StatisticsCollector name="AX-CollectAnalytics">
+	<DisplayName>AX-CollectAnalytics</DisplayName>
+  <Statistics>
+    <Statistic name="selfcareId" ref="du.api.selfcareId" type="string"></Statistic>
+    <Statistic name="selfcareId" ref="selfcareId" type="string"></Statistic>
+    <Statistic name="registrationDate" ref="system.time" type="string"></Statistic>
+	<Statistic name="ax_os_type" ref="request.header.os-type" type="string"></Statistic>
+	<Statistic name="ax_os_version" ref="request.header.os-version" type="string"></Statistic>
+	<Statistic name="ax_app_version" ref="request.header.os-version" type="string"></Statistic>
+  </Statistics>
+</StatisticsCollector>
